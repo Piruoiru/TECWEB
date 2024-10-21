@@ -1,0 +1,9 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./web:/var/www/html
+    ports:
+      - "8000:80"
