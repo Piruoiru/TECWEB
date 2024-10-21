@@ -10,7 +10,7 @@ Per distruggere l'ambiente
 docker compose down
 ```
 
-Il sito sarà raggiungibile a [`http://localhost:8000`]('http://localhost:8000')
+Il sito sarà raggiungibile a [http://localhost:8000](http://localhost:8000)
 
 Ogni modifica viene applicata real-time, non serve ricostruire il container.
 
