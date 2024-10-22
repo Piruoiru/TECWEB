@@ -1,4 +1,15 @@
 services:
+  db:
+    image: mariadb:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
   php:
     build:
       context: .
@@ -7,3 +18,10 @@ services:
       - ./web:/var/www/html
     ports:
       - "8000:80"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+volumes:
+  mariadb_data:
