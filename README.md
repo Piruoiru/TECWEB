@@ -22,4 +22,4 @@ Leonardo Salviato 2068222
 
 Matteo Piron 2076044
 
-Vinicius Yuri Kaneda Fernandez ???????
+Vinicius Yuri Kaneda Fernandes 2082856
