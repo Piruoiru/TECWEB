@@ -48,8 +48,8 @@
     
 ?>
     <form method="POST">
-        <input type="text" id="email" name="email" required>
-        <input type="password" id="password" name="password" required>
+        <input type="text" id="email" name="email" placeholder="Email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
         <input type="submit" name="submit" value="Login">
     </form>
 

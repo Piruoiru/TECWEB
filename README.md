@@ -10,6 +10,11 @@ Per distruggere l'ambiente
 docker compose down
 ```
 
+Per distruggere l'ambiente e rimuovere i volumi associati (dati persistenti del database)
+```bash
+docker compose down --volumes
+```
+
 Il sito sarà raggiungibile a [http://localhost:8000](http://localhost:8000)
 
 Ogni modifica viene applicata real-time, non serve ricostruire il container.
