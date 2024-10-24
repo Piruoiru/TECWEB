@@ -54,3 +54,18 @@ INSERT INTO spettacoli(codiceS,titolo,dataS,descrizione) VALUES
 ('243174','Through the jungle','2025-01-17','L avventura è iniziata, cosa si ansconderà mai dietro questa immensa giungla?');
 ('243627','Science Time','2025-01-21','L ora della scienza è arrivata, iniziamo subito con li sperimenti');
 ('253550','Pirates War','2025-02-31','finalmente il grande evento è arrivato combattiamo contro i pirati più cattivi di sempre');
+
+
+CREATE TABLE biglietti(
+    codiceB char(5) PRIMARY KEY NOT NULL,
+    titolo varchar(30) NOT NULL,
+    costo numeric(6,2) NOT NULL
+);
+
+INSERT INTO biglietti(codiceB,titolo,costo) VALUES
+('98153','1 Giorno, Biglietto per Bambini (sotto i 10 anni)',29.99),
+('91556','2 Giorni, Biglietto per Bambini (sotto i 10 anni)',49.99),
+('61787','3 Giorni, Biglietto per Bambini (sotto i 10 anni)',89.99),
+('98153','1 Giorno',39.99),
+('91556','2 Giorni',59.99),
+('61787','3 Giorni',99.99);
