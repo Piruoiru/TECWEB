@@ -10,18 +10,22 @@
 
     </head>
     <body>
+        <div class="time-bar">
+            <p>Orario di oggi del parco: 10.00-23.00</p>
+        </div> 
         <header>
-            <h1>Federazione Italiana Pallavolo</h1>
-            <h2>La pallavolo femminile italiana</h2>
-        </header>
-        <nav>
-            <p>Ti trovi in: <span lang="en">Home</span></p>
-        </nav> 
-        <nav id="menu">
-            <ul>
-                <li><a href="/profilo.php">Profilo</a></li>
-                <li><a href="/register.php">Register</a></li>
-                <li><a href="/login.php">Login</a></li>
-                <li><a href="/logout.php">Logout</a></li>
+            <div class="logo">
+                <img src="" alt="Mirabilia Park">
+            </div>
+            <nav id="menu">
+            <ul class="nav-links">
+                <li><a href="#">Esplora Mirabilia Park</a></li>
+                <li><a href="#">Show e Spettacoli</a></li>
+                <li><a href="#">Informazioni Utili</a></li>
+                <li><a href="#">Acquista Biglietti / Hotel</a></li>
             </ul>
+            </nav>
+        </header>
+        <nav id="menu">
+
         </nav>
