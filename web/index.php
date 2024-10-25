@@ -1,11 +1,11 @@
 <?php
     session_start();
 
-    if(isset($_SESSION['user'])){
+    /*if(isset($_SESSION['user'])){
         echo '<p>Hello '.$_SESSION['user'].'!';
     } else {
         echo '<p>Hello Stranger!</p>';
-    }
+    }*/
 
     include_once 'header.php';
     include_once 'db.php';
@@ -18,7 +18,7 @@
         exit();
     }
     while($row = $result->fetch_assoc()){
-        echo '<div><h3>'.$row['titolo'].'</h3><p>'.$row['descrizione'].'</p></div>'; //@MPiron e @Salvi qua viene 
+        //echo '<div><h3>'.$row['titolo'].'</h3><p>'.$row['descrizione'].'</p></div>'; //@MPiron e @Salvi qua viene 
         //creata la singola card di uno spettacolo, se volete modificarla dovete farlo qui
     }
 ?>
