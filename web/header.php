@@ -6,17 +6,19 @@
         <meta name="description" content="">
         <meta name="keywords" content="parco, divertimento, giostre, weekend, mirabiliapark">
 
-        <link id="pagestyle" rel="stylesheet" href="/style/style.css">
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="large.css">
+        <script>
         function layoutHandler(){
-            var styleLink= document.getElementById("pagestyle");
-            if(windo.innerWidth < 900){
+            var styleLink = document.getElementById("pagestyle");
+            if(window.innerWidth < 800){
                 styleLink.setAttribute("href", "/style/resized.css");
-            }else{
+            }else {
                 styleLink.setAttribute("href", "/style/style.css");
             }
         }
-        window.onresize=layoutHandler;
+        window.onresize = layoutHandler;
         layoutHandler();
+        </script>
     </head>
     <body>
         <div class="time-bar">

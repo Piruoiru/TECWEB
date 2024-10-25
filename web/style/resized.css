@@ -9,15 +9,15 @@ body {
 }
 
 .time-bar {
-    background-color: #375595;
-    color: white;
+    background-color: #953737;
+    color: rgb(246, 255, 0);
     text-align: center;
     padding: 0.5em;
     font-size: 14px;
 }
 
 header {
-    background-color: #0c2350;
+    background-color: #12db30;
     text-align: center;
     padding: 1em;
 }
@@ -38,7 +38,7 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     text-align: center;
     font-weight: bold;
