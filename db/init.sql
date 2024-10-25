@@ -37,23 +37,23 @@ CREATE TABLE spettacoli(
     codiceS char(6) PRIMARY KEY NOT NULL,
     titolo  varchar(30) NOT NULL,
     dataS date NOT NULL,
-    descrizione varchar(100) NOT NULL,
+    descrizione varchar(300) NOT NULL
 );
 
 INSERT INTO spettacoli(codiceS,titolo,dataS,descrizione) VALUES
-('105691','Speciale Halloween','2024-10-31','In questa nuova avventura scopriremo i diversi segreti che nasconde Halloween, di sicuro ci saranno diverse mostri molto spaventosi che cercherano di terrorizzarci, te la senti?');
-('144131','Horror','2024-11-11','Un evento pieno di paura e molto sangue, saranno presenti diversi personaggi dei classici horror che conoscono tutti da molto tempo');
-('153706','Fantasy World','2024-11-20','Esploriamo insieme questo mondo pieno di fantasia');
-('153952','Space War','2024-11-29','La guerra tra le galssie è iniziata, chi vincerà lo scontro finale? combatti insieme a noi');
-('172189','Life in ou Planet','2024-12-02','Scopriamo i diversi tipi di animali che finora erano rimasti nascosti');
-('189504','Special Force','2024-12-13','La Special Force è pronta per salvare il nostro pianeta un altra volta');
-('193107','Talent Show','2024-12-18','Un talent show pieno di passione e allegria dove la creatività non manca di certo');
-('207683','Medieval Times','2024-12-21','Il mondo medievale come non avete mai visto prima, soldati, guerre e tanto altro da vedere');
-('212719','Speciale Natale','2024-12-25','Uno evento speciale per celebrare questa data');
-('239458','New Year has arrived','2024-12-31','Un nuovo inizio per tutti, celebriamo insieme questa data speciale');
-('243174','Through the jungle','2025-01-17','L avventura è iniziata, cosa si ansconderà mai dietro questa immensa giungla?');
-('243627','Science Time','2025-01-21','L ora della scienza è arrivata, iniziamo subito con li sperimenti');
-('253550','Pirates War','2025-02-31','finalmente il grande evento è arrivato combattiamo contro i pirati più cattivi di sempre');
+('105691','Speciale Halloween','2024-10-31','In questa nuova avventura scopriremo i diversi segreti che nasconde Halloween, di sicuro ci saranno diverse mostri molto spaventosi che cercherano di terrorizzarci, te la senti?'),
+('144131','Horror','2024-11-11','Un evento pieno di paura e molto sangue, saranno presenti diversi personaggi dei classici horror che conoscono tutti da molto tempo'),
+('153706','Fantasy World','2024-11-20','Esploriamo insieme questo mondo pieno di fantasia'),
+('153952','Space War','2024-11-29','La guerra tra le galssie è iniziata, chi vincerà lo scontro finale? combatti insieme a noi'),
+('172189','Life in ou Planet','2024-12-02','Scopriamo i diversi tipi di animali che finora erano rimasti nascosti'),
+('189504','Special Force','2024-12-13','La Special Force è pronta per salvare il nostro pianeta un altra volta'),
+('193107','Talent Show','2024-12-18','Un talent show pieno di passione e allegria dove la creatività non manca di certo'),
+('207683','Medieval Times','2024-12-21','Il mondo medievale come non avete mai visto prima, soldati, guerre e tanto altro da vedere'),
+('212719','Speciale Natale','2024-12-25','Uno evento speciale per celebrare questa data'),
+('239458','New Year has arrived','2024-12-31','Un nuovo inizio per tutti, celebriamo insieme questa data speciale'),
+('243174','Through the jungle','2025-01-17','L avventura è iniziata, cosa si ansconderà mai dietro questa immensa giungla?'),
+('243627','Science Time','2025-01-21','L ora della scienza è arrivata, iniziamo subito con li sperimenti'),
+('253550','Pirates War','2025-02-24','finalmente il grande evento è arrivato combattiamo contro i pirati più cattivi di sempre');
 
 
 CREATE TABLE biglietti(
