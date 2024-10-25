@@ -17,9 +17,9 @@ body {
 }
 
 header {
-    background-color: #0c2350;
+    background-color: #ff0059;
     text-align: center;
-    padding: 1em;
+    padding-top: 0em;
 }
 
 nav {
@@ -34,7 +34,7 @@ nav {
 }
 
 .nav-links li {
-    padding: 0 3em;
+    padding: 0 4em;
 }
 
 .nav-links a {
@@ -49,4 +49,7 @@ nav {
     text-decoration: underline;
 }
 
+.logo{
+    size: 10em;
+}
 

@@ -27,14 +27,13 @@
         <header>
             <nav id="menu">
             <ul class="nav-links">
-                <div class="logo"><img src="" alt="Mirabilia Park"></div>
-                <li><a href="#">Esplora Mirabilia Park</a></li>
-                <li><a href="#">Show e Spettacoli</a></li>
-                <li><a href="#">Informazioni Utili</a></li>
-                <li><a href="#">Acquista Biglietti</a></li>
+                <div class="logo"><img src="/assets/logo.jpeg" alt="Mirabilia Park"></div>
+                <li><a href="#">Esplora <br>Mirabilia <br>Park</a></li>
+                <li><a href="#">Show e <br>Spettacoli</a></li>
+                <li><a href="#">Informazioni <br>Utili</a></li>
+                <li><a href="#">Acquista <br>Biglietti</a></li>
             </ul>
             </nav>
-
 
         </header>
     
