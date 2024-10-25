@@ -8,12 +8,13 @@
     }
 
     include_once 'header.php';
-    
-    echo "<p>Hello World!</p>"; 
-
-    include_once 'footer.php';
 ?>
-<a href="/profilo.php">Profilo</a>
-<a href="/register.php">Register</a>
-<a href="/login.php">Login</a>
-<a href="/logout.php">Logout</a>
+    <!--HTML per body-->
+    
+
+
+<?php
+
+include_once 'footer.php';
+
+?>
