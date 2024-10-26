@@ -22,7 +22,9 @@
         //creata la singola card di uno spettacolo, se volete modificarla dovete farlo qui
     }
 ?>
-    <!--HTML per body-->
+    <body>
+        
+    </body>
     
 
 

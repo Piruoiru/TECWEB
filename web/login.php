@@ -47,12 +47,14 @@
     include_once 'header.php';
     
 ?>
-    <form method="POST">
-        <input type="text" id="email" name="email" placeholder="Email" required>
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <input type="submit" name="submit" value="Login">
-    </form>
-
+    <div class="login-container">    
+        <form method="POST" class="login-form">
+            <h2>MIRABILIA PARK <br> LOGIN </h2>
+            <input type="text" id="email" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" name="submit" value="Login">
+        </form>
+    </div>
 <?php
     include_once 'footer.php'
 ?>

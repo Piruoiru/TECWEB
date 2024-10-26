@@ -51,11 +51,14 @@
         }
     }
 ?>
-    <form method="POST">
-        <input type="text" id="email" name="email" placeholder="Email" required>
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <input type="submit" name="submit" value="Register">
-    </form>
+    <div class="register-container"> 
+        <form method="POST" class="register-form">
+            <h2>MIRABILIA PARK<br>REGISTER</h2>
+            <input type="text" id="email" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" name="submit" value="Register">
+        </form>
+    </div>
 
 <?php
     include_once 'footer.php'
