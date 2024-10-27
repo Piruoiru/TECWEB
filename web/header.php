@@ -22,7 +22,7 @@
         <div class="hamburger-menu">☰</div> <!-- Icona del menu hamburger -->
         <nav id="menu">
             <ul class="nav-links">
-                <div class="logo"><img src="/assets/logo.jpeg" alt="Mirabilia Park"></div>
+                <div class="logo"><a href="/index.php"><img src="/assets/logo.jpeg" alt="Mirabilia Park"></a></div>
                 <li><a href="#">Esplora <br>Mirabilia <br>Park</a></li>
                 <li><a href="#">Acquista <br>Biglietti</a></li>
                 <li><a href="#">Show e <br>Spettacoli</a></li>
