@@ -15,6 +15,22 @@
                 [
                     'FOR_CLOSE',
                     '/^[\s\t]*@endfor\s*\n$/'
+                ],
+                [
+                    'IF_OPEN',
+                    '/^[\s\t]*@if\s*(.+?)\s*\n$/'
+                ],
+                [
+                    'ELSE',
+                    '/^[\s\t]*@else\s*\n$/'
+                ],
+                [
+                    'ELSE_IF',
+                    '/^[\s\t]*@else\s+if\s*(.+?)\s*\n$/'
+                ],
+                [
+                    'IF_CLOSE',
+                    '/^[\s\t]*@endif\s*\n$/'
                 ]
             );
         }
@@ -77,10 +93,14 @@
             $result = null;
             if(count($match) > 0){
                 switch($matcher[0]){
+                    case 'IF_OPEN':
+                    case 'ELSE_IF':
                     case 'VALUE':
                         $result = $match[1][0];
                         break;
                     case 'FOR_CLOSE':
+                    case 'ELSE':
+                    case 'IF_CLOSE':
                         $result = '';
                         break;
                     case 'FOR_OPEN':

@@ -1,6 +1,6 @@
 <?php   
     session_start();
-    
+
     include_once 'parser.php';
     $template = new Parser();
     $template->setTokenizer(new Tokenizer());
@@ -13,7 +13,7 @@
         echo "Couldn't query the database";
         exit();
     }
-    $context = ['result'=>[]];
+    $context = ['result'=>[],'kekw'=>$_GET['kekw']];
     while($row = $result->fetch_assoc()){
         array_push($context['result'],$row);
         //echo '<div><h3>'.$row['titolo'].'</h3><p>'.$row['descrizione'].'</p></div>'; //@MPiron e @Salvi qua viene 

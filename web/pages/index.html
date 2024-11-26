@@ -31,9 +31,21 @@
             </nav>
 
         </header>
+
+        @if $kekw==1
+            <p>kekw is {{ $kekw }}</p>
+        @else if $kekw==2
+            <p>{{ $kekw }} is your age</p>
+        @else
+            <p>you have {{ $kekw }} lives</p>
+        @endif
+
         @for $row in $result
-            <h1>{{ $row['titolo'] }}</h1>
-            <h2>{{ $row['descrizione'] }}</h2>
+            @if $kekw==1
+                <h1>{{ $row['titolo'] }}</h1>
+            @else
+                <h2>{{ $row['descrizione'] }}</h2>
+            @endif
         @endfor
     </body>
 </html>

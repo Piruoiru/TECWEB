@@ -45,6 +45,8 @@
             $type_of_token = $token[0];
 
             switch($type_of_token){
+                case 'IF_OPEN':
+                    return $this->parseIf();
                 case 'FOR_OPEN':
                     return $this->parseFor();
                 case 'VALUE':
@@ -72,7 +74,6 @@
                 if($tmp_token[0] == 'FOR_CLOSE'){
                     $this->pop('FOR_CLOSE');
                     $output .= '$index++; }' ."\n";
-                    $this->currLine++;
                     break;
                 } else {
                     $output .= $this->parseExpression();
@@ -81,6 +82,29 @@
             
             return $output;
         }
+
+        public function parseIf(){
+            $token = $this->pop("IF_OPEN");
+            $output = "if ($token[1]){\n";
+            while(true){
+                $tmp_token = $this->getFirstToken();
+                if($tmp_token[0] == 'IF_CLOSE'){
+                    $this->pop('IF_CLOSE');
+                    $output .=  "}\n";
+                    break;
+                } else if($tmp_token[0] == 'ELSE_IF'){
+                    $this->pop('ELSE_IF');
+                    $output .= "} else if($tmp_token[1]) {\n";
+                } else if($tmp_token[0] == 'ELSE'){
+                    $this->pop('ELSE');
+                    $output .= "} else {\n";
+                } else {
+                    $output .= $this->parseExpression();
+                }
+            }
+            return $output;
+        }
+
         public function parseValue(){
             $token = $this->pop('VALUE');
             return '$output .= ' . $token[1] . ";\n";
