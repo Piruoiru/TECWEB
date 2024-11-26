@@ -5,11 +5,8 @@
     //    header('Location: index.php');
     //    exit();
     //}
-
-    include_once 'header.php';
     include_once 'db.php';
 
-    
     if(isset($_POST['submit'])){
         // da aggiungere controlli email password
         $email = $_POST['email'];
@@ -46,20 +43,13 @@
                 exit();
             } 
             $_SESSION['user'] = $email;
-            echo "User successfully created, redirecting you to index.php...";
-            header('Location: index.php');
+            echo "User successfully created, redirecting you to index.php..."; //registrazione avvenuta con successo!
+            //header('Location: index.php');
         }
     }
-?>
-    <div class="register-container"> 
-        <form method="POST" class="register-form">
-            <h2>MIRABILIA PARK<br>REGISTER</h2>
-            <input type="text" id="email" name="email" placeholder="Email" required>
-            <input type="password" id="password" name="password" placeholder="Password" required>
-            <input type="submit" name="submit" value="Register">
-        </form>
-    </div>
 
-<?php
-    include_once 'footer.php'
+    include_once 'parser.php';
+    $template = new Parser();
+    $template->setTokenizer(new Tokenizer());
+    $template->render("register.html");
 ?>

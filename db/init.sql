@@ -5,15 +5,18 @@ CREATE TABLE users(
     nome varchar(25) NOT NULL,
     cognome varchar(25) NOT NULL,
     email varchar(30) NOT NULL,
-    password varchar(12) NOT NULL,
+    password varchar(64) NOT NULL,
     dataN date NOT NULL,
     telefono varchar(20) NOT NULL
 );  
 
+-- tutte le passwords devono essere hash sha256, per ora admin ad esempio ha password "a"
+
 INSERT INTO users(username,nome,cognome,email,password,dataN,telefono) VALUES
-('davreg16','Davide','Reggiani','davideregg16@gmail.com','Qwerty123@','1981-08-10','138-76-82'),
-('thomasC71','Thomas','Cisse','thomC71@gmail.com','Pass71@00','1983-10-14','571-17-61'),
-('GiugiuA11','Giulio','Ansaloni','giulioansaoli11@gmail.com','giuGiu@#','1984-11-16','528-66-85'),
+('admin','admin','admin','admin@gmail.com','ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb','1981-08-10','138-76-82'),
+('davreg16','Davide','Reggiani','davideregg16@gmail.com','ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb','1981-08-10','138-76-82'),
+('thomasC71','Thomas','Cisse','thomC71@gmail.com','ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb','1983-10-14','571-17-61'),
+('GiugiuA11','Giulio','Ansaloni','giulioansaoli11@gmail.com','ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb','1984-11-16','528-66-85'),
 ('gabrielRonc12','Gabriel','Roncaglia','agabrielronc03@gmail.com','Gab@7600','1985-10-03','735-71-66'),
 ('eneenea27','Enea','Goldoni','eneagold27@gmail.com','eneaG9@3','1986-05-09','940-52-33'),
 ('nicgogo02','Nicolo','Gozzi','nickG09@gmail.com','rand234@','1986-10-03','059-71-06'),

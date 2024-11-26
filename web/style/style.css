@@ -68,7 +68,7 @@ nav {
 
 .nav-links a {
     color: white;
-    text-decoration: none;
+    /*text-decoration: none; tenere così perchè vuole i link sottolineati*/
     text-align: center;
     font-weight: bold;
     font-size: 1em;
