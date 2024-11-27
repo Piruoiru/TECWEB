@@ -33,12 +33,14 @@
             $sql = "SELECT * FROM users WHERE username = ? AND password=?";
             $stmt = $this->conn->prepare($sql);
             $password = hash('sha256',$password);
-            $stmt->bind_param('ss',$emusernameail,$password);
+            $stmt->bind_param('ss',$username,$password);
             $result = $stmt->execute();
             if(!$result){
                 throw new \Exception("Error querying the database");
             }
-            return $stmt->get_result()->num_rows === 0 ? false : true;
+            $result = $stmt->get_result()->num_rows;
+            echo $result;
+            return $result === 0 ? false : true;
         }
 
         public function register($username,$password){

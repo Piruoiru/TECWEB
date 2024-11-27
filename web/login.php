@@ -14,15 +14,14 @@
         $password = $_POST['password'];
 
         $db = new DatabaseClient();
-        if($db->login($email,$password)){
-            $_SESSION['username'] = $row['username']; //da aggiunere i vari campi che si vogliono mostrare
-            header('Location: index.php');
+        $db->connect();
+        if($db->login($username,$password)){
+            $_SESSION['username'] = $username; 
             echo "Login successfully, redirecting to index..."; //di nuovo non so se redirectare, non penso
             exit();
         } else {
             echo "Wrong email or password";
-            $stmt->close();
-            $conn->close();
+            $db->close();
             exit();
         }
     }
