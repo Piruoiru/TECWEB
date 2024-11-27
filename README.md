@@ -20,11 +20,9 @@ Il sito sarà raggiungibile a [http://localhost:8000](http://localhost:8000)
 Ogni modifica viene applicata real-time, non serve ricostruire il container.
 
 # Componenti
-
-Valeri Mihail Belenkov 2068232
-
-Leonardo Salviato 2068222
-
-Matteo Piron 2076044
-
-Vinicius Yuri Kaneda Fernandes 2082856
+| Nome                 | Cognome    | Matricola | GitHub                                           |
+|----------------------|------------|-----------|--------------------------------------------------|
+| Valeri Mihail        | Belenkov   | 2068232   | [@Valeryum999](https://github.com/Valeryum999)   |
+| Matteo               | Piron      | 2076044   | [@Piruoiru](https://github.com/Piruoiru)         |
+| Leonardo             | Salviato   | 2068222   | [@leosalvi03](https://github.com/leosalvi03)     |
+| Vinicius Yuri Kaneda | Fernandes  | 2082856   | [@VinnYuri](https://github.com/VinnYuri)         |
