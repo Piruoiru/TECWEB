@@ -16,13 +16,14 @@
                 <div class="auth-links">
                     <li id="login"><a href="login.php">Login</a></li>
                     <li id="register"><a href="register.php">Register</a></li>
+                    <li id="profilo"><a href="/profilo.php">Profilo</a></li>
                 </div>
         </div> 
         <header>
         <div class="hamburger-menu">☰</div> <!-- Icona del menu hamburger -->
         <nav id="menu">
             <ul class="nav-links">
-                <div class="logo"><img src="/assets/logo.jpeg" alt="Mirabilia Park"></div>
+                <div class="logo"><a href="/"><img src="/assets/logo.jpeg" alt="Mirabilia Park"></a></div>
                 <li><a href="#">Esplora <br>Mirabilia <br>Park</a></li>
                 <li><a href="#">Acquista <br>Biglietti</a></li>
                 <li><a href="#">Show e <br>Spettacoli</a></li>
@@ -35,7 +36,7 @@
         <div class="login-container">    
             <form method="POST" class="login-form">
                 <h2>MIRABILIA PARK <br> LOGIN </h2>
-                <input type="text" id="email" name="email" placeholder="Email" required>
+                <input type="text" id="username" name="username" placeholder="Username" required>
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <input type="submit" name="submit" value="Login">
             </form>

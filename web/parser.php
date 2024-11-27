@@ -7,7 +7,7 @@
         private $currLine;
 
         public function __construct(){
-
+            $this->tokenizer = new Tokenizer();
         }
 
         public function setTokenizer($tokenizer){
@@ -118,10 +118,10 @@
 
             $hash = md5($file . serialize($context));
             $cached_file = 'cache/' . "$hash.cache";
-            //if(file_exists($cached_file)){ //rememberf
-            //    include_once $cached_file;
-            //    return;
-            //}
+            if(file_exists($cached_file) && filemtime($cached_file) > filemtime($file)){ //rememberf
+                include_once $cached_file;
+                return;
+            }
 
             $compiled_data = $this->compile(file_get_contents($file));
             ob_start();

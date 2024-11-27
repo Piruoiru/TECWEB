@@ -9,47 +9,34 @@
 
     if(isset($_POST['submit'])){
         // da aggiungere controlli email password
-        $email = $_POST['email'];
-        $password = hash('sha256',$_POST['password']);
-        if (!preg_match('/^[a-zA-Z0-9_\.\@]+$/', $email)) {
-            echo "<div class='alert alert-danger'>Invalid email</div>";
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        if (!preg_match('/^[a-zA-Z0-9_\.\@]+$/', $username)) {
+            echo "<div class='alert alert-danger'>Invalid username</div>";
         }
-        $conn = db_connect();
-        $sql = "SELECT * FROM users WHERE email = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param('s', $email);
-        
+        $db = new DatabaseClient();
+        $db->connect();
+        $result = $db->fetchUser($username);
 
-        if (!$stmt->execute()) {
-            echo "Error fetching user"; //aggiungere descrizione dettagliata errore registrazione
+        if($result->num_rows > 0){
+            echo "Email already exists"; //migliorare il messaggio
             $stmt->close();
             $conn->close();
             exit();
-        } else {
-            $result = $stmt->get_result();
-            if($result->num_rows > 0){
-                echo "Email already exists"; //migliorare il messaggio
-                $stmt->close();
-                $conn->close();
-                exit();
-            }
-            $sql = "INSERT INTO users (email, password) VALUES (?, ?)";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param('ss', $email , $password);
-            if (!$stmt->execute()) {
-                echo "Error while creating user"; //aggiungere descrizione dettagliata errore registrazione
-                $stmt->close();
-                $conn->close();
-                exit();
-            } 
-            $_SESSION['user'] = $email;
-            echo "User successfully created, redirecting you to index.php..."; //registrazione avvenuta con successo!
-            //header('Location: index.php');
         }
+        $result = $db->register($username,$password);
+        if (!$result) {
+            echo "Error while creating user"; //aggiungere descrizione dettagliata errore registrazione
+            $stmt->close();
+            $conn->close();
+            exit();
+        } 
+        $_SESSION['username'] = $username;
+        echo "User successfully created, redirecting you to index.php..."; //registrazione avvenuta con successo!
+        //header('Location: index.php');
     }
 
     include_once 'parser.php';
     $template = new Parser();
-    $template->setTokenizer(new Tokenizer());
     $template->render("register.html");
 ?>

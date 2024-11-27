@@ -14,8 +14,9 @@
         <div class="time-bar">
             <p class="opening-hours">Orario di oggi del parco: 10.00-23.00</p>
                 <div class="auth-links">
-                    <li id="login"><a href="login.php">Login</a></li>
-                    <li id="register"><a href="register.php">Register</a></li>
+                    <li id="login"><a href="/login.php">Login</a></li>
+                    <li id="register"><a href="/register.php">Register</a></li>
+                    <li id="profilo"><a href="/profilo.php">Profilo</a></li>
                 </div>
         </div> 
         <header>
@@ -32,21 +33,17 @@
 
         </header>
 
-        @if $kekw==1
-            <p>kekw is {{ $kekw }}</p>
-        @else if $kekw==2
-            <p>{{ $kekw }} is your age</p>
-        @else
-            <p>you have {{ $kekw }} lives</p>
-        @endif
+@for $i in range(1, 20)
+    @if $i % 2 == 0
+    <h1>{{ $i }}</h1>
+    @endif
+@endfor
 
-        @for $row in $result
-            @if $kekw==1
-                <h1>{{ $row['titolo'] }}</h1>
-            @else
-                <h2>{{ $row['descrizione'] }}</h2>
-            @endif
-        @endfor
+@for $row in $result
+    @for $element in $row
+        <h1>{{ $element }}</h1>
+    @endfor
+@endfor
     </body>
 </html>
     
