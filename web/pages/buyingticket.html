@@ -16,10 +16,7 @@
 
         </header>
         <main>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
+            <p>1</p><p>2</p><p>3</p><p>4</p>
             <p>Seleziona il numero di biglietti che desideri acquistare!</p>
             @for $row in $result
                 <p>{{ $row['titolo'] }}</p>
@@ -58,5 +55,11 @@
             <p>Questi prezzi possono essere soggetti a modifiche e cambiamenti in ogni momento.</p>
             <p>NOTA BENE:  Le tariffe dei biglietti possono variare in base al periodo dell’anno in cui si visita il parco.</p>
         </main>
+        <aside>
+            <h3>Il tuo carrello</h3>
+            <p>Seleziona le tue preferenze e procedi nell'acquisto</p>
+            <button>Avanti</button>
+            
+        </aside>
     </body>
 </html>
