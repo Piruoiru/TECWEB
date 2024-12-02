@@ -18,7 +18,7 @@
         <br>
         <p>Welcome back {{ $username }}</p>
         <h3>Carrello:</h3>
-        @if empty($result)
+        @if empty($cart)
             <p>Per il momento non hai alcun biglietto nel carrello :)</p>
         @else
             @for $ticket in $cart
