@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DreamVille</title>
+        <link rel="shortcut icon" href="assets/logo.png" />
+        <meta charset="utf-8">
+        <meta name="description" content="">    
+        <meta name="keywords" content="parco, divertimento, giostre, weekend, DreamVille, famiglie, attività">
+
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+        <script src="scripts/script.js"></script>
+    </head>
+    <body>
+        <h2>Acquista i tuoi biglietti</h2>
+        <header>
+
+        </header>
+        <main>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+
+            <h3>Il tuo carrello:</h3> <!--da mettere anche nel profilo?-->
+            @if empty($result)
+                <p>Per il momento è tutto vuoto :)</p>
+            @else
+                @for $row in $result
+                <p>{{ $row['titolo'] }} Quantità: {{ $row['quantita'] }}</p>
+                @endfor
+            @endif
+
+            @if !empty($debugMsg)
+                <h1>{{ $debugMsg }}</h1>
+            @endif
+
+            <form method="POST" action="/buyingcart.php">
+                <input type="submit" name="submit" value="Conferma l'acquisto" />
+            </form>
+            <h3>Hai un codice sconto?</h3>
+            <form>
+                <label for="codice">Inserisci il codice sconto:</label>
+                <input type="text" id="codice" name="codice">
+                <button type="submit">Applica</button> <!--TO DO e decidere SE farlo-->
+            </form>
+        </main>
+    </body>
+</html>

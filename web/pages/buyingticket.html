@@ -2,13 +2,13 @@
 <html>
     <head>
         <title>DreamVille</title>
-        <link rel="shortcut icon" href="/web/assets/logo.png" />
+        <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <meta name="description" content="">    
         <meta name="keywords" content="parco, divertimento, giostre, weekend, DreamVille, famiglie, attività">
 
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="/web/style/style.css">
-        <script src="/web/scripts/script.js"></script>
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+        <script src="scripts/script.js"></script>
     </head>
     <body>
         <h2>Acquista i tuoi biglietti</h2>
@@ -21,33 +21,42 @@
             <button>3</button>
             <button>4</button>
             <p>Seleziona il numero di biglietti che desideri acquistare!</p>
-            <form>
-                <label href=""></label>
-                <h3>Biglietto Intero</h3>
-                <p>Questo biglietto permette un ingresso al parco Dreamville, 1 giorno di visita per la stagione corrente.</p>
+            @for $row in $result
+                <p>{{ $row['titolo'] }}</p>
+                <p>{{ $row['costo'] }} </p>
+            @endfor
+            <form method="POST" action="/buyingticket.php">
+                <label for="biglietto">Scegli il tipo di biglietto che desideri acquistare:</label>
+                <select name="biglietto" id="biglietto">
+                    @for $row in $result
+                    <option value="{{ $row['id'] }}">{{ $row['titolo'] }}</option>
+                    @endfor
+                </select> 
+                <label for="quantita">Quantità:</label>
+                <input type="number" id="quantita" name="quantita" min="1" max="10"> 
+                <input type="submit" name="submit" value="Aggiungi al carrello" />
             </form>
-
-            <form>
+            @if !empty($debugMsg)
+                <h1>{{ $debugMsg }}</h1>
+            @endif
+            <!--<form>
                 <label href=""></label>
                 <h3>Biglietto Ridotto</h3>
+                                        ma come bambini di altezza superiore a 100cm, e quelli piu bassi?
                 <p>Valido per bambini di altezza superiore a 100 cm e di età inferiore ai 14 anni, over 65, donne in gravidanza e accompagnatori di disabili non autosufficienti.</p>
-            </form>
+            </form>-->
+            
 
             <h3>Hai un codice sconto?</h3>
             <form>
                 <label for="codice">Inserisci il codice sconto:</label>
                 <input type="text" id="codice" name="codice">
-                <button type="submit">Applica</button>
+                <button type="submit">Applica</button> <!--TO DO e decidere SE farlo-->
             </form>
             
             <h4>Attenzione</h4>
             <p>Questi prezzi possono essere soggetti a modifiche e cambiamenti in ogni momento.</p>
             <p>NOTA BENE:  Le tariffe dei biglietti possono variare in base al periodo dell’anno in cui si visita il parco.</p>
         </main>
-        <aside>
-            <h3>Il tuo carrello</h3>
-            <p>Seleziona le tue preferenze e procedi nell'acquisto</p>
-            
-        </aside>
     </body>
 </html>

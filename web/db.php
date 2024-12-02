@@ -51,6 +51,24 @@
             return $stmt->execute();
         }
 
+        public function fetchCart($username){
+            $sql = "SELECT * 
+                    FROM bigliettiCarrello 
+                    INNER JOIN biglietti ON bigliettiCarrello.biglietto = biglietti.id
+                    WHERE utente=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s',$username);
+            $tickets = [];
+            if(!$stmt->execute()){
+                throw new \Exception("Error querying the database");
+            }
+            $result = $stmt->get_result();
+            while($row = $result->fetch_assoc()){
+                array_push($tickets,$row);
+            }
+            return $tickets;
+        }
+
         public function fetchEvents(){
             $sql = "SELECT * FROM spettacoli";
             $result = $this->conn->query($sql);
@@ -59,6 +77,100 @@
             }
             return $result;
         }
-    }
-    
+
+        public function fetchTickets(){
+            $sql = "SELECT * FROM biglietti";
+            $result = $this->conn->query($sql);
+            $tickets = [];
+            if(!$result){
+                throw new \Exception("Error querying the database");
+            }
+            while($row = $result->fetch_assoc()){
+                array_push($tickets,$row);
+            }
+            return $tickets;
+        }
+
+        public function fetchUserCartTickets($username){
+            $sql = "SELECT *
+                    FROM bigliettiCarrello
+                    INNER JOIN biglietti on bigliettiCarrello.biglietto = biglietti.id 
+                    WHERE utente=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s',$username);
+            $result = $stmt->execute();
+            if(!$result){
+                throw new \Exception("Error querying the database");
+            }
+            $result = $stmt->get_result();
+            $tickets = [];
+            while($row = $result->fetch_assoc()){
+                array_push($tickets,$row);
+            }
+            return $tickets;
+        }
+
+        public function fetchUserAcquiredTickets($username){
+            $sql = "SELECT *
+                    FROM bigliettiAcquistati
+                    INNER JOIN biglietti ON bigliettiAcquistati.biglietto = biglietti.id
+                    WHERE utente=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s',$username);
+            $result = $stmt->execute();
+            if(!$result){
+                throw new \Exception("Error querying the database");
+            }
+            $result = $stmt->get_result();
+            $tickets = [];
+            while($row = $result->fetch_assoc()){
+                array_push($tickets,$row);
+            }
+            return $tickets;
+        }
+
+        public function addTicketToCart($ticketID,$username,$quantity){
+            $sql = "INSERT INTO bigliettiCarrello(biglietto,utente,quantita) VALUES (?,?,?);";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('ssi',$ticketID,$username,$quantity);
+            $result = $stmt->execute();
+            if(!$result){
+                throw new \Exception("Error querying the database");
+            }
+        }
+
+        public function confirmPayment($username){
+            $sql = "SELECT * 
+                    FROM bigliettiCarrello
+                    WHERE utente=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s',$username);
+            $result = $stmt->execute();
+            if(!$result){
+                throw new \Exception("Error querying the database");
+            }
+            $result = $stmt->get_result();
+            while($ticket = $result->fetch_assoc()){
+                $sql = "INSERT INTO bigliettiAcquistati(biglietto,utente,quantita,dataAcquisto) VALUES (?,?,?,?)";
+                $stmt = $this->conn->prepare($sql);
+                $currDate = date("Y-m-d");
+                $stmt->bind_param('ssss',$ticket['biglietto'],$username,$ticket['quantita'],$currDate);
+                $status = $stmt->execute();
+                if(!$status){
+                    throw new \Exception("Error querying the database");
+                }
+            }
+            $this->clearCart($username);
+        }
+
+        public function clearCart($username){
+            $sql = "DELETE FROM bigliettiCarrello WHERE utente=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s',$username);
+            $result = $stmt->execute();
+            if(!$result){
+                throw new \Exception("Error querying the database");
+            }
+        }
+    }    
 ?>

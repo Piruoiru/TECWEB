@@ -20,10 +20,8 @@
                 if(!$this->tokenizer) {
                     throw new \Exception("Tokenizer not found.");
                 }
-    
                 $this->tokens = $this->tokenizer->tokenize($source);
             }
-
             $compiled = '';
             while(!empty($this->tokens)){
                 $compiled .= $this->parseExpression();

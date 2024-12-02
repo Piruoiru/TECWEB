@@ -49,7 +49,7 @@
                     }
                 } else {
                     if($character == '@'){
-                        $tmp_lines = explode("\n",$token_content);
+                        $tmp_lines = explode("\n",$html);
                         $last_line = trim(end($tmp_lines));
                         if(!empty($last_line)){
                             $html .= $character; 

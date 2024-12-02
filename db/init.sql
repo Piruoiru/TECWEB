@@ -1,5 +1,11 @@
 USE test_db;
 
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS spettacoli;
+DROP TABLE IF EXISTS biglietti;
+DROP TABLE IF EXISTS bigliettiUtente;
+DROP TABLE IF EXISTS bigliettiAcquistati;
+
 CREATE TABLE users(
     username varchar(20) NOT NULL PRIMARY KEY,
     password varchar(64) NOT NULL
@@ -62,15 +68,45 @@ INSERT INTO spettacoli(codiceS,titolo,dataS,descrizione) VALUES
 
 
 CREATE TABLE biglietti(
-    codiceB char(5) PRIMARY KEY NOT NULL,
-    titolo varchar(30) NOT NULL,
+    id char(5) PRIMARY KEY NOT NULL,
+    titolo varchar(50) NOT NULL,
     costo numeric(6,2) NOT NULL
 );
 
-INSERT INTO biglietti(codiceB,titolo,costo) VALUES
-('98153','1 Giorno, Biglietto per Bambini (sotto i 10 anni)',29.99),
-('91556','2 Giorni, Biglietto per Bambini (sotto i 10 anni)',49.99),
-('61787','3 Giorni, Biglietto per Bambini (sotto i 10 anni)',89.99),
-('98153','1 Giorno',39.99),
-('91556','2 Giorni',59.99),
-('61787','3 Giorni',99.99);
+INSERT INTO biglietti(id,titolo,costo) VALUES
+('1','1 Giorno, Biglietto per Bambini (sotto i 10 anni)',29.99),
+('2','2 Giorni, Biglietto per Bambini (sotto i 10 anni)',49.99),
+('3','3 Giorni, Biglietto per Bambini (sotto i 10 anni)',89.99),
+('4','1 Giorno',39.99),
+('5','2 Giorni',59.99),
+('6','3 Giorni',99.99);
+
+
+CREATE TABLE bigliettiCarrello(
+    biglietto char(5) NOT NULL,
+    utente varchar(20) NOT NULL,
+    quantita smallint(2) NOT NULL,
+    PRIMARY KEY (biglietto,utente),
+    FOREIGN KEY (utente) REFERENCES users(username),
+    FOREIGN KEY (biglietto) REFERENCES biglietti(id)
+);
+
+INSERT INTO bigliettiCarrello(biglietto,utente,quantita) VALUES 
+('1','user',5),
+('2','user',1),
+('3','user',2);
+
+CREATE TABLE bigliettiAcquistati(
+    biglietto char(5) NOT NULL,
+    utente varchar(20) NOT NULL,
+    dataAcquisto date NOT NULL,
+    quantita smallint(2) NOT NULL,
+    PRIMARY KEY (biglietto,utente,dataAcquisto),
+    FOREIGN KEY (utente) REFERENCES users(username),
+    FOREIGN KEY (biglietto) REFERENCES biglietti(id)
+);
+
+INSERT INTO bigliettiAcquistati(biglietto,utente,dataAcquisto,quantita) VALUES 
+('1','user','2024-01-22',5),
+('2','user','2024-01-21',4),
+('3','user','2024-01-23',2);
