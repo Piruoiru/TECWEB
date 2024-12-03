@@ -8,10 +8,10 @@
         <meta name="keywords" content="parco, divertimento, giostre, weekend, DreamVille, famiglie, attività">
 
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
-        <script src="scripts/script.js"></script>
+        <script src="scripts/script.js" defer></script>
     </head>
     <body>
-        <header>
+        <!--<header>
             <h2>Calendario di Apertura</h2>
             <p>
                 Controlla i nostri giorni di apertura e pianifica un soggiorno indimenticabile!<br>
@@ -22,51 +22,51 @@
         </header>
         <main>
             <h3>Calendario del Parco</h3>
-
-            <div class="wrapper">
-                <header>
-                <p class="current-date"></p>
-                <div class="icons">
-                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                    <span id="next" class="material-symbols-rounded">chevron_right</span>
-                </div>
-                </header>
-                <div class="calendar">
-                <ul class="weeks">
-                    <li>Sun</li>
-                    <li>Mon</li>
-                    <li>Tue</li>
-                    <li>Wed</li>
-                    <li>Thu</li>
-                    <li>Fri</li>
-                    <li>Sat</li>
-                </ul>
-                <ul class="days"></ul>
-                </div>
+        -->
+        <div class="calendar-container" aria-label="Calendario interattivo" role="application">
+            <div class="selected-date">
+                <p id="selectedDateText" tabindex="0">Nessuna data selezionata</p>
             </div>
-            
-            <h3>Show disponibili</h3>
-            <dl>
-                <dt>Turbo Thrill: The Ultimate Stunt Show</dt>
-                <dd>Descrizione: Preparati a rimanere senza fiato mentre i motori ruggiscono e le gomme bruciano nel più incredibile stunt show mai visto! Auto da corsa, moto acrobatiche e veicoli personalizzati sfidano le leggi della fisica con salti mozzafiato, inseguimenti ad alta velocità e manovre spettacolari. Uno show adrenalinico che ti farà battere il cuore a ogni curva!</dd>
-                <dt>Enigma: Il Mondo della Magia</dt>
-                <dd>Enigma: Il Mondo della Magia
-                    Descrizione: Entra in un universo di incantesimi e mistero con Enigma, lo spettacolo di magia che trasforma l’impossibile in realtà. Illusionisti di fama mondiale ti stupiranno con levitazioni, sparizioni, e incredibili giochi di prestigio che coinvolgono il pubblico in un’esperienza unica. Un viaggio magico che lascerà grandi e piccoli a bocca aperta!</dd>
-                <dt>Fantasia Live: Un Classico da Sogno</dt>
-                <dd>Descrizione: Lasciati trasportare in un mondo di musica, colori e avventure senza tempo con Fantasia Live, uno spettacolo teatrale che combina danza, acrobazie e scenografie mozzafiato. Ispirato ai grandi classici dell’intrattenimento, questo show celebra le storie che hanno fatto sognare generazioni, reinterpretandole in un formato unico, perfetto per tutta la famiglia. Un’esperienza emozionante e indimenticabile!</dd>
-            </dl>
-        </main>
-        <footer>
-            <h3>footer</h3>
-            <ul>
-                <li>Chi Siamo</li>
-                <li>LOGO FACEBOOK</li>
-                <li>LOGO INSTAGRAM</li>
-                <li>LOGO TIK TOK</li>
-                <li>LOGO YOUTUBE</li>
-                <li href="pages/privicy.html">Privacy Policy</li>
-            </ul>
-        </footer>
+            <div class="calendar-header">
+                <button id="prevMonth" aria-label="Mese precedente">&lt;</button>
+                <h2 id="monthYear" tabindex="0" aria-live="polite"></h2>
+                <button id="nextMonth" aria-label="Mese successivo">&gt;</button>
+            </div>
+            <div class="calendar-days">
+                <div class="day">Dom</div>
+                <div class="day">Lun</div>
+                <div class="day">Mar</div>
+                <div class="day">Mer</div>
+                <div class="day">Gio</div>
+                <div class="day">Ven</div>
+                <div class="day">Sab</div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+            <!--
+                <h3>Show disponibili</h3>
+                <dl>
+                    <dt>Turbo Thrill: The Ultimate Stunt Show</dt>
+                    <dd>Descrizione: Preparati a rimanere senza fiato mentre i motori ruggiscono e le gomme bruciano nel più incredibile stunt show mai visto! Auto da corsa, moto acrobatiche e veicoli personalizzati sfidano le leggi della fisica con salti mozzafiato, inseguimenti ad alta velocità e manovre spettacolari. Uno show adrenalinico che ti farà battere il cuore a ogni curva!</dd>
+                    <dt>Enigma: Il Mondo della Magia</dt>
+                    <dd>Enigma: Il Mondo della Magia
+                        Descrizione: Entra in un universo di incantesimi e mistero con Enigma, lo spettacolo di magia che trasforma l’impossibile in realtà. Illusionisti di fama mondiale ti stupiranno con levitazioni, sparizioni, e incredibili giochi di prestigio che coinvolgono il pubblico in un’esperienza unica. Un viaggio magico che lascerà grandi e piccoli a bocca aperta!</dd>
+                        <dt>Fantasia Live: Un Classico da Sogno</dt>
+                        <dd>Descrizione: Lasciati trasportare in un mondo di musica, colori e avventure senza tempo con Fantasia Live, uno spettacolo teatrale che combina danza, acrobazie e scenografie mozzafiato. Ispirato ai grandi classici dell’intrattenimento, questo show celebra le storie che hanno fatto sognare generazioni, reinterpretandole in un formato unico, perfetto per tutta la famiglia. Un’esperienza emozionante e indimenticabile!</dd>
+                    </dl>
+                </main>
+                <footer>
+                    <h3>footer</h3>
+                    <ul>
+                        <li>Chi Siamo</li>
+                        <li>LOGO FACEBOOK</li>
+                        <li>LOGO INSTAGRAM</li>
+                        <li>LOGO TIK TOK</li>
+                        <li>LOGO YOUTUBE</li>
+                        <li href="pages/privicy.html">Privacy Policy</li>
+                    </ul>
+                </footer>
+                -->
 
         
     </body>

@@ -1,55 +1,87 @@
-const daysTag = document.querySelector(".days"),
-currentDate = document.querySelector(".current-date"),
-prevNextIcon = document.querySelectorAll(".icons span");
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+  const monthYearElement = document.getElementById('monthYear');
+  const calendarGrid = document.getElementById('calendarGrid');
+  const prevMonthButton = document.getElementById('prevMonth');
+  const nextMonthButton = document.getElementById('nextMonth');
+  const selectedDateText = document.getElementById('selectedDateText');
 
-// getting new date, current year and month
-let date = new Date(),
-currYear = date.getFullYear(),
-currMonth = date.getMonth();
+  let currentDate = new Date();
+  let selectedDate = null;
 
-// storing full name of all months in array
-const months = ["January", "February", "March", "April", "May", "June", "July",
-              "August", "September", "October", "November", "December"];
+  function renderCalendar() {
+      calendarGrid.innerHTML = '';
 
-const renderCalendar = () => {
-    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
-    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
-    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
-    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
-    let liTag = "";
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth();
+      const firstDayOfMonth = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
-        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-    }
+      // Aggiorna il titolo del mese e anno
+      monthYearElement.textContent = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
 
-    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
-        // adding active class to li if the current day, month, and year matched
-        let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
-                     && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}">${i}</li>`;
-    }
+      // Celle vuote per i giorni prima del primo del mese
+      for (let i = 0; i < firstDayOfMonth; i++) {
+          const emptyCell = document.createElement('div');
+          calendarGrid.appendChild(emptyCell);
+      }
 
-    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
-        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
-    }
-    currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
-    daysTag.innerHTML = liTag;
-}
-renderCalendar();
+      // Celle per i giorni del mese
+      for (let day = 1; day <= daysInMonth; day++) {
+          const dayElement = document.createElement('div');
+          dayElement.textContent = day;
+          dayElement.tabIndex = 0;
+          dayElement.setAttribute('role', 'button');
+          dayElement.setAttribute('aria-label', `Giorno ${day} ${monthYearElement.textContent}`);
 
-prevNextIcon.forEach(icon => { // getting prev and next icons
-    icon.addEventListener("click", () => { // adding click event on both icons
-        // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
-        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+          const today = new Date();
+          if (
+              day === today.getDate() &&
+              month === today.getMonth() &&
+              year === today.getFullYear()
+          ) {
+              dayElement.classList.add('today');
+              dayElement.setAttribute('aria-current', 'date');
+          }
 
-        if(currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
-            // creating a new date of current year & month and pass it as date value
-            date = new Date(currYear, currMonth, new Date().getDate());
-            currYear = date.getFullYear(); // updating current year with new date year
-            currMonth = date.getMonth(); // updating current month with new date month
-        } else {
-            date = new Date(); // pass the current date as date value
-        }
-        renderCalendar(); // calling renderCalendar function
-    });
+          // Evidenzia la data selezionata
+          if (
+              selectedDate &&
+              day === selectedDate.getDate() &&
+              month === selectedDate.getMonth() &&
+              year === selectedDate.getFullYear()
+          ) {
+              dayElement.classList.add('selected');
+          }
+
+          // Aggiungi evento click e tastiera
+          dayElement.addEventListener('click', () => handleDateSelection(year, month, day));
+          dayElement.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                  handleDateSelection(year, month, day);
+              }
+          });
+
+          calendarGrid.appendChild(dayElement);
+      }
+  }
+
+  function handleDateSelection(year, month, day) {
+      selectedDate = new Date(year, month, day);
+      selectedDateText.textContent = `Data selezionata: ${selectedDate.toLocaleDateString('it-IT', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`;
+      renderCalendar();
+  }
+
+  // Navigazione mesi
+  prevMonthButton.addEventListener('click', () => {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar();
+  });
+
+  nextMonthButton.addEventListener('click', () => {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar();
+  });
+
+  renderCalendar();
 });
