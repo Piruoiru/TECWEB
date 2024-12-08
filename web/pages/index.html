@@ -4,24 +4,51 @@
         <title>DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <meta name="description" content="">    
-        <meta name="keywords" content="parco, divertimento, giostre, weekend, dreamville">
+        <meta name="description" content=""><!--TODO: aggiornare descrizione-->
+        <meta name="keywords" content="DreamVille, parco, divertimento, giostre, weekend"><!--TODO: aggiornare keywords-->
 
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="large.css"><!--wtf?-->
-        <script src="scripts/script.js"></script>
+        <!-- TODO: cambiare font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="./style/style.css" media="screen">
+        <!-- <script src="scripts/script.js"></script> -->
     </head>
     <body>
-        
-        <a href="/privacy.php">Privacy Policy</a>
-        <a href="/buyingticket.php">Biglietti</a>
-        <a href="/buyingcart.php">Carrello</a>
-        <a href="/profilo.php">Profilo</a>
-
-@for $row in $result
-    @for $element in $row
-        <h1>{{ $element }}</h1>
-    @endfor
-@endfor
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <span lang="en">Home</span></p>
+            <p>Orario</p>
+        </nav>
+        <!-- <header id="header">
+            <div><a href="#">Acquista il tuo biglietto</a></div>
+            <h1>DreamVille</h1>
+        </header> -->
+        <nav id="menu">
+            <ul>
+                <li id="logo"><header><h1>DreamVille</h1></header></li>
+                <li id="currentLink" lang="en">Home</li>
+                <li><a href="#">Scopri il parco</a></li>
+                <li><button style="width: 100%; height: 100%">Informazioni per la tua visita</button></li>
+                <li><a href="#">Compra biglietti e abbonamenti</a></li>
+            </ul>
+        </nav>
+        <main>
+            <!-- <div id="card">
+                <h2>Scopri il parco</h2>
+            </div>
+            <div id="card">
+                <h2>Parco + Hotel</h2>
+            </div> -->
+            @for $row in $result
+                @for $element in $row
+                    <h1>{{ $element }}</h1>
+                @endfor
+            @endfor
+        </main>
+        <footer>
+            <p>© 2023 DreamVille</p>
+        </footer>
     </body>
 </html>
     
