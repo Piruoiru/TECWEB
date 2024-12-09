@@ -5,7 +5,7 @@
     $db = new DatabaseClient();
     $db->connect();
     $result = $db->fetchEvents();
-    $context = ['result'=>[]];
+    $context = ['result'=>[], 'orario'=>"10:00-17:00"];
     while($row = $result->fetch_assoc()){
         array_push($context['result'],$row);
     }

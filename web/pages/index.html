@@ -18,21 +18,22 @@
     <body>
         <nav id="breadcrumb">
             <p>Ti trovi in: <span lang="en">Home</span></p>
-            <p>Orario</p>
+            <p>Orario di oggi: {{ $orario }}</p>
+            <p>Area personale</p>
         </nav>
-        <!-- <header id="header">
-            <div><a href="#">Acquista il tuo biglietto</a></div>
-            <h1>DreamVille</h1>
-        </header> -->
-        <nav id="menu">
-            <ul>
-                <li id="logo"><header><h1>DreamVille</h1></header></li>
-                <li id="currentLink" lang="en">Home</li>
-                <li><a href="#">Scopri il parco</a></li>
-                <li><button style="width: 100%; height: 100%">Informazioni per la tua visita</button></li>
-                <li><a href="#">Compra biglietti e abbonamenti</a></li>
-            </ul>
-        </nav>
+        <div id="headerNavWrapper">
+            <header>
+                <h1><span lang="en">DreamVille</span></h1>
+            </header>
+            <nav id="menu">
+                <ul>
+                    <li id="currentLink" lang="en">Home</li>
+                    <li><a href="#">Scopri il parco</a></li>
+                    <li><button>Informazioni per la tua visita</button></li>
+                    <li><a href="#">Compra biglietti e abbonamenti</a></li>
+                </ul>
+            </nav>
+        </div>
         <main>
             <!-- <div id="card">
                 <h2>Scopri il parco</h2>
@@ -47,7 +48,7 @@
             @endfor
         </main>
         <footer>
-            <p>© 2023 DreamVille</p>
+            <p>© 2024 DreamVille</p>
         </footer>
     </body>
 </html>
