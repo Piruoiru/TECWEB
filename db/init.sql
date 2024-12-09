@@ -19,9 +19,7 @@ INSERT INTO users(username,password) VALUES
 
 
 CREATE TABLE spettacoli(
-    codiceS char(6) PRIMARY KEY NOT NULL,
-    titolo  varchar(30) NOT NULL,
-    dataS date NOT NULL,
+    titolo  varchar(50) PRIMARY KEY NOT NULL,
     descrizione varchar(300) NOT NULL
 );
 
@@ -60,15 +58,14 @@ INSERT INTO bigliettiCarrello(biglietto,utente,quantita) VALUES
 CREATE TABLE bigliettiAcquistati(
     biglietto char(5) NOT NULL,
     utente varchar(20) NOT NULL,
-    dataAcquisto date NOT NULL,
-    orarioAcquisto char(4) NOT NULL, --FIXA QUA SQL 
+    dataOrarioAcquisto TIMESTAMP NOT NULL,
     quantita smallint(2) NOT NULL,
-    PRIMARY KEY (biglietto,utente,dataAcquisto,orarioAcquisto),
+    PRIMARY KEY (biglietto,utente,dataOrarioAcquisto),
     FOREIGN KEY (utente) REFERENCES users(username),
     FOREIGN KEY (biglietto) REFERENCES biglietti(id)
 );
 
-INSERT INTO bigliettiAcquistati(biglietto,utente,dataAcquisto,orarioAcquisto,quantita) VALUES 
-('1','user','2024-01-22','',5),
-('2','user','2024-01-21','',4),--FIXA QUA SQL
-('3','user','2024-01-23','18',2);
+INSERT INTO bigliettiAcquistati(biglietto,utente,dataOrarioAcquisto,quantita) VALUES 
+('1','user',now(),5),
+('2','user',now(),4),
+('3','user',now(),2);

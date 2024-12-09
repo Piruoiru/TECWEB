@@ -130,11 +130,35 @@
         }
 
         public function addTicketToCart($ticketID,$username,$quantity){
+            $sql = "SELECT *
+                    FROM bigliettiCarrello
+                    WHERE biglietto=? AND utente=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('ss',$ticketID,$username,$quantity);
+            $status = $stmt->execute();
+            if(!$status){
+                throw new \Exception("Error querying the database");
+            
+            }
+            $result = $stmt->get_result();
+            if($result->num_rows !== 0){
+                $sql = "UPDATE bigliettiCarrello
+                        SET quantita=?
+                        WHERE biglietto=? AND utente=?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bind_param('iss',$quantity,$ticketID,$username);
+                $status = $stmt->execute();
+                if(!$status){
+                    throw new \Exception("Error querying the database");
+                }
+                return;
+            }
+
             $sql = "INSERT INTO bigliettiCarrello(biglietto,utente,quantita) VALUES (?,?,?);";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param('ssi',$ticketID,$username,$quantity);
-            $result = $stmt->execute();
-            if(!$result){
+            $status = $stmt->execute();
+            if(!$status){
                 throw new \Exception("Error querying the database");
             }
         }
