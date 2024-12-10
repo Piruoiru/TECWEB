@@ -1,6 +1,6 @@
 <?php
 require 'calendar.php';
-if ($_GET['month']) {
+if (isset($_GET['month'])) {
     $meseCorrente = $_GET['month'];
 } else {
     $meseCorrente = date("Y-m-d");
