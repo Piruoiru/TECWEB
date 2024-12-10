@@ -1,7 +1,7 @@
 <?php
     include_once 'parser.php';
     $template = new Parser();
-    $template->render('calendar.html');
+    $template->render('calendar.html.php');
     class Calendar
 {
   public static function create($month)
