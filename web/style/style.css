@@ -100,3 +100,30 @@ header h1{
 main{
   clear: both;
 }
+
+
+/*
+---------------------
+    ERROR 404 PAGE
+---------------------
+*/
+#mainPageError404{
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  background-color: var(--btncolor);
+}
+
+#mainPageError404>img{
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+#mainPageError404>p{
+  font-size: 2em;
+  padding: 7em 1em;
+}
+
+/* #footerPageError404{
+  
+} */
