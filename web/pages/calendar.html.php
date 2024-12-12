@@ -19,6 +19,32 @@ $calendario = Calendar::create($meseCorrente);
 
     <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
     <script src="scripts/script.js" defer></script>
+    <style>
+        .header-giorni {
+            background: #E3E9E5;
+            color: #536170;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .header-calendario {
+            background: #8c9eff;
+            color: white;
+            height: 80px;
+        }
+
+        .box-giorno {
+            border: 1px solid #E3E9E5;
+            height: 15px;
+            text-align: center;
+            width: 600px;
+        }
+
+        .container {
+            width: 525px;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,42 +59,46 @@ $calendario = Calendar::create($meseCorrente);
     </header>
     <main>
         <h3>Calendario del Parco</h3>
-
-        <header id="dateBox">
-            <a href="calendar.html.php?month=<?= $calendario["last"]; ?>">
-                Torna
-            </a>
-            <h2><?= $calendario["mese"]; ?> <small><?= $calendario["anno"]; ?></small></h2>
-            <a href="calendar.html.php?month=<?= $calendario["next"]; ?>">
-                Avanti
-            </a>
-        </header>
-        <table>
-            <thead>
-                <tr>
-                    <?php
-                    foreach ($calendario['settimane'] as $nomeGiorno):
-                    ?>
-                        <th>
-                            <?php echo $nomeGiorno; ?>
-                        </th>
-                    <?php
-                    endforeach;
-                    ?>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($calendario['calendario'] as $settimana): ?>
+        <header class="container">
+            <header id="dateBox" class="header-calendario">
+                <header class="col" style="display: flex; justify-content: space-between; padding: 10px;">
+                    <a href="calendar.html.php?month=<?= $calendario["last"]; ?>">
+                        <p style="font-size:20px;color:white;">Indietro</p>
+                    </a>
+                    <h2><?= $calendario["mese"]; ?> <small><?= $calendario["anno"]; ?></small></h2>
+                    <a href="calendar.html.php?month=<?= $calendario["next"]; ?>">
+                        <p style="font-size:20px;color:white;">Avanti</p>
+                    </a>
+                </header>
+            </header>
+            <table>
+                <thead>
                     <tr>
-                        <?php foreach ($settimana as $numGiorno): ?>
-                            <td>
-                                <?php echo $numGiorno; ?>
-                            </td>
-                        <?php endforeach; ?>
+                        <?php
+                        foreach ($calendario['settimane'] as $nomeGiorno):
+                        ?>
+                            <th class="header-giorni">
+                                <?php echo $nomeGiorno; ?>
+                            </th>
+                        <?php
+                        endforeach;
+                        ?>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                    </article>
+                <tbody>
+                    <?php foreach ($calendario['calendario'] as $settimana): ?>
+                        <tr>
+                            <?php foreach ($settimana as $numGiorno): ?>
+                                <td class="box-giorno">
+                                    <?php echo $numGiorno; ?>
+                                </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </header>
+
         <h3>Show disponibili</h3>
         <dl>
             <dt id="title-show">Turbo Thrill: The Ultimate Stunt Show</dt>
