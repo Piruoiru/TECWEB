@@ -13,13 +13,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="./style/style.css" media="screen">
-        <!-- <script src="scripts/script.js"></script> -->
+        <script src="scripts/script.js"></script>
     </head>
     <body>
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" style="align-items: center;">
             <p>Ti trovi in: <span lang="en">Home</span></p>
-            <p>Orario di oggi: {{ $orario }}</p>
-            <p>Area personale</p>
+            <a href="#">Orario di oggi: {{ $orario }}</a>
+            <a href="">Area personale</a>
         </nav>
         <div id="headerNavWrapper">
             <header>
@@ -28,8 +28,8 @@
             <nav id="menu">
                 <ul>
                     <li id="currentLink" lang="en">Home</li>
-                    <li><a href="#">Scopri il parco</a></li>
-                    <li><button>Informazioni per la tua visita</button></li>
+                    <li><a href="#">Scopri <span lang="en">DreamVille</span></a></li>
+                    <li><a href="#">Informazioni per la tua visita</a></li>
                     <li><a href="#">Compra biglietti e abbonamenti</a></li>
                 </ul>
             </nav>
