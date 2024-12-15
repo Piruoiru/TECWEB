@@ -50,6 +50,7 @@ button{
   background-color: var(--bgcolor);
   color: var(--txtcolor);
   border-bottom: 2px solid var(--purewhite);
+  align-items: center;
 }
 
 #breadcrumb p, #breadcrumb a{
