@@ -37,6 +37,12 @@ button{
   cursor: pointer;
 }
 
+/*
+---------------------
+    BREADCRUMB
+---------------------
+*/
+
 #breadcrumb{
   font-size: 1em;
   display: flex;
@@ -51,6 +57,12 @@ button{
   display: inline-block;
   color: var(--txtcolor);
 }
+
+/*
+---------------------
+    hEADER AND NAV
+---------------------
+*/
 
 header h1{
   font-size: 4.5em;
@@ -93,15 +105,6 @@ header h1{
   display: inline-block;
   color: var(--purewhite);
   line-height: 1.5em;
-}
-
-#menu>ul>li>button{
-  width: 100%;
-  height: 100%;
-}
-
-main{
-  clear: both;
 }
 
 
