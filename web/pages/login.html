@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>DreamVille</title>
+        <title>Login - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <meta name="description" content="">    
@@ -11,15 +11,33 @@
         <script src="scripts/script.js"></script>
     </head>
     <body>
-        
-        <div class="login-container">    
-            <form method="POST" class="login-form">
-                <h2>DreamVille<br> LOGIN </h2>
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <span lang="en">Home</span></p>
+            <a href="#">Orario di oggi: {{ $orario }}</a>
+            <a href="">Area personale</a>
+        </nav>
+        <div id="headerNavWrapper">
+            <header>
+                <h1><span lang="en">DreamVille</span></h1>
+            </header>
+            <nav id="menu">
+                <ul>
+                    <li lang="en"><a href="index.php">Home</a></li>
+                    <li><a href="#">Scopri <span lang="en">DreamVille</span></a></li>
+                    <li><a href="#">Informazioni per la tua visita</a></li>
+                    <li><a href="#">Compra biglietti e abbonamenti</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main class="centerColumn" id="loginMain">
+            <h1 lang="en">Login</h1>
+            <form method="POST" id="loginForm" class="column">
                 <input type="text" id="username" name="username" placeholder="Username" required>
                 <input type="password" id="password" name="password" placeholder="Password" required>
-                <input type="submit" name="submit" value="Login">
+                <input type="submit" name="submit" value="Login" class="buttonStyle bgCtaColor">
             </form>
-        </div>
+            <a href="register.php" class="buttonStyle bgPrimaryColor">Registrati!</a>
+        </main>
 
         <a href="/privacy.php">Privacy Policy</a>
         <a href="/buyingticket.php">Biglietti</a>

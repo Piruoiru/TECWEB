@@ -4,12 +4,13 @@
 }
 
 :root{
-  --bgcolor: #005AB5;
+  --primaryColor: #005AB5;
+  --secondaryColor: #FFD700;
   --txtcolor: #FFF;
-  --btncolor: #d1ffff;
+  --btncolor: #D1FFFF;
   --purewhite: #FFF;
   --pureblack: #000; /*FIXME: vanno bene questi nomi delle variabili?"*/
-  --cta: #A00;
+  --ctaColor: #A00;
 }
 
 html{
@@ -21,6 +22,7 @@ body{
   max-width: 1200px;
   margin: auto;
   background-color: var(--purewhite);
+  color: var(--pureblack); /*FIXME: cambiare*/
 }
 
 body, button{
@@ -28,13 +30,73 @@ body, button{
     font-family: "Lexend", Roboto, sans-serif; /* Font accessibile */
 }
 
-button{
-  background-color: var(--bgcolor);
+/*
+---------------------
+  CENTERING
+---------------------
+*/
+/*TODO: valutare utilità di questo metodo. Magari chiedere alla prof*/
+.row{ /*FIXME: ancora non usata*/
+  display: flex;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.centerRow{ /*FIXME: ancora non usata*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+---------------------
+  BACKGROUNDS
+---------------------
+*/
+.bgPrimaryColor{
+  background-color: var(--primaryColor);
   color: var(--purewhite);
-  border: none;
-  padding: 0.5em 1em;
-  font-size: 1em;
+}
+
+.bgCtaColor{
+  background-color: var(--ctaColor);
+  color: var(--purewhite);
+}
+
+
+/*
+---------------------
+  LINKS AND BUTTONS
+---------------------
+*/
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+a:visited{
+  color: var(--btncolor);
+}
+
+.buttonStyle{
+  padding: 1em 2em;
+  border: 0;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.buttonStyle:visited{
+  color: var(--btncolor); /*FIXME: cambiare*/
 }
 
 /*
@@ -47,7 +109,7 @@ button{
   font-size: 1em;
   display: flex;
   justify-content: space-between;
-  background-color: var(--bgcolor);
+  background-color: var(--primaryColor);
   color: var(--txtcolor);
   border-bottom: 2px solid var(--purewhite);
   align-items: center;
@@ -61,7 +123,7 @@ button{
 
 /*
 ---------------------
-    hEADER AND NAV
+    HEADER AND NAV
 ---------------------
 */
 
@@ -79,7 +141,7 @@ header h1{
 #headerNavWrapper{
   display: grid;
   grid-template-columns: 1fr 5fr;
-  background-color: var(--bgcolor);
+  background-color: var(--primaryColor);
   position: sticky;
   top: 0;
 }
@@ -104,8 +166,14 @@ header h1{
 
 #menu>ul>li>a{
   display: inline-block;
-  color: var(--purewhite);
   line-height: 1.5em;
+  color: var(--purewhite);
+}
+
+#menu>ul>li>a:visited{
+  display: inline-block;
+  line-height: 1.5em;
+  color: var(--btncolor);
 }
 
 
@@ -134,3 +202,27 @@ header h1{
 /* #footerPageError404{
   
 } */
+
+/*
+---------------------
+    FORM
+---------------------
+*/
+input{
+  font-size: 1em;
+}
+
+
+/*
+---------------------
+    LOGIN
+---------------------
+*/
+#loginMain{
+  margin: 2em 0;
+}
+
+#loginForm>input{
+  padding: 0.75em 0.5em;
+  margin: 0.5em 1em;
+}
