@@ -61,7 +61,7 @@ button{
 
 /*
 ---------------------
-    hEADER AND NAV
+    HEADER AND NAV
 ---------------------
 */
 
@@ -114,6 +114,7 @@ header h1{
     ERROR 404 PAGE
 ---------------------
 */
+
 #mainPageError404{
   display: grid;
   grid-template-columns: 3fr 4fr;
@@ -134,3 +135,26 @@ header h1{
 /* #footerPageError404{
   
 } */
+
+/*
+---------------------
+    PRIVICY PAGE
+---------------------
+*/
+
+.paragrafo{
+  padding: 1em 0.8em;
+  text-align: justify;
+}
+
+#titoloParagrafo{
+  font-size: 2em;
+  padding: 0.5em 0.4em;
+  text-align: justify;
+}
+
+#sottotitoloParagrafo{
+  font-size: 1.5em;
+  padding: 0.2em 0.5em;
+  text-align: justify;
+}
