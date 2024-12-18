@@ -175,7 +175,7 @@ header h1{
   font-size: 1.25em;
   color: var(--purewhite);
   text-align:center;
-  /* padding: 0 1em; */
+  padding: 0 1em;
 }
 
 #menu>ul>li>a{
