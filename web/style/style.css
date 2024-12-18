@@ -4,25 +4,33 @@
 }
 
 :root{
-  --primaryColor: #005AB5;
-  --secondaryColor: #FFD700;
+  /* --primaryColor: #005AB5; blu chiaro */
+  /* --primaryColor: #000BA3; blu acceso*/
+  --primaryColor: #000a99; /* blu più scuro */
+  --secondaryColor: #FFC300;
   --txtcolor: #FFF;
   --btncolor: #D1FFFF;
   --purewhite: #FFF;
   --pureblack: #000; /*FIXME: vanno bene questi nomi delle variabili?"*/
   --ctaColor: #A00;
+  /* --visitedLink: #FFC300; giallo*/
+  --visitedLink: #f26b18;
 }
 
 html{
-  color: var(--pureblack);
-  background-color: var(--btncolor);
+  color: var(--pureblack);  
 }
 
 body{
+  /* max-width: 1200px; */
+  margin: auto;
+  background-color: #fff;
+  color: var(--pureblack); /*FIXME: cambiare*/
+}
+
+main{
   max-width: 1200px;
   margin: auto;
-  background-color: var(--purewhite);
-  color: var(--pureblack); /*FIXME: cambiare*/
 }
 
 body, button{
@@ -85,7 +93,12 @@ a{
 }
 
 a:visited{
-  color: var(--btncolor);
+  /* color: var(--btncolor); */
+  background-color: var(--visitedLink);
+}
+
+a:hover{
+  text-decoration: underline;
 }
 
 .buttonStyle{
@@ -96,7 +109,9 @@ a:visited{
 }
 
 .buttonStyle:visited{
-  color: var(--btncolor); /*FIXME: cambiare*/
+  /* color: var(--btncolor); FIXME: cambiare */
+  background-color: #ffd700;
+
 }
 
 /*
@@ -106,7 +121,7 @@ a:visited{
 */
 
 #breadcrumb{
-  font-size: 1em;
+  font-size: 1.1em;
   display: flex;
   justify-content: space-between;
   background-color: var(--primaryColor);
@@ -160,20 +175,24 @@ header h1{
   font-size: 1.25em;
   color: var(--purewhite);
   text-align:center;
-  height: 100%;
-  padding: 0 1em;
+  /* padding: 0 1em; */
 }
 
 #menu>ul>li>a{
-  display: inline-block;
+  /* display: inline-block; */
   line-height: 1.5em;
   color: var(--purewhite);
+  text-decoration: none;
+  border: 0px solid var(--visitedLink);
 }
 
 #menu>ul>li>a:visited{
-  display: inline-block;
-  line-height: 1.5em;
-  color: var(--btncolor);
+  color: var(--visitedLink);
+  border: 2px solid var(--visitedLink);
+}
+
+#menu>ul>li>a:hover{
+  text-decoration: underline;
 }
 
 
