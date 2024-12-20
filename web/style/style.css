@@ -4,28 +4,28 @@
 }
 
 :root{
-  /* --primaryColor: #005AB5; blu chiaro */
+  /* FIXME: togliere commenti colori non usati */
+  /* --primaryColor: #005AB5; blu chiaro*/
   /* --primaryColor: #000BA3; blu acceso*/
   --primaryColor: #000a99; /* blu più scuro */
   --secondaryColor: #FFC300;
+  --tertiaryColor: #F26B18;
   --txtcolor: #FFF;
   --btncolor: #D1FFFF;
-  --purewhite: #FFF;
-  --pureblack: #000; /*FIXME: vanno bene questi nomi delle variabili?"*/
+  --pureblack: #000;
   --ctaColor: #A00;
-  /* --visitedLink: #FFC300; giallo*/
-  --visitedLink: #f26b18;
+  /* --visitedLink: #FFC300;giallo */
+  /* --visitedLink: #F26B18; */
 }
 
 html{
-  color: var(--pureblack);  
+  color: #000;
 }
 
 body{
-  /* max-width: 1200px; */
   margin: auto;
   background-color: #fff;
-  color: var(--pureblack); /*FIXME: cambiare*/
+  color: #000;
 }
 
 main{
@@ -35,7 +35,7 @@ main{
 
 body, button{
     /* font-size: 100%; FIXME: c'era nell'esempio su mega, ma serve? */
-    font-family: "Lexend", Roboto, sans-serif; /* Font accessibile */
+    font-family: "Figtree", "Lexend", Roboto, sans-serif; /* Font accessibile */
 }
 
 /*
@@ -66,21 +66,6 @@ body, button{
   justify-content: center;
 }
 
-/*
----------------------
-  BACKGROUNDS
----------------------
-*/
-.bgPrimaryColor{
-  background-color: var(--primaryColor);
-  color: var(--purewhite);
-}
-
-.bgCtaColor{
-  background-color: var(--ctaColor);
-  color: var(--purewhite);
-}
-
 
 /*
 ---------------------
@@ -93,8 +78,7 @@ a{
 }
 
 a:visited{
-  /* color: var(--btncolor); */
-  background-color: var(--visitedLink);
+  background-color: var(--secondaryColor);
 }
 
 a:hover{
@@ -106,12 +90,7 @@ a:hover{
   border: 0;
   cursor: pointer;
   text-decoration: none;
-}
-
-.buttonStyle:visited{
-  /* color: var(--btncolor); FIXME: cambiare */
-  background-color: #ffd700;
-
+  font-size: 1.1em;
 }
 
 /*
@@ -126,14 +105,20 @@ a:hover{
   justify-content: space-between;
   background-color: var(--primaryColor);
   color: var(--txtcolor);
-  border-bottom: 2px solid var(--purewhite);
+  border-bottom: 2px solid #FFF;
   align-items: center;
 }
 
 #breadcrumb p, #breadcrumb a{
-  padding: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   display: inline-block;
   color: var(--txtcolor);
+}
+
+#breadcrumb a{
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 /*
@@ -173,26 +158,46 @@ header h1{
   align-items: center;
   justify-content: center;
   font-size: 1.25em;
-  color: var(--purewhite);
+  color: #FFF;
   text-align:center;
-  padding: 0 1em;
+  margin: auto 1em;
+  padding: 1px 0;
+  position: relative;
 }
 
 #menu>ul>li>a{
-  /* display: inline-block; */
   line-height: 1.5em;
-  color: var(--purewhite);
+  color: #FFF;
   text-decoration: none;
-  border: 0px solid var(--visitedLink);
+  transition: color .3s ease-in-out;
+  padding: 0 0.1em;
 }
 
-#menu>ul>li>a:visited{
-  color: var(--visitedLink);
-  border: 2px solid var(--visitedLink);
+#menu>ul>li>a:visited::before{
+  background-color: var(--secondaryColor);
+}
+
+#menu>ul>li>a::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 10px;
+  background-color: var(--primaryColor);
+  bottom: 0;
+  left: 0;
+  transition: height .2s ease-in-out, background-color .2s linear .2s;
+  z-index: -1;
+}
+
+#menu>ul>li>a:hover::before {
+  background-color: var(--secondaryColor);
+  transition: height .3s ease-in-out, background-color 0s ease-in-out;
+  height: 100%;
 }
 
 #menu>ul>li>a:hover{
-  text-decoration: underline;
+  color: #000;
 }
 
 
@@ -238,10 +243,19 @@ input{
 ---------------------
 */
 #loginMain{
-  margin: 2em 0;
+  margin: 2em auto;
 }
 
 #loginForm>input{
   padding: 0.75em 0.5em;
   margin: 0.5em 1em;
+}
+
+#loginButton{
+  background-color: var(--ctaColor);
+  color: #FFF;
+}
+
+#registrationButton{
+  background-color: var(--secondaryColor);
 }
