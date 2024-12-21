@@ -4,39 +4,91 @@
 }
 
 :root{
-  --bgcolor: #005AB5;
+  --primaryColor: #000a99;
+  --secondaryColor: #FFC300;
+  --tertiaryColor: #005AB5;
+  /* --tertiaryColor: #F26B18; */
   --txtcolor: #FFF;
-  --btncolor: #d1ffff;
-  --purewhite: #FFF;
-  --pureblack: #000; /*FIXME: vanno bene questi nomi delle variabili?"*/
-  --cta: #A00;
+  --ctaColor: #A00;
 }
 
 html{
-  color: var(--pureblack);
-  background-color: var(--btncolor);
+  color: #000;
 }
 
 body{
+  margin: auto;
+  background-color: #fff;
+  color: #000;
+}
+
+main{
   max-width: 1200px;
   margin: auto;
-  background-color: var(--purewhite);
 }
 
-body, button{
-    /* font-size: 100%; FIXME: c'era nell'esempio su mega, ma serve? */
-    font-family: "Lexend", Roboto, sans-serif; /* Font accessibile */
+body{
+    font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
 }
 
-button{
-  background-color: var(--bgcolor);
-  color: var(--purewhite);
-  border: none;
-  padding: 0.5em 1em;
-  font-size: 1em;
+/*
+---------------------
+  CENTERING
+---------------------
+*/
+/*TODO: valutare utilità di questo metodo. Magari chiedere alla prof*/
+.row{ /*FIXME: ancora non usata*/
+  display: flex;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.centerRow{ /*FIXME: ancora non usata*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*
+---------------------
+  LINKS AND BUTTONS
+---------------------
+*/
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+a:visited{
+  background-color: var(--tertiaryColor);
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.buttonStyle{
+  padding: 1em 2em;
+  border: 0;
   cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease-out;
 }
 
+.buttonStyle:hover{
+ transform: translateY(-2px); 
+}
 /*
 ---------------------
     BREADCRUMB
@@ -44,19 +96,24 @@ button{
 */
 
 #breadcrumb{
-  font-size: 1em;
+  font-size: 1.1em;
   display: flex;
   justify-content: space-between;
-  background-color: var(--bgcolor);
-  color: var(--txtcolor);
-  border-bottom: 2px solid var(--purewhite);
+  background-color: var(--primaryColor);
+  border-bottom: 2px solid #FFF;
   align-items: center;
 }
 
 #breadcrumb p, #breadcrumb a{
-  padding: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   display: inline-block;
-  color: var(--txtcolor);
+  color: #FFF;
+}
+
+#breadcrumb a{
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 /*
@@ -79,7 +136,7 @@ header h1{
 #headerNavWrapper{
   display: grid;
   grid-template-columns: 1fr 5fr;
-  background-color: var(--bgcolor);
+  background-color: var(--primaryColor);
   position: sticky;
   top: 0;
 }
@@ -96,16 +153,46 @@ header h1{
   align-items: center;
   justify-content: center;
   font-size: 1.25em;
-  color: var(--purewhite);
+  color: #FFF;
   text-align:center;
-  height: 100%;
-  padding: 0 1em;
+  margin: auto 1em;
+  padding: 1px 0;
+  position: relative;
 }
 
 #menu>ul>li>a{
-  display: inline-block;
-  color: var(--purewhite);
   line-height: 1.5em;
+  color: #FFF;
+  text-decoration: none;
+  transition: color .3s ease-in-out;
+  padding: 0 0.25em;
+}
+
+#menu>ul>li>a:visited::before{
+  background-color: var(--secondaryColor);
+}
+
+#menu>ul>li>a::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--primaryColor);
+  bottom: 0;
+  left: 0;
+  transition: height .2s ease-in-out, background-color .2s linear .2s;
+  z-index: -1;
+}
+
+#menu>ul>li>a:hover::before {
+  background-color: var(--secondaryColor);
+  transition: height .3s ease-in-out, background-color 0s ease-in-out;
+  height: 100%;
+}
+
+#menu>ul>li>a:hover{
+  color: #000;
 }
 
 
@@ -138,7 +225,7 @@ header h1{
 
 /*
 ---------------------
-    PRIVICY PAGE
+    PRIVACY PAGE
 ---------------------
 */
 
@@ -157,4 +244,52 @@ header h1{
   font-size: 1.5em;
   padding: 0.2em 0.5em;
   text-align: justify;
+}
+
+/*
+---------------------
+    FORMS
+---------------------
+*/
+input[type="text"], input[type="password"]{
+  font-size: 1.1em;
+  border: none;
+  border-bottom: 2px solid var(--primaryColor);
+  transition: border-bottom .2s ease-out;
+}
+
+input[type="text"]:focus, input[type="password"]:focus{
+  border-bottom: 2px solid var(--secondaryColor);
+  outline: none;
+}
+/*
+---------------------
+    LOGIN
+---------------------
+*/
+#loginMain{
+  margin: 2em auto;
+}
+
+#loginForm>input{
+  padding: 0.75em 0.5em;
+  margin: 0.5em 1em;
+}
+
+#loginForm>input[type="submit"]{
+  background: var(--primaryColor);
+  background: linear-gradient(150deg, var(--primaryColor) 30%, var(--tertiaryColor) 90%);
+  color: #FFF;
+  padding: 0.75em 0;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+#registrationButton{
+  color: #000;
+  border-color: #000;
+  border-image: linear-gradient(150deg, var(--primaryColor) 30%, var(--tertiaryColor) 90%) 1;
+  border-width: 5px;
+  border-style: solid;
+  font-weight: 500;
 }
