@@ -4,18 +4,12 @@
 }
 
 :root{
-  /* FIXME: togliere commenti colori non usati */
-  /* --primaryColor: #005AB5; blu chiaro*/
-  /* --primaryColor: #000BA3; blu acceso*/
-  --primaryColor: #000a99; /* blu più scuro */
+  --primaryColor: #000a99;
   --secondaryColor: #FFC300;
-  --tertiaryColor: #F26B18;
+  --tertiaryColor: #005AB5;
+  /* --tertiaryColor: #F26B18; */
   --txtcolor: #FFF;
-  --btncolor: #D1FFFF;
-  --pureblack: #000;
   --ctaColor: #A00;
-  /* --visitedLink: #FFC300;giallo */
-  /* --visitedLink: #F26B18; */
 }
 
 html{
@@ -33,9 +27,8 @@ main{
   margin: auto;
 }
 
-body, button{
-    /* font-size: 100%; FIXME: c'era nell'esempio su mega, ma serve? */
-    font-family: "Figtree", "Lexend", Roboto, sans-serif; /* Font accessibile */
+body{
+    font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
 }
 
 /*
@@ -78,7 +71,7 @@ a{
 }
 
 a:visited{
-  background-color: var(--secondaryColor);
+  background-color: var(--tertiaryColor);
 }
 
 a:hover{
@@ -90,9 +83,12 @@ a:hover{
   border: 0;
   cursor: pointer;
   text-decoration: none;
-  font-size: 1.1em;
+  transition: transform 0.3s ease-out;
 }
 
+.buttonStyle:hover{
+ transform: translateY(-2px); 
+}
 /*
 ---------------------
     BREADCRUMB
@@ -104,7 +100,6 @@ a:hover{
   display: flex;
   justify-content: space-between;
   background-color: var(--primaryColor);
-  color: var(--txtcolor);
   border-bottom: 2px solid #FFF;
   align-items: center;
 }
@@ -113,7 +108,7 @@ a:hover{
   padding-left: 0.5em;
   padding-right: 0.5em;
   display: inline-block;
-  color: var(--txtcolor);
+  color: #FFF;
 }
 
 #breadcrumb a{
@@ -170,7 +165,7 @@ header h1{
   color: #FFF;
   text-decoration: none;
   transition: color .3s ease-in-out;
-  padding: 0 0.1em;
+  padding: 0 0.25em;
 }
 
 #menu>ul>li>a:visited::before{
@@ -182,7 +177,7 @@ header h1{
   position: absolute;
   width: 100%;
   height: 4px;
-  border-radius: 10px;
+  border-radius: 2px;
   background-color: var(--primaryColor);
   bottom: 0;
   left: 0;
@@ -229,14 +224,20 @@ header h1{
 
 /*
 ---------------------
-    FORM
+    FORMS
 ---------------------
 */
-input{
-  font-size: 1em;
+input[type="text"], input[type="password"]{
+  font-size: 1.1em;
+  border: none;
+  border-bottom: 2px solid var(--primaryColor);
+  transition: border-bottom .2s ease-out;
 }
 
-
+input[type="text"]:focus, input[type="password"]:focus{
+  border-bottom: 2px solid var(--secondaryColor);
+  outline: none;
+}
 /*
 ---------------------
     LOGIN
@@ -251,11 +252,20 @@ input{
   margin: 0.5em 1em;
 }
 
-#loginButton{
-  background-color: var(--ctaColor);
+#loginForm>input[type="submit"]{
+  background: var(--primaryColor);
+  background: linear-gradient(150deg, var(--primaryColor) 30%, var(--tertiaryColor) 90%);
   color: #FFF;
+  padding: 0.75em 0;
+  font-size: 1.25em;
+  font-weight: 600;
 }
 
 #registrationButton{
-  background-color: var(--secondaryColor);
+  color: #000;
+  border-color: #000;
+  border-image: linear-gradient(150deg, var(--primaryColor) 30%, var(--tertiaryColor) 90%) 1;
+  border-width: 5px;
+  border-style: solid;
+  font-weight: 500;
 }
