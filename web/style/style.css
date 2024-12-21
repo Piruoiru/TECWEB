@@ -195,7 +195,24 @@ header h1{
 }
 
 #calendarTable{
-  padding: 1em;
+  text-align: center;
+  vertical-align: top; /* Allinea il testo in alto */
+  padding: 0em 1em;
+}
+
+
+#calendarTable td {
+  font-size: 1em; /* Dimensione del numero del giorno */
+  padding: 0em 1em;
+}
+
+#calendarTable th {
+  font-size: 1em; /* Dimensione del testo aggiuntivo */
+}
+
+#calendarTable p{
+  font-size: 0.7em; /* Dimensione del testo aggiuntivo */
+  color: gray; /* Colore del testo aggiuntivo */
 }
 
 #photoOpenPark{
@@ -206,3 +223,4 @@ header h1{
 #closedParkCalendar{
   text-align: center;
 }
+

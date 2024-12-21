@@ -26,7 +26,7 @@ picked.innerHTML = `${DATE.getDate()}/${thisMonth + 1}/${year}`;
 const createCalendar = () => {
   month.innerHTML = `${MONTHS[thisMonth]}, ${year}`;
 
-  const dayOne = new Date(year, thisMonth).getDay();
+  const dayOne = (new Date(year, thisMonth).getDay()+6)%7;
   const monthDays = 32 - new Date(year, thisMonth, 32).getDate();
 
   date = 1;
@@ -43,15 +43,28 @@ const createCalendar = () => {
         let columnText = document.createTextNode(date);
         column.appendChild(columnText);
 
+        let hoursText = document.createElement("p");
+        hoursText.textContent = "9:00 - 18:00";
+        hoursText.style.fontSize = "0.8em";
+        column.appendChild(hoursText);
+
         if(date === DATE.getDate() && thisMonth === DATE.getMonth() && year === DATE.getFullYear()){
           column.classList.add("today")
         }
 
         column.onclick = () => {
-          picked.innerHTML = `${column.textContent}/${thisMonth + 1}/${year}`;
+          picked.innerHTML = `${column.columnText}/${thisMonth + 1}/${year}`; //DA SISTEMARE
         };
 
         row.appendChild(column);
+
+        // Aggiungi tabIndex per navigazione
+        column.setAttribute("tabindex", "0");
+        column.setAttribute("role", "button");
+        column.setAttribute("aria-label", `Giorno ${date}`);
+        column.onclick = () => {
+          picked.innerHTML = `${date}/${thisMonth + 1}/${year}`; //DA SISTEMARE
+        };
 
         date++;
       }
@@ -60,7 +73,7 @@ const createCalendar = () => {
   }
 };
 
-createCalendar();
+createCalendar(); //DA SISTEMARE
 
 const nextMonth = () => {
   thisMonth = thisMonth + 1;

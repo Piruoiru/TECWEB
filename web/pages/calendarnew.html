@@ -44,10 +44,11 @@
             <p class="paragraphCalendar">Il parco si riserva il diritto di modificare giorni ed orari di apertura</p>
             <h2 class="subtitleCalendar">Calendario</h2>
             <div class="wrapCalendarTable">
+                <!-- DA RENDERE ACCESSIBILE -->
                 <table  id="calendarTable"> 
                     <thead>
                         <tr>
-                            <th class="date-picked">Data Scelta: <span id="picked"></span></th>
+                            <th colspan="7" class="date-picked">Data Scelta: <span id="picked"></span></th>
                         </tr>
                          <tr id="calender-header">
                             <th><button onclick="prevMonth()">&lt</button></th>
@@ -55,13 +56,13 @@
                             <th><button onclick="nextMonth()">&gt</button></th>
                         </tr>
                         <tr>
-                            <th>Lun</th>
-                            <th>Mar</th>
-                            <th>Mer</th>
-                            <th>Giov</th>
-                            <th>Ven</th>
-                            <th>Sab</th>
-                            <th>Dom</th>
+                            <th>Lunedì</th>
+                            <th>Martedì</th>
+                            <th>Mercoledì</th>
+                            <th>Giovedì</th>
+                            <th>Venerdì</th>
+                            <th>Sabato</th>
+                            <th>Domenica</th>
                         </tr>
                     </thead>
                     <tbody id="calendar">
