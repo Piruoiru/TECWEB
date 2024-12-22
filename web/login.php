@@ -9,8 +9,7 @@
 
     include_once 'db.php';
 
-    //BREADCRUMB
-    $context = ['orario'=>"10:00-17:00"];
+    include_once 'header.php';
 
     if(isset($_SESSION['loginFailed'])){
         $context['loginErrorMessage'] = '<p class="errorMessageBgPar">Username o password errati o mancanti</p>';
