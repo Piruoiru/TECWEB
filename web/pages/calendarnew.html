@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="./style/style.css" media="screen">
         <!-- <script src="scripts/script.js"></script> -->
     </head>
-    <body>
+    <body onload="buildCalendar()">
         <nav id="breadcrumb">
             <p>Ti trovi in: <span lang="en">Home</span></p>
             <a href="#">Orario di oggi: {{ $orario }}</a>
@@ -44,12 +44,9 @@
             <p class="paragraphCalendar">Il parco si riserva il diritto di modificare giorni ed orari di apertura</p>
             <h2 class="subtitleCalendar">Calendario</h2>
             <div class="wrapCalendarTable">
-                <!-- DA RENDERE ACCESSIBILE -->
+                <!-- FIXME: DA RENDERE ACCESSIBILE -->
                 <table  id="calendarTable"> 
                     <thead>
-                        <tr>
-                            <th colspan="7" class="date-picked">Data Scelta: <span id="picked"></span></th>
-                        </tr>
                          <tr id="calender-header">
                             <th><button onclick="prevMonth()">&lt</button></th>
                             <th colspan="5" id="month"></th>
