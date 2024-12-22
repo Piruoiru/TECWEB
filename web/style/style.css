@@ -4,12 +4,12 @@
 }
 
 :root{
+  --tertiaryColorRGB: 0, 113, 235;
   --primaryColor: #000a99;
   --secondaryColor: #FFC300;
-  --tertiaryColor: #005AB5;
-  /* --tertiaryColor: #F26B18; */
-  --txtcolor: #FFF;
-  --ctaColor: #A00;
+  --tertiaryColor: #0071EB;
+  /* arancione #F26B18; */
+  --errorColor: #BD0000;
 }
 
 html{
@@ -33,7 +33,7 @@ body{
 
 /*
 ---------------------
-  CENTERING
+  FLEX LAYOUTS
 ---------------------
 */
 /*TODO: valutare utilità di questo metodo. Magari chiedere alla prof*/
@@ -87,7 +87,8 @@ a:hover{
 }
 
 .buttonStyle:hover{
- transform: translateY(-2px); 
+ transform: translateY(-2px);
+ text-decoration: none;
 }
 /*
 ---------------------
@@ -97,11 +98,23 @@ a:hover{
 
 #breadcrumb{
   font-size: 1.1em;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: var(--primaryColor);
   border-bottom: 2px solid #FFF;
   align-items: center;
+}
+
+#breadcrumb a:nth-child(2){
+  justify-self: center;
+}
+
+#breadcrumb p:first-child{
+  justify-self: left;
+}
+
+#breadcrumb a:last-child{
+  justify-self: right;
 }
 
 #breadcrumb p, #breadcrumb a{
@@ -158,7 +171,13 @@ header h1{
   margin: auto 1em;
   padding: 1px 0;
   position: relative;
+  font-weight: 500;
 }
+
+#menu #currentPageLink{
+  color: var(--secondaryColor);
+}
+
 
 #menu>ul>li>a{
   line-height: 1.5em;
@@ -254,21 +273,80 @@ header h1{
 input[type="text"], input[type="password"]{
   font-size: 1.1em;
   border: none;
-  border-bottom: 2px solid var(--primaryColor);
+  border-bottom: 3px solid var(--primaryColor);
   transition: border-bottom .2s ease-out;
+  padding: 0.25em 0;
 }
 
 input[type="text"]:focus, input[type="password"]:focus{
-  border-bottom: 2px solid var(--secondaryColor);
+  border-bottom: 3px solid var(--secondaryColor);
   outline: none;
 }
+
+label{
+  color: var(--primaryColor);
+  position: absolute;
+  top: 2em;
+  transition: transform 0.3s ease-out;
+}
+
+input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="password"]:focus ~ label, input[type="password"]:valid ~ label{
+  transform: translateY(-1em);
+}
+
+.inputLabelContainer{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+}
+
+.errorMessageBgPar{
+  background-color: var(--errorColor);
+  padding: 0.5em 1em;
+  color: #FFF;
+  border-radius: 5px;
+  font-weight: 600;
+  margin: 1em 0 0 0;
+}
+
+/*
+---------------------
+    CARD
+---------------------
+*/
+.card{
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  padding: .75rem;
+}
+
 /*
 ---------------------
     LOGIN
 ---------------------
 */
+#loginBody{
+  background: rgba(var(--tertiaryColorRGB), 0.4);
+}
+
 #loginMain{
   margin: 2em auto;
+  width: 100%;
+  max-width: 425px;
+}
+
+#loginMain>h1{
+  font-size: 2.5em;
+  margin-top: 0.5em;
+}
+
+#loginForm{
+  width: 75%;
+  margin: 0 auto;
 }
 
 #loginForm>input{
@@ -278,18 +356,22 @@ input[type="text"]:focus, input[type="password"]:focus{
 
 #loginForm>input[type="submit"]{
   background: var(--primaryColor);
-  background: linear-gradient(150deg, var(--primaryColor) 30%, var(--tertiaryColor) 90%);
+  background: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%);
   color: #FFF;
   padding: 0.75em 0;
   font-size: 1.25em;
   font-weight: 600;
+  margin: 1.5em 0 1em 0;
+  width: 100%;
+  border-radius: 2px;
 }
 
 #registrationButton{
   color: #000;
   border-color: #000;
-  border-image: linear-gradient(150deg, var(--primaryColor) 30%, var(--tertiaryColor) 90%) 1;
+  border-image: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%) 1;
   border-width: 5px;
   border-style: solid;
   font-weight: 500;
+  margin: 1em 0 0.5em 0;
 }
