@@ -98,11 +98,23 @@ a:hover{
 
 #breadcrumb{
   font-size: 1.1em;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: var(--primaryColor);
   border-bottom: 2px solid #FFF;
   align-items: center;
+}
+
+#breadcrumb a:nth-child(2){
+  justify-self: center;
+}
+
+#breadcrumb p:first-child{
+  justify-self: left;
+}
+
+#breadcrumb a:last-child{
+  justify-self: right;
 }
 
 #breadcrumb p, #breadcrumb a{
