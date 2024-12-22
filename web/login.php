@@ -11,14 +11,19 @@
 
     include_once 'header.php';
 
-    if(isset($_SESSION['loginFailed'])){
+    if(!isset($_SESSION['username'])){
+        $context['userInfosHeader'] = "";
+}
+
+    if(isset($_SESSION['lastLoginUsernameInserted'])){
         $context['loginErrorMessage'] = '<p class="errorMessageBgPar">Username o password errati o mancanti</p>';
+        $context['oldUsername'] = $_SESSION['lastLoginUsernameInserted'];
     }else{
         $context['loginErrorMessage'] = '';
+        $context['oldUsername'] = '';
     }
 
-    $_SESSION['loginFailed'] = null;
-
+    $_SESSION['lastLoginUsernameInserted'] = null;
 
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
@@ -31,7 +36,7 @@
             header('Location: index.php');
             exit();
         } else {
-            $_SESSION['loginFailed'] = true;
+            $_SESSION['lastLoginUsernameInserted'] = $username;
             header('Location: login.php');
             exit();
         }
