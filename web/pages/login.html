@@ -39,7 +39,7 @@
             {{ $loginErrorMessage }}
             <form method="POST" id="loginForm" class="column">
                 <div class="inputLabelContainer">
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username" value="{{ $oldUsername }}" required>
                     <label for="username">Username</label>
                 </div>
                 <div class="inputLabelContainer">
