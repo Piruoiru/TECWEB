@@ -1,3 +1,4 @@
+"use strict";
 const month = document.getElementById("month");
 const calendar = document.getElementById("calendar");
 
@@ -26,7 +27,7 @@ function buildCalendar(){
   const dayOne = (new Date(year, thisMonth).getDay()+6)%7;
   const monthDays = 32 - new Date(year, thisMonth, 32).getDate();
 
-  date = 1;
+  let date = 1;
   for (let i = 0; i < 6; i++) {
     let row = document.createElement("tr");
     for (let j = 0; j < 7; j++) {
@@ -75,24 +76,24 @@ function dateSelected(date, month, year){
 
 const nextMonth = () => {
   thisMonth = thisMonth + 1;
-  calendar.innerHTML = ""
+  calendar.innerHTML = "";
 
   if(thisMonth > 11){
-    year = year + 1
-    thisMonth = 0
+    year = year + 1;
+    thisMonth = 0;
   }
-  buildCalendar()
-  return thisMonth
+  buildCalendar();
+  return thisMonth;
 };
 
 const prevMonth = () => {
   thisMonth = thisMonth - 1;
-  calendar.innerHTML = ""
+  calendar.innerHTML = "";
 
   if(thisMonth < 0){
-    year = year - 1
-    thisMonth = 11
+    year = year - 1;
+    thisMonth = 11;
   }
-  buildCalendar()
-  return thisMonth
+  buildCalendar();
+  return thisMonth;
 };
