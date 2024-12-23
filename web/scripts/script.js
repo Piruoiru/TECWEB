@@ -1,25 +1,36 @@
 "use strict";
-const month = document.getElementById("month");
-const calendar = document.getElementById("calendar");
 
-const DATE = new Date();
-let thisMonth = DATE.getMonth();
-let year = DATE.getFullYear();
+function initCalendar(){
+  const month = document.getElementById("month");
+  const calendar = document.getElementById("calendar");
 
-const MONTHS = [
-  "Gennaio",
-  "Febbraio",
-  "Marzo",
-  "Aprile",
-  "Maggio",
-  "Giugno",
-  "Luglio",
-  "Agosto",
-  "Settembre",
-  "Ottobre",
-  "Novembre",
-  "Dicembre",
-];
+  const DATE = new Date();
+  let thisMonth = DATE.getMonth();
+  let year = DATE.getFullYear();
+
+  const MONTHS = [
+    "Gennaio",
+    "Febbraio",
+    "Marzo",
+    "Aprile",
+    "Maggio",
+    "Giugno",
+    "Luglio",
+    "Agosto",
+    "Settembre",
+    "Ottobre",
+    "Novembre",
+    "Dicembre",
+  ];
+
+  window.month = month;
+  window.calendar = calendar;
+  window.DATE = DATE;
+  window.thisMonth = thisMonth;
+  window.year = year; 
+  window.MONTHS = MONTHS;
+  buildCalendar();
+}
 
 function buildCalendar(){
   month.innerHTML = `${MONTHS[thisMonth]} ${year}`;
