@@ -292,7 +292,6 @@ header h1{
 
 /*
 ---------------------
-<<<<<<< HEAD
     CALENDAR PAGE
 ---------------------
 */
@@ -357,7 +356,8 @@ header h1{
   text-align: center;
 }
 
-=======
+/*
+---------------------
     FORMS
 ---------------------
 */
@@ -466,4 +466,3 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="
   font-weight: 500;
   margin: 1em 0 0.5em 0;
 }
->>>>>>> main
