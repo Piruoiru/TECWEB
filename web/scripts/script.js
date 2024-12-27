@@ -23,12 +23,21 @@ function initCalendar(){
     "Dicembre",
   ];
 
+  // Array con i giorni di chiusura del parco (in formato [giorno, mese, anno])
+  const closedDays = [
+    { day: 25, month: 12, year: 2024 },  // Natale 2024
+    { day: 1, month: 1, year: 2025 },    // Capodanno 2025
+    { day: 6, month: 1, year: 2025 }    // Epifania 2025
+    // Aggiungi altri giorni di chiusura se necessario
+  ];
+
   window.month = month;
   window.calendar = calendar;
   window.DATE = DATE;
   window.thisMonth = thisMonth;
   window.year = year; 
   window.MONTHS = MONTHS;
+  window.closedDays = closedDays;
   buildCalendar();
 }
 
@@ -82,6 +91,17 @@ function buildCalendar(){
 };
 
 function dateSelected(date, month, year){
+  // Verifica se la data selezionata è un giorno di chiusura
+  let isClosed = closedDays.some(day => day.day === parseInt(date) && day.month === parseInt(month) && day.year === parseInt(year));
+
+  const closedParkCalendar = window.closedParkCalendar;
+
+  if (isClosed) {
+    closedParkCalendar.textContent = "Il parco è chiuso in questa data, ci dispiace!";
+  } else {
+    closedParkCalendar.textContent = "Il parco è aperto, Buona visita!";
+  }
+
   alert(`${date}/${month}/${year}`);
 }
 

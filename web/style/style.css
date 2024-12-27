@@ -184,14 +184,14 @@ header h1{
 
 .subsubtitleCalendar{
   font-size: 1.2em;
-  padding: 0.2em 0.5em;
+  padding: 0.7em 0.5em;
   text-align: justify;
 }
 
 .wrapCalendarTable{
   display: flex;
   align-items: center;
-  gap: 22em;
+  gap: 5em;
 }
 
 #calendarTable{
@@ -215,10 +215,11 @@ header h1{
   color: gray; /* Colore del testo aggiuntivo */
 }
 
-#photoOpenPark{
+/* #photoOpenPark{
   width: 7em;
   height: auto;
-}
+  left: 25%;
+} */
 
 #closedParkCalendar{
   text-align: center;
