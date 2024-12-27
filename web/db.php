@@ -39,7 +39,7 @@
                 throw new \Exception("Error querying the database");
             }
             $result = $stmt->get_result()->num_rows;
-            echo $result;
+            // echo $result; FIXME: togliere? É debug
             return $result === 0 ? false : true;
         }
 
