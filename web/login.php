@@ -11,9 +11,8 @@
 
     include_once 'header.php';
 
-    if(!isset($_SESSION['username'])){
-        $context['userInfosHeader'] = "";
-}
+    $context['userInfosHeader'] = "";//non mostro i pulsanti login e registrati in alto
+
 
     if(isset($_SESSION['lastLoginUsernameInserted'])){
         $context['loginErrorMessage'] = '<p class="errorMessageBgPar">Username o password errati o mancanti</p>';
