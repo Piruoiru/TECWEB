@@ -34,13 +34,14 @@
         if($db->login($username,$password)){
         $_SESSION['username'] = $username; 
             header('Location: index.php');
+            $db->close();
             exit();
         } else {
             $_SESSION['lastLoginUsernameInserted'] = $username;
             header('Location: login.php');
+            $db->close();
             exit();
         }
-        $db->close();
         exit();
     }
 
