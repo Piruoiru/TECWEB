@@ -39,16 +39,15 @@
                 throw new \Exception("Error querying the database");
             }
             $result = $stmt->get_result()->num_rows;
-            // echo $result; FIXME: togliere? É debug
             return $result === 0 ? false : true;
         }
 
-        public function register($username,$password){
-            $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        public function register($name, $surname, $username, $password){
+            $sql = "INSERT INTO users (nome, cognome, username, password) VALUES (?, ?, ?, ?)";
             $stmt = $this->conn->prepare($sql);
             $password = hash('sha256',$password);
-            $stmt->bind_param('ss', $username ,$password);
-            return $stmt->execute();
+            $stmt->bind_param('ssss', $name, $surname, $username ,$password);
+            return $stmt->execute();//FIXME: chiusura prepared stmt
         }
 
         public function fetchCart($username){

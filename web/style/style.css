@@ -327,13 +327,13 @@ input[type="text"], input[type="password"]{
   padding: 0.25em 0;
 }
 
-input[type="text"]:invalid, input[type="password"]:invalid{
-  border-bottom: 3px solid var(--errorColor);
+input[type="text"]:focus, input[type="password"]:focus{
+  border-bottom: 3px solid var(--secondaryColor);
   outline: none;
 }
 
-input[type="text"]:focus, input[type="password"]:focus{
-  border-bottom: 3px solid var(--secondaryColor);
+input[type="text"]:invalid, input[type="password"]:invalid{
+  border-bottom: 3px solid var(--errorColor);
   outline: none;
 }
 
@@ -368,6 +368,15 @@ label{
   border-radius: 5px;
   font-weight: 600;
   margin: 1em 0 0 0;
+  max-width: 75%;
+}
+
+.errorMessageBgPar>ul{
+  margin-left: 1em;
+}
+
+.errorMessageBgPar>p + ul{
+  margin-top: 0.5em;
 }
 
 .errorMessagePar{

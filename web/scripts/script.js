@@ -5,14 +5,21 @@
 */
 
 function loadForm(formDetails) {
+    console.log(formDetails);
     for(var key in formDetails){
         var input = document.getElementById(key);
         onEmptyField(input);
         // messaggio(input, 0);
+        input.firstInput = true;
         input.onblur = function() {
             validateField(this, formDetails);
             onEmptyField(this);
-
+            this.firstInput = false;
+        }
+        input.oninput = function() {
+            if(!this.firstInput){
+                validateField(this, formDetails);
+            }
         }
         input.onfocus = function() {
             this.previousElementSibling.classList.add("nonEmptyFieldLabel");
@@ -40,17 +47,9 @@ function validateField(input, formDetails) {
         inputLabelContainer.nextElementSibling.remove();
     }
 
-    // if(text.length == 0){
-    //     input.classList.toggle("emptyField", true);
-    // }else{
-    //     input.classList.toggle("emptyField", false);
-    // }
-
-    if(text.search(regex)!=0){//casi in cui match non è stato trovato proprio o all'inizio
+    if(text.search(regex)!=0){
         input.setCustomValidity(formDetails[input.id][2]);
-        messaggio(input, 1);
-        // input.focus();
-        // input.select();//Seleziona tutto il testo. Si usa se l'input è corto ed è probabile che l'utente riscriva tutto. Aiuta chi usa input vocale
+        messaggio(input, 1, formDetails);
         return false;//non invia form
     }
     input.setCustomValidity("");
@@ -67,7 +66,7 @@ function validateForm(formDetails) {
     return true;
 }
     
-function messaggio(input, mode) {
+function messaggio(input, mode, formDetails) {
 /* mode = 0, modalità input
    mode = 1, modalità errore */
     var node;//tag con il messaggio
@@ -77,13 +76,13 @@ function messaggio(input, mode) {
         //creo messaggio di aiuto
         node=document.createElement("p");
         // node.className="default-text";
-        node.appendChild(document.createTextNode(registrationFormDetails[input.id][0]));
+        node.appendChild(document.createTextNode(formDetails[input.id][0]));
         // inputLabelContainer.insertAdjacentElement('afterend', node);
     }else{
         //creo messaggio di errore
         node=document.createElement("p");
         node.className="errorMessagePar";
-        node.appendChild(document.createTextNode(registrationFormDetails[input.id][2]));
+        node.appendChild(document.createTextNode(formDetails[input.id][2]));
         inputLabelContainer.insertAdjacentElement('afterend', node);
     }
 }
@@ -97,8 +96,8 @@ function messaggio(input, mode) {
 */
 
 var loginFormDetails = {
-    "username":["Ex: MarioRossi", /^.*/, ""],
-    "password":["Ex: 1234abcd", /^.*/, ""],
+    "username":["Ex: MarioRossi", /^./, "Inserisci un username"], //FIXME: generato da copilot
+    "password":["Ex: 1234abcd", /^./, "Inserisci una password"],
 };
 
 /*
@@ -114,9 +113,11 @@ var loginFormDetails = {
  */
             
 var registrationFormDetails = {
-    "nome":["Ex: Mario", /^[A-za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
-    "cognome":["Ex: Rossi", /^[A-za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
-    "username":["Ex: MarioRossi", /^[A-Za-z0-9]{5,}/, "Inserire un username composto da almeno 5 caratteri alfanumerici"], //FIXME: generato da copilot
-    "password":["Ex: 1234abcd", /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/, "Inserire una password composta da almeno 8 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"], //FIXME: generato da copilot
-    "passwordConfirm":["Ex: 1234abcd", /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/, "Inserire una password composta da almeno 8 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"], //FIXME: generato da copilot
+    "nome":["Ex: Mario", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
+    "cognome":["Ex: Rossi", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
+    "username":["Ex: MarioRossi", /^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"], //FIXME: generato da copilot
+    "password":["Ex: 1234abcd", /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}/, "Inserire una password composta da 4 a 20 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"], //FIXME: generato da copilot
+    "passwordConfirm":["Ex: 1234abcd", /^.*/, ""], //FIXME: generato da copilot
 };
+
+//FIXME: verifica password e passwordConfirm
