@@ -15,7 +15,7 @@
 
         <script src="scripts/script.js"></script>
     </head>
-    <body class="tertiaryBg" onload="loadForm(loginFormDetails)">
+    <body class="tertiaryBg" onload="loadGenericForm(loginFormDetails)">
         <nav id="breadcrumb">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Login</p>
             <p>Orario di oggi: {{ $orario }}</p>
@@ -37,7 +37,7 @@
         <main class="centerColumn card" id="loginMain">
             <h1 lang="en">Login</h1>
             {{ $loginErrorMessage }}
-            <form method="POST" id="loginForm" class="column" onsubmit="return validateForm(loginFormDetails);">
+            <form method="POST" id="loginForm" class="column" onsubmit="return validateGenericForm(loginFormDetails);">
                 <div class="inputLabelContainer">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" value="{{ $oldUsername }}">

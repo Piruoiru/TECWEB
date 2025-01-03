@@ -418,7 +418,7 @@ label{
     REGISTRATION ONLY
 ---------------------
 */
-#userRegistrationMain{ /*FIXME: unire con #loginMain?*/
+#userRegistrationMain{
   margin: 2em auto;
   max-width: 425px;
 }
