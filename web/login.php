@@ -26,6 +26,7 @@
             $_SESSION['username'] = $username; 
             $db->close();
             header('Location: index.php');
+            $db->close();
             exit();
         }
         $db->close();

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //RICHIEDE CHE LA SESSIONE SIA ATTIVA
 
     $context['orario'] = "10:00-17:00";

@@ -1,6 +1,4 @@
 <?php   
-    session_start();
-
     include_once 'db.php';
     $db = new DatabaseClient();
     $db->connect();

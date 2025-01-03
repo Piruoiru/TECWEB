@@ -22,7 +22,7 @@ INSERT INTO users(username,password, nome, cognome) VALUES
 
 CREATE TABLE spettacoli(
     titolo  varchar(50) PRIMARY KEY NOT NULL,
-    descrizione varchar(300) NOT NULL
+    descrizione varchar(500) NOT NULL
 );
 
 INSERT INTO spettacoli(titolo,descrizione) VALUES
