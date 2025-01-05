@@ -9,13 +9,13 @@ DROP TABLE IF EXISTS bigliettiAcquistati;
 CREATE TABLE users(
     username varchar(20) NOT NULL PRIMARY KEY,
     password varchar(64) NOT NULL,
-    nome varchar(35) NOT NULL,
-    cognome varchar(50) NOT NULL
+    name varchar(35) NOT NULL,
+    surname varchar(50) NOT NULL
 );  
 
 -- tutte le passwords devono essere hash sha256, per ora admin ad esempio ha password "a"
 
-INSERT INTO users(username,password, nome, cognome) VALUES
+INSERT INTO users(username,password, name, surname) VALUES
 ('admin','ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', 'Mario', 'Rossi'),
 ('user','ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', "Lucia", "Bianchi");
 
@@ -54,8 +54,7 @@ CREATE TABLE bigliettiCarrello(
 
 INSERT INTO bigliettiCarrello(biglietto,utente,quantita) VALUES 
 ('1','user',5),
-('2','user',1),
-('3','user',2);
+('2','user',1);
 
 CREATE TABLE bigliettiAcquistati(
     biglietto char(5) NOT NULL,
@@ -69,5 +68,4 @@ CREATE TABLE bigliettiAcquistati(
 
 INSERT INTO bigliettiAcquistati(biglietto,utente,dataOrarioAcquisto,quantita) VALUES 
 ('1','user',now(),5),
-('2','user',now(),4),
-('3','user',now(),2);
+('2','user',now(),4);
