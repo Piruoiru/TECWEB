@@ -222,3 +222,29 @@ function userExists(input) {
     xhttp.open("GET", "checkIfUserExists.php?username="+input.value, true);
     xhttp.send();
 }
+
+/*
+---------------------
+    MAP FORM
+---------------------
+*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('#filters button');
+    const attractions = document.querySelectorAll('#attractionList li');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category');
+
+            attractions.forEach(attraction => {
+                // Mostra tutte le attrazioni se la categoria è "all"
+                if (category === 'all' || attraction.getAttribute('data-category') === category) {
+                    attraction.style.display = 'list-item';
+                } else {
+                    attraction.style.display = 'none';
+                }
+            });
+        });
+    });
+});

@@ -451,3 +451,44 @@ label{
   border: 0;
   border-radius: 2px;
 }
+
+/*
+----------------
+    MAP STYLE
+----------------
+*/
+
+#filters button {
+  margin: 0.2em;
+  padding: 1em;
+  border: none;
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+  cursor: pointer;
+}
+
+#filters button:hover {
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+}
+
+#filters {
+  padding: 1.5em;
+  display: flex;
+  flex-direction: row;
+}
+
+#mapContainer {
+  display: flex;
+  flex-direction:row;
+}
+
+#containerFilters{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#photoOpenPark{
+  width: 60%;
+}

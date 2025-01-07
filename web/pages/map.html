@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login - DreamVille</title>
+        <link rel="shortcut icon" href="assets/logo.png" />
+        <meta charset="utf-8">
+        <meta name="description" content="">    
+        <meta name="keywords" content="parco, divertimento, giostre, weekend, DreamVille, famiglie, attività">
+    
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+        <script src="scripts/script.js"></script>
+    </head>
+    <body id="loginBody">
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Login</p>
+            <p>Orario di oggi: {{ $orario }}</p>
+            <div id="userCrumb">{{ $userInfosHeader }}</div>
+        </nav>
+        <div id="headerNavWrapper">
+            <header>
+                <h1><span lang="en">DreamVille</span></h1>
+            </header>
+            <nav id="menu">
+                <ul>
+                    <li lang="en"><a href="index.php">Home</a></li>
+                    <li><a href="#">Scopri <span lang="en">DreamVille</span></a></li>
+                    <li><a href="#">Informazioni per la tua visita</a></li>
+                    <li><a href="#">Compra biglietti e abbonamenti</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <h1>Mappa del parco</h1>
+            <p>A Dreamville ci sono ancora tantissimi angoli da esplorare! Con la mappa del Parco, potrai visitare ogni area con facilità e tornare quando preferisci. </p>
+            <p>Grazie alla sua semplicità e chiarezza, scoprirai attrazioni, negozi, ristoranti, aree tematiche e molto altro. </p>
+            <p>Tanti luoghi fantastici ti aspettano per essere scoperti!</p>
+            <p> </p>
+            <h2>Lista delle attrazioni</h2>
+            <p>Qui sotto troverai la lista delle attrazioni presenti nel parco. Clicca su una di esse per visualizzarla sulla mappa.</p>
+            <div id="mapContainer">
+                <div id="containerFilters">
+                    <div id="filters">
+                        <button data-category="all">Tutte</button>
+                        <button data-category="adrenaliniche">Adrenaliniche</button>
+                        <button data-category="fantasy">Fantasy</button>
+                        <button data-category="bambini">Per bambini</button>
+                    </div>
+                        <ul id="attractionList">
+                            <li data-category="adrenaliniche">Montagne russe</li>
+                            <li data-category="fantasy">Ruota panoramica</li>
+                            <li data-category="fantasy">Casa degli orrori</li>
+                            <li data-category="adrenaliniche">Cinema 4D</li>
+                            <li data-category="bambini">Piscina a onde</li>
+                            <li data-category="bambini">Pista di pattinaggio</li>
+                            <li data-category="fantasy">Teatro</li>
+                            <li data-category="bambini">Ristorante</li>
+                            <li data-category="bambini">Negozio di souvenir</li>
+                            <li data-category="bambini">Area picnic</li>
+                        </ul>
+                    </div>
+                    <img id="photoOpenPark" src="assets/mappa_parco.png" alt="mappa del parco">
+            </div>
+        </main>
+    </body>
+</html>
