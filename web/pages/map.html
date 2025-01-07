@@ -36,12 +36,15 @@
         </div>
         <main>
             <h1>Mappa del parco</h1>
+            <p> </p>
             <p>A Dreamville ci sono ancora tantissimi angoli da esplorare! Con la mappa del Parco, potrai visitare ogni area con facilità e tornare quando preferisci. </p>
             <p>Grazie alla sua semplicità e chiarezza, scoprirai attrazioni, negozi, ristoranti, aree tematiche e molto altro. </p>
             <p>Tanti luoghi fantastici ti aspettano per essere scoperti!</p>
             <p> </p>
             <h2>Lista delle attrazioni</h2>
+            <p> </p>
             <p>Qui sotto troverai la lista delle attrazioni presenti nel parco. Clicca su una di esse per visualizzarla sulla mappa.</p>
+            <p> </p>
             <img id="photoOpenPark" src="assets/mappa_parco.png" alt="mappa del parco">
             <div id="mapContainer">
                 <div id="containerFilters">
@@ -52,80 +55,110 @@
                         <button data-category="bambini">Per bambini</button>
                     </div>
                         <ul id="attractionList">
-                            <li data-category="adrenaliniche">
+                            <li data-category="adrenaliniche" class="cardAttrazione">
                                 <h3>La Folgore</h3>
-                                <p>Una corsa mozzafiato con discese vertiginose e inversioni a testa in giù. Perfetto per gli amanti dell’adrenalina! I vagoni sono ispirati a fulmini lampeggianti.</p>
-                                <img src="assets/" alt="La Folgore">
+                                <div class="styleCardAttrazione">
+                                    <p>Una corsa mozzafiato con discese vertiginose e inversioni a testa in giù. Perfetto per gli amanti dell’adrenalina! I vagoni sono ispirati a fulmini lampeggianti.</p>
+                                    <img src="../assets/la_folgore.png" alt="La Folgore">
+                                </div>
                             </li>
-                            <li data-category="fantasy">
+                            <li data-category="fantasy" class="cardAttrazione">
                                 <h3>Vista Infinita</h3>
-                                <p>Una gigantesca ruota panoramica che offre viste spettacolari su tutto il parco. Ogni cabina è tematizzata con colori vivaci e decorazioni luminose.</p>
-                                <img src="assets/" alt="Vista Infinita">
+                                <div class="styleCardAttrazione">
+                                    <p>Una gigantesca ruota panoramica che offre viste spettacolari su tutto il parco. Ogni cabina è tematizzata con colori vivaci e decorazioni luminose.</p>
+                                    <img src="../assets/ruota_panoramica.png" alt="Vista Infinita">
+                                </div>
                             </li>
-                            <li data-category="fantasy">
+                            <li data-category="fantasy" class="cardAttrazione">
                                 <h3>Castello Incantato</h3>
-                                <p>Un percorso interattivo in un castello pieno di magie: scopri incantesimi, draghi animatronici e sorprese a ogni angolo.</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Un percorso interattivo in un castello pieno di magie: scopri incantesimi, draghi animatronici e sorprese a ogni angolo.</p>
+                                    <img src="../assets/castello_incantato.png" alt="Castello Incantato">
+                                </div>
                             </li>
-                            <li data-category="bambini">
+                            <li data-category="bambini" class="cardAttrazione">
                                 <h3>Giostra dei Cavalieri</h3>
-                                <p>Una classica giostra con cavalli, carrozze e unicorni decorati.   Perfetta per i più piccoli e per chi cerca un’atmosfera da favola.</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Una classica giostra con cavalli, carrozze e unicorni decorati.   Perfetta per i più piccoli e per chi cerca un’atmosfera da favola.</p>
+                                    <img src="../assets/giostra_dei_cavalieri.png" alt="Giostra dei Cavalieri">
+                                </div>
                             </li>
-                            <li data-category="bambini">
+                            <li data-category="bambini" class="cardAttrazione">
                                 <h3>Fiume Selvaggio</h3>
-                                <p>Scivola su tronchi galleggianti lungo rapide e cascate. Preparati a bagnarti nella grande discesa finale!</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Scivola su tronchi galleggianti lungo rapide e cascate. Preparati a bagnarti nella grande discesa finale!</p>
+                                    <img src="../assets/fiume_selvaggio.png" alt="Fiume Selvaggio">
+                                </div>
                             </li>
-                            <li data-category="bambini">
+                            <li data-category="bambini" class="cardAttrazione">
                                 <h3>Labirinto degli Specchi</h3>
-                                <p>Un intricato labirinto di specchi dove perdersi e divertirsi a ritrovare l’uscita. Luci colorate rendono l’esperienza ancora più magica.</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Un intricato labirinto di specchi dove perdersi e divertirsi a ritrovare l’uscita. Luci colorate rendono l’esperienza ancora più magica.</p>
+                                    <img src="../assets/labirinto_degli_specchi.png" alt="Labirinto degli Specchi">
+                                </div>
                             </li>
-                            <li data-category="fantasy">
+                            <li data-category="fantasy" class="cardAttrazione">
                                 <h3>Avventure Galattiche</h3>
-                                <p>Un’esperienza cinematografica immersiva con effetti speciali: sedili in movimento, spruzzi d’acqua e vento sincronizzati con il film.</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Un’esperienza cinematografica immersiva con effetti speciali: sedili in movimento, spruzzi d’acqua e vento sincronizzati con il film.</p>
+                                    <img src="../assets/avventure_galattiche.png" alt="Avventure Galattiche">
+                                </div>
                             </li>
-                            <li data-category="adrenaliniche">
+                            <li data-category="adrenaliniche" class="cardAttrazione">
                                 <h3>Il Vuoto</h3>
-                                <p>Sali fino a 60 metri di altezza e poi precipita in una discesa a velocità mozzafiato. Un mix di emozione e terrore!</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Sali fino a 60 metri di altezza e poi precipita in una discesa a velocità mozzafiato. Un mix di emozione e terrore!</p>
+                                    <img src="../assets/il_vuoto.png" alt="Il Vuoto">
+                                </div>
                             </li>
-                            <li data-category="fantasy">
+                            <li data-category="fantasy" class="cardAttrazione">
                                 <h3>Esploratori del Bosco</h3>
-                                <p>Un trenino che attraversa un’area tematizzata come una foresta incantata, con animali animatronici e suoni della natura.</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Un trenino che attraversa un’area tematizzata come una foresta incantata, con animali animatronici e suoni della natura.</p>
+                                    <img src="../assets/esploratori_del_bosco.png" alt="Esploratori del Bosco">
+                                </div>
                             </li>
-                            <li data-category="fantasy">
+                            <li data-category="fantasy" class="cardAttrazione">
                                 <h3>Il Galeone Oscillante</h3>
-                                <p>Una gigantesca nave pirata che dondola avanti e indietro, regalando una sensazione di volo ai suoi passeggeri.</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Una gigantesca nave pirata che dondola avanti e indietro, regalando una sensazione di volo ai suoi passeggeri.</p>
+                                    <img src="../assets/il_galeone_oscillante.png" alt="Il Galeone Oscillante">
+                                </div>
                             </li>
-                            <li data-category="fantasy">
+                            <li data-category="fantasy" class="cardAttrazione">
                                 <h3>Safari Avventura</h3>
-                                <p>Un percorso su jeep elettriche attraverso un ambiente simulato con animali selvaggi robotici e scenari realistici.</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Un percorso su jeep elettriche attraverso un ambiente simulato con animali selvaggi robotici e scenari realistici.</p>
+                                    <img src="../assets/safari_avventura.png" alt="Safari Avventura">
+                                </div>
                             </li>
-                            <li data-category="adrenaliniche">
+                            <li data-category="adrenaliniche" class="cardAttrazione">
                                 <h3>Vortice Stellare</h3>
-                                <p>Un’attrazione con luci al neon e velocità elevate. Salta a bordo per una corsa che simula il viaggio attraverso un buco nero!</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Un’attrazione con luci al neon e velocità elevate. Salta a bordo per una corsa che simula il viaggio attraverso un buco nero!</p>
+                                    <img src="../assets/vortice_stellare.png" alt="Vortice Stellare">
+                                </div>
                             </li>
-                            <li data-category="adrenaliniche">
+                            <li data-category="adrenaliniche" class="cardAttrazione">
                                 <h3>La Maledizione di Ravenwood</h3>
-                                <p>Un’esperienza horror con effetti speciali, attori in costume e stanze spaventose. Non adatto ai deboli di cuore!</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Un’esperienza horror con effetti speciali, attori in costume e stanze spaventose. Non adatto ai deboli di cuore!</p>
+                                    <img src="../assets/la_maledizione_di_ravenwood.png" alt="La Maledizione di Ravenwood">
+                                </div>
                             </li>
-                            <li data-category="adrenaliniche">
+                            <li data-category="adrenaliniche" class="cardAttrazione">
                                 <h3>Sospesi nel Vuoto</h3>
-                                <p>Un’area dedicata all’arrampicata e ai percorsi sospesi tra alberi, con ponti di corda e zip-line per tutte le età.</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Un’area dedicata all’arrampicata e ai percorsi sospesi tra alberi, con ponti di corda e zip-line per tutte le età.</p>
+                                    <img src="../assets/sospesi_nel_vuoto.png" alt="Sospesi nel Vuoto">
+                                </div>
                             </li>
-                            <li data-category="bambini">
+                            <li data-category="bambini" class="cardAttrazione">
                                 <h3>Laguna Tropicale</h3>
-                                <p>Una piscina interattiva con fontane danzanti, scivoli d’acqua e spruzzi per il divertimento dei più piccoli.</p>
-                                <img src="" alt="">
+                                <div class="styleCardAttrazione">
+                                    <p>Una piscina interattiva con fontane danzanti, scivoli d’acqua e spruzzi per il divertimento dei più piccoli.</p>
+                                    <img src="../assets/laguna_tropicale.png" alt="Laguna Tropicale">   
+                                </div>
                             </li>
                         </ul>
                     </div>
