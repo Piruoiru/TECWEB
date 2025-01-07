@@ -102,7 +102,7 @@ function dateSelected(date, month, year){
     closedParkCalendar.textContent = "Il parco è aperto, Buona visita!";
   }
 
-  alert(`${date}/${month}/${year}`);
+//   alert(`${date}/${month}/${year}`);
 }
 
 const nextMonth = () => {
