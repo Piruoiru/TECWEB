@@ -491,6 +491,22 @@ label{
   transition: all .2s ease-in-out;
 }
 
+#tutteBtn{
+  border: 5px solid var(--primaryColor);
+  color: #000;
+}
+
+#tutteBtn:hover{
+  background-color: var(--primaryColor);
+  color: #FFF;
+}
+
+#filtersContainer>.tutteBtnSelected{
+  background-color: var(--primaryColor);
+  color: #FFF;
+  cursor: default;
+}
+
 #adrenalinicheBtn{
   border: 5px solid var(--errorColor); /*FIXME: cambiare error color*/
   color: #000;
@@ -499,6 +515,12 @@ label{
 #adrenalinicheBtn:hover{
   background-color: var(--errorColor);
   color: #FFF;
+}
+
+#filtersContainer>.adrenalinicheBtnSelected{
+  background-color: var(--errorColor);
+  color: #FFF;
+  cursor: default;
 }
 
 #fantasyBtn{
@@ -511,6 +533,12 @@ label{
   color: #FFF;
 }
 
+#filtersContainer>.fantasyBtnSelected{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+  cursor: default;
+}
+
 #bambiniBtn{
   border: 5px solid var(--secondaryColor);
   color: #000;
@@ -520,14 +548,9 @@ label{
   background-color: var(--secondaryColor);
 }
 
-#tutteBtn{
-  border: 5px solid var(--primaryColor);
-  color: #000;
-}
-
-#tutteBtn:hover{
-  background-color: var(--primaryColor);
-  color: #FFF;
+#filtersContainer>.bambiniBtnSelected{
+  background-color: var(--secondaryColor);
+  cursor: default;
 }
 
 #filtersContainer {

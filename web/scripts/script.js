@@ -233,18 +233,22 @@ function loadRidesFilter() {
     var filterButtons = document.querySelectorAll('#filtersContainer button');
     var attractions = document.querySelectorAll('#attractionList li');
 
-    filterButtons.forEach(button => {
-        button.onclick = () => {
+    filterButtons.forEach(clickedButton => {
+        clickedButton.onclick = () => {
+            var category = clickedButton.getAttribute('data-category');
             var filterButtons = document.querySelectorAll('#filtersContainer button');
+            //Disabilita il bottone cliccato e cambia lo stile di tutti
             filterButtons.forEach(btn => {
-                if(button===btn){
-                    // btn.disabled = true;
+                if(clickedButton===btn){
+                    btn.disabled = true;
+                    btn.classList.add(btn.id + 'Selected');
                 }else{
-                    // btn.disabled = false;
+                    btn.disabled = false;
+                    btn.classList.remove(btn.id + 'Selected');
                 }
             });
-            var category = button.getAttribute('data-category');
 
+            //Mostra solo le attrazioni della categoria selezionata
             attractions.forEach(attraction => {
                 // Mostra tutte le attrazioni se la categoria è "tutte"
                 if (category === 'tutte' || attraction.getAttribute('data-category') === category) {
