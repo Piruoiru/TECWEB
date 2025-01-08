@@ -482,9 +482,7 @@ label{
 }
 
 #filtersContainer>button{
-  border: 5px solid var(--primaryColor);
   border-radius: 2px;
-  color: #000;
   background: transparent;
   font-size: 1.1em;
   font-weight: 500;
@@ -493,15 +491,43 @@ label{
   transition: all .2s ease-in-out;
 }
 
-#filtersContainer>button:hover{
-  background-color: var(--primaryColor);
+#adrenalinicheBtn{
+  border: 5px solid var(--errorColor); /*FIXME: cambiare error color*/
+  color: #000;
+}
+
+#adrenalinicheBtn:hover{
+  background-color: var(--errorColor);
   color: #FFF;
 }
 
-#filtersContainer #currentBtn{
-  background-color: var(--secondaryColor);
+#fantasyBtn{
+  border: 5px solid var(--tertiaryColor);
   color: #000;
-  cursor: default;
+}
+
+#fantasyBtn:hover{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+}
+
+#bambiniBtn{
+  border: 5px solid var(--secondaryColor);
+  color: #000;
+}
+
+#bambiniBtn:hover{
+  background-color: var(--secondaryColor);
+}
+
+#tutteBtn{
+  border: 5px solid var(--primaryColor);
+  color: #000;
+}
+
+#tutteBtn:hover{
+  background-color: var(--primaryColor);
+  color: #FFF;
 }
 
 #filtersContainer {
@@ -517,18 +543,29 @@ label{
 #attractionList > .card{
   padding: 1rem;
   margin: 1.2rem;
-  background-color: var(--secondaryColor);
   max-height: fit-content;
 }
 
+#attractionList > .adrenalinicheCard{
+  background-color: var(--errorColor);
+  color: #FFF;
+}
+
+#attractionList > .fantasyCard{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+}
+
+#attractionList > .bambiniCard{
+  background-color: var(--secondaryColor);
+}
+
 #attractionList > .card h3{
-  color: var(--primaryColor);
-  font-size: 1.5em;
+  font-size: 1.75em;
   text-align: center;
 }
 
 #attractionList > .card p{
-  color:#000;
   padding: 1.5em 0em;
 }
 
@@ -541,7 +578,8 @@ label{
   max-width: 18em;
   height: auto;
   border-radius: 15px;
-  padding: 1em;
+  margin: 1em;
+  box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.2);
 }
 
 #attractionList{

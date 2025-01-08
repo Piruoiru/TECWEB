@@ -238,18 +238,16 @@ function loadRidesFilter() {
             var filterButtons = document.querySelectorAll('#filtersContainer button');
             filterButtons.forEach(btn => {
                 if(button===btn){
-                    btn.id = 'currentBtn';
-                    btn.disabled = true;
+                    // btn.disabled = true;
                 }else{
-                    btn.id = '';
-                    btn.disabled = false;
+                    // btn.disabled = false;
                 }
             });
             var category = button.getAttribute('data-category');
 
             attractions.forEach(attraction => {
-                // Mostra tutte le attrazioni se la categoria è "all"
-                if (category === 'all' || attraction.getAttribute('data-category') === category) {
+                // Mostra tutte le attrazioni se la categoria è "tutte"
+                if (category === 'tutte' || attraction.getAttribute('data-category') === category) {
                     attraction.style.display = 'list-item';
                 } else {
                     attraction.style.display = 'none';
