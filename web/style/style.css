@@ -454,7 +454,7 @@ label{
 
 /*
 ----------------
-    MAP STYLE
+    MAP PAGE
 ----------------
 */
 
@@ -482,59 +482,44 @@ label{
 #filters {
   padding: 1.5em;
   display: flex;
-  flex-direction: row;
-}
-
-#mapContainer {
-  display: flex;
-  flex-direction:row;
-}
-
-#containerFilters{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
 #photoOpenPark{
   width: 100%;
 }
 
-.cardAttrazione{
-  display: flex;
-  flex-direction: column;
-  background-color: var(--secondaryColor);
-  color: var(--primaryColor);
-  border-radius: 10px;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+#attractionList > .card{
   padding: 1rem;
   margin: 1.2rem;
+  background-color: var(--secondaryColor);
 }
 
-.cardAttrazione p{
+#attractionList > .card h3{
+  color: var(--primaryColor);
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#attractionList > .card p{
   color:#000;
   padding: 1.5em 0em;
 }
 
-.styleCardAttrazione{
+.rideCardBody{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 
-.styleCardAttrazione img{
-  width: 18em;
-  height: 13em;
-  border-radius: 15%;
+.rideCardBody img{
+  max-width: 18em;
+  height: auto;
+  border-radius: 15px;
   padding: 1em;
 }
 
 #attractionList{
   list-style: none;
-}
-
-/* DA MODIFICARE PER FAR STARE DUE CARTE ASSIEME */
-.boxDueAttrazioni{
-  display: flex;
-  flex: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
