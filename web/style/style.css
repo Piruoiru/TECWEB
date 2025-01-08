@@ -559,8 +559,10 @@ label{
   justify-content: center;
 }
 
-#photoOpenPark{
-  width: 100%;
+#parkMapImg{
+  width: 75%;
+  margin: 1em auto;
+  display: block;
 }
 
 #attractionList > .card{
