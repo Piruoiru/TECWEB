@@ -451,4 +451,60 @@ label{
 #loginMain .outlineGradientBtn, #userRegistrationMain .outlineGradientBtn{
   margin: 1em 0 0.5em 0;
 }
+
+/*
+-----------------
+TICKET PAGE
+-----------------
+*/
+
+#buyTicketKart{
+  display:flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  padding: .75rem;
+  position: sticky;
+  width: 40%;
+}
+
+#buyTicketKart button{
+  margin-top: auto;
+  padding: 0.7em;
+  font-size: 1.2em;
+}
+
+#containerTicket{
+  display: flex;
+  flex-direction: row;
+}
+
+.cardTicket{
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  padding: .75rem;
+  margin: 1em;
+  justify-content: space-between;
+  background-color: white;
+  border:none;  
+}
+
+.ticketInfo{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.cardTicket h3{
+  font-size: 1.5em;
+}
+
+.cardTicket p{
+  font-size: 1.2em;
+}
+.cardTicket img{
+  width: 10em;
+  height: 10em;
 }

@@ -222,3 +222,32 @@ function userExists(input) {
     xhttp.open("GET", "checkIfUserExists.php?username="+input.value, true);
     xhttp.send();
 }
+
+/*
+--------------------
+TICKET PAGE
+--------------------
+*/ 
+
+// Seleziona tutti i bottoni dei biglietti e il carrello
+const buttons = document.querySelectorAll('.cardTicket');
+const carrello = document.getElementById('carrello');
+
+// Funzione per aggiungere biglietti al carrello
+function aggiungiAlCarrello(tipoBiglietto) {
+    // Crea un nuovo elemento della lista
+    const li = document.createElement('li');
+    li.textContent = tipoBiglietto;
+
+    // Aggiungi il nuovo elemento alla lista del carrello
+    carrello.appendChild(li);
+}
+
+// Aggiungi un evento "click" a ogni bottone
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        // Leggi il tipo di biglietto dall'attributo "data-ticket-type"
+        const tipoBiglietto = button.getAttribute('data-ticket-type');
+        aggiungiAlCarrello(tipoBiglietto);
+    });
+});
