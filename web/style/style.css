@@ -493,6 +493,7 @@ label{
   padding: 1rem;
   margin: 1.2rem;
   background-color: var(--secondaryColor);
+  max-height: fit-content;
 }
 
 #attractionList > .card h3{
