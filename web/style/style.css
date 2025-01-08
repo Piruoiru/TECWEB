@@ -508,7 +508,7 @@ label{
   border-radius: 10px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   padding: 1rem;
-
+  margin: 1.2rem;
 }
 
 .cardAttrazione p{
@@ -531,4 +531,10 @@ label{
 
 #attractionList{
   list-style: none;
+}
+
+/* DA MODIFICARE PER FAR STARE DUE CARTE ASSIEME */
+.boxDueAttrazioni{
+  display: flex;
+  flex: row;
 }
