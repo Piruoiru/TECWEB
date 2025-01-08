@@ -28,7 +28,7 @@ main{
   margin: auto;
 }
 
-body{
+body, button{
     font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
 }
 
@@ -458,28 +458,35 @@ label{
 ----------------
 */
 
-#filters button {
-  margin: 0.2em;
-  padding: 1em;
-  border: none;
+/* #mapMain{
+  background-color: #FFF;
+  box-shadow: 0 0px 7px 15px #FFF;
+} */
+
+#filtersContainer>button{
+  border: 5px solid var(--primaryColor);
+  border-radius: 2px;
+  color: #000;
+  background: transparent;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 0.35em;
+  padding: 0.75em 1.5em;
+  transition: all .2s ease-in-out;
+}
+
+#filtersContainer>button:hover{
   background-color: var(--primaryColor);
-  color: white;
-  cursor: pointer;
+  color: #FFF;
 }
 
-#filters button:hover {
+#filtersContainer #currentBtn{
   background-color: var(--secondaryColor);
-  color: var(--primaryColor);
+  color: #000;
+  cursor: default;
 }
 
-
-/* #TODO: da sistemare */
-
-/* #filters button.{
-  background-color: var(--tertiaryColor);
-}   */
-
-#filters {
+#filtersContainer {
   padding: 1.5em;
   display: flex;
   justify-content: center;

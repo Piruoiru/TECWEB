@@ -225,17 +225,27 @@ function userExists(input) {
 
 /*
 ---------------------
-    MAP FORM
+    MAP 
 ---------------------
 */
 
-document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('#filters button');
-    const attractions = document.querySelectorAll('#attractionList li');
+function loadRidesFilter() {
+    var filterButtons = document.querySelectorAll('#filtersContainer button');
+    var attractions = document.querySelectorAll('#attractionList li');
 
     filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const category = button.getAttribute('data-category');
+        button.onclick = () => {
+            var filterButtons = document.querySelectorAll('#filtersContainer button');
+            filterButtons.forEach(btn => {
+                if(button===btn){
+                    btn.id = 'currentBtn';
+                    btn.disabled = true;
+                }else{
+                    btn.id = '';
+                    btn.disabled = false;
+                }
+            });
+            var category = button.getAttribute('data-category');
 
             attractions.forEach(attraction => {
                 // Mostra tutte le attrazioni se la categoria è "all"
@@ -245,6 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     attraction.style.display = 'none';
                 }
             });
-        });
+        };
     });
-});
+};
