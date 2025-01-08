@@ -458,10 +458,28 @@ label{
 ----------------
 */
 
-/* #mapMain{
+#mapMain{
   background-color: #FFF;
-  box-shadow: 0 0px 7px 15px #FFF;
-} */
+  padding: 2em;
+  box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
+}
+
+#mapMain>h1{
+  font-size: 2.5em;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
+
+#mapMain>h2{
+  font-size: 2em;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
+
+#mapMain>p{
+  text-align: center;
+  font-size: 1.1em;
+}
 
 #filtersContainer>button{
   border: 5px solid var(--primaryColor);

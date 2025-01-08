@@ -15,7 +15,7 @@
 
         <script src="scripts/script.js"></script>
     </head>
-    <body id="loginBody" onload="loadRidesFilter()">
+    <body id="loginBody" class="tertiaryBg" onload="loadRidesFilter()">
         <nav id="breadcrumb">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Login</p>
             <p>Orario di oggi: {{ $orario }}</p>
@@ -34,14 +34,14 @@
                 </ul>
             </nav>
         </div>
-        <main>
+        <main id="mapMain">
             <h1>Mappa del parco</h1>
             <p>A <span lang="en">Dreamville</span> ci sono ancora tantissimi angoli da esplorare! Con la mappa del Parco, potrai visitare ogni area con facilità e tornare quando preferisci. </p>
             <p>Grazie alla sua semplicità e chiarezza, scoprirai attrazioni, negozi, ristoranti, aree tematiche e molto altro. </p>
             <p>Tanti luoghi fantastici ti aspettano per essere scoperti!</p>
+            <img id="photoOpenPark" src="assets/mappa_parco.png" alt="mappa del parco">
             <h2>Lista delle attrazioni</h2>
             <p>Qui sotto troverai la lista delle attrazioni presenti nel parco. Clicca su una di esse per visualizzarla sulla mappa.</p>
-            <img id="photoOpenPark" src="assets/mappa_parco.png" alt="mappa del parco">
             <div id="filtersContainer">
                 <button data-category="all" class="buttonStyle" id="currentBtn" disabled>Tutte</button>
                 <button data-category="adrenaliniche" class="buttonStyle">Adrenaliniche</button>
