@@ -465,18 +465,20 @@ TICKET PAGE
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   padding: .75rem;
   position: sticky;
-  width: 40%;
+  width: 35%;
+  margin: 1em 0em;
 }
 
 #buyTicketKart button{
   margin-top: auto;
   padding: 0.7em;
-  font-size: 1.2em;
+  font-size: 1.2em; 
 }
 
 #containerTicket{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .cardTicket{
@@ -488,7 +490,13 @@ TICKET PAGE
   margin: 1em;
   justify-content: space-between;
   background-color: white;
-  border:none;  
+  border:none; 
+  width: 95%; 
+}
+
+.cardTicket:hover{
+  background-color: var(--secondaryColor);
+  cursor: pointer;
 }
 
 .ticketInfo{
