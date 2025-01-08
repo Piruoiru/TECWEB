@@ -451,4 +451,78 @@ label{
 #loginMain .outlineGradientBtn, #userRegistrationMain .outlineGradientBtn{
   margin: 1em 0 0.5em 0;
 }
+
+/*
+---------------------
+    PROFILE
+---------------------
+*/
+#profileMain{
+  background-color: transparent;
+}
+
+#profileMain>h1{
+  font-size: 2.5em;
+  padding-top: 0.5em;
+  text-align: center;
+  text-shadow: #FFF 0 0 25px;
+}
+
+#container{
+  display: flex;
+  justify-content: space-between;
+}
+
+#container>div{
+  background-color: #FFF;
+  margin-top: 1em;
+}
+
+#profileCard{
+  width: 35%;
+}
+
+#profileMain .card{
+  margin: 1.5em 1em;
+  height: fit-content;
+}
+
+#profileMain .card > h2{
+  font-size: 2em;
+  text-align: center;
+}
+
+#profileMain .card > h3{
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 600;
+  margin: 0.25em 0;
+}
+
+#profileDetailsContainer{
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+#profileDetailsContainer dl{
+  font-size: 1.1em;
+}
+
+#profileDetailsContainer dt, #profileDetailsContainer dd{
+  display: inline;
+  line-height: 1.5em;
+}
+
+#profileDetailsContainer dd:after {
+  content: "\a";
+  white-space: pre;
+}
+
+#profileDetailsContainer .filledGradientBtn{
+  margin: 0.75em 0 0 0;
+}
+
+#purchasesCard{
+  width: 60%;
 }

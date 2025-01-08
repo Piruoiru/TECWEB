@@ -77,18 +77,18 @@
             return $result;
         }
 
-        public function fetchTickets(){
-            $sql = "SELECT * FROM biglietti";
-            $result = $this->conn->query($sql);
-            $tickets = [];
-            if(!$result){
-                throw new \Exception("Error querying the database");
-            }
-            while($row = $result->fetch_assoc()){
-                array_push($tickets,$row);
-            }
-            return $tickets;
-        }
+        // public function fetchTickets(){
+        //     $sql = "SELECT * FROM biglietti";
+        //     $result = $this->conn->query($sql);
+        //     $tickets = [];
+        //     if(!$result){
+        //         throw new \Exception("Error querying the database");
+        //     }
+        //     while($row = $result->fetch_assoc()){
+        //         array_push($tickets,$row);
+        //     }
+        //     return $tickets;
+        // }
 
         public function fetchUserCartTickets($username){
             $sql = "SELECT *
@@ -109,11 +109,49 @@
             return $tickets;
         }
 
-        public function fetchUserAcquiredTickets($username){
-            $sql = "SELECT *
-                    FROM bigliettiAcquistati
-                    INNER JOIN biglietti ON bigliettiAcquistati.biglietto = biglietti.id
-                    WHERE utente=?";
+        // public function fetchUserAcquiredTickets($username){
+        //     $sql = "SELECT *
+        //             FROM ordini
+        //             INNER JOIN ordiniBiglietti ON ordiniBiglietti.ordine = ordini.id
+        //             INNER JOIN biglietti ON ordiniBiglietti.tipoBiglietto = biglietti.id
+        //             WHERE utente=?";
+        //     $stmt = $this->conn->prepare($sql);
+        //     $stmt->bind_param('s',$username);
+        //     $result = $stmt->execute();
+        //     if(!$result){
+        //         throw new \Exception("Error querying the database");
+        //     }
+        //     $result = $stmt->get_result();
+        //     $tickets = [];
+        //     while($row = $result->fetch_assoc()){
+        //         array_push($tickets,$row);
+        //     }
+        //     return $tickets;
+        // }
+
+        // public function getUserAcquiredTickets($username){
+        //     $sql = "SELECT *
+        //             FROM ordini
+        //             INNER JOIN ordiniBiglietti ON ordiniBiglietti.ordine = ordini.id
+        //             INNER JOIN biglietti ON ordiniBiglietti.tipoBiglietto = biglietti.id
+        //             WHERE utente=?";
+        //     $stmt = $this->conn->prepare($sql);
+        //     $stmt->bind_param('s',$username);
+        //     $result = $stmt->execute();
+        //     if(!$result){
+        //         throw new \Exception("Error querying the database");
+        //     }
+        //     $result = $stmt->get_result();
+        //     return $result;
+        // }
+
+        public function getUsersLastOrderTickets($username){
+            $sql = "SELECT * FROM bigliettiAcquistati
+                    INNER JOIN (SELECT id as idOrdine, utente, dataOrarioOrdine FROM ordini
+                    WHERE utente=?
+                    ORDER BY dataOrarioOrdine DESC
+                    LIMIT 1) AS ordini
+                    ON bigliettiAcquistati.ordine = ordini.idOrdine";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param('s',$username);
             $result = $stmt->execute();
@@ -121,11 +159,7 @@
                 throw new \Exception("Error querying the database");
             }
             $result = $stmt->get_result();
-            $tickets = [];
-            while($row = $result->fetch_assoc()){
-                array_push($tickets,$row);
-            }
-            return $tickets;
+            return $result;
         }
 
         public function addTicketToCart($ticketID,$username,$quantity){

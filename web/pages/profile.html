@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Profilo - DreamVille</title>
+        <link rel="shortcut icon" href="assets/logo.png" />
+        <meta charset="utf-8">
+        <meta name="description" content="Visualizza i dati del tuo profilo DreamVille">    
+        <meta name="keywords" content="dati, utente, account, profilo, DreamVille">
+    
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+        <script src="scripts/script.js"></script>
+    </head>
+    <body class="tertiaryBg">
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Login</p>
+            <p>Orario di oggi: {{ $orario }}</p>
+            <div id="userCrumb">{{ $userInfosHeader }}</div>
+        </nav>
+        <div id="headerNavWrapper">
+            <header>
+                <h1><span lang="en">DreamVille</span></h1>
+            </header>
+            <nav id="menu">
+                <ul>
+                    <li lang="en"><a href="index.php">Home</a></li>
+                    <li><a href="#">Scopri <span lang="en">DreamVille</span></a></li>
+                    <li><a href="#">Informazioni per la tua visita</a></li>
+                    <li><a href="#">Compra biglietti e abbonamenti</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main id="profileMain">
+            <h1>Ciao {{ $nome }}!</h1>
+            <div id="container">
+                <div class="card" id="profileCard">
+                    <h2>I miei dati</h2>
+                    <div id="profileDetailsContainer">
+                        <dl>
+                            <dt><strong>Nome:</strong></dt>
+                            <dd>{{ $nome }}</dd>
+                            <dt><strong>Cognome:</strong></dt>
+                            <dd>{{ $cognome }}</dd>
+                            <dt><strong>Username:</strong></dt>
+                            <dd>{{ $username }}</dd>
+                            <dt><strong>Password: </strong></dt>
+                            <dd>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</dd>
+                        </dl>
+                        <a href="#" class="buttonStyle translateUpOnHover filledGradientBtn">Modifica i dati</a>
+                    </div>
+                </div>
+                <div class="card" id="purchasesCard">
+                    <h2>I miei acquisti</h2>
+                    {{ $lastOrder }}
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
+    
