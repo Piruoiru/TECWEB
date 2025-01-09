@@ -223,6 +223,50 @@ function userExists(input) {
     xhttp.send();
 }
 
+/*
+---------------------
+    MAP 
+---------------------
+*/
+
+function loadRidesFilter() {
+    var filterButtons = document.querySelectorAll('#filtersContainer button');
+    var attractions = document.querySelectorAll('#attractionList li');
+
+    filterButtons.forEach(clickedButton => {
+        clickedButton.onclick = () => {
+            var category = clickedButton.getAttribute('data-category');
+            var filterButtons = document.querySelectorAll('#filtersContainer button');
+            //Disabilita il bottone cliccato e cambia lo stile di tutti
+            filterButtons.forEach(btn => {
+                if(clickedButton===btn){
+                    btn.disabled = true;
+                    btn.classList.add(btn.id + 'Selected');
+                }else{
+                    btn.disabled = false;
+                    btn.classList.remove(btn.id + 'Selected');
+                }
+            });
+
+            //Mostra solo le attrazioni della categoria selezionata
+            attractions.forEach(attraction => {
+                // Mostra tutte le attrazioni se la categoria è "tutte"
+                if (category === 'tutte' || attraction.getAttribute('data-category') === category) {
+                    attraction.style.display = 'list-item';
+                } else {
+                    attraction.style.display = 'none';
+                }
+            });
+        };
+    });
+};
+
+/*
+---------------------
+    ADMIN
+---------------------
+*/
+
 function changeTypeOfAdminControlPanel(type,titolo="",descrizione="",image=""){
     document.getElementById('type').value = type;
     if(type === 'modifica'){
