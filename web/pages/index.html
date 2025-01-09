@@ -40,11 +40,17 @@
             <div id="card">
                 <h2>Parco + Hotel</h2>
             </div> -->
-            @for $row in $result
-                @for $element in $row
-                    <h1>{{ $element }}</h1>
+            <ul id="attractionList">
+                @for $row in $result
+                <li data-category="adrenaliniche" class="card adrenalinicheCard">
+                    <h3>{{ $row['titolo'] }}</h3>
+                    <div class="rideCardBody">
+                        <p>{{ $row['descrizione'] }}</p>
+                        <img src="assets/{{ $row['percorso_immagine'] }}" alt="{{ $row['titolo'] }}">
+                    </div>
+                </li>
                 @endfor
-            @endfor
+            </ul>
         </main>
         <footer>
             <p>© 2024 DreamVille</p>

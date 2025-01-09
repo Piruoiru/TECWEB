@@ -150,6 +150,38 @@
             return $tickets;
         }
 
+        public function createShow($title,$description,$imgPath){
+            $sql = "INSERT INTO spettacoli(titolo,descrizione,percorso_immagine) VALUES (?,?,?);";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('sss',$title,$description,$imgPath);
+            $status = $stmt->execute();
+            if(!$status){
+                throw new \Exception("Error querying the database");
+            }
+        }
+
+        public function modifyShow($oldTitle,$title,$description,$imgPath){
+            $sql = "UPDATE spettacoli 
+                    SET titolo=?, descrizione=?, percorso_immagine=?
+                    WHERE titolo=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('ssss',$title,$description,$imgPath,$oldTitle);
+            $status = $stmt->execute();
+            if(!$status){
+                throw new \Exception("Error querying the database");
+            }
+        }
+
+        public function deleteShow($title){
+            $sql = "DELETE FROM spettacoli WHERE titolo=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s',$title);
+            $status = $stmt->execute();
+            if(!$status){
+                throw new \Exception("Error querying the database");
+            }
+        }
+
         public function addTicketToCart($ticketID,$username,$quantity){
             $sql = "SELECT *
                     FROM bigliettiCarrello

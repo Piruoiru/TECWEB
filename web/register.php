@@ -1,13 +1,11 @@
 <?php
-    session_start();
-
+    include_once 'header.php';
     if(isset($_SESSION['username'])){
        header('Location: index.php');
        exit();
     }
 
     include_once 'db.php';
-    include_once 'header.php';
 
     $context['userInfosHeader'] = "";//non mostro i pulsanti login e registrati in alto
     $errorMessage = "";

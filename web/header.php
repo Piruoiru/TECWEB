@@ -1,5 +1,5 @@
 <?php
-    //RICHIEDE CHE LA SESSIONE SIA STATA ATTIVATA PRIMA DELL'INCLUSIONE DI QUESTO FILE
+    session_start();
 
     session_start();
 
