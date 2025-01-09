@@ -527,6 +527,17 @@ label{
   width: 60%;
 }
 
+.ticketCardsContainer{
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
+.ticketCardDetails{
+  display:flex;
+  flex-direction:column;
+}
+
 #purchasesCard .ticketCard{
   margin: 0.5em;
   box-shadow: none;
@@ -534,6 +545,14 @@ label{
   color: #FFF;
   display: flex;
   flex-direction: row;
+}
+
+.ticketCard svg{
+  width: 4em;
+  height: 3em;
+  fill: #FFF;
+  stroke: #FFF;
+  margin-right: 0.3em;
 }
 
 #purchasesCard .outlineGradientBtn{
