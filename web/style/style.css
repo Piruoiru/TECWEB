@@ -459,6 +459,7 @@ TICKET PAGE
 */
 
 #buyTicketKart{
+  background-color: #d8d8d8;
   display:flex;
   flex-direction: column;
   border-radius: 10px;
@@ -467,6 +468,25 @@ TICKET PAGE
   position: sticky;
   width: 35%;
   margin: 1em 1em;
+}
+
+#boxRiepilogo{
+  text-align: center;
+  background-color: #ADD8E6;
+  border-radius: 15px;
+}
+
+#boxSconto{
+  margin-bottom: 10px;
+}
+
+#boxTicket{
+  padding: 15px;
+}
+
+#ticketChoice{
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 #buyTicketKart button{
@@ -479,6 +499,12 @@ TICKET PAGE
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#btnSconto{
+  margin-left: 1em;
+  padding: 0.6em;
+  font-size: 1.0em; 
 }
 
 .cardTicket{
