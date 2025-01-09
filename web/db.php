@@ -143,7 +143,7 @@
                     SET titolo=?, descrizione=?, percorso_immagine=?
                     WHERE titolo=?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param('ssss',$title,$descrizione,$imgPath,$oldTitle);
+            $stmt->bind_param('ssss',$title,$description,$imgPath,$oldTitle);
             $status = $stmt->execute();
             if(!$status){
                 throw new \Exception("Error querying the database");

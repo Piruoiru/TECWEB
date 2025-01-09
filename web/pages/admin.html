@@ -35,37 +35,44 @@
             </nav>
         </div>
         <main class="centerColumn card" id="userRegistrationMain">
+            @if !empty($debugMessage)
+                <p>{{ $debugMessage }}</p>
+            @endif
             <h1>Creazione spettacoli</h1>
             <form method="POST" id="userRegistrationForm" class="column">
-                <input type="hidden" id="crea" name="type" value="crea" />
+                <input type="hidden" id="type" name="type" value="crea" />
+                <div class="inputLabelContainer" id="vecchioTitoloContainer" style="display: none;"> <!-- da cambiare-->
+                    <label for="vecchio_titolo">Vecchio Titolo</label>
+                    <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="" />
+                </div>
                 <div class="inputLabelContainer">
                     <label for="titolo">Titolo</label>
                     <input type="text" id="titolo" name="titolo" value="" />
                 </div>
-                <div class="inputLabelContainer" id="cognomeContainer">
+                <div class="inputLabelContainer" id="descrizioneContainer">
                     <label for="descrizione">Descrizione</label>
                     <input type="text" id="descrizione" name="descrizione" value="" />
                 </div>
-                <div class="inputLabelContainer">
+                <div class="inputLabelContainer" id="immagineContainer">
                     <label for="username">Immagine</label>
                     <input type="text" id="img" name="img" />
                 </div>
-                <input type="submit" name="submit" value="Crea o modifica uno spettacolo" id="loginButton" class="buttonStyle translateUpOnHover filledGradientBtn">
+                <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle translateUpOnHover filledGradientBtn">
             </form>
-            <ul id="attractionList">
-                @for $row in $result
-                <li data-category="adrenaliniche" class="card adrenalinicheCard">
-                    <h3>{{ $row['titolo'] }}</h3>
-                    <div class="rideCardBody">
-                        <p>{{ $row['descrizione'] }}</p>
-                        <img src="assets/{{ $row['percorso_immagine'] }}" alt="{{ $row['titolo'] }}">
-                    </div>
-                    <input type="button" id="modifica" onclick="document.getElementById('crea').value='modifica'" value="✏️"/>
-                    <input type="button" id="elimina" onclick="document.getElementById('crea').value='elimina'" value="🗑️"/>
-                </li>
-                @endfor
-            </ul>
         </main>
+        <ul id="attractionList">
+            @for $row in $result
+            <li data-category="adrenaliniche" class="card adrenalinicheCard">
+                <h3>{{ $row['titolo'] }}</h3>
+                <div class="rideCardBody">
+                    <p>{{ $row['descrizione'] }}</p>
+                    <img src="assets/{{ $row['percorso_immagine'] }}" alt="Immagine di {{ $row['titolo'] }}">
+                </div>
+                <input type="button" id="modifica" onclick="changeTypeOfAdminControlPanel(`modifica`,`{{ $row['titolo'] }}`,`{{ $row['descrizione'] }}`,`{{ $row['percorso_immagine'] }}`)" value="✏️"/>
+                <input type="button" id="elimina" onclick="changeTypeOfAdminControlPanel(`elimina`,`{{ $row['titolo'] }}`)" value="🗑️"/>
+            </li>
+            @endfor
+        </ul>
 
         <a href="/privacy.php">Privacy Policy</a>
         <a href="/buyingticket.php">Biglietti</a>
