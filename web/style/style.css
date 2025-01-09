@@ -526,3 +526,17 @@ label{
 #purchasesCard{
   width: 60%;
 }
+
+#purchasesCard .ticketCard{
+  margin: 0.5em;
+  box-shadow: none;
+  background-color: var(--primaryColor);
+  color: #FFF;
+  display: flex;
+  flex-direction: row;
+}
+
+#purchasesCard .outlineGradientBtn{
+  width: 50%;
+  margin: 1em auto 0.5em auto;
+}
