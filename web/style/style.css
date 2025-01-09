@@ -42,6 +42,9 @@ body, button{
   background: rgba(var(--tertiaryColorBgRGBA));
 }
 
+.tertiaryBg main{
+    background-color: #FFF;
+}
 /*
 ---------------------
   FLEX LAYOUTS
@@ -147,8 +150,6 @@ a:hover{
 }
 
 #breadcrumb p, #breadcrumb a{
-  /* padding-left: 0.5em;
-  padding-right: 0.5em; */
   padding: 0.2em 0.5em;
   margin: 0.35em 0;
   border: 2px solid var(--primaryColor);
@@ -459,7 +460,6 @@ label{
 */
 
 #mapMain{
-  background-color: #FFF;
   padding: 2em;
   box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
 }
