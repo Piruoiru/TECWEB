@@ -51,6 +51,13 @@ CREATE TABLE bigliettiCarrello(
     FOREIGN KEY (utente) REFERENCES users(username)
 );
 
+CREATE TABLE ordini(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    utente varchar(20) NOT NULL,
+    dataOrarioOrdine TIMESTAMP NOT NULL,
+    FOREIGN KEY (utente) REFERENCES users(username)
+);
+
 INSERT INTO ordini(utente,dataOrarioOrdine) VALUES
 ('user',now()),
 ('user',now());
