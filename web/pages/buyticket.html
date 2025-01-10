@@ -41,20 +41,14 @@
                     <p> </p>
                     <p>Acquista qui il tuo biglietto e goditi la visita a DreamVille!</p>
                     <div id="ticketChoice">
-                        <h2>Seleziona il numero di biglietti che vuoi acquistare</h2>
-                        <form method="POST" action="../buyingticket.php">
-                            <span>Quantità:</span>
-                            <input type="number" id="quantita" name="quantita" min="1" max="10">
-                            <input type="submit" name="submit" value="Aggiungi al carrello" />
-                        </form>
-                        <button class="cardTicket" data-ticket-type="Biglietto Intero">
+                        <button class="cardTicket" data-ticket-type="Biglietto Intero 34,99€">
                             <img src="../assets/ticketimg.png" alt="Biglietto Intero">
                             <div class="ticketInfo">
                                 <h3>Biglietto Intero</h3>
                                 <p>Questo biglietto permette un ingresso al parco Dreamville, 1 giorno di visita per la stagione corrente.</p>
                             </div>
                         </button>
-                        <button class="cardTicket" data-ticket-type="Biglietto Ridotto">
+                        <button class="cardTicket" data-ticket-type="Biglietto Ridotto 24,99€">
                             <img src="../assets/ticketimg.png" alt="Biglietto Ridotto">
                             <div class="ticketInfo">
                                 <h3>Biglietto Ridotto</h3>
@@ -81,7 +75,7 @@
                     <p>e procedi nell’acquisto</p>
                     <ul id="carrello"></ul>
                     </div>
-                    <button>CONFERMA</button>
+                    <button id="confermaAcq">CONFERMA</button>
                 </div>
             </div>
         </main>
