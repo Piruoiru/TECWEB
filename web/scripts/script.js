@@ -252,4 +252,36 @@ window.onload = function () {
             aggiungiAlCarrello(tipoBiglietto);
         });
     });
+
+    const btnConferma = document.getElementById("confermaAcq");
+
+    btnConferma.addEventListener('click', () => {
+        let loader = document.querySelector(".loader");
+        let output = document.querySelector(".output");
+        let riempi = document.querySelector(".riempi");
+
+        loader.style.display = "block";
+        loader.style.position = "absolute";
+        var n = 0;
+        var run = setInterval(frames, 30);
+        function frames() {
+            n = n + 1;
+            if (n == 101) {
+                clearInterval(run);
+                loader.style.display = "none";
+                output.style.display = "block";
+                output.style.position = "absolute";
+            } else {
+                var contatore = document.querySelector(".contatore");
+                contatore.textContent = n + "%";
+                riempi.style.width = n + "%";
+            }
+        }
+
+        const btnChiudi = document.getElementById("btnChiudi");
+
+        btnChiudi.addEventListener('click', () => {
+            output.style.display = "none";
+        })
+    })
 }
