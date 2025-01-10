@@ -5,35 +5,35 @@
 */
 
 function loadGenericForm(formDetails) {
-    for(var key in formDetails){
+    for (var key in formDetails) {
         var input = document.getElementById(key);
         onEmptyField(input);
         // messaggio(input, 0); se si vuole aggiungere un messaggio di aiuto
         input.firstInput = true;
-        input.onblur = function() {
+        input.onblur = function () {
             validateField(this, formDetails);
             onEmptyField(this);
             this.firstInput = false;
         }
-        input.oninput = function() {
-            if(!this.firstInput){
+        input.oninput = function () {
+            if (!this.firstInput) {
                 validateField(this, formDetails);
             }
         }
-        input.onfocus = function() {
+        input.onfocus = function () {
             this.previousElementSibling.classList.add("nonEmptyFieldLabel");
         }
     }
 }
 
 function onEmptyField(input) {
-    if(input.value.length != 0){
+    if (input.value.length != 0) {
         input.previousElementSibling.classList.add("nonEmptyFieldLabel");
-    }else{
+    } else {
         input.previousElementSibling.classList.remove("nonEmptyFieldLabel");
     }
 }
-    
+
 
 function validateField(input, formDetails) {
     var regex = formDetails[input.id][1];
@@ -41,11 +41,11 @@ function validateField(input, formDetails) {
 
     //tolgo suggerimento o errore precedente
     var inputLabelContainer = input.parentNode;
-    if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
+    if (inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")) {
         inputLabelContainer.nextElementSibling.remove();
     }
 
-    if(text.search(regex)!=0){
+    if (text.search(regex) != 0) {
         input.setCustomValidity(formDetails[input.id][2]);
         messaggio(input, 1, formDetails);
         return false;
@@ -54,39 +54,39 @@ function validateField(input, formDetails) {
 
     return true;
 }
-    
+
 function validateGenericForm(formDetails) {
-    for(var key in formDetails){
+    for (var key in formDetails) {
         var input = document.getElementById(key);
-        if(!validateField(input, formDetails)){
+        if (!validateField(input, formDetails)) {
             return false;
         }
     }
     return true;
 }
-    
-function messaggio(input, mode, formDetails) {
-/* mode = 0, modalità input
-   mode = 1, modalità errore */
-    var node;//tag con il messaggio
-    var inputLabelContainer=input.parentNode;
 
-    if(!mode){
+function messaggio(input, mode, formDetails) {
+    /* mode = 0, modalità input
+       mode = 1, modalità errore */
+    var node;//tag con il messaggio
+    var inputLabelContainer = input.parentNode;
+
+    if (!mode) {
         //creo messaggio di aiuto
-        node=document.createElement("p");
+        node = document.createElement("p");
         // node.className="default-text";
         node.appendChild(document.createTextNode(formDetails[input.id][0]));
         // inputLabelContainer.insertAdjacentElement('afterend', node);
-    }else{
+    } else {
         //creo messaggio di errore
-        node=document.createElement("p");
-        node.className="errorMessagePar";
+        node = document.createElement("p");
+        node.className = "errorMessagePar";
         node.appendChild(document.createTextNode(formDetails[input.id][2]));
         inputLabelContainer.insertAdjacentElement('afterend', node);
     }
 }
 
-    
+
 
 /*
 ---------------------
@@ -95,8 +95,8 @@ function messaggio(input, mode, formDetails) {
 */
 
 var loginFormDetails = {
-    "username":["", /^./, "Inserisci un username"],
-    "password":["", /^./, "Inserisci una password"],
+    "username": ["", /^./, "Inserisci un username"],
+    "password": ["", /^./, "Inserisci una password"],
 };
 
 /*
@@ -110,12 +110,12 @@ var loginFormDetails = {
     - [1]: Espressione regolare da controllare
     - [2]: Messaggio errore
  */
-            
+
 var registrationFormDetails = {
-    "nome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
-    "cognome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
-    "username":["", /^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
-    "password":["", /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}/, "Inserire una password composta da 4 a 20 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"],
+    "nome": ["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
+    "cognome": ["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
+    "username": ["", /^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
+    "password": ["", /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}/, "Inserire una password composta da 4 a 20 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"],
 };
 
 function loadRegistrationForm() {
@@ -123,24 +123,24 @@ function loadRegistrationForm() {
     //Password confirmation behaviour
     var input = document.getElementById("passwordConfirmation");
     onEmptyField(input);
-    input.onblur = function() {
+    input.onblur = function () {
         onEmptyField(this);
         passwordConfirmationMatch();
     }
-    input.oninput = function() {
+    input.oninput = function () {
         var inputLabelContainer = input.parentNode;
-        if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
+        if (inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")) {
             inputLabelContainer.nextElementSibling.remove();
         }
         input.setCustomValidity("");
     }
-    input.onfocus = function() {
+    input.onfocus = function () {
         this.previousElementSibling.classList.add("nonEmptyFieldLabel");
     }
 
     //Reset password confirmation on password input
-    document.getElementById("password").oninput = function() {
-        if(!this.firstInput){
+    document.getElementById("password").oninput = function () {
+        if (!this.firstInput) {
             validateField(this, registrationFormDetails);
             //Reset password confirmation
             var passwordConfirmationInput = document.getElementById("passwordConfirmation");
@@ -148,7 +148,7 @@ function loadRegistrationForm() {
             passwordConfirmationInput.setCustomValidity("");
             //Rimozione messaggio errore eventualmente presente
             var inputLabelContainer = passwordConfirmationInput.parentNode;
-            if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
+            if (inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")) {
                 inputLabelContainer.nextElementSibling.remove();
             }
         }
@@ -156,19 +156,19 @@ function loadRegistrationForm() {
 
     //Check if username already exists
 
-    document.getElementById("username").oninput = function() {
+    document.getElementById("username").oninput = function () {
         var inputLabelContainer = document.getElementById("username").parentNode;
-        if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
+        if (inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")) {
             inputLabelContainer.nextElementSibling.remove();
         }
-        if(!this.firstInput){
-            if(validateField(this, registrationFormDetails)){
+        if (!this.firstInput) {
+            if (validateField(this, registrationFormDetails)) {
                 userExists(this);
             }
         }
     }
-    document.getElementById("username").onblur = function() {
-        if(validateField(this, registrationFormDetails)){
+    document.getElementById("username").onblur = function () {
+        if (validateField(this, registrationFormDetails)) {
             userExists(this);
         }
         onEmptyField(this);
@@ -181,7 +181,7 @@ function validateRegistrationForm() {
     //Username validation
     var usernameValidation = false;
     var input = document.getElementById("username");
-    if(validateField(input, registrationFormDetails) && !userExists(input)){
+    if (validateField(input, registrationFormDetails) && !userExists(input)) {
         usernameValidation = true;
     }
     //Password confirmation validation
@@ -193,12 +193,12 @@ function passwordConfirmationMatch() {
     var input = document.getElementById("passwordConfirmation");
     //Rimozione messaggio password non coincidenti
     var inputLabelContainer = input.parentNode;
-    if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
+    if (inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")) {
         inputLabelContainer.nextElementSibling.remove();
     }
-    if(document.getElementById("password").value !== input.value){
+    if (document.getElementById("password").value !== input.value) {
         //Messaggio password non coincidenti
-        messaggio(input, 1, {"passwordConfirmation":["", /^.*/, "Le password non coincidono"]});
+        messaggio(input, 1, { "passwordConfirmation": ["", /^.*/, "Le password non coincidono"] });
         input.setCustomValidity("Le password non coincidono");
         return true;
     }
@@ -208,18 +208,18 @@ function passwordConfirmationMatch() {
 
 function userExists(input) {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if(this.readyState == 4 && this.status == 200) {
-            if(this.responseText === "1"){
-                messaggio(input, 1, {"username":["", /^.*/, "Username già in uso"]});
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText === "1") {
+                messaggio(input, 1, { "username": ["", /^.*/, "Username già in uso"] });
                 input.setCustomValidity("Username già in uso");
                 return true;
             }
             input.setCustomValidity("");
             return false;
-       }
+        }
     };
-    xhttp.open("GET", "checkIfUserExists.php?username="+input.value, true);
+    xhttp.open("GET", "checkIfUserExists.php?username=" + input.value, true);
     xhttp.send();
 }
 
@@ -227,27 +227,29 @@ function userExists(input) {
 --------------------
 TICKET PAGE
 --------------------
-*/ 
+*/
 
-// Seleziona tutti i bottoni dei biglietti e il carrello
-const buttons = document.querySelectorAll('.cardTicket');
-const carrello = document.getElementById('carrello');
+window.onload = function () {
+    // Seleziona tutti i bottoni dei biglietti e il carrello
+    const buttons = document.querySelectorAll('.cardTicket');
+    const carrello = document.getElementById('carrello');
 
-// Funzione per aggiungere biglietti al carrello
-function aggiungiAlCarrello(tipoBiglietto) {
-    // Crea un nuovo elemento della lista
-    const li = document.createElement('li');
-    li.textContent = tipoBiglietto;
+    // Funzione per aggiungere biglietti al carrello
+    function aggiungiAlCarrello(tipoBiglietto) {
+        // Crea un nuovo elemento della lista
+        const li = document.createElement('li');
+        li.textContent = tipoBiglietto;
 
-    // Aggiungi il nuovo elemento alla lista del carrello
-    carrello.appendChild(li);
-}
+        // Aggiungi il nuovo elemento alla lista del carrello
+        carrello.appendChild(li);
+    }
 
-// Aggiungi un evento "click" a ogni bottone
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        // Leggi il tipo di biglietto dall'attributo "data-ticket-type"
-        const tipoBiglietto = button.getAttribute('data-ticket-type');
-        aggiungiAlCarrello(tipoBiglietto);
+    // Aggiungi un evento "click" a ogni bottone
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            // Leggi il tipo di biglietto dall'attributo "data-ticket-type"
+            const tipoBiglietto = button.getAttribute('data-ticket-type');
+            aggiungiAlCarrello(tipoBiglietto);
+        });
     });
-});
+}
