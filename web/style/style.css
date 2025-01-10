@@ -635,3 +635,53 @@ TICKET PAGE
   color: greenyellow;
   border-radius: 5px;
 }
+
+/*
+-----------------
+CART PAGE
+-----------------
+*/
+
+#backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+}
+
+#backdrop.visible{
+  display: flex;
+}
+
+#boxCart{
+  width: 35%;
+  background-color: #d8d8d8;
+  border-radius: 5px;
+  display:flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  padding: .75rem;
+  margin-top: 1em;
+  margin-bottom: 1.3em;
+}
+
+#prezzoTot{
+  margin-top: 0.5em;
+}
+
+.pageCart{
+  margin-left: 0.8em;
+}
+
+#btnCart{
+  border-radius: 5px;
+  padding: 0.5em;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
