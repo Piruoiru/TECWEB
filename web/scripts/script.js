@@ -252,10 +252,13 @@ window.onload = function () {
             aggiungiAlCarrello(tipoBiglietto);
         });
     });
-
-    const btnConferma = document.getElementById("confermaAcq");
+    
+    const btnConferma = document.getElementById("btnCart");
 
     btnConferma.addEventListener('click', () => {
+        const backdrop = document.getElementById("backdrop");
+        backdrop.style.display = "block"; 
+
         let loader = document.querySelector(".loader");
         let output = document.querySelector(".output");
         let riempi = document.querySelector(".riempi");
@@ -282,6 +285,10 @@ window.onload = function () {
 
         btnChiudi.addEventListener('click', () => {
             output.style.display = "none";
+            backdrop.style.display = "none"; 
         })
     })
 }
+
+
+
