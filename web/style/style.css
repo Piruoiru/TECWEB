@@ -470,6 +470,10 @@ TICKET PAGE
   margin: 1em 1em;
 }
 
+#carrello{
+  list-style-type: none;
+}
+
 #boxRiepilogo{
   text-align: center;
   background-color: #ADD8E6;
@@ -541,4 +545,93 @@ TICKET PAGE
 .cardTicket img{
   width: 10em;
   height: 10em;
+}
+
+.loader{
+  width: 400px;
+  padding: 50px 0;
+  background-color: #1f1f1f;
+  border-radius: 5px;
+  box-shadow: 0 0 35px rgba(0,0,0,0.8);
+  text-align: center;
+  display: none;
+  top: 40%;
+  left: 40%;
+  margin: -25px 0 0 -25px;
+}
+
+.barra{
+  background-color: white;
+  width: 85%;
+  height: 25px;
+  margin: 5px auto;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.riempi{
+  height: 100%;
+  width: 0%;
+  background-color: greenyellow;
+}
+
+.contatore{
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: white;
+  padding: 5px 0;
+}
+
+.output{
+  width: 500px;
+  padding: 30px 0;
+  box-shadow: 0 0 35px rgba(0,0,0,0.8);
+  background-color: #1b1919;
+  border-radius: 5px;
+  text-align: center;
+  display: none;
+  top: 32%;
+  left: 38%;
+  margin: -25px 0 0 -25px;
+}
+
+.output .fa-check{
+  height: 150px;
+  width: 150px;
+  border: 5px solid greenyellow;
+  line-height: 150px;
+  border-radius: 50%;
+  color: greenyellow;
+  font-size: 85px;
+  margin-bottom: 30px;
+  animation: animate 1s ease;
+}
+
+@keyframes animate{
+  0%{
+      transform: translateY(60px) scale(0.7) rotate(0deg);
+      opacity: 0.2;
+  }
+  100%{
+      transform: translateY(0px) scale(1) rotate(360deg);
+      opacity: 1;
+  }
+}
+
+.textPaga{
+  font-size: 40px;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: greenyellow;
+  letter-spacing: 1px;
+}
+
+#btnChiudi{
+  margin-top: 0.8em;
+  width: 5em;
+  height: 3em;
+  background-color: #1b1919;
+  border-color: greenyellow;
+  color: greenyellow;
+  border-radius: 5px;
 }
