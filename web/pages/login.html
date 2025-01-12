@@ -5,7 +5,7 @@
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <meta name="description" content="Accedi al sito di DreamVille con il tuo utente">    
-        <meta name="keywords" content="login, accesso, DreamVille, utente, account">
+        <meta name="keywords" content="login, accesso, utente, account, profilo, DreamVille">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
 
@@ -38,10 +38,10 @@
                 </ul>
             </nav>
         </div>
-        <main class="centerColumn card" id="loginMain">
+        <main class="card cardFormMain" id="loginMain">
             <h1 lang="en">Login</h1>
             {{ $loginErrorMessage }}
-            <form method="POST" id="loginForm" class="column" onsubmit="return validateGenericForm(loginFormDetails);">
+            <form method="POST" id="loginForm" class="cardForm" onsubmit="return validateGenericForm(loginFormDetails);">
                 <div class="inputLabelContainer">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" value="{{ $oldUsername }}">

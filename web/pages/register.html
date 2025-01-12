@@ -4,8 +4,8 @@
         <title>Registrazione utente - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <meta name="description" content="Registra un nuovo utente per accedere a DreamVille e scoprire tutte le promozioni disponibili per te">    
-        <meta name="keywords" content="registrazione, DreamVille, utente, account, nuovo">
+        <meta name="description" content="Crea il tuo profilo personale per accedere a DreamVille e scoprire tutte le promozioni disponibili per te">    
+        <meta name="keywords" content="registrazione, utente, account, nuovo, profilo, DreamVille">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
 
@@ -38,10 +38,10 @@
                 </ul>
             </nav>
         </div>
-        <main class="centerColumn card" id="userRegistrationMain">
+        <main class="card cardFormMain" id="userRegistrationMain">
             <h1>Registrazione utente</h1>
             {{ $registrationErrorMessage }}
-            <form method="POST" id="userRegistrationForm" onsubmit="return validateRegistrationForm();" class="column">
+            <form method="POST" id="userRegistrationForm" onsubmit="return validateRegistrationForm();" class="cardForm">
                 <div class="inputLabelContainer">
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" name="name" value="{{ $oldName }}">

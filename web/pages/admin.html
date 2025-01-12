@@ -38,12 +38,12 @@
                 </ul>
             </nav>
         </div>
-        <main class="centerColumn card" id="userRegistrationMain">
+        <main class="card cardFormMain" id="userRegistrationMain">
             @if !empty($debugMessage)
                 <p>{{ $debugMessage }}</p>
             @endif
             <h1>Creazione spettacoli</h1>
-            <form method="POST" id="userRegistrationForm" class="column">
+            <form method="POST" id="userRegistrationForm" class="cardForm">
                 <input type="hidden" id="type" name="type" value="crea" />
                 <div class="inputLabelContainer" id="vecchioTitoloContainer" style="display: none;"> <!-- da cambiare-->
                     <label for="vecchio_titolo">Vecchio Titolo</label>
