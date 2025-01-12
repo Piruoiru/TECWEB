@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //RICHIEDE CHE LA SESSIONE SIA STATA ATTIVATA PRIMA DELL'INCLUSIONE DI QUESTO FILE
 
     $context['orario'] = "10:00-17:00";
 
