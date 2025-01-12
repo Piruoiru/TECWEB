@@ -7,7 +7,7 @@
 
     include_once 'db.php';
 
-    $context['userInfosHeader'] = "";//non mostro i pulsanti login e registrati in alto
+    unset($context['headerBtns']['register']);//non mostro il pulsante registrati in alto
     $errorMessage = "";
     $context['registrationErrorMessage'] = "";
 
