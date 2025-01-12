@@ -94,7 +94,7 @@ a:hover{
 }
 
 .buttonStyle{
-  padding: 1em 2em;
+  padding: 1em;
   border: 0;
   cursor: pointer;
   text-decoration: none;
@@ -841,8 +841,13 @@ label{
   white-space: pre;
 }
 
-#profileCard a{
-  margin: 0 0 0.5em 0;
+#profileCard .outlineGradientBtn{
+  width: 75%;
+  margin: 0 auto;
+}
+
+#profileCard *:last-child{
+  margin-bottom: 0.5em;
 }
 
 #purchasesCard{
@@ -883,5 +888,5 @@ label{
 
 #purchasesCard .outlineGradientBtn{
   width: 50%;
-  margin: 1em auto 0.5em auto;
+  margin: 0.5em auto;
 }
