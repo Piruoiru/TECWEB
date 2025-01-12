@@ -1,5 +1,5 @@
 <?php
-    include_once 'header.php';
+    session_start();
 
     if(isset($_SESSION['username'])){
        header('Location: index.php');
@@ -7,6 +7,7 @@
     }
 
     include_once 'db.php';
+    include_once 'header.php';
 
     unset($context['headerBtns']['register']);//non mostro il pulsante registrati in alto
     $errorMessage = "";
