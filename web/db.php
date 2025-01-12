@@ -1,4 +1,5 @@
 <?php
+    // I metodi get restituiscono un oggetto mysqli_result, i metodi fetch restituiscono un array associativo
     include_once 'config.php';
     class DatabaseClient{
         private $conn;
@@ -68,7 +69,7 @@
             return $tickets;
         }
 
-        public function fetchEvents(){
+        public function fetchEvents(){//TODO: cambiare a getEvents
             $sql = "SELECT * FROM spettacoli";
             $result = $this->conn->query($sql);
             if(!$result){
@@ -78,7 +79,7 @@
         }
 
         public function fetchTickets(){
-            $sql = "SELECT * FROM biglietti";
+            $sql = "SELECT * FROM tipiBiglietto";
             $result = $this->conn->query($sql);
             $tickets = [];
             if(!$result){
@@ -110,10 +111,10 @@
         }
 
         public function fetchUserAcquiredTickets($username){
-            $sql = "SELECT *
-                    FROM bigliettiAcquistati
-                    INNER JOIN biglietti ON bigliettiAcquistati.biglietto = biglietti.id
-                    WHERE utente=?";
+            $sql = "SELECT bigliettiAcquistati.id as idBiglietto, tipoBiglietto, ordine as idOrdine, sommaPagata, utente, dataOrarioOrdine FROM bigliettiAcquistati
+                    INNER JOIN ordini ON bigliettiAcquistati.ordine = ordini.id
+                    WHERE ordini.utente=?
+                    ORDER BY ordini.dataOrarioOrdine DESC";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param('s',$username);
             $result = $stmt->execute();
@@ -126,6 +127,59 @@
                 array_push($tickets,$row);
             }
             return $tickets;
+        }
+
+        public function fetchUserLastOrderTickets($username){
+            $sql = "SELECT bigliettiAcquistati.id as idBiglietto, tipoBiglietto, ordine as idOrdine, sommaPagata, utente, dataOrarioOrdine FROM bigliettiAcquistati
+                    INNER JOIN (SELECT id as idOrdine, utente, dataOrarioOrdine FROM ordini
+                    WHERE utente=?
+                    ORDER BY dataOrarioOrdine DESC
+                    LIMIT 1) AS ordini
+                    ON bigliettiAcquistati.ordine = ordini.idOrdine";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s',$username);
+            $result = $stmt->execute();
+            if(!$result){
+                throw new \Exception("Error querying the database");
+            }
+            $result = $stmt->get_result();
+            $tickets = [];
+            while($row = $result->fetch_assoc()){
+                array_push($tickets,$row);
+            }
+            return $tickets;
+        }
+
+        public function createShow($title,$description,$imgPath){
+            $sql = "INSERT INTO spettacoli(titolo,descrizione,percorso_immagine) VALUES (?,?,?);";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('sss',$title,$description,$imgPath);
+            $status = $stmt->execute();
+            if(!$status){
+                throw new \Exception("Error querying the database");
+            }
+        }
+
+        public function modifyShow($oldTitle,$title,$description,$imgPath){
+            $sql = "UPDATE spettacoli 
+                    SET titolo=?, descrizione=?, percorso_immagine=?
+                    WHERE titolo=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('ssss',$title,$description,$imgPath,$oldTitle);
+            $status = $stmt->execute();
+            if(!$status){
+                throw new \Exception("Error querying the database");
+            }
+        }
+
+        public function deleteShow($title){
+            $sql = "DELETE FROM spettacoli WHERE titolo=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s',$title);
+            $status = $stmt->execute();
+            if(!$status){
+                throw new \Exception("Error querying the database");
+            }
         }
 
         public function addTicketToCart($ticketID,$username,$quantity){
