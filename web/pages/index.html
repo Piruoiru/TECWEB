@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login - DreamVille</title>
+        <title>DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <meta name="description" content="Accedi al sito di DreamVille con il tuo utente">    
-        <meta name="keywords" content="login, accesso, DreamVille, utente, account">
-    
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+        <meta name="description" content=""><!--TODO: aggiornare descrizione-->
+        <meta name="keywords" content="DreamVille, parco, divertimento, giostre, weekend"><!--TODO: aggiornare keywords-->
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
+        <link rel="stylesheet" type="text/css" href="./style/style.css" media="screen">
         <script src="scripts/script.js"></script>
     </head>
     <body>
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Login</p>
+            <p>Ti trovi in: <span lang="en">Home</span></p>
             <p>Orario di oggi: {{ $orario }}</p>
             <div id="userCrumb">{{ $userInfosHeader }}</div>
         </nav>
@@ -27,24 +26,29 @@
             </header>
             <nav id="menu">
                 <ul>
-                    <li lang="en"><a href="index.php">Home</a></li>
-                    <li><a href="#">Scopri <span lang="en">DreamVille</span></a></li>
+                    <li id="currentPageLink" lang="en">Home</li>
+                    <li><a href="#" id="visitedStyle">Scopri <span lang="en">Dreamville</span></a></li>
                     <li><a href="#">Informazioni per la tua visita</a></li>
                     <li><a href="#">Compra biglietti e abbonamenti</a></li>
                 </ul>
-                
             </nav>
         </div>
         <main>
-            <div id="backgroundImage">
-                <h1>BENVENUTI A DREAMVILLE</h1> 
-                <p>Scopri un mondo di emozioni, avventura e magia per tutta la famiglia! </p>
-                <p>A Dreamville, ogni angolo è progettato per offrire esperienze uniche, con attrazioni mozzafiato, spettacoli entusiasmanti e una varietà di giochi che renderanno ogni visita indimenticabile. </p>
-                <p>Che tu sia alla ricerca di adrenalina pura sulle montagne russe o di una giornata di relax e divertimento con i tuoi cari, troverai sempre qualcosa che fa per te.</p>
+            <!-- <div id="card">
+                <h2>Scopri il parco</h2>
             </div>
-            <div class="card">
-
-            </div>
+            <div id="card">
+                <h2>Parco + Hotel</h2>
+            </div> -->
+            @for $row in $result
+                @for $element in $row
+                    <h1>{{ $element }}</h1>
+                @endfor
+            @endfor
         </main>
+        <footer>
+            <p>© 2024 DreamVille</p>
+        </footer>
     </body>
 </html>
+    

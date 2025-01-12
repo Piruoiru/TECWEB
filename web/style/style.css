@@ -4,12 +4,13 @@
 }
 
 :root{
-  --tertiaryColorRGB: 0, 113, 235;
   --primaryColor: #000a99;
   --secondaryColor: #FFC300;
   --tertiaryColor: #0071EB;
+  --tertiaryColorRGB: 0, 113, 235;
   /* arancione #F26B18; */
   --errorColor: #BD0000;
+  --tertiaryColorBgRGBA: 0, 113, 235, 0.4;
 }
 
 html{
@@ -25,12 +26,22 @@ body{
 main{
   max-width: 1200px;
   margin: auto;
+  background-color: #FFF;
 }
 
 body{
     font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
 }
 
+/*
+---------------------
+  BACKGROUND
+---------------------
+*/
+
+.tertiaryBg{
+  background: rgba(var(--tertiaryColorBgRGBA));
+}
 
 /*
 ---------------------
@@ -84,6 +95,8 @@ a:hover{
   border: 0;
   cursor: pointer;
   text-decoration: none;
+  border: 1px solid #000;
+  text-align: center;
 }
 
 .buttonStyle:hover{
@@ -92,10 +105,32 @@ a:hover{
 
 .translateUpOnHover{
   transition: transform 0.3s ease-out;
+  margin-top: 0.5em;
 }
 
 .translateUpOnHover:hover{
  transform: translateY(-2px);
+}
+
+.outlineGradientBtn{
+  color: #000;
+  border-color: #000;
+  border-image: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%) 1;
+  border-width: 5px;
+  border-style: solid;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.filledGradientBtn{background: var(--primaryColor);
+  background: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%);
+  color: #FFF;
+  padding: 0.75em 0;
+  font-size: 1.25em;
+  font-weight: 600;
+  width: 100%;
+  border: 0;
+  border-radius: 2px;
 }
 /*
 ---------------------
@@ -125,8 +160,6 @@ a:hover{
 }
 
 #breadcrumb p, #breadcrumb a{
-  /* padding-left: 0.5em;
-  padding-right: 0.5em; */
   padding: 0.2em 0.5em;
   margin: 0.35em 0;
   border: 2px solid var(--primaryColor);
@@ -178,6 +211,7 @@ header h1{
   background-color: var(--primaryColor);
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 #menu>ul{
@@ -293,72 +327,6 @@ header h1{
 
 /*
 ---------------------
-    CALENDAR PAGE
----------------------
-*/
-
-.paragraphCalendar{
-  padding: 0.2em 0.8em;
-  text-align: justify;
-}
-
-#titleCalendar{
-  font-size: 2em;
-  padding: 0.2em 0.4em;
-  text-align: justify;
-}
-
-.subtitleCalendar{
-  font-size: 1.5em;
-  padding: 0.2em 0.5em;
-  text-align: justify;
-}
-
-.subsubtitleCalendar{
-  font-size: 1.2em;
-  padding: 0.7em 0.5em;
-  text-align: justify;
-}
-
-.wrapCalendarTable{
-  display: flex;
-  align-items: center;
-  gap: 5em;
-}
-
-#calendarTable{
-  text-align: center;
-  vertical-align: top; /* Allinea il testo in alto */
-  padding: 0em 1em;
-}
-
-
-#calendarTable td {
-  font-size: 1em; /* Dimensione del numero del giorno */
-  padding: 0em 1em;
-}
-
-#calendarTable th {
-  font-size: 1em; /* Dimensione del testo aggiuntivo */
-}
-
-#calendarTable p{
-  font-size: 0.7em; /* Dimensione del testo aggiuntivo */
-  color: gray; /* Colore del testo aggiuntivo */
-}
-
-/* #photoOpenPark{
-  width: 7em;
-  height: auto;
-  left: 25%;
-} */
-
-#closedParkCalendar{
-  text-align: center;
-}
-
-/*
----------------------
     FORMS
 ---------------------
 */
@@ -375,22 +343,28 @@ input[type="text"]:focus, input[type="password"]:focus{
   outline: none;
 }
 
+input[type="text"]:invalid, input[type="password"]:invalid{
+  border-bottom: 3px solid var(--errorColor);
+  outline: none;
+}
+
 label{
   color: var(--primaryColor);
+  font-size: 1.1em;
   position: absolute;
-  top: 2em;
+  top: 1.5em;
   transition: transform 0.3s ease-out;
 }
 
-input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="password"]:focus ~ label, input[type="password"]:valid ~ label{
-  transform: translateY(-1em);
+.nonEmptyFieldLabel{
+  transform: translateY(-1.1em);
 }
 
 .inputLabelContainer{
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-top: 2em;
+  padding-top: 1.5em;
 }
 
 .errorMessageBgPar{
@@ -400,6 +374,20 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="
   border-radius: 5px;
   font-weight: 600;
   margin: 1em 0 0 0;
+  max-width: 75%;
+}
+
+.errorMessageBgPar>ul{
+  margin-left: 1em;
+}
+
+.errorMessageBgPar>p + ul{
+  margin-top: 0.5em;
+}
+
+.errorMessagePar{
+  color: var(--errorColor);
+  font-size: 1.1em;
 }
 
 /*
@@ -410,7 +398,6 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="
 .card{
   display: flex;
   flex-direction: column;
-  background-color: #FFF;
   border-radius: 10px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   padding: .75rem;
@@ -418,22 +405,12 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="
 
 /*
 ---------------------
-    LOGIN
+    LOGIN ONLY
 ---------------------
 */
-#loginBody{
-  background: rgba(var(--tertiaryColorRGB), 0.4);
-}
-
 #loginMain{
   margin: 2em auto;
-  width: 100%;
   max-width: 425px;
-}
-
-#loginMain>h1{
-  font-size: 2.5em;
-  margin-top: 0.5em;
 }
 
 #loginForm{
@@ -441,39 +418,37 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="
   margin: 0 auto;
 }
 
-#loginForm>input{
-  padding: 0.75em 0.5em;
-  margin: 0.5em 1em;
+/*
+---------------------
+    REGISTRATION ONLY
+---------------------
+*/
+#userRegistrationMain{
+  margin: 2em auto;
+  max-width: 425px;
 }
 
-#loginForm>input[type="submit"]{
-  background: var(--primaryColor);
-  background: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%);
-  color: #FFF;
-  padding: 0.75em 0;
-  font-size: 1.25em;
-  font-weight: 600;
-  margin: 1.5em 0 1em 0;
-  width: 100%;
-  border-radius: 2px;
-}
-
-#registrationButton{
-  color: #000;
-  border-color: #000;
-  border-image: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%) 1;
-  border-width: 5px;
-  border-style: solid;
-  font-weight: 500;
-  margin: 1em 0 0.5em 0;
+#userRegistrationForm{
+  width: 75%;
+  margin: 0 auto;
 }
 
 /*
 ---------------------
-INDEX
+    LOGIN AND REGISTRATION
 ---------------------
 */
 
-#backgroundImage{
-  background-image: url('../assets/famiglia_felice.png');
+#loginMain>h1, #userRegistrationMain>h1{
+  font-size: 2.5em;
+  margin-top: 0.5em;
+}
+
+#loginForm .filledGradientBtn, #userRegistrationForm .filledGradientBtn{
+  margin: 1.5em 0 1em 0;
+}
+
+#loginMain .outlineGradientBtn, #userRegistrationMain .outlineGradientBtn{
+  margin: 1em 0 0.5em 0;
+}
 }
