@@ -27,11 +27,14 @@ main{
   margin: auto;
 }
 
-body{
+body, button{
     font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
 }
 
 
+.tertiaryBg main{
+    background-color: #FFF;
+}
 /*
 ---------------------
   FLEX LAYOUTS
@@ -469,11 +472,429 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="
 }
 
 /*
----------------------
-INDEX
----------------------
+----------------
+    MAP PAGE
+----------------
 */
 
-#backgroundImage{
-  background-image: url('../assets/famiglia_felice.png');
+#mapMain{
+  padding: 2em;
+  box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
+}
+
+#mapMain>h1{
+  font-size: 2.5em;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
+
+#mapMain>h2{
+  font-size: 2em;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
+
+#mapMain>p{
+  text-align: center;
+  font-size: 1.1em;
+}
+
+#filtersContainer>button{
+  border-radius: 2px;
+  background: transparent;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 0.35em;
+  padding: 0.75em 1.5em;
+  transition: all .2s ease-in-out;
+}
+
+#tutteBtn{
+  border: 5px solid var(--primaryColor);
+  color: #000;
+}
+
+#tutteBtn:hover{
+  background-color: var(--primaryColor);
+  color: #FFF;
+}
+
+#filtersContainer>.tutteBtnSelected{
+  background-color: var(--primaryColor);
+  color: #FFF;
+  cursor: default;
+}
+
+#adrenalinicheBtn{
+  border: 5px solid var(--errorColor); /*FIXME: cambiare error color*/
+  color: #000;
+}
+
+#adrenalinicheBtn:hover{
+  background-color: var(--errorColor);
+  color: #FFF;
+}
+
+#filtersContainer>.adrenalinicheBtnSelected{
+  background-color: var(--errorColor);
+  color: #FFF;
+  cursor: default;
+}
+
+#fantasyBtn{
+  border: 5px solid var(--tertiaryColor);
+  color: #000;
+}
+
+#fantasyBtn:hover{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+}
+
+#filtersContainer>.fantasyBtnSelected{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+  cursor: default;
+}
+
+#bambiniBtn{
+  border: 5px solid var(--secondaryColor);
+  color: #000;
+}
+
+#bambiniBtn:hover{
+  background-color: var(--secondaryColor);
+}
+
+#filtersContainer>.bambiniBtnSelected{
+  background-color: var(--secondaryColor);
+  cursor: default;
+}
+
+#filtersContainer {
+  padding: 1.5em;
+  display: flex;
+  justify-content: center;
+}
+
+#parkMapImg{
+  width: 75%;
+  margin: 1em auto;
+  display: block;
+}
+
+#attractionList > .card{
+  padding: 1rem;
+  margin: 1.2rem;
+  max-height: fit-content;
+}
+
+#attractionList > .adrenalinicheCard{
+  background-color: var(--errorColor);
+  color: #FFF;
+}
+
+#attractionList > .fantasyCard{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+}
+
+#attractionList > .bambiniCard{
+  background-color: var(--secondaryColor);
+}
+
+#attractionList > .card h3{
+  font-size: 1.75em;
+  text-align: center;
+}
+
+#attractionList > .card p{
+  padding: 1.5em 0em;
+}
+
+.rideCardBody{
+  display: flex;
+  justify-content: space-between;
+}
+
+.rideCardBody img{
+  max-width: 18em;
+  height: auto;
+  border-radius: 15px;
+  margin: 1em;
+  box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.2);
+}
+
+#attractionList{
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/*
+----------------
+    MAP PAGE
+----------------
+*/
+
+#mapMain{
+  padding: 2em;
+  box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
+}
+
+#mapMain>h1{
+  font-size: 2.5em;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
+
+#mapMain>h2{
+  font-size: 2em;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
+
+#mapMain>p{
+  text-align: center;
+  font-size: 1.1em;
+}
+
+#filtersContainer>button{
+  border-radius: 2px;
+  background: transparent;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 0.35em;
+  padding: 0.75em 1.5em;
+  transition: all .2s ease-in-out;
+}
+
+#tutteBtn{
+  border: 5px solid var(--primaryColor);
+  color: #000;
+}
+
+#tutteBtn:hover{
+  background-color: var(--primaryColor);
+  color: #FFF;
+}
+
+#filtersContainer>.tutteBtnSelected{
+  background-color: var(--primaryColor);
+  color: #FFF;
+  cursor: default;
+}
+
+#adrenalinicheBtn{
+  border: 5px solid var(--errorColor); /*FIXME: cambiare error color*/
+  color: #000;
+}
+
+#adrenalinicheBtn:hover{
+  background-color: var(--errorColor);
+  color: #FFF;
+}
+
+#filtersContainer>.adrenalinicheBtnSelected{
+  background-color: var(--errorColor);
+  color: #FFF;
+  cursor: default;
+}
+
+#fantasyBtn{
+  border: 5px solid var(--tertiaryColor);
+  color: #000;
+}
+
+#fantasyBtn:hover{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+}
+
+#filtersContainer>.fantasyBtnSelected{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+  cursor: default;
+}
+
+#bambiniBtn{
+  border: 5px solid var(--secondaryColor);
+  color: #000;
+}
+
+#bambiniBtn:hover{
+  background-color: var(--secondaryColor);
+}
+
+#filtersContainer>.bambiniBtnSelected{
+  background-color: var(--secondaryColor);
+  cursor: default;
+}
+
+#filtersContainer {
+  padding: 1.5em;
+  display: flex;
+  justify-content: center;
+}
+
+#parkMapImg{
+  width: 75%;
+  margin: 1em auto;
+  display: block;
+}
+
+#attractionList > .card{
+  padding: 1rem;
+  margin: 1.2rem;
+  max-height: fit-content;
+}
+
+#attractionList > .adrenalinicheCard{
+  background-color: var(--errorColor);
+  color: #FFF;
+}
+
+#attractionList > .fantasyCard{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+}
+
+#attractionList > .bambiniCard{
+  background-color: var(--secondaryColor);
+}
+
+#attractionList > .card h3{
+  font-size: 1.75em;
+  text-align: center;
+}
+
+#attractionList > .card p{
+  padding: 1.5em 0em;
+}
+
+.rideCardBody{
+  display: flex;
+  justify-content: space-between;
+}
+
+.rideCardBody img{
+  max-width: 18em;
+  height: auto;
+  border-radius: 15px;
+  margin: 1em;
+  box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.2);
+}
+
+#attractionList{
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/*
+---------------------
+    PROFILE
+---------------------
+*/
+#profileMain{
+  background-color: transparent;
+}
+
+#profileMain>h1{
+  font-size: 2.5em;
+  padding-top: 0.5em;
+  text-align: center;
+  text-shadow: #FFF 0 0 25px;
+}
+
+#container{
+  display: flex;
+  justify-content: space-between;
+}
+
+#container>div{
+  background-color: #FFF;
+  margin-top: 1em;
+}
+
+#profileCard{
+  width: 35%;
+}
+
+#profileMain .card{
+  margin: 1.5em 1em;
+  height: fit-content;
+}
+
+#profileMain .card > h2{
+  font-size: 2em;
+  text-align: center;
+}
+
+#profileMain .card > h3{
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 600;
+  margin: 0.25em 0;
+}
+
+#profileDetailsContainer{
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+#profileDetailsContainer dl{
+  font-size: 1.1em;
+}
+
+#profileDetailsContainer dt, #profileDetailsContainer dd{
+  display: inline;
+  line-height: 1.5em;
+}
+
+#profileDetailsContainer dd:after {
+  content: "\a";
+  white-space: pre;
+}
+
+#profileDetailsContainer .filledGradientBtn{
+  margin: 0.75em 0 0 0;
+}
+
+#purchasesCard{
+  width: 60%;
+}
+
+.ticketCardsContainer{
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
+.ticketCardDetails{
+  display:flex;
+  flex-direction:column;
+}
+
+#purchasesCard .ticketCard{
+  margin: 0.5em;
+  box-shadow: none;
+  background-color: var(--primaryColor);
+  color: #FFF;
+  display: flex;
+  flex-direction: row;
+}
+
+.ticketCard svg{
+  width: 4em;
+  height: 3em;
+  fill: #FFF;
+  stroke: #FFF;
+  margin-right: 0.3em;
+}
+
+#purchasesCard .outlineGradientBtn{
+  width: 50%;
+  margin: 1em auto 0.5em auto;
 }

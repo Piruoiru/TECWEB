@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mappa e attrazioni - DreamVille</title>
+        <link rel="shortcut icon" href="assets/logo.png" />
+        <meta charset="utf-8">
+        <meta name="description" content="">    <!--TODO: aggiungere description e keywords-->
+        <meta name="keywords" content="parco, divertimento, giostre, weekend, DreamVille, famiglie, attività">
+    
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+        <script src="scripts/script.js"></script>
+    </head>
+    <body id="loginBody" class="tertiaryBg" onload="loadRidesFilter()">
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Mappa del parco</p>
+            <p>Orario di oggi: {{ $orario }}</p>
+            <div id="userCrumb">{{ $userInfosHeader }}</div>
+        </nav>
+        <div id="headerNavWrapper">
+            <header>
+                <h1><span lang="en">DreamVille</span></h1>
+            </header>
+            <nav id="menu">
+                <ul>
+                    <li lang="en"><a href="index.php">Home</a></li>
+                    <li><a href="#">Scopri <span lang="en">DreamVille</span></a></li>
+                    <li><a href="#">Informazioni per la tua visita</a></li>
+                    <li><a href="#">Compra biglietti e abbonamenti</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main id="mapMain">
+            <h1>Mappa del parco</h1>
+            <p>A <span lang="en">Dreamville</span> ci sono ancora tantissimi angoli da esplorare! Con la mappa del Parco, potrai visitare ogni area con facilità e tornare quando preferisci. </p>
+            <p>Grazie alla sua semplicità e chiarezza, scoprirai attrazioni, negozi, ristoranti, aree tematiche e molto altro. </p>
+            <p>Tanti luoghi fantastici ti aspettano per essere scoperti!</p>
+            <img id="parkMapImg" src="assets/mappa_parco.png" alt="mappa del parco">
+            <h2>Lista delle attrazioni</h2>
+            <div id="filtersContainer">
+                <button data-category="tutte" class="buttonStyle tutteBtnSelected" id="tutteBtn">Tutte</button>
+                <button data-category="adrenaliniche" class="buttonStyle" id="adrenalinicheBtn">Adrenaliniche</button>
+                <button data-category="fantasy" class="buttonStyle" id="fantasyBtn"><span lang="en">Fantasy</span></button>
+                <button data-category="bambini" class="buttonStyle" id="bambiniBtn">Per bambini</button>
+            </div>
+            <ul id="attractionList">
+                    <li data-category="adrenaliniche" class="card adrenalinicheCard">
+                        <h3>La Folgore</h3>
+                        <div class="rideCardBody">
+                            <p>Una corsa mozzafiato con discese vertiginose e inversioni a testa in giù. Perfetto per gli amanti dell’adrenalina! I vagoni sono ispirati a fulmini lampeggianti.</p>
+                            <img src="../assets/la_folgore.png" alt="La Folgore">
+                        </div>
+                    </li>
+                    <li data-category="adrenaliniche" class="card adrenalinicheCard">
+                        <h3>Vortice Stellare</h3>
+                        <div class="rideCardBody">
+                            <p>Un’attrazione con luci al neon e velocità elevate. Salta a bordo per una corsa che simula il viaggio attraverso un buco nero!</p>
+                            <img src="../assets/vortice_stellare.png" alt="Vortice Stellare">
+                        </div>
+                    </li>
+                    <li data-category="adrenaliniche" class="card adrenalinicheCard">
+                        <h3>La Maledizione di Ravenwood</h3>
+                        <div class="rideCardBody">
+                            <p>Un’esperienza horror con effetti speciali, attori in costume e stanze spaventose. Non adatto ai deboli di cuore!</p>
+                            <img src="../assets/la_maledizione_di_ravenwood.png" alt="La Maledizione di Ravenwood">
+                        </div>
+                    </li>
+                    <li data-category="adrenaliniche" class="card adrenalinicheCard">
+                        <h3>Sospesi nel Vuoto</h3>
+                        <div class="rideCardBody">
+                            <p>Un’area dedicata all’arrampicata e ai percorsi sospesi tra alberi, con ponti di corda e zip-line per tutte le età.</p>
+                            <img src="../assets/sospesi_nel_vuoto.png" alt="Sospesi nel Vuoto">
+                        </div>
+                    </li>
+                    <li data-category="adrenaliniche" class="card adrenalinicheCard">
+                        <h3>Il Vuoto</h3>
+                        <div class="rideCardBody">
+                            <p>Sali fino a 60 metri di altezza e poi precipita in una discesa a velocità mozzafiato. Un mix di emozione e terrore!</p>
+                            <img src="../assets/il_vuoto.png" alt="Il Vuoto">
+                        </div>
+                    </li>
+                    <li data-category="fantasy" class="card fantasyCard">
+                        <h3>Vista Infinita</h3>
+                        <div class="rideCardBody">
+                            <p>Una gigantesca ruota panoramica che offre viste spettacolari su tutto il parco. Ogni cabina è tematizzata con colori vivaci e decorazioni luminose.</p>
+                            <img src="../assets/ruota_panoramica.png" alt="Vista Infinita">
+                        </div>
+                    </li>
+                    <li data-category="fantasy" class="card fantasyCard">
+                        <h3>Castello Incantato</h3>
+                        <div class="rideCardBody">
+                            <p>Un percorso interattivo in un castello pieno di magie: scopri incantesimi, draghi animatronici e sorprese a ogni angolo.</p>
+                            <img src="../assets/castello_incantato.png" alt="Castello Incantato">
+                        </div>
+                    </li>
+                    <li data-category="fantasy" class="card fantasyCard">
+                        <h3>Avventure Galattiche</h3>
+                        <div class="rideCardBody">
+                            <p>Un’esperienza cinematografica immersiva con effetti speciali: sedili in movimento, spruzzi d’acqua e vento sincronizzati con il film.</p>
+                            <img src="../assets/avventure_galattiche.png" alt="Avventure Galattiche">
+                        </div>
+                    </li>
+                    <li data-category="fantasy" class="card fantasyCard">
+                        <h3>Esploratori del Bosco</h3>
+                        <div class="rideCardBody">
+                            <p>Un trenino che attraversa un’area tematizzata come una foresta incantata, con animali animatronici e suoni della natura.</p>
+                            <img src="../assets/esploratori_del_bosco.png" alt="Esploratori del Bosco">
+                        </div>
+                    </li>
+                    <li data-category="fantasy" class="card fantasyCard">
+                        <h3>Il Galeone Oscillante</h3>
+                        <div class="rideCardBody">
+                            <p>Una gigantesca nave pirata che dondola avanti e indietro, regalando una sensazione di volo ai suoi passeggeri.</p>
+                            <img src="../assets/il_galeone_oscillante.png" alt="Il Galeone Oscillante">
+                        </div>
+                    </li>
+                    <li data-category="fantasy" class="card fantasyCard">
+                        <h3>Safari Avventura</h3>
+                        <div class="rideCardBody">
+                            <p>Un percorso su jeep elettriche attraverso un ambiente simulato con animali selvaggi robotici e scenari realistici.</p>
+                            <img src="../assets/safari_avventura.png" alt="Safari Avventura">
+                        </div>
+                    </li>
+                    <li data-category="bambini" class="card bambiniCard">
+                        <h3>Laguna Tropicale</h3>
+                        <div class="rideCardBody">
+                            <p>Una piscina interattiva con fontane danzanti, scivoli d’acqua e spruzzi per il divertimento dei più piccoli.</p>
+                            <img src="../assets/laguna_tropicale.png" alt="Laguna Tropicale">   
+                        </div>
+                    </li>
+                    <li data-category="bambini" class="card bambiniCard">
+                        <h3>Giostra dei Cavalieri</h3>
+                        <div class="rideCardBody">
+                            <p>Una classica giostra con cavalli, carrozze e unicorni decorati.   Perfetta per i più piccoli e per chi cerca un’atmosfera da favola.</p>
+                            <img src="../assets/giostra_dei_cavalieri.png" alt="Giostra dei Cavalieri">
+                        </div>
+                    </li>
+                    <li data-category="bambini" class="card bambiniCard">
+                        <h3>Fiume Selvaggio</h3>
+                        <div class="rideCardBody">
+                            <p>Scivola su tronchi galleggianti lungo rapide e cascate. Preparati a bagnarti nella grande discesa finale!</p>
+                            <img src="../assets/fiume_selvaggio.png" alt="Fiume Selvaggio">
+                        </div>
+                    </li>
+                    <li data-category="bambini" class="card bambiniCard">
+                        <h3>Labirinto degli Specchi</h3>
+                        <div class="rideCardBody">
+                            <p>Un intricato labirinto di specchi dove perdersi e divertirsi a ritrovare l’uscita. Luci colorate rendono l’esperienza ancora più magica.</p>
+                            <img src="../assets/labirinto_degli_specchi.png" alt="Labirinto degli Specchi">
+                        </div>
+                    </li>
+                </div>                 
+            </ul>
+        </main>
+    </body>
+</html>
