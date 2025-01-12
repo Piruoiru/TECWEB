@@ -794,6 +794,7 @@ label{
 #profileCardsContainer{
   display: flex;
   justify-content: space-between;
+  margin: 1.5em 1em;
 }
 
 #profileCardsContainer>div{
@@ -801,10 +802,10 @@ label{
   margin-top: 1em;
 }
 
-#profileMain .card{
-  margin: 1.5em 1em;
+#profileCardsContainer>.card{
   padding: 1em 1.75em;
   height: fit-content;
+  margin: 0 1em;
 }
 
 #profileMain .card > h2{
@@ -852,6 +853,7 @@ label{
   display:flex;
   justify-content: center;
   flex-wrap:wrap;
+  gap: 0.5em;
 }
 
 .ticketCardDetails{
@@ -859,21 +861,24 @@ label{
   flex-direction:column;
 }
 
+.ticketCardDetails *:first-child{
+  margin-bottom: 0.25em;
+}
+
 #purchasesCard .ticketCard{
-  margin: 0.5em;
+  margin: 0.5em 0;
   box-shadow: none;
   background-color: var(--primaryColor);
   color: #FFF;
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  padding: 0.5em 0.75em 0.75em 0.75em;
 }
 
 .ticketCard svg{
-  width: 4em;
-  height: 3em;
+  width: 3.5em;
   fill: #FFF;
   stroke: #FFF;
-  margin-right: 0.3em;
 }
 
 #purchasesCard .outlineGradientBtn{
