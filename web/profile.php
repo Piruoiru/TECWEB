@@ -1,5 +1,6 @@
 <?php
     include_once 'header.php';
+    unset($context['headerBtns']['profile']);
     if(!isset($_SESSION['username'])){
         header('Location: login.php'); //TODO: da rimpiazzare con 401 non autorizzato o 403
         exit();
