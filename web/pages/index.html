@@ -18,7 +18,11 @@
         <nav id="breadcrumb">
             <p>Ti trovi in: <span lang="en">Home</span></p>
             <p>Orario di oggi: {{ $orario }}</p>
-            <div id="userCrumb">{{ $userInfosHeader }}</div>
+            <div id="userCrumb">     
+                @for $btn in $headerBtns
+                    <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
+                @endfor
+            </div>
         </nav>
         <div id="headerNavWrapper">
             <header>
