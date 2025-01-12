@@ -791,22 +791,19 @@ label{
   text-shadow: #FFF 0 0 25px;
 }
 
-#container{
+#profileCardsContainer{
   display: flex;
   justify-content: space-between;
 }
 
-#container>div{
+#profileCardsContainer>div{
   background-color: #FFF;
   margin-top: 1em;
 }
 
-#profileCard{
-  width: 35%;
-}
-
 #profileMain .card{
   margin: 1.5em 1em;
+  padding: 1em 1.75em;
   height: fit-content;
 }
 
@@ -822,28 +819,29 @@ label{
   margin: 0.25em 0;
 }
 
-#profileDetailsContainer{
-  padding: 1em;
+#profileCard{
+  width: 35%;
   display: flex;
   flex-direction: column;
 }
 
-#profileDetailsContainer dl{
+#profileCard dl{
   font-size: 1.1em;
+  margin: 0.75em 0;
 }
 
-#profileDetailsContainer dt, #profileDetailsContainer dd{
+#profileCard dt, #profileCard dd{
   display: inline;
   line-height: 1.5em;
 }
 
-#profileDetailsContainer dd:after {
+#profileCard dd:after{
   content: "\a";
   white-space: pre;
 }
 
-#profileDetailsContainer .filledGradientBtn{
-  margin: 0.75em 0 0 0;
+#profileCard a{
+  margin: 0 0 0.5em 0;
 }
 
 #purchasesCard{

@@ -41,23 +41,21 @@
         <main id="profileMain">
             <!-- TODO: USARE HEADER ALL'INTERNO DI MAIN??? -->
             <h1>Ciao {{ $nome }}!</h1> 
-            <!-- FIXME: cambiare nome container -->
-            <div id="container">
+            <div id="profileCardsContainer">
                 <div class="card" id="profileCard">
                     <h2>I miei dati</h2>
-                    <div id="profileDetailsContainer">
-                        <dl>
-                            <dt><strong>Nome:</strong></dt>
-                            <dd>{{ $nome }}</dd>
-                            <dt><strong>Cognome:</strong></dt>
-                            <dd>{{ $cognome }}</dd>
-                            <dt><strong>Username:</strong></dt>
-                            <dd>{{ $username }}</dd>
-                            <dt><strong>Password: </strong></dt>
-                            <dd>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</dd>
-                        </dl>
-                        <a href="#" class="buttonStyle translateUpOnHover filledGradientBtn">Modifica i dati</a>
-                    </div>
+                    <dl>
+                        <dt><strong>Nome:</strong></dt>
+                        <dd>{{ $nome }}</dd>
+                        <dt><strong>Cognome:</strong></dt>
+                        <dd>{{ $cognome }}</dd>
+                        <dt><strong>Username:</strong></dt>
+                        <dd>{{ $username }}</dd>
+                        <dt><strong>Password: </strong></dt>
+                        <dd>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</dd>
+                    </dl>
+                    <a href="#" class="buttonStyle translateUpOnHover filledGradientBtn">Modifica i dati</a>
+                    <a href="#" class="buttonStyle translateUpOnHover outlineGradientBtn">Elimina il profilo</a>
                 </div>
                 <div class="card" id="purchasesCard">
                     <h2>I miei acquisti</h2>
