@@ -40,7 +40,7 @@
         </div>
         <main id="profileMain">
             <!-- TODO: USARE HEADER ALL'INTERNO DI MAIN??? -->
-            <h1>Ciao {{ $nome }}!</h1> 
+            <h1>Area personale di {{ $nome }}</h1> 
             <div id="profileCardsContainer">
                 <div class="card" id="profileCard">
                     <h2>I miei dati</h2>
@@ -54,14 +54,17 @@
                         <dt><strong>Password: </strong></dt>
                         <dd>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</dd>
                     </dl>
-                    <a href="editDeleteProfile.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Modifica o elimina il profilo</a>
+                    <a href="editProfile.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Modifica o elimina il profilo</a>
                 </div>
                 <div class="card" id="purchasesCard">
-                    <h2>I miei acquisti</h2>
                     @if empty($lastOrder)
-                        <p>Non hai ancora effettuato acquisti</p>
+                        <h2>Il mio primo acquisto</h2>
+                        <p>Non hai ancora effettuato alcun acquisto.</p>
+                        <p>Regalati un'esperienza magica! Cosa aspetti?</p>
+                        <a href="#" class="buttonStyle translateUpOnHover filledGradientBtn">Acquista i tuoi primi biglietti</a>
                     @else
-                        <h3>Ultimo ordine effettuato il {{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }} alle {{ $orderHour }}:{{ $orderMinute }}</h3>
+                        <h2>Il mio ultimo acquisto</h2>
+                        <h3>Del {{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }} alle {{ $orderHour }}:{{ $orderMinute }}</h3>
                         <div class="ticketCardsContainer">
                         @for $ticket in $lastOrder 
                             <div class='card ticketCard'>
@@ -85,8 +88,8 @@
                             </div>
                         @endfor
                         </div>
+                        <a href="#" class="buttonStyle translateUpOnHover outlineGradientBtn">Visualizza tutti gli acquisti</a>
                     @endif
-                    <a href="#" class="buttonStyle translateUpOnHover outlineGradientBtn">Visualizza tutti gli ordini</a>
                 </div>
             </div>
         </main>

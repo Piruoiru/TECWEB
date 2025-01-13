@@ -225,6 +225,17 @@ function userExists(input) {
 
 /*
 ---------------------
+    EDIT PROFILE FORM
+---------------------
+*/
+var editUserFormDetails = {
+    "nome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
+    "cognome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
+    "username":["", /^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
+};
+
+/*
+---------------------
     MAP 
 ---------------------
 */

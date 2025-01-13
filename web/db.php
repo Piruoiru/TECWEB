@@ -19,7 +19,7 @@
             $this->conn->close();
         }
 
-        public function fetchUser($username){
+        public function fetchUser($username){//FIXME: cambiare in getUser
             $sql = "SELECT * FROM users WHERE username = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param('s',$username);
@@ -49,6 +49,20 @@
             $password = hash('sha256',$password);
             $stmt->bind_param('ssss', $name, $surname, $username ,$password);
             return $stmt->execute();//FIXME: chiusura prepared stmt
+        }
+
+        public function updateUserDetails($name, $surname, $username){
+            $sql = "UPDATE users SET nome=?, cognome=? WHERE username=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('sss', $name, $surname, $username);
+            return $stmt->execute();
+        }
+
+        public function deleteUser($username){
+            $sql = "DELETE FROM users WHERE username=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s', $username);
+            return $stmt->execute();
         }
 
         public function fetchCart($username){

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once 'header.php';
     unset($context['headerBtns']['profile']);
     if(!isset($_SESSION['username'])){
@@ -18,6 +19,8 @@
 
 
     $context['lastOrder'] = $db->fetchUserLastOrderTickets($_SESSION['username']);
+    $db->close();
+    if(!empty($context['lastOrder'])){
     $splitOrderDateTime = explode(" ", $context['lastOrder'][0]['dataOrarioOrdine']);
     $orderDate = explode("-", $splitOrderDateTime[0]);
     $context['orderYear'] = $orderDate[0];
@@ -26,8 +29,7 @@
     $orderTime = explode(":", $splitOrderDateTime[1]);
     $context['orderHour'] = $orderTime[0];
     $context['orderMinute'] = $orderTime[1];
-    $db->close();
-
+    }
 
     include_once 'parser.php';
     $template = new Parser();
