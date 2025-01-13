@@ -19,6 +19,7 @@
 
     $errorMessage = "";
     $context['updateErrorMessage'] = array();
+    $context['updateSuccessMessage'] = "";
 
     if(isset($_POST['submit'])){
         $name = $_POST['name'];
