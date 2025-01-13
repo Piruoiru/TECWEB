@@ -34,8 +34,6 @@
         }
         
         if(!empty($context['updateErrorMessage'])){
-            // $errorMessage = '<div class="errorMessageBgPar"><p>Si sono verificati alcuni errori durante la modifica dei dati:</p><ul>'.$errorMessage.'</ul></div>';
-            // $context['updateErrorMessage'] = $errorMessage;
             $context['userFirstName'] = $name;
             $context['userSurname'] = $surname;
         }else{
