@@ -38,7 +38,7 @@
             </ul>
         </nav>
     </div>
-    <form method="POST">
+    <form method="POST" onsubmit="caricaPBar()">
         <main>
             <div class="pageCart">
                 <h1>Il tuo Carrello</h1>
@@ -51,23 +51,23 @@
                 <input type="submit" id="btnCart" value="Acquista">
             </div>
         </main>
-    </form>
-    <div id="backdrop">
-        <div id="progressBar">
-            <header class="loader">
-                <header class="barra">
-                    <header class="riempi"></header>
+        <div id="backdrop">
+            <div id="progressBar">
+                <header class="loader">
+                    <header class="barra">
+                        <header class="riempi"></header>
+                    </header>
+                    <header class="contatore">0%</header>
                 </header>
-                <header class="contatore">0%</header>
-            </header>
-    
-            <header class="output">
-                <span class="fas fa-check"></span>
-                <header class="textPaga">Pagamento effettuato</header>
-                <button id="btnChiudi">Chiudi</button>
-            </header>
+        
+                <header class="output">
+                    <span class="fas fa-check"></span>
+                    <header class="textPaga">Pagamento effettuato</header>
+                    <button id="btnChiudi">Chiudi</button>
+                </header>
+            </div>
         </div>
-    </div>
+    </form>
 </body>
 
 </html>
