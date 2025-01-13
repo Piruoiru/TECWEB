@@ -39,7 +39,7 @@
     </div>
     <main>
         <div id="containerTicket">
-            <div id="boxTicket">
+            <form id="boxTicket" method="POST">
                 <h1>Acquista i tuoi biglietti</h1>
                 <p> </p>
                 <p>Acquista qui il tuo biglietto e goditi la visita a DreamVille!</p>
@@ -61,12 +61,12 @@
                         </div>
                     </button>
                 </div>
-                <form id="boxSconto">
+                <div id="boxSconto">
                     <h3>Hai un codice sconto?</h3>
                     <input id="txtSconto" type="text" id="codice" name="codice"
                         placeholder="Inserisci qui il codice sconto">
                     <button id="btnSconto" type="submit">Applica</button> <!--TO DO e decidere SE farlo-->
-                </form>
+                </div>
                 <h3>Attenzione</h3>
                 <p>Questi prezzi possono essere soggetti a modifiche e cambiamenti in ogni momento.</p>
                 <p><strong>NOTA BENE:</strong> Le tariffe dei biglietti possono variare in base al periodo dell’anno in
@@ -81,8 +81,11 @@
                     <p>e procedi nell’acquisto</p>
                     <ul id="carrello"></ul>
                 </div>
-                <button id="confermaAcq">CONFERMA</button>
-            </div>
+                <input type="hidden" id="intero" name="intero">
+                <input type="hidden" id="ridotto" name="ridotto">
+                <input type="submit" id="confermaAcq" value="CONFERMA">
+            </form>
+
         </div>
     </main>
 </body>
