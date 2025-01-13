@@ -58,6 +58,13 @@
             return $stmt->execute();
         }
 
+        public function deleteUser($username){
+            $sql = "DELETE FROM users WHERE username=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s', $username);
+            return $stmt->execute();
+        }
+
         public function fetchCart($username){
             $sql = "SELECT * 
                     FROM bigliettiCarrello 
