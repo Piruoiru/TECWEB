@@ -8,14 +8,13 @@
     <meta name="description" content="Accedi al sito di DreamVille con il tuo utente">
     <meta name="keywords" content="login, accesso, DreamVille, utente, account">
 
-    <link id="pagestyle" rel="stylesheet" type="text/css" href="../style/style.css">
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
-    <script src="../scripts/script.js"></script>
+    <script src="scripts/script.js"></script>
 </head>
 
 <body id="loginBody" class="tertiaryBg">
@@ -39,13 +38,13 @@
     </div>
     <main>
         <div id="containerTicket">
-            <form id="boxTicket" method="POST">
+            <div id="boxTicket">
                 <h1>Acquista i tuoi biglietti</h1>
                 <p> </p>
                 <p>Acquista qui il tuo biglietto e goditi la visita a DreamVille!</p>
                 <div id="ticketChoice">
                     <button class="cardTicket" data-ticket-type="Biglietto Intero 34,99€">
-                        <img src="../assets/ticketimg.png" alt="Biglietto Intero">
+                        <img src="assets/ticketimg.png" alt="Biglietto Intero">
                         <div class="ticketInfo">
                             <h3>Biglietto Intero</h3>
                             <p>Questo biglietto permette un ingresso al parco Dreamville, 1 giorno di visita per la
@@ -53,7 +52,7 @@
                         </div>
                     </button>
                     <button class="cardTicket" data-ticket-type="Biglietto Ridotto 24,99€">
-                        <img src="../assets/ticketimg.png" alt="Biglietto Ridotto">
+                        <img src="assets/ticketimg.png" alt="Biglietto Ridotto">
                         <div class="ticketInfo">
                             <h3>Biglietto Ridotto</h3>
                             <p>Valido per bambini di altezza superiore a 100 cm e di età inferiore ai 14 anni, over 65,
@@ -83,8 +82,8 @@
                 </div>
                 <input type="hidden" id="intero" name="intero">
                 <input type="hidden" id="ridotto" name="ridotto">
-                <input type="submit" id="confermaAcq" value="CONFERMA">
-            </form>
+                <button id="confermaAcq">CONFERMA</button>
+            </div>
 
         </div>
     </main>
