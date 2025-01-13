@@ -38,5 +38,5 @@
     
     
     $template = new Parser();
-    $template->render('buyingcart.html',$context);
+    $template->render('buycart.html',$context);
 ?>
