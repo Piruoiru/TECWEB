@@ -87,7 +87,7 @@ a:hover{
  transform: translateY(-2px);
 }
 
-.outlineGradientBtn{
+.outlineGradientBtn, .outlineGradientBtn:visited{
   color: #000;
   border-color: #000;
   border-image: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%) 1;
@@ -95,9 +95,11 @@ a:hover{
   border-style: solid;
   font-weight: 500;
   font-size: 1.1em;
+  background-color: #FFF;
 }
 
-.filledGradientBtn{background: var(--primaryColor);
+.filledGradientBtn, .filledGradientBtn:visited{
+  background: var(--primaryColor);
   background: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%);
   color: #FFF;
   padding: 0.75em 0;
@@ -338,21 +340,30 @@ label{
   padding-top: 1.5em;
 }
 
-.errorMessageBgPar{
-  background-color: var(--errorColor);
+.errorMessageBgPar, .successMessageBgPar{
   padding: 0.5em 1em;
-  color: #FFF;
   border-radius: 5px;
   font-weight: 600;
   margin: 1em 0 0 0;
   max-width: 75%;
 }
 
-.errorMessageBgPar>ul{
+.errorMessageBgPar{
+  color: #FFF;
+  background-color: var(--errorColor);
+}
+
+.successMessageBgPar{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+  font-size: 1.1em;
+}
+
+.errorMessageBgPar>ul, .successMessageBgPar>ul{
   margin-left: 1em;
 }
 
-.errorMessageBgPar>p + ul{
+.errorMessageBgPar>p + ul, .successMessageBgPar>p + ul{
   margin-top: 0.5em;
 }
 
@@ -408,166 +419,6 @@ label{
 .cardFormMain .outlineGradientBtn{
   margin: 1em 0 0.5em 0;
   padding: 1em 2em;
-}
-
-/*
-----------------
-    MAP PAGE
-----------------
-*/
-
-#mapMain{
-  padding: 2em;
-  box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
-}
-
-#mapMain>h1{
-  font-size: 2.5em;
-  margin-bottom: 0.25em;
-  text-align: center;
-}
-
-#mapMain>h2{
-  font-size: 2em;
-  margin-bottom: 0.25em;
-  text-align: center;
-}
-
-#mapMain>p{
-  text-align: center;
-  font-size: 1.1em;
-}
-
-#filtersContainer>button{
-  border-radius: 2px;
-  background: transparent;
-  font-size: 1.1em;
-  font-weight: 500;
-  margin: 0.35em;
-  padding: 0.75em 1.5em;
-  transition: all .2s ease-in-out;
-}
-
-#tutteBtn{
-  border: 5px solid var(--primaryColor);
-  color: #000;
-}
-
-#tutteBtn:hover{
-  background-color: var(--primaryColor);
-  color: #FFF;
-}
-
-#filtersContainer>.tutteBtnSelected{
-  background-color: var(--primaryColor);
-  color: #FFF;
-  cursor: default;
-}
-
-#adrenalinicheBtn{
-  border: 5px solid var(--errorColor); /*FIXME: cambiare error color*/
-  color: #000;
-}
-
-#adrenalinicheBtn:hover{
-  background-color: var(--errorColor);
-  color: #FFF;
-}
-
-#filtersContainer>.adrenalinicheBtnSelected{
-  background-color: var(--errorColor);
-  color: #FFF;
-  cursor: default;
-}
-
-#fantasyBtn{
-  border: 5px solid var(--tertiaryColor);
-  color: #000;
-}
-
-#fantasyBtn:hover{
-  background-color: var(--tertiaryColor);
-  color: #FFF;
-}
-
-#filtersContainer>.fantasyBtnSelected{
-  background-color: var(--tertiaryColor);
-  color: #FFF;
-  cursor: default;
-}
-
-#bambiniBtn{
-  border: 5px solid var(--secondaryColor);
-  color: #000;
-}
-
-#bambiniBtn:hover{
-  background-color: var(--secondaryColor);
-}
-
-#filtersContainer>.bambiniBtnSelected{
-  background-color: var(--secondaryColor);
-  cursor: default;
-}
-
-#filtersContainer {
-  padding: 1.5em;
-  display: flex;
-  justify-content: center;
-}
-
-#parkMapImg{
-  width: 75%;
-  margin: 1em auto;
-  display: block;
-}
-
-#attractionList > .card{
-  padding: 1rem;
-  margin: 1.2rem;
-  max-height: fit-content;
-}
-
-#attractionList > .adrenalinicheCard{
-  background-color: var(--errorColor);
-  color: #FFF;
-}
-
-#attractionList > .fantasyCard{
-  background-color: var(--tertiaryColor);
-  color: #FFF;
-}
-
-#attractionList > .bambiniCard{
-  background-color: var(--secondaryColor);
-}
-
-#attractionList > .card h3{
-  font-size: 1.75em;
-  text-align: center;
-}
-
-#attractionList > .card p{
-  padding: 1.5em 0em;
-}
-
-.rideCardBody{
-  display: flex;
-  justify-content: space-between;
-}
-
-.rideCardBody img{
-  max-width: 18em;
-  height: auto;
-  border-radius: 15px;
-  margin: 1em;
-  box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.2);
-}
-
-#attractionList{
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 /*
@@ -844,4 +695,30 @@ label{
 #purchasesCard .outlineGradientBtn{
   width: 50%;
   margin: 0.5em auto;
+}
+
+/*
+---------------------
+    EDIT DELETE PROFILE PAGE
+---------------------
+*/
+#profileEditMain dl{
+  font-size: 1.1em;
+  margin: 0;
+  margin-top: 0.75em;
+}
+
+#profileEditMain dt, #profileEditMain dd{
+  display: inline;
+  line-height: 1.5em;
+}
+
+#profileEditMain dd:after{
+  content: "\a";
+  white-space: pre;
+}
+
+#profileEditMain .tertiaryColorButton{
+  width: 75%;
+  margin: 0 auto;
 }

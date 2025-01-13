@@ -54,14 +54,15 @@
                         <dt><strong>Password: </strong></dt>
                         <dd>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</dd>
                     </dl>
-                    <a href="editDeleteProfile.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Modifica o elimina il profilo</a>
+                    <a href="editProfile.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Modifica o elimina il profilo</a>
                 </div>
                 <div class="card" id="purchasesCard">
-                    <h2>I miei acquisti</h2>
                     @if empty($lastOrder)
-                        <p>Non hai ancora effettuato acquisti</p>
+                        <h2>I miei acquisti</h2>
+                        <p><strong>Non hai ancora effettuato acquisti</strong></p>
                     @else
-                        <h3>Ultimo ordine effettuato il {{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }} alle {{ $orderHour }}:{{ $orderMinute }}</h3>
+                        <h2>Ultimo acquisto</h2>
+                        <h3>Effettuato il {{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }} alle {{ $orderHour }}:{{ $orderMinute }}</h3>
                         <div class="ticketCardsContainer">
                         @for $ticket in $lastOrder 
                             <div class='card ticketCard'>
@@ -86,7 +87,7 @@
                         @endfor
                         </div>
                     @endif
-                    <a href="#" class="buttonStyle translateUpOnHover outlineGradientBtn">Visualizza tutti gli ordini</a>
+                    <a href="#" class="buttonStyle translateUpOnHover outlineGradientBtn">Visualizza tutti gli acquisti</a>
                 </div>
             </div>
         </main>
