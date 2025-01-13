@@ -382,7 +382,7 @@ label{
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
-  padding: .75rem;
+  padding: .75em;
 }
 
 /*
@@ -410,6 +410,7 @@ label{
 .cardFormMain>h1{
   font-size: 2.5em;
   margin-top: 0.5em;
+  text-align: center;
 }
 
 .cardForm .filledGradientBtn{
@@ -699,7 +700,7 @@ label{
 
 /*
 ---------------------
-    EDIT DELETE PROFILE PAGE
+    EDIT PROFILE PAGE
 ---------------------
 */
 #profileEditMain dl{
@@ -716,4 +717,28 @@ label{
 #profileEditMain dd:after{
   content: "\a";
   white-space: pre;
+}
+
+/*
+---------------------
+    DELETE PROFILE PAGE
+---------------------
+*/
+
+#profileDeletionMain{
+  width: fit-content;
+  max-width: 75%;
+  padding: 1em 2em;
+}
+
+#profileDeletionMain > *:last-child{
+  margin-bottom: 1.25em;
+}
+
+#profileDeletionMain .errorMessageBgPar{
+  font-size: 1.1em;
+}
+
+#profileDeletionMain .successMessageBgPar, #profileDeletionMain .errorMessageBgPar{
+  padding: 0.5em 1.5em;
 }
