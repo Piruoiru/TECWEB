@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once 'header.php';
     unset($context['headerBtns']['profile']);
     if(!isset($_SESSION['username'])){
