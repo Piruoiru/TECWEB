@@ -717,8 +717,3 @@ label{
   content: "\a";
   white-space: pre;
 }
-
-#profileEditMain .tertiaryColorButton{
-  width: 75%;
-  margin: 0 auto;
-}
