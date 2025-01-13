@@ -230,6 +230,9 @@ TICKET PAGE
 */
 
 window.onload = function () {
+    let nInteri = 0;
+    let nRidotti = 0;
+
     // Seleziona tutti i bottoni dei biglietti e il carrello
     const buttons = document.querySelectorAll('.cardTicket');
     const carrello = document.getElementById('carrello');
@@ -239,9 +242,16 @@ window.onload = function () {
         // Crea un nuovo elemento della lista
         const li = document.createElement('li');
         li.textContent = tipoBiglietto;
-
+        if(tipoBiglietto == "Biglietto Intero 34,99€"){
+            nInteri++;
+        }
+        else{
+            hidden.setAttribute('value', "1");
+            nRidotti++;
+        }
         // Aggiungi il nuovo elemento alla lista del carrello
         carrello.appendChild(li);
+        carrello.appendChild(hidden);
     }
 
     // Aggiungi un evento "click" a ogni bottone
@@ -256,6 +266,11 @@ window.onload = function () {
     const btnConferma = document.getElementById("btnCart");
 
     btnConferma.addEventListener('click', () => {
+        const hiddenInt = document.getElementById("intero");
+        const hiddenRid = document.getElementById("ridotto");
+        hiddenInt.setAttribute('value',nInteri);
+        hiddenRid.setAttribute('value',nRidotti);
+
         const backdrop = document.getElementById("backdrop");
         backdrop.style.display = "block"; 
 
@@ -289,6 +304,3 @@ window.onload = function () {
         })
     })
 }
-
-
-
