@@ -8,18 +8,18 @@
     <meta name="description" content="Accedi al sito di DreamVille con il tuo utente">
     <meta name="keywords" content="login, accesso, DreamVille, utente, account">
 
-    <link id="pagestyle" rel="stylesheet" type="text/css" href="../style/style.css">
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
 
-    <script src="../scripts/script.js"></script>
+    <script src="scripts/script.js"></script>
     <script src="https://kit.fontawesome.com/06a651c8da.js"></script>
 </head>
 
-<body id="loginBody" class="tertiaryBg">
+<body id="loginBody" class="tertiaryBg" onload="caricaCarrello()">
     <nav id="breadcrumb">
         <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Login</p>
         <p>Orario di oggi: {{ $orario }}</p>
@@ -38,22 +38,20 @@
             </ul>
         </nav>
     </div>
-    <main>
-        <div class="pageCart">
-            <h1>Il tuo Carrello</h1>
-            <div id="boxCart">
-                <ul id="carrello">
-                    <li>Ticket1</li>
-                    <li>Ticket2</li>
-                    <li>Ticket3</li>
-                    <li>Ticket4</li>
-                    <li>Ticket5</li>
-                </ul>
-                <p id="prezzoTot"><strong>Totale: </strong></p>
+    <form method="POST">
+        <main>
+            <div class="pageCart">
+                <h1>Il tuo Carrello</h1>
+                <div id="boxCart">
+                    <ul id="carrello">
+                        {{$cart}}
+                    </ul>
+                    <p id="prezzoTot"><strong>Totale: </strong></p>
+                </div>
+                <input type="submit" id="btnCart" value="Acquista">
             </div>
-            <button id="btnCart">Acquista</button>
-        </div>
-    </main>
+        </main>
+    </form>
     <div id="backdrop">
         <div id="progressBar">
             <header class="loader">
