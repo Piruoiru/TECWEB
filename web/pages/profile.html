@@ -40,7 +40,7 @@
         </div>
         <main id="profileMain">
             <!-- TODO: USARE HEADER ALL'INTERNO DI MAIN??? -->
-            <h1>Ciao {{ $nome }}!</h1> 
+            <h1>Benvenuto nel tuo profilo, {{ $nome }}!</h1> 
             <div id="profileCardsContainer">
                 <div class="card" id="profileCard">
                     <h2>I miei dati</h2>
@@ -58,11 +58,13 @@
                 </div>
                 <div class="card" id="purchasesCard">
                     @if empty($lastOrder)
-                        <h2>I miei acquisti</h2>
-                        <p><strong>Non hai ancora effettuato acquisti</strong></p>
+                        <h2>Il mio primo acquisto</h2>
+                        <p>Non hai ancora effettuato alcun acquisto.</p>
+                        <p>Regalati un'esperienza magica! Cosa aspetti?</p>
+                        <a href="#" class="buttonStyle translateUpOnHover filledGradientBtn">Acquista i tuoi primi biglietti</a>
                     @else
-                        <h2>Ultimo acquisto</h2>
-                        <h3>Effettuato il {{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }} alle {{ $orderHour }}:{{ $orderMinute }}</h3>
+                        <h2>Il mio ultimo acquisto</h2>
+                        <h3>Del {{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }} alle {{ $orderHour }}:{{ $orderMinute }}</h3>
                         <div class="ticketCardsContainer">
                         @for $ticket in $lastOrder 
                             <div class='card ticketCard'>
@@ -86,8 +88,8 @@
                             </div>
                         @endfor
                         </div>
+                        <a href="#" class="buttonStyle translateUpOnHover outlineGradientBtn">Visualizza tutti gli acquisti</a>
                     @endif
-                    <a href="#" class="buttonStyle translateUpOnHover outlineGradientBtn">Visualizza tutti gli acquisti</a>
                 </div>
             </div>
         </main>

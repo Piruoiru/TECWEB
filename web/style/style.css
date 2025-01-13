@@ -102,7 +102,7 @@ a:hover{
   background: var(--primaryColor);
   background: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%);
   color: #FFF;
-  padding: 0.75em 0;
+  padding: 1em 1.5em;
   font-size: 1.25em;
   font-weight: 600;
   width: 100%;
@@ -340,30 +340,32 @@ label{
   padding-top: 1.5em;
 }
 
-.errorMessageBgPar, .successMessageBgPar{
+.errorMessageBgPar, .infoMessageBgPar{
   padding: 0.5em 1em;
   border-radius: 5px;
-  font-weight: 600;
   margin: 1em 0 0 0;
   max-width: 75%;
+  width: fit-content;
+  text-align: center;
 }
 
 .errorMessageBgPar{
   color: #FFF;
   background-color: var(--errorColor);
+  font-weight: 600;
 }
 
-.successMessageBgPar{
+.infoMessageBgPar{
   background-color: var(--tertiaryColor);
   color: #FFF;
   font-size: 1.1em;
 }
 
-.errorMessageBgPar>ul, .successMessageBgPar>ul{
+.errorMessageBgPar>ul, .infoMessageBgPar>ul{
   margin-left: 1em;
 }
 
-.errorMessageBgPar>p + ul, .successMessageBgPar>p + ul{
+.errorMessageBgPar>p + ul, .infoMessageBgPar>p + ul{
   margin-top: 0.5em;
 }
 
@@ -621,9 +623,9 @@ label{
 }
 
 #profileMain .card > h3{
-  font-size: 1.5em;
+  font-size: 1.35em;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0.25em 0;
 }
 
@@ -659,6 +661,25 @@ label{
 
 #purchasesCard{
   width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#purchasesCard>p{
+  margin-top: 1em;
+  margin-bottom: 0.25em;
+  font-size: 1.1em;
+}
+
+#purchasesCard p+p{
+  margin-top: 0.1em;
+}
+
+#purchasesCard .filledGradientBtn{
+  width: fit-content;
+  max-width: 75%;
+  margin: 0.5em auto;
 }
 
 .ticketCardsContainer{
@@ -739,6 +760,6 @@ label{
   font-size: 1.1em;
 }
 
-#profileDeletionMain .successMessageBgPar, #profileDeletionMain .errorMessageBgPar{
+#profileDeletionMain .infoMessageBgPar, #profileDeletionMain .errorMessageBgPar{
   padding: 0.5em 1.5em;
 }
