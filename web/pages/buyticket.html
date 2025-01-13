@@ -12,7 +12,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
 
     <script src="scripts/script.js"></script>
 </head>
@@ -73,18 +74,19 @@
             </div>
             <div id="buyTicketKart">
                 <div id="boxRiepilogo">
-                    <h2>Il tuo carrello</h2>
-                    <p>______________________________</p>
-                    <p> </p>
-                    <p>Seleziona le tue preferenze</p>
-                    <p>e procedi nell’acquisto</p>
-                    <ul id="carrello"></ul>
+                    <form method="POST">
+                        <h2>Il tuo carrello</h2>
+                        <p>______________________________</p>
+                        <p> </p>
+                        <p>Seleziona le tue preferenze</p>
+                        <p>e procedi nell’acquisto</p>
+                        <ul id="carrello"></ul>
                 </div>
                 <input type="hidden" id="intero" name="intero">
                 <input type="hidden" id="ridotto" name="ridotto">
-                <button id="confermaAcq">CONFERMA</button>
+                <input type="submit" value ="CONFERMA" id="confermaCart">
+                </form>
             </div>
-
         </div>
     </main>
 </body>
