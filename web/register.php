@@ -10,7 +10,7 @@
 
     unset($context['headerBtns']['register']);//non mostro il pulsante registrati in alto
     $errorMessage = "";
-    $context['registrationErrorMessage'] = "";
+    $context['registrationErrorMessage'] = array();
 
     $context['oldName'] = '';
     $context['oldSurname'] = '';
@@ -30,20 +30,20 @@
 
         if(!preg_match("/^[A-Za-z\p{L}\ \']{2,}/u", $name)){//messo \p{L} per accettare anche caratteri accentati dato che non funziona come in JS
             $pregErrorOccured = true;
-            $errorMessage .= "<li>Nome non valido</li>";
+            array_push($context['registrationErrorMessage'], "Nome non valido");
         }
         if(!preg_match("/^[A-Za-z\p{L}\ \']{2,}/u", $surname)){
             $pregErrorOccured = true;
-            $errorMessage .= "<li>Cognome non valido</li>";
+            array_push($context['registrationErrorMessage'], "Cognome non valido");
         }
         if(!preg_match('/^[A-Za-z0-9_\.\@]{4,20}/u', $username)){
             $pregErrorOccured = true;
-            $errorMessage .= "<li>Username non valido</li>";
+            array_push($context['registrationErrorMessage'], "Username non valido");
 
         }
         if (!preg_match('/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}/u', $password)) {
             $pregErrorOccured = true;
-            $errorMessage .= "<li>Password non valida</li>";
+            array_push($context['registrationErrorMessage'], "Password non valida");
         }
 
         $db = new DatabaseClient();
@@ -51,20 +51,17 @@
         $result = $db->fetchUser($username);
 
         if($result->num_rows > 0){
-            $errorMessage .= '<li>Il nome utente è già in uso</li>';
+            array_push($context['registrationErrorMessage'], "Username già in uso");
         }
         
-        if(strlen($errorMessage>0)){
-            $errorMessage = '<div class="errorMessageBgPar"><p>Si sono verificati alcuni errori durante la registrazione:</p><ul>'.$errorMessage.'</ul></div>';
-            $context['registrationErrorMessage'] = $errorMessage;
-        }else{
+        if(empty($context['registrationErrorMessage'])){
             if($db->register($name, $surname, $username,$password)){
                 $_SESSION['username'] = $username;
                 $db->close();
                 header('Location: index.php');
                 exit();
             }else{
-                $context['registrationErrorMessage'] = '<p class="errorMessageBgPar">Errore durante la registrazione</p>';
+                $context['registrationErrorMessage'] = 'Errore generico durante la registrazione';
             }
         }
         $db->close();

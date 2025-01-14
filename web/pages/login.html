@@ -40,7 +40,9 @@
         </div>
         <main class="card cardFormMain" id="loginMain">
             <h1 lang="en">Login</h1>
-            {{ $loginErrorMessage }}
+            @if !empty($loginErrorMessage)
+            <p class="errorMessageBgPar">{{ $loginErrorMessage }}</p>
+            @endif
             <form method="POST" id="loginForm" class="cardForm" onsubmit="return validateGenericForm(loginFormDetails);">
                 <div class="inputLabelContainer">
                     <label for="username">Username</label>

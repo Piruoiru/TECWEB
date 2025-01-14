@@ -40,7 +40,16 @@
         </div>
         <main class="card cardFormMain" id="userRegistrationMain">
             <h1>Registrazione utente</h1>
-            {{ $registrationErrorMessage }}
+            @if !empty($registrationErrorMessage)
+            <div class="errorMessageBgPar">
+                <p>Si sono verificati alcuni errori durante la registrazione:</p>
+                <ul>
+                    @for $error in $registrationErrorMessage
+                        <li>{{ $error }}</li>
+                    @endfor
+                </ul>
+            </div>
+            @endif
             <form method="POST" id="userRegistrationForm" onsubmit="return validateRegistrationForm();" class="cardForm">
                 <div class="inputLabelContainer">
                     <label for="nome">Nome</label>
