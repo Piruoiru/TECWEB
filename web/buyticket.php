@@ -2,7 +2,7 @@
 session_start();
 include_once 'parser.php';
 $context = ['orario' => "10:00-17:00"];
-if (/*!*/isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
 }
@@ -18,13 +18,13 @@ if (isset($_POST['submit'])) {
     $db->connect();
 
     if ($intero > 0) {
-        if ($db->addTicketToCart(2,'user' /*$_SESSION['username']*/, $intero)) {
+        if ($db->addTicketToCart(2,$_SESSION['username'], $intero)) {
             $db->close();
             exit();
         }
     }
     if ($ridotto > 0) {
-        if ($db->addTicketToCart(1,'user' /*$_SESSION['username']*/, $ridotto)) {
+        if ($db->addTicketToCart(1,$_SESSION['username'], $ridotto)) {
             $db->close();
             exit();
         }
