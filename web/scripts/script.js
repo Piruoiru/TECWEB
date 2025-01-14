@@ -236,22 +236,24 @@ window.onload = function () {
     // Seleziona tutti i bottoni dei biglietti e il carrello
     const buttons = document.querySelectorAll('.cardTicket');
     const carrello = document.getElementById('carrello');
+    const hiddenInt = document.getElementById("intero");
+    const hiddenRid = document.getElementById("ridotto");
 
     // Funzione per aggiungere biglietti al carrello
     function aggiungiAlCarrello(tipoBiglietto) {
         // Crea un nuovo elemento della lista
         const li = document.createElement('li');
         li.textContent = tipoBiglietto;
-        if(tipoBiglietto == "Biglietto Intero 34,99€"){
+        if (tipoBiglietto == "Biglietto Intero 34,99€") {
             nInteri++;
+            hiddenInt.setAttribute('value', nInteri);
         }
-        else{
-            hidden.setAttribute('value', "1");
+        else {
             nRidotti++;
+            hiddenRid.setAttribute('value', nRidotti);
         }
         // Aggiungi il nuovo elemento alla lista del carrello
         carrello.appendChild(li);
-        carrello.appendChild(hidden);
     }
 
     // Aggiungi un evento "click" a ogni bottone
@@ -262,17 +264,12 @@ window.onload = function () {
             aggiungiAlCarrello(tipoBiglietto);
         });
     });
-    
-    const btnConferma = document.getElementById("btnCart");
 
-    btnConferma.addEventListener('click', () => {
-        const hiddenInt = document.getElementById("intero");
-        const hiddenRid = document.getElementById("ridotto");
-        hiddenInt.setAttribute('value',nInteri);
-        hiddenRid.setAttribute('value',nRidotti);
+    const btnCart = document.getElementById("btnCart");
 
+    btnCart.addEventListener('click', () => {
         const backdrop = document.getElementById("backdrop");
-        backdrop.style.display = "block"; 
+        backdrop.style.display = "block";
 
         let loader = document.querySelector(".loader");
         let output = document.querySelector(".output");
@@ -281,7 +278,7 @@ window.onload = function () {
         loader.style.display = "block";
         loader.style.position = "absolute";
         var n = 0;
-        var run = setInterval(frames, 30);
+        var run = setInterval(frames, 25);
         function frames() {
             n = n + 1;
             if (n == 101) {
@@ -295,12 +292,5 @@ window.onload = function () {
                 riempi.style.width = n + "%";
             }
         }
-
-        const btnChiudi = document.getElementById("btnChiudi");
-
-        btnChiudi.addEventListener('click', () => {
-            output.style.display = "none";
-            backdrop.style.display = "none"; 
-        })
     })
 }
