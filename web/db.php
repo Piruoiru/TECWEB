@@ -43,7 +43,7 @@
         }
 
         public function register($name, $surname, $username, $password){
-            $sql = "INSERT INTO users (nome, cognome, username, password) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO users (name, surname, username, password) VALUES (?, ?, ?, ?)";
             $stmt = $this->conn->prepare($sql);
             $password = hash('sha256',$password);
             $stmt->bind_param('ssss', $name, $surname, $username ,$password);
@@ -133,11 +133,10 @@
                     FROM bigliettiCarrello
                     WHERE biglietto=? AND utente=?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param('ss',$ticketID,$username,$quantity);
+            $stmt->bind_param('ss',$ticketID,$username);
             $status = $stmt->execute();
             if(!$status){
                 throw new \Exception("Error querying the database");
-            
             }
             $result = $stmt->get_result();
             if($result->num_rows !== 0){
@@ -152,14 +151,13 @@
                 }
                 return;
             }
-
             $sql = "INSERT INTO bigliettiCarrello(biglietto,utente,quantita) VALUES (?,?,?);";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param('ssi',$ticketID,$username,$quantity);
-            $status = $stmt->execute();
-            if(!$status){
-                throw new \Exception("Error querying the database");
-            }
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bind_param('ssi',$ticketID,$username,$quantity);
+                $status = $stmt->execute();
+                if(!$status){
+                    throw new \Exception("Error querying the database");
+                }
         }
 
         public function confirmPayment($username){
@@ -174,9 +172,9 @@
             }
             $result = $stmt->get_result();
             while($ticket = $result->fetch_assoc()){
-                $sql = "INSERT INTO bigliettiAcquistati(biglietto,utente,quantita,dataAcquisto) VALUES (?,?,?,?)";
+                $sql = "INSERT INTO bigliettiAcquistati(biglietto,utente,quantita,dataOrarioAcquisto) VALUES (?,?,?,?)";
                 $stmt = $this->conn->prepare($sql);
-                $currDate = date("Y-m-d");
+                $currDate = date("Y-m-d H:i:s");
                 $stmt->bind_param('ssss',$ticket['biglietto'],$username,$ticket['quantita'],$currDate);
                 $status = $stmt->execute();
                 if(!$status){
