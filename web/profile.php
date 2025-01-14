@@ -22,6 +22,8 @@
     $db->close();
     if(!empty($context['lastOrder'])){
     $splitOrderDateTime = explode(" ", $context['lastOrder'][0]['dataOrarioOrdine']);
+    $context['orderStdDate'] = $splitOrderDateTime[0];
+    $context['orderStdTime'] = $splitOrderDateTime[1];
     $orderDate = explode("-", $splitOrderDateTime[0]);
     $context['orderYear'] = $orderDate[0];
     $context['orderMonth'] = $orderDate[1];
@@ -29,6 +31,7 @@
     $orderTime = explode(":", $splitOrderDateTime[1]);
     $context['orderHour'] = $orderTime[0];
     $context['orderMinute'] = $orderTime[1];
+    $context['orderSecond'] = $orderTime[2];
     }
 
     include_once 'parser.php';

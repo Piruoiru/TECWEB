@@ -64,7 +64,7 @@
                         <a href="#" class="buttonStyle translateUpOnHover filledGradientBtn">Acquista i tuoi primi biglietti</a>
                     @else
                         <h2>Il mio ultimo acquisto</h2>
-                        <h3>Del {{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }} alle {{ $orderHour }}:{{ $orderMinute }}</h3>
+                        <h3>Del <time datetime="{{ $orderStdDate }}">{{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }}</time> alle <time datetime="{{ $orderStdTime }}">{{ $orderHour }}:{{ $orderMinute }}:{{ $orderSecond }}</time></h3>
                         <div class="ticketCardsContainer">
                         @for $ticket in $lastOrder 
                             <div class='card ticketCard'>
