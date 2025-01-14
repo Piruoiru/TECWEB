@@ -355,6 +355,10 @@ label{
   font-weight: 600;
 }
 
+.errorMessageBgPar li{
+  text-align: left;
+}
+
 .infoMessageBgPar{
   background-color: var(--tertiaryColor);
   color: #FFF;
