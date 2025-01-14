@@ -33,6 +33,10 @@ body, button{
     font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
 }
 
+abbr{
+  text-decoration: none;
+}
+
 /*
 ---------------------
   BACKGROUND
@@ -44,7 +48,7 @@ body, button{
 }
 
 .tertiaryBg main{
-    background-color: #FFF;
+  background-color: #FFF;
 }
 
 /*
@@ -105,7 +109,6 @@ a:hover{
   padding: 1em 1.5em;
   font-size: 1.25em;
   font-weight: 600;
-  width: 100%;
   border: 0;
   border-radius: 2px;
 }
@@ -590,47 +593,91 @@ label{
 
 /*
 ---------------------
-    PROFILE
+    PROFILE AND PURCHASES PAGES
 ---------------------
 */
-#profileMain{
+#profileMain, #purchasesMain{
   background-color: transparent;
 }
 
-#profileMain>h1{
+#profileMain>h1, #purchasesMain>h1{
   font-size: 2.5em;
   padding-top: 0.5em;
   text-align: center;
   text-shadow: #FFF 0 0 25px;
 }
 
-#profileCardsContainer{
-  display: flex;
-  justify-content: space-between;
-  margin: 1.5em 1em;
-}
-
-#profileCardsContainer>div{
-  background-color: #FFF;
-  margin-top: 1em;
-}
-
-#profileCardsContainer>.card{
+#profileCardsContainer>.card, #purchasesMain>.card{
   padding: 1em 1.75em;
   height: fit-content;
   margin: 0 1em;
+  background-color: #FFF;
 }
 
-#profileMain .card > h2{
+#profileMain .card > h2, #purchasesMain h2{
   font-size: 2em;
   text-align: center;
 }
 
-#profileMain .card > h3{
+#profileMain .card > h3, #purchasesMain .card > h3{
   font-size: 1.35em;
   text-align: center;
   font-weight: 500;
   margin: 0.25em 0;
+}
+
+.ticketCardsContainer{
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  gap: 0.5em;
+}
+
+.ticketCardDetails{
+  display:flex;
+  flex-direction:column;
+}
+
+.ticketCardDetails *:first-child{
+  margin-bottom: 0.25em;
+}
+
+.ticketCardsContainer .ticketCard{
+  margin: 0.5em 0;
+  box-shadow: none;
+  background-color: var(--primaryColor);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0.75em 0.75em 0.75em;
+}
+
+.ticketCard svg{
+  width: 3.5em;
+  fill: #FFF;
+  stroke: #FFF;
+}
+
+#lastPurchaseCard>p, #purchasesMain .card p{
+  margin-top: 1em;
+  margin-bottom: 0.25em;
+  font-size: 1.1em;
+}
+
+#lastPurchaseCard p+p, #purchasesMain .card p+p{
+  margin-top: 0.1em;
+}
+
+/*
+---------------------
+    PROFILE PAGE
+---------------------
+*/
+
+#profileCardsContainer{
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5em 1em;
 }
 
 #profileCard{
@@ -663,64 +710,43 @@ label{
   margin-bottom: 0.5em;
 }
 
-#purchasesCard{
+#lastPurchaseCard{
   width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#purchasesCard>p{
-  margin-top: 1em;
-  margin-bottom: 0.25em;
-  font-size: 1.1em;
-}
-
-#purchasesCard p+p{
-  margin-top: 0.1em;
-}
-
-#purchasesCard .filledGradientBtn{
+#lastPurchaseCard .filledGradientBtn{
   width: fit-content;
   max-width: 75%;
   margin: 0.5em auto;
 }
 
-.ticketCardsContainer{
-  display:flex;
-  justify-content: center;
-  flex-wrap:wrap;
-  gap: 0.5em;
-}
-
-.ticketCardDetails{
-  display:flex;
-  flex-direction:column;
-}
-
-.ticketCardDetails *:first-child{
-  margin-bottom: 0.25em;
-}
-
-#purchasesCard .ticketCard{
-  margin: 0.5em 0;
-  box-shadow: none;
-  background-color: var(--primaryColor);
-  color: #FFF;
-  display: flex;
-  align-items: center;
-  padding: 0.5em 0.75em 0.75em 0.75em;
-}
-
-.ticketCard svg{
-  width: 3.5em;
-  fill: #FFF;
-  stroke: #FFF;
-}
-
-#purchasesCard .outlineGradientBtn{
+#lastPurchaseCard .outlineGradientBtn{
   width: 50%;
   margin: 0.5em auto;
+}
+
+/*
+---------------------
+    PURCHASES PAGE
+---------------------
+*/
+#purchasesMain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#purchasesMain>h2{
+  text-shadow: #FFF 0 0 25px;
+  margin-top: 0.5em;
+}
+
+#purchasesMain>.card{
+  width: fit-content;
+  margin: 1em 2em;
 }
 
 /*

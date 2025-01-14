@@ -17,7 +17,7 @@
     </head>
     <body class="tertiaryBg">
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Profilo personale</p>
+            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Profilo</p>
             <p>Orario di oggi: {{ $orario }}</p>
             <div id="userCrumb">
                 @for $btn in $headerBtns
@@ -39,7 +39,6 @@
             </nav>
         </div>
         <main id="profileMain">
-            <!-- TODO: USARE HEADER ALL'INTERNO DI MAIN??? -->
             <h1>Area personale di {{ $nome }}</h1> 
             <div id="profileCardsContainer">
                 <div class="card" id="profileCard">
@@ -56,7 +55,7 @@
                     </dl>
                     <a href="editProfile.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Modifica o elimina il profilo</a>
                 </div>
-                <div class="card" id="purchasesCard">
+                <div class="card" id="lastPurchaseCard">
                     @if empty($lastOrder)
                         <h2>Il mio primo acquisto</h2>
                         <p>Non hai ancora effettuato alcun acquisto.</p>
@@ -64,7 +63,7 @@
                         <a href="#" class="buttonStyle translateUpOnHover filledGradientBtn">Acquista i tuoi primi biglietti</a>
                     @else
                         <h2>Il mio ultimo acquisto</h2>
-                        <h3>Del {{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }} alle {{ $orderHour }}:{{ $orderMinute }}</h3>
+                        <h3>Ordine {{ $orderNumber}} del <time datetime="{{ $orderStdDate }}">{{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }}</time> alle <time datetime="{{ $orderStdTime }}">{{ $orderHour }}:{{ $orderMinute }}:{{ $orderSecond }}</time></h3>
                         <div class="ticketCardsContainer">
                         @for $ticket in $lastOrder 
                             <div class='card ticketCard'>
@@ -88,7 +87,7 @@
                             </div>
                         @endfor
                         </div>
-                        <a href="#" class="buttonStyle translateUpOnHover outlineGradientBtn">Visualizza tutti gli acquisti</a>
+                        <a href="purchases.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Visualizza tutti gli acquisti</a>
                     @endif
                 </div>
             </div>

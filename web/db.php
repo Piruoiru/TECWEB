@@ -164,6 +164,38 @@
             return $tickets;
         }
 
+        public function fetchOrdersByUser($username){
+            $sql = "SELECT * FROM ordini WHERE utente=? ORDER BY dataOrarioOrdine DESC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s',$username);
+            $result = $stmt->execute();
+            if(!$result){
+                throw new \Exception("Error querying the database");
+            }
+            $result = $stmt->get_result();
+            $orders = [];
+            while($row = $result->fetch_assoc()){
+                array_push($orders,$row);
+            }
+            return $orders;
+        }
+
+        public function fetchTicketsByOrder($orderID){
+            $sql = "SELECT * FROM bigliettiAcquistati WHERE ordine=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('i',$orderID);
+            $result = $stmt->execute();
+            if(!$result){
+                throw new \Exception("Error querying the database");
+            }
+            $result = $stmt->get_result();
+            $tickets = [];
+            while($row = $result->fetch_assoc()){
+                array_push($tickets,$row);
+            }
+            return $tickets;
+        }
+
         public function createShow($title,$description,$imgPath){
             $sql = "INSERT INTO spettacoli(titolo,descrizione,percorso_immagine) VALUES (?,?,?);";
             $stmt = $this->conn->prepare($sql);
