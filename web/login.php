@@ -26,10 +26,11 @@
             $db->close();
             header('Location: index.php');
             exit();
+        }else{
+            $db->close();
+            $context['oldUsername'] = $username;
+            $context['loginErrorMessage'] = 'Username o password errati o mancanti';
         }
-        $db->close();
-        $context['oldUsername'] = $username;
-        $context['loginErrorMessage'] = '<p class="errorMessageBgPar">Username o password errati o mancanti</p>';
     }
 
     include_once 'parser.php';
