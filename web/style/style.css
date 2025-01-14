@@ -910,13 +910,14 @@ HOME PAGE
   flex-direction: row;
   justify-content: space-between;
   padding: 1.5em;
+  padding-bottom: 4em;
 }
 
 #imgIndex img{
   width: 100%;
   height: 20em;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
   padding: 1.5em 0em;
 }
 
@@ -976,16 +977,16 @@ HOME PAGE
   display: flex;
   flex-direction: column;
   padding-top: 2em;
-  padding-left: 0.5em;
+  padding-left: 1em;
   padding-right: 1em;
 }
 
 .containerAttractionsIndexScript h3{
-  font-size: 2em;
+  font-size: 2.3em;
 }
 
 .containerAttractionsIndexScript p{
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 .containerAttractionsIndexImg{
@@ -994,16 +995,22 @@ HOME PAGE
 }
 
 .containerAttractionsIndexImg img{
-  border-radius: 7%;
-  height: 13em;
+  border-radius: 11%;
+  height: 20em;
 
 }
 
 #footerSponsors{
-  background-color: black;
+  background-color: #0c0f14;
   padding: 1em;
   text-align: center;
   margin-top:1em;
+}
+
+#footerSponsors img{
+  width: 5em;
+  height: auto;
+  margin: 0.5em;
 }
 
 #footerSponsors a{
@@ -1024,4 +1031,74 @@ HOME PAGE
 #footer a{
   font-size: 1.1em;
   color: #FFF;
+}
+
+#titleHomePage{
+  font-size: 3em;
+}
+
+.paragHomePage{
+  font-size: 1.1em;
+}
+.containerHomePage {
+  background: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%);
+  display: flex;
+  flex-direction: row;
+  gap: 5em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
+}
+
+.menuItem {
+  position: relative; /* Necessario per il posizionamento del pseudo-elemento */
+  padding: 0.5em;
+  overflow: hidden; /* Nasconde il pseudo-elemento che esce dai bordi */
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.menuItem img {
+  position: relative; /* Rende il paragrafo un nuovo livello */
+  width: 4em;
+  z-index: 1; /* Sopra al pseudo-elemento ::before */
+}
+
+/* Pseudo-elemento per animare il cambio del background */
+.menuItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%; /* Parte da zero */
+  height: 100%;
+  background: #ffffff; /* Bianco durante l'hover */
+  transition: width 0.4s ease; /* Durata e effetto dell'animazione */
+  z-index: 0; /* Posizionato sotto il testo */
+}
+
+.menuItem:hover::before {
+  width: 100%; /* Si espande completamente verso destra */
+}
+
+.menuItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Per assicurarti che il testo sia sempre visibile */
+.menuItem p {
+  position: relative; /* Rende il paragrafo un nuovo livello */
+  color: white; /* Testo bianco iniziale */
+  font-size: 1.3em;
+  margin: 0;
+  transition: color 0.4s ease; /* Transizione del colore */
+  z-index: 1; /* Sopra al pseudo-elemento ::before */
+}
+
+/* Cambia il colore del testo quando l'hover è attivo */
+.menuItem:hover p {
+  color: var(--primaryColor); /* Blu durante l'hover */
 }
