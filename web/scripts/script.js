@@ -263,7 +263,7 @@ function loadRidesFilter() {
             attractions.forEach(attraction => {
                 // Mostra tutte le attrazioni se la categoria è "tutte"
                 if (category === 'tutte' || attraction.getAttribute('data-category') === category) {
-                    attraction.style.display = 'list-item';
+                    attraction.style.display = 'flex';
                 } else {
                     attraction.style.display = 'none';
                 }
