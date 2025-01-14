@@ -174,7 +174,7 @@
             while($ticket = $result->fetch_assoc()){
                 $sql = "INSERT INTO bigliettiAcquistati(biglietto,utente,quantita,dataOrarioAcquisto) VALUES (?,?,?,?)";
                 $stmt = $this->conn->prepare($sql);
-                $currDate = date("Y-m-d H:i:");
+                $currDate = date("Y-m-d H:i:s");
                 $stmt->bind_param('ssss',$ticket['biglietto'],$username,$ticket['quantita'],$currDate);
                 $status = $stmt->execute();
                 if(!$status){
