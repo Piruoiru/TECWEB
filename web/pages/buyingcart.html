@@ -1,48 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>DreamVille</title>
-        <link rel="shortcut icon" href="assets/logo.png" />
-        <meta charset="utf-8">
-        <meta name="description" content="">    
-        <meta name="keywords" content="parco, divertimento, giostre, weekend, DreamVille, famiglie, attività">
 
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
-        <script src="scripts/script.js"></script>
-    </head>
-    <body>
-        <h2>Acquista i tuoi biglietti</h2>
+<head>
+    <title>Login - DreamVille</title>
+    <link rel="shortcut icon" href="assets/logo.png" />
+    <meta charset="utf-8">
+    <meta name="description" content="Accedi al sito di DreamVille con il tuo utente">
+    <meta name="keywords" content="login, accesso, DreamVille, utente, account">
+
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+    <script src="scripts/script.js"></script>
+    <script src="https://kit.fontawesome.com/06a651c8da.js"></script>
+</head>
+
+<body id="loginBody" class="tertiaryBg">
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Login</p>
+        <p>Orario di oggi: {{ $orario }}</p>
+        <div id="userCrumb">{{ $userInfosHeader }}</div>
+    </nav>
+    <div id="headerNavWrapper">
         <header>
-
+            <h1><span lang="en">DreamVille</span></h1>
         </header>
+        <nav id="menu">
+            <ul>
+                <li lang="en"><a href="index.php">Home</a></li>
+                <li><a href="#">Scopri <span lang="en">DreamVille</span></a></li>
+                <li><a href="#">Informazioni per la tua visita</a></li>
+                <li><a href="#">Compra biglietti e abbonamenti</a></li>
+            </ul>
+        </nav>
+    </div>
+    <form method="POST" id="formCart">
         <main>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-
-            <h3>Il tuo carrello:</h3> <!--da mettere anche nel profilo?-->
-            @if empty($result)
-                <p>Per il momento è tutto vuoto :)</p>
-            @else
-                @for $row in $result
-                <p>{{ $row['titolo'] }} Quantità: {{ $row['quantita'] }}</p>
-                @endfor
-            @endif
-
-            @if !empty($debugMsg)
-                <h1>{{ $debugMsg }}</h1>
-            @endif
-
-            <form method="POST" action="/buyingcart.php">
-                <input type="submit" name="submit" value="Conferma l'acquisto" />
-            </form>
-            <h3>Hai un codice sconto?</h3>
-            <form>
-                <label for="codice">Inserisci il codice sconto:</label>
-                <input type="text" id="codice" name="codice">
-                <button type="submit">Applica</button> <!--TO DO e decidere SE farlo-->
-            </form>
+            <div class="pageCart">
+                <h1>Il tuo Carrello</h1>
+                <div id="boxCart">
+                    <ul id="carrello">
+                        {{$cart}}
+                    </ul>
+                    <p id="prezzoTot"><strong>Totale: {{$prezzo}}€</strong></p>
+                </div>
+                <input type="submit" name="submit" id="btnCart" value="Acquista">
+            </div>
         </main>
-    </body>
+        <div id="backdrop">
+            <div id="progressBar">
+                <header class="loader">
+                    <header class="barra">
+                        <header class="riempi"></header>
+                    </header>
+                    <header class="contatore">0%</header>
+                </header>
+        
+                <header class="output">
+                    <span class="fas fa-check"></span>
+                    <header class="textPaga">Pagamento effettuato</header>
+                    <button id="btnChiudi">Chiudi</button>
+                </header>
+            </div>
+        </div>
+    </form>
+</body>
+
 </html>
