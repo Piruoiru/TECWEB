@@ -1,4 +1,6 @@
-<?php   
+<?php
+    session_start();
+    include_once 'header.php';
     include_once 'db.php';
     $db = new DatabaseClient();
     $db->connect();
@@ -9,8 +11,6 @@
     }
     $db->close();
 
-    session_start();
-    include_once 'header.php';
     
     include_once 'parser.php';
     $template = new Parser();
