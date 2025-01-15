@@ -1196,7 +1196,6 @@ HOME PAGE
 .menuItem img {
   position: relative; /* Rende il paragrafo un nuovo livello */
   width: 4em;
-  z-index: 1; /* Sopra al pseudo-elemento ::before */
 }
 
 /* Pseudo-elemento per animare il cambio del background */
@@ -1209,7 +1208,6 @@ HOME PAGE
   height: 100%;
   background: #ffffff; /* Bianco durante l'hover */
   transition: width 0.4s ease; /* Durata e effetto dell'animazione */
-  z-index: 0; /* Posizionato sotto il testo */
 }
 
 .menuItem:hover::before {
@@ -1228,7 +1226,6 @@ HOME PAGE
   font-size: 1.3em;
   margin: 0;
   transition: color 0.4s ease; /* Transizione del colore */
-  z-index: 1; /* Sopra al pseudo-elemento ::before */
 }
 
 /* Cambia il colore del testo quando l'hover è attivo */
