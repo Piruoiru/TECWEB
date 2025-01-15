@@ -303,3 +303,77 @@ function changeTypeOfAdminControlPanel(type,titolo="",descrizione="",image=""){
         document.getElementById('loginButton').value = 'Crea';
     }
 }
+
+
+
+/*
+---------------------
+TICKET AND CART PAGE
+---------------------
+*/
+
+window.onload = function () {
+    let nInteri = 0;
+    let nRidotti = 0;
+
+    // Seleziona tutti i bottoni dei biglietti e il carrello
+    const buttons = document.querySelectorAll('.cardTicket');
+    const carrello = document.getElementById('carrello');
+    const hiddenInt = document.getElementById("intero");
+    const hiddenRid = document.getElementById("ridotto");
+
+    // Funzione per aggiungere biglietti al carrello
+    function aggiungiAlCarrello(tipoBiglietto) {
+        // Crea un nuovo elemento della lista
+        const li = document.createElement('li');
+        li.textContent = tipoBiglietto;
+        if (tipoBiglietto == "Biglietto Intero 34,99€") {
+            nInteri++;
+            hiddenInt.setAttribute('value', nInteri);
+        }
+        else {
+            nRidotti++;
+            hiddenRid.setAttribute('value', nRidotti);
+        }
+        // Aggiungi il nuovo elemento alla lista del carrello
+        carrello.appendChild(li);
+    }
+
+    // Aggiungi un evento "click" a ogni bottone
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            // Leggi il tipo di biglietto dall'attributo "data-ticket-type"
+            const tipoBiglietto = button.getAttribute('data-ticket-type');
+            aggiungiAlCarrello(tipoBiglietto);
+        });
+    });
+
+    const btnCart = document.getElementById("btnCart");
+
+    btnCart.addEventListener('click', () => {
+        const backdrop = document.getElementById("backdrop");
+        backdrop.style.display = "block";
+
+        let loader = document.querySelector(".loader");
+        let output = document.querySelector(".output");
+        let riempi = document.querySelector(".riempi");
+
+        loader.style.display = "block";
+        loader.style.position = "absolute";
+        var n = 0;
+        var run = setInterval(frames, 25);
+        function frames() {
+            n = n + 1;
+            if (n == 101) {
+                clearInterval(run);
+                loader.style.display = "none";
+                output.style.display = "block";
+                output.style.position = "absolute";
+            } else {
+                var contatore = document.querySelector(".contatore");
+                contatore.textContent = n + "%";
+                riempi.style.width = n + "%";
+            }
+        }
+    })
+}
