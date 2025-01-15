@@ -1,7 +1,7 @@
 <?php
-    session_start();
-
     $context['orario'] = "10:00-17:00";
+    $context['cart'] = '';
+    $context['prezzo'] = 0;
 
     if(isset($_SESSION['username'])){
             $context['headerBtns'] = ['profile' => ['url' => "profile.php", 'text' => 'Il mio profilo'], 'logout'=> ['url' => "logout.php", 'text' => "Logout"]];

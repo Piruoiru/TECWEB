@@ -48,6 +48,7 @@ CREATE TABLE bigliettiCarrello(
     biglietto char(5) NOT NULL,
     utente varchar(20) NOT NULL,
     dataOrarioOrdine TIMESTAMP NOT NULL,
+    quantita smallint(2) NOT NULL,
     FOREIGN KEY (utente) REFERENCES users(username)
 );
 
