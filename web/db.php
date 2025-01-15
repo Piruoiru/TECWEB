@@ -314,8 +314,7 @@ class DatabaseClient
             }
             $result = $stmt->get_result();
             while ($ticket = $result->fetch_assoc()) {
-
-                if ($ticket['biglietto'] == '1') {
+                    if ($ticket['biglietto'] == '1') {
                     $biglietto = 'Biglietto Ridotto';
                     $sql = "INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES (?,?,?)";
                     $stmt = $this->conn->prepare($sql);
@@ -336,8 +335,6 @@ class DatabaseClient
                 }
             }
         }
-
-
         $this->clearCart($username);
     }
 
