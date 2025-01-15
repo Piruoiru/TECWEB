@@ -1,29 +1,19 @@
 <?php
     session_start();
+    include_once 'header.php';
     if(isset($_SESSION['username'])){
        header('Location: index.php');
        exit();
     }
-
     
-
     include_once 'db.php';
 
-    include_once 'header.php';
+    unset($context['headerBtns']['login']);//non mostro il pulsante login in alto
 
-    if(!isset($_SESSION['username'])){
-        $context['userInfosHeader'] = "";
-}
+    $context['loginErrorMessage'] = '';
+    $context['oldUsername'] = '';
 
-    if(isset($_SESSION['lastLoginUsernameInserted'])){
-        $context['loginErrorMessage'] = '<p class="errorMessageBgPar">Username o password errati o mancanti</p>';
-        $context['oldUsername'] = $_SESSION['lastLoginUsernameInserted'];
-    }else{
-        $context['loginErrorMessage'] = '';
-        $context['oldUsername'] = '';
-    }
-
-    $_SESSION['lastLoginUsernameInserted'] = null;
+    unset($_SESSION['lastLoginUsernameInserted']);
 
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
@@ -32,16 +22,15 @@
         $db = new DatabaseClient();
         $db->connect();
         if($db->login($username,$password)){
-        $_SESSION['username'] = $username; 
+            $_SESSION['username'] = $username; 
+            $db->close();
             header('Location: index.php');
             exit();
-        } else {
-            $_SESSION['lastLoginUsernameInserted'] = $username;
-            header('Location: login.php');
-            exit();
+        }else{
+            $db->close();
+            $context['oldUsername'] = $username;
+            $context['loginErrorMessage'] = 'Username o password errati o mancanti';
         }
-        $db->close();
-        exit();
     }
 
     include_once 'parser.php';

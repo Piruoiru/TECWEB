@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registrazione utente - DreamVille</title>
+        <link rel="shortcut icon" href="assets/logo.png" />
+        <meta charset="utf-8">
+        <meta name="description" content="Registra un nuovo utente per accedere a DreamVille e scoprire tutte le promozioni disponibili per te">    
+        <meta name="keywords" content="registrazione, DreamVille, utente, account, nuovo">
+    
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+        <script src="scripts/script.js"></script>
+    </head>
+    <body class="tertiaryBg" onload="loadGenericForm()">
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="admin.php" lang="en">Home</a> > Admin</p>
+            <p>Orario di oggi: {{ $orario }}</p>
+            <div id="userCrumb">
+                @for $btn in $headerBtns
+                    <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
+                @endfor
+            </div>
+        </nav>
+        <div id="headerNavWrapper">
+            <header>
+                <h1><span lang="en">DreamVille</span></h1>
+            </header>
+            <nav id="menu">
+                <ul>
+                    <li lang="en"><a href="index.php">Home</a></li>
+                    <li><a href="map.php">Scopri le attrazioni</a></li>
+                    <li><a href="admin.php">I nostri shows</a></li>
+                    <li><a href="calendar.php">Orari di apertura</a></li>
+                    <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main class="card cardFormMain" id="userRegistrationMain">
+            @if !empty($debugMessage)
+                <p>{{ $debugMessage }}</p>
+            @endif
+            <h1>Creazione spettacoli</h1>
+            <form method="POST" id="userRegistrationForm" class="cardForm">
+                <input type="hidden" id="type" name="type" value="crea" />
+                <div class="inputLabelContainer" id="vecchioTitoloContainer" style="display: none;"> <!-- da cambiare-->
+                    <label for="vecchio_titolo">Vecchio Titolo</label>
+                    <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="" />
+                </div>
+                <div class="inputLabelContainer">
+                    <label for="titolo">Titolo</label>
+                    <input type="text" id="titolo" name="titolo" value="" />
+                </div>
+                <div class="inputLabelContainer" id="descrizioneContainer">
+                    <label for="descrizione">Descrizione</label>
+                    <input type="text" id="descrizione" name="descrizione" value="" />
+                </div>
+                <div class="inputLabelContainer" id="immagineContainer">
+                    <label for="username">Immagine</label>
+                    <input type="text" id="img" name="img" />
+                </div>
+                <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle translateUpOnHover filledGradientBtn">
+            </form>
+        </main>
+        <ul id="attractionList">
+            @for $row in $result
+            <li data-category="adrenaliniche" class="card adrenalinicheCard">
+                <h3>{{ $row['titolo'] }}</h3>
+                <div class="rideCardBody">
+                    <p>{{ $row['descrizione'] }}</p>
+                    <img src="assets/{{ $row['percorso_immagine'] }}" alt="Immagine di {{ $row['titolo'] }}">
+                </div>
+                <input type="button" id="modifica" onclick="changeTypeOfAdminControlPanel(`modifica`,`{{ $row['titolo'] }}`,`{{ $row['descrizione'] }}`,`{{ $row['percorso_immagine'] }}`)" value="✏️"/>
+                <input type="button" id="elimina" onclick="changeTypeOfAdminControlPanel(`elimina`,`{{ $row['titolo'] }}`)" value="🗑️"/>
+            </li>
+            @endfor
+        </ul>
+
+        <a href="/privacy.php">Privacy Policy</a>
+        <a href="/buyingticket.php">Biglietti</a>
+        <a href="/buyingcart.php">Carrello</a>
+        <a href="/profilo.php">Profilo</a>
+    </body>
+</html>

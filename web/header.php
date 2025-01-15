@@ -1,11 +1,11 @@
 <?php
-    //RICHIEDE CHE LA SESSIONE SIA ATTIVA
-
     $context['orario'] = "10:00-17:00";
+    $context['cart'] = '';
+    $context['prezzo'] = 0;
 
     if(isset($_SESSION['username'])){
-            $context['userInfosHeader'] = "<a href='profile.php' class='buttonStyle'>Il mio profilo</a><a href='logout.php' class='buttonStyle'>Logout</a>";
+            $context['headerBtns'] = ['profile' => ['url' => "profile.php", 'text' => 'Il mio profilo'], 'logout'=> ['url' => "logout.php", 'text' => "Logout"]];
         }else{
-            $context['userInfosHeader'] = "<a href='login.php' class='buttonStyle'>Login</a><a href='register.php' class='buttonStyle'>Registrati</a>";
+            $context['headerBtns'] = ['login' => ['url' => "login.php", 'text' => 'Login'], 'register' => ['url' => "register.php", 'text' => 'Registrati']];
     }
 ?>
