@@ -4,13 +4,12 @@
 }
 
 :root{
+  --tertiaryColorRGB: 0, 113, 235;
   --primaryColor: #000a99;
   --secondaryColor: #FFC300;
   --tertiaryColor: #0071EB;
-  --tertiaryColorRGB: 0, 113, 235;
   /* arancione #F26B18; */
   --errorColor: #BD0000;
-  --tertiaryColorBgRGBA: 0, 113, 235, 0.4;
 }
 
 html{
@@ -26,7 +25,6 @@ body{
 main{
   max-width: 1200px;
   margin: auto;
-  background-color: #FFF;
 }
 
 body, button{
@@ -50,6 +48,34 @@ abbr{
 .tertiaryBg main{
   background-color: #FFF;
 }
+/*
+---------------------
+  FLEX LAYOUTS
+---------------------
+*/
+/*TODO: valutare utilità di questo metodo. Magari chiedere alla prof*/
+.row{ /*FIXME: ancora non usata*/
+  display: flex;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.centerRow{ /*FIXME: ancora non usata*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 
 /*
 ---------------------
@@ -70,12 +96,10 @@ a:hover{
 }
 
 .buttonStyle{
-  padding: 1em;
+  padding: 1em 2em;
   border: 0;
   cursor: pointer;
   text-decoration: none;
-  border: 1px solid #000;
-  text-align: center;
 }
 
 .buttonStyle:hover{
@@ -84,7 +108,6 @@ a:hover{
 
 .translateUpOnHover{
   transition: transform 0.3s ease-out;
-  margin-top: 0.5em;
 }
 
 .translateUpOnHover:hover{
@@ -140,6 +163,8 @@ a:hover{
 }
 
 #breadcrumb p, #breadcrumb a{
+  /* padding-left: 0.5em;
+  padding-right: 0.5em; */
   padding: 0.2em 0.5em;
   margin: 0.35em 0;
   border: 2px solid var(--primaryColor);
@@ -191,7 +216,6 @@ header h1{
   background-color: var(--primaryColor);
   position: sticky;
   top: 0;
-  z-index: 1;
 }
 
 #menu>ul{
@@ -278,6 +302,10 @@ header h1{
   padding: 7em 1em;
 }
 
+/* #footerPageError404{
+  
+} */
+
 /*
 ---------------------
     PRIVACY PAGE
@@ -303,6 +331,72 @@ header h1{
 
 /*
 ---------------------
+    CALENDAR PAGE
+---------------------
+*/
+
+.paragraphCalendar{
+  padding: 0.2em 0.8em;
+  text-align: justify;
+}
+
+#titleCalendar{
+  font-size: 2em;
+  padding: 0.2em 0.4em;
+  text-align: justify;
+}
+
+.subtitleCalendar{
+  font-size: 1.5em;
+  padding: 0.2em 0.5em;
+  text-align: justify;
+}
+
+.subsubtitleCalendar{
+  font-size: 1.2em;
+  padding: 0.7em 0.5em;
+  text-align: justify;
+}
+
+.wrapCalendarTable{
+  display: flex;
+  align-items: center;
+  gap: 5em;
+}
+
+#calendarTable{
+  text-align: center;
+  vertical-align: top; /* Allinea il testo in alto */
+  padding: 0em 1em;
+}
+
+
+#calendarTable td {
+  font-size: 1em; /* Dimensione del numero del giorno */
+  padding: 0em 1em;
+}
+
+#calendarTable th {
+  font-size: 1em; /* Dimensione del testo aggiuntivo */
+}
+
+#calendarTable p{
+  font-size: 0.7em; /* Dimensione del testo aggiuntivo */
+  color: gray; /* Colore del testo aggiuntivo */
+}
+
+/* #photoOpenPark{
+  width: 7em;
+  height: auto;
+  left: 25%;
+} */
+
+#closedParkCalendar{
+  text-align: center;
+}
+
+/*
+---------------------
     FORMS
 ---------------------
 */
@@ -319,28 +413,22 @@ input[type="text"]:focus, input[type="password"]:focus{
   outline: none;
 }
 
-input[type="text"]:invalid, input[type="password"]:invalid{
-  border-bottom: 3px solid var(--errorColor);
-  outline: none;
-}
-
 label{
   color: var(--primaryColor);
-  font-size: 1.1em;
   position: absolute;
-  top: 1.5em;
+  top: 2em;
   transition: transform 0.3s ease-out;
 }
 
-.nonEmptyFieldLabel{
-  transform: translateY(-1.1em);
+input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="password"]:focus ~ label, input[type="password"]:valid ~ label{
+  transform: translateY(-1em);
 }
 
 .inputLabelContainer{
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-top: 1.5em;
+  padding-top: 2em;
 }
 
 .errorMessageBgPar, .infoMessageBgPar{
@@ -389,6 +477,7 @@ label{
 .card{
   display: flex;
   flex-direction: column;
+  background-color: #FFF;
   border-radius: 10px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   padding: .75em;
@@ -396,39 +485,55 @@ label{
 
 /*
 ---------------------
-    LOGIN, REGISTRATION AND PROFILE EDIT PAGES
+    LOGIN
 ---------------------
 */
+#loginBody{
+  background: rgba(var(--tertiaryColorRGB), 0.4);
+}
 
-.cardFormMain{
+#loginMain{
   margin: 2em auto;
+  width: 100%;
   max-width: 425px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.cardForm{
-  width: 75%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.cardFormMain>h1{
+#loginMain>h1{
   font-size: 2.5em;
   margin-top: 0.5em;
   text-align: center;
 }
 
-.cardForm .filledGradientBtn{
-  margin: 1.5em 0 1em 0;
+#loginForm{
+  width: 75%;
+  margin: 0 auto;
 }
 
-.cardFormMain .outlineGradientBtn{
+#loginForm>input{
+  padding: 0.75em 0.5em;
+  margin: 0.5em 1em;
+}
+
+#loginForm>input[type="submit"]{
+  background: var(--primaryColor);
+  background: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%);
+  color: #FFF;
+  padding: 0.75em 0;
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 1.5em 0 1em 0;
+  width: 100%;
+  border-radius: 2px;
+}
+
+#registrationButton{
+  color: #000;
+  border-color: #000;
+  border-image: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%) 1;
+  border-width: 5px;
+  border-style: solid;
+  font-weight: 500;
   margin: 1em 0 0.5em 0;
-  padding: 1em 2em;
 }
 
 /*
@@ -605,6 +710,25 @@ label{
   text-shadow: #FFF 0 0 25px;
 }
 
+#container{
+  display: flex;
+  justify-content: space-between;
+}
+
+#container>div{
+  background-color: #FFF;
+  margin-top: 1em;
+}
+
+#profileCard{
+  width: 35%;
+}
+
+#profileMain .card{
+  margin: 1.5em 1em;
+  height: fit-content;
+}
+
 #profileCardsContainer>.card, #purchasesMain>.card{
   padding: 1em 1.75em;
   height: fit-content;
@@ -622,6 +746,10 @@ label{
   text-align: center;
   font-weight: 500;
   margin: 0.25em 0;
+}
+
+#profileDetailsContainer{
+  padding: 1em;
 }
 
 .ticketCardsContainer{
@@ -684,28 +812,22 @@ label{
   flex-direction: column;
 }
 
-#profileCard dl{
+#profileDetailsContainer dl{
   font-size: 1.1em;
-  margin: 0.75em 0;
 }
 
-#profileCard dt, #profileCard dd{
+#profileDetailsContainer dt, #profileDetailsContainer dd{
   display: inline;
   line-height: 1.5em;
 }
 
-#profileCard dd:after{
+#profileDetailsContainer dd:after {
   content: "\a";
   white-space: pre;
 }
 
-#profileCard .outlineGradientBtn{
-  width: 75%;
-  margin: 0 auto;
-}
-
-#profileCard *:last-child{
-  margin-bottom: 0.5em;
+#profileDetailsContainer .filledGradientBtn{
+  margin: 0.75em 0 0 0;
 }
 
 #lastPurchaseCard{
@@ -723,7 +845,217 @@ label{
 
 #lastPurchaseCard .outlineGradientBtn{
   width: 50%;
-  margin: 0.5em auto;
+  margin: 1em auto 0.5em auto;
+}
+
+/*
+----------
+HOME PAGE
+----------
+*/
+
+#containerCardIndex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.5em;
+  padding-bottom: 4em;
+}
+
+#imgIndex img{
+  width: 100%;
+  height: 20em;
+  object-fit: cover;
+  object-position: top;
+  padding: 1.5em 0em;
+}
+
+.cardIndex{
+  display: flex;
+  flex-direction: row;
+  background-color: var(--secondaryColor);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  width: 23em;
+  height: 15em;
+}
+
+.cardIndex img{
+  width: 35%;
+  height: auto;
+  border-radius: 10px 0 0 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cardIndexScript {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;  
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+}
+
+.cardIndexButton{
+  align-self: flex-end;
+  padding: 0.5em;
+}
+
+.cardIndexButton button{
+  border-radius: 20%;
+  border: none;
+  font-size: 1.5em;
+  height: 2em;
+  width: 2em;
+  background-color: var(--tertiaryColor);
+  color: white;
+}
+
+.cardIndexButton button:hover{
+  background-color: var(--primaryColor);
+  color: #FFF;
+  cursor: pointer;
+}
+
+.containerAttractionsIndex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.5em 0em;
+}
+
+.containerAttractionsIndexScript{
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.containerAttractionsIndexScript h3{
+  font-size: 2.3em;
+}
+
+.containerAttractionsIndexScript p{
+  font-size: 1.1em;
+}
+
+.containerAttractionsIndexImg{
+  padding-top: 1em;
+  border-radius: 50%;
+}
+
+.containerAttractionsIndexImg img{
+  border-radius: 11%;
+  height: 20em;
+
+}
+
+#footerSponsors{
+  background-color: #0c0f14;
+  padding: 1em;
+  text-align: center;
+  margin-top:1em;
+}
+
+#footerSponsors img{
+  width: 5em;
+  height: auto;
+  margin: 0.5em;
+}
+
+#footerSponsors a{
+  color: white;
+}
+
+#footerSponsors p{
+  color: white;
+}
+
+#footer{
+  background-color: var(--secondaryColor);
+  padding: 1em;
+  text-align: center;
+  margin-top:1em;
+}
+
+#footer a{
+  font-size: 1.1em;
+  color: #000000;
+}
+
+#footer img{
+  width: 3em;
+}
+
+#titleHomePage{
+  font-size: 3em;
+}
+
+.paragHomePage{
+  font-size: 1.1em;
+}
+.containerHomePage {
+  background: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%);
+  display: flex;
+  flex-direction: row;
+  gap: 5em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
+}
+
+.menuItem {
+  position: relative; /* Necessario per il posizionamento del pseudo-elemento */
+  padding: 0.5em;
+  overflow: hidden; /* Nasconde il pseudo-elemento che esce dai bordi */
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.menuItem img {
+  position: relative; /* Rende il paragrafo un nuovo livello */
+  width: 4em;
+  z-index: 1; /* Sopra al pseudo-elemento ::before */
+}
+
+/* Pseudo-elemento per animare il cambio del background */
+.menuItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%; /* Parte da zero */
+  height: 100%;
+  background: #ffffff; /* Bianco durante l'hover */
+  transition: width 0.4s ease; /* Durata e effetto dell'animazione */
+  z-index: 0; /* Posizionato sotto il testo */
+}
+
+.menuItem:hover::before {
+  width: 100%; /* Si espande completamente verso destra */
+}
+
+.menuItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Per assicurarti che il testo sia sempre visibile */
+.menuItem p {
+  position: relative; /* Rende il paragrafo un nuovo livello */
+  color: white; /* Testo bianco iniziale */
+  font-size: 1.3em;
+  margin: 0;
+  transition: color 0.4s ease; /* Transizione del colore */
+  z-index: 1; /* Sopra al pseudo-elemento ::before */
+}
+
+/* Cambia il colore del testo quando l'hover è attivo */
+.menuItem:hover p {
+  color: var(--primaryColor); /* Blu durante l'hover */
 }
 
 /*
