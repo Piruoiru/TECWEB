@@ -1,64 +1,98 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>DreamVille</title>
-        <link rel="shortcut icon" href="assets/logo.png" />
-        <meta charset="utf-8">
-        <meta name="description" content="">    
-        <meta name="keywords" content="parco, divertimento, giostre, weekend, DreamVille, famiglie, attività">
 
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
-        <script src="scripts/script.js"></script>
-    </head>
-    <body>
-        <h2>Acquista i tuoi biglietti</h2>
-        <header>
+<head>
+    <title>Login - DreamVille</title>
+    <link rel="shortcut icon" href="assets/logo.png" />
+    <meta charset="utf-8">
+    <meta name="description" content="Accedi al sito di DreamVille con il tuo utente">
+    <meta name="keywords" content="login, accesso, DreamVille, utente, account">
 
-        </header>
-        <main>
-            <p>1</p><p>2</p><p>3</p><p>4</p>
-            <p>Seleziona il numero di biglietti che desideri acquistare!</p>
-            @for $row in $result
-                <p>{{ $row['titolo'] }}</p>
-                <p>{{ $row['costo'] }} </p>
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+    <script src="scripts/script.js"></script>
+</head>
+
+<body id="loginBody" class="tertiaryBg">
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Login</p>
+        <p>Orario di oggi: {{ $orario }}</p>
+        <div id="userCrumb">
+            @for $btn in $headerBtns
+                    <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
             @endfor
-            <form method="POST" action="/buyingticket.php">
-                <label for="biglietto">Scegli il tipo di biglietto che desideri acquistare:</label>
-                <select name="biglietto" id="biglietto">
-                    @for $row in $result
-                    <option value="{{ $row['id'] }}">{{ $row['titolo'] }}</option>
-                    @endfor
-                </select> 
-                <label for="quantita">Quantità:</label>
-                <input type="number" id="quantita" name="quantita" min="1" max="10"> 
-                <input type="submit" name="submit" value="Aggiungi al carrello" />
-            </form>
-            @if !empty($debugMsg)
-                <h1>{{ $debugMsg }}</h1>
-            @endif
-            <form>
-                <label href=""></label>
-                <h3>Biglietto Ridotto</h3>
-                <p>Valido per bambini di altezza inferiore a 100 cm e di età sotto ai 14 anni, over 65, donne in gravidanza e accompagnatori di disabili non autosufficienti.</p>
-            </form>
-            
+        </div>
+    </nav>
+    <div id="headerNavWrapper">
+        <header>
+            <h1><span lang="en">DreamVille</span></h1>
+        </header>
+        <nav id="menu">
+            <ul>
+                <li lang="en"><a href="index.php">Home</a></li>
+                <li><a href="#">Scopri <span lang="en">DreamVille</span></a></li>
+                <li><a href="#">Informazioni per la tua visita</a></li>
+                <li><a href="#">Compra biglietti e abbonamenti</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <div id="containerTicket">
+            <div id="boxTicket">
+                <h1>Acquista i tuoi biglietti</h1>
+                <p> </p>
+                <p>Acquista qui il tuo biglietto e goditi la visita a DreamVille!</p>
+                <div id="ticketChoice">
+                    <button class="cardTicket" data-ticket-type="Biglietto Intero 34,99€">
+                        <img src="assets/ticketimg.png" alt="Biglietto Intero">
+                        <div class="ticketInfo">
+                            <h3>Biglietto Intero</h3>
+                            <p>Questo biglietto permette un ingresso al parco Dreamville, 1 giorno di visita per la
+                                stagione corrente.</p>
+                        </div>
+                    </button>
+                    <button class="cardTicket" data-ticket-type="Biglietto Ridotto 24,99€">
+                        <img src="assets/ticketimg.png" alt="Biglietto Ridotto">
+                        <div class="ticketInfo">
+                            <h3>Biglietto Ridotto</h3>
+                            <p>Valido per bambini di altezza superiore a 100 cm e di età inferiore ai 14 anni, over 65,
+                                donne in gravidanza e accompagnatori di persone con disabilità non autosufficienti.</p>
+                        </div>
+                    </button>
+                </div>
+                <div id="boxSconto">
+                    <h3>Hai un codice sconto?</h3>
+                    <input id="txtSconto" type="text" id="codice" name="codice"
+                        placeholder="Inserisci qui il codice sconto">
+                    <button id="btnSconto" type="submit">Applica</button> <!--TO DO e decidere SE farlo-->
+                </div>
+                <h3>Attenzione</h3>
+                <p>Questi prezzi possono essere soggetti a modifiche e cambiamenti in ogni momento.</p>
+                <p><strong>NOTA BENE:</strong> Le tariffe dei biglietti possono variare in base al periodo dell’anno in
+                    cui si visita il parco.</p>
+            </div>
+            <div id="buyTicketKart">
+                <div id="boxRiepilogo">
+                    <form method="POST">
+                        <h2>Il tuo carrello</h2>
+                        <p>______________________________</p>
+                        <p> </p>
+                        <p>Seleziona le tue preferenze</p>
+                        <p>e procedi nell’acquisto</p>
+                        <ul id="carrello"></ul>
+                </div>
+                <input type="hidden" id="intero" name="intero">
+                <input type="hidden" id="ridotto" name="ridotto">
+                <input type="submit" value ="CONFERMA" id="confermaCart" name="submit">
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
 
-            <h3>Hai un codice sconto?</h3>
-            <form>
-                <label for="codice">Inserisci il codice sconto:</label>
-                <input type="text" id="codice" name="codice">
-                <button type="submit">Applica</button> <!--TO DO e decidere SE farlo-->
-            </form>
-            
-            <h4>Attenzione</h4>
-            <p>Questi prezzi possono essere soggetti a modifiche e cambiamenti in ogni momento.</p>
-            <p>NOTA BENE:  Le tariffe dei biglietti possono variare in base al periodo dell’anno in cui si visita il parco.</p>
-        </main>
-        <aside>
-            <h3>Il tuo carrello</h3>
-            <p>Seleziona le tue preferenze e procedi nell'acquisto</p>
-            <button>Avanti</button>
-            
-        </aside>
-    </body>
 </html>
