@@ -25,7 +25,7 @@
         else{
             $ticket = "Biglieto Intero";
             $context['prezzo'] += $prezzoInt * $biglietti['quantita'];
-            $sommaInt = $prezzoRid * $biglietti['quantita'];
+            $sommaInt = $prezzoInt * $biglietti['quantita'];
         }
         $context['cart'] .= "<li>" . $ticket . " x" .  $biglietti['quantita'] . "</li>";
     }
