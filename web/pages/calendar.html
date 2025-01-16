@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="./style/style.css" media="screen">
         <script src="scripts/script.js"></script>
     </head>
-    <body onload="initCalendar()">
+    <body class="tertiaryBg" onload="initCalendar()">
         <nav id="breadcrumb">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Orari</p>
             <p>Orario di oggi: {{ $orario }}</p>
@@ -39,23 +39,17 @@
                 </ul>
             </nav>
         </div>
-        <main>
-            <h1 id="titleCalendar">Calendario di apertura</h1>
-            <p class="paragraphCalendar">Controlla i nostri giorni di apertura e pianifica un soggiorno indimenticabile!</p>
-            <p class="paragraphCalendar">Nella sezione dedicata troverai tutte le informazioni sui giorni di apertura del Parco. </p>
-            <p class="paragraphCalendar">Stai cercando il calendario per programmare la tua visita o vuoi sapere gli orari per una data specifica? </p>
-            <p class="paragraphCalendar">Qui c’è tutto ciò che ti serve per organizzarti al meglio. </p>
-            <p class="paragraphCalendar">Non vediamo l’ora di accoglierti!</p>
-            <p class="paragraphCalendar">Il parco si riserva il diritto di modificare giorni ed orari di apertura</p>
-            <h2 class="subtitleCalendar">Calendario</h2>
-            <div class="wrapCalendarTable">
+        <main id="calendarMain">
+            <h1>Calendario di apertura</h1>
+            <p>Controlla i nostri giorni di apertura e pianifica un soggiorno indimenticabile!</p>
+            <h2>Calendario</h2>
                 <!-- FIXME: DA RENDERE ACCESSIBILE -->
                 <table  id="calendarTable"> 
                     <thead>
-                         <tr id="calender-header">
-                            <th><button onclick="prevMonth()">&lt</button></th>
+                         <tr>
+                            <th><button onclick="prevMonth()">&lt;</button></th>
                             <th colspan="5" id="month"></th>
-                            <th><button onclick="nextMonth()">&gt</button></th>
+                            <th><button onclick="nextMonth()">&gt;</button></th>
                         </tr>
                         <tr>
                             <th>Lunedì</th>
@@ -71,12 +65,10 @@
                         
                     </tbody>
                 </table>
-                <div>
+                <!-- <div>
                     <h3 id="closedParkCalendar">Il parco è aperto, Buona visita!</h3>
-                    <!-- <img id="photoOpenPark" src="assets/castello_aperto.png" alt="Parco chiuso" id="closedParkImg"> DA CAMBIARE IMMAGINE -->
-                </div>    
-            </div>
+                    <img id="photoOpenPark" src="assets/castello_aperto.png" alt="Parco chiuso" id="closedParkImg"> DA CAMBIARE IMMAGINE
+                </div>     -->
         </main>
-        <!-- <script src="scripts/script.js"></script> -->
     </body>
 </html>
