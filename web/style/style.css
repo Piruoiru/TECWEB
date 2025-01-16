@@ -307,6 +307,20 @@ header h1{
 ---------------------
 */
 
+.headerCalendarTable{
+  background-color: var(--primaryColor);
+  color: #FFF;
+}
+
+.headerCalendarTable button{
+  background-color: var(--primaryColor);
+  color: #FFF;
+  border: 0;
+  padding: 0.5em 0em;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
 #calendarMain>p{
   margin: 1em 0;
   text-align: center;
@@ -318,6 +332,10 @@ header h1{
   padding: 0em 1em;
   border-collapse: collapse;
   margin: auto;
+}
+
+#calendarTable caption{
+  padding-bottom: 1em;
 }
 
 #calendarTable th, #calendarTable td{
