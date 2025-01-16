@@ -303,6 +303,72 @@ header h1{
 
 /*
 ---------------------
+    CALENDAR PAGE
+---------------------
+*/
+
+.paragraphCalendar{
+  padding: 0.2em 0.8em;
+  text-align: justify;
+}
+
+#titleCalendar{
+  font-size: 2em;
+  padding: 0.2em 0.4em;
+  text-align: justify;
+}
+
+.subtitleCalendar{
+  font-size: 1.5em;
+  padding: 0.2em 0.5em;
+  text-align: justify;
+}
+
+.subsubtitleCalendar{
+  font-size: 1.2em;
+  padding: 0.7em 0.5em;
+  text-align: justify;
+}
+
+.wrapCalendarTable{
+  display: flex;
+  align-items: center;
+  gap: 5em;
+}
+
+#calendarTable{
+  text-align: center;
+  vertical-align: top; /* Allinea il testo in alto */
+  padding: 0em 1em;
+}
+
+
+#calendarTable td {
+  font-size: 1em; /* Dimensione del numero del giorno */
+  padding: 0em 1em;
+}
+
+#calendarTable th {
+  font-size: 1em; /* Dimensione del testo aggiuntivo */
+}
+
+#calendarTable p{
+  font-size: 0.7em; /* Dimensione del testo aggiuntivo */
+  color: gray; /* Colore del testo aggiuntivo */
+}
+
+/* #photoOpenPark{
+  width: 7em;
+  height: auto;
+  left: 25%;
+} */
+
+#closedParkCalendar{
+  text-align: center;
+}
+
+/*
+---------------------
     FORMS
 ---------------------
 */
