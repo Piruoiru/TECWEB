@@ -42,23 +42,23 @@
         <main id="calendarMain">
             <h1>Calendario di apertura</h1>
             <p>Controlla i nostri giorni di apertura e pianifica un soggiorno indimenticabile!</p>
-            <h2>Calendario</h2>
-                <!-- FIXME: DA RENDERE ACCESSIBILE -->
+            <caption>Calendario</caption>
+                <span id="descrTabella">In questa tabella vengono rappresentati i giorni di un mese sottoforma di calendario, avendo la possibilità di passare al mese precedente o a quello successivo</span>
                 <table  id="calendarTable"> 
                     <thead>
                          <tr>
-                            <th><button onclick="prevMonth()">&lt;</button></th>
-                            <th colspan="5" id="month"></th>
-                            <th><button onclick="nextMonth()">&gt;</button></th>
+                            <th scope="col"><button onclick="prevMonth()">&lt;</button></th>
+                            <th colspan="5" id="month" scope="col"></th>
+                            <th scope="col"><button onclick="nextMonth()">&gt;</button></th>
                         </tr>
                         <tr>
-                            <th>Lunedì</th>
-                            <th>Martedì</th>
-                            <th>Mercoledì</th>
-                            <th>Giovedì</th>
-                            <th>Venerdì</th>
-                            <th>Sabato</th>
-                            <th>Domenica</th>
+                            <th scope="col">Lunedì</th>
+                            <th scope="col">Martedì</th>
+                            <th scope="col">Mercoledì</th>
+                            <th scope="col">Giovedì</th>
+                            <th scope="col">Venerdì</th>
+                            <th scope="col">Sabato</th>
+                            <th scope="col">Domenica</th>
                         </tr>
                     </thead>
                     <tbody id="calendar">
