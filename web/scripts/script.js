@@ -52,6 +52,7 @@ function buildCalendar(){
     let row = document.createElement("tr");
     for (let j = 0; j < 7; j++) {
       let cell = document.createElement("td");
+      cell.classList.add("calendarCell");
       if (date > monthDays) break;
       else if (i === 0 && j < dayOne) {
         let cellText = document.createTextNode("");

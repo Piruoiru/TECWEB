@@ -307,6 +307,15 @@ header h1{
 ---------------------
 */
 
+.calendarCell {
+  background-color: var(--secondaryColor);
+  border: 1rem solid #000; /* Colore nero e spessore di 2px */  
+}
+
+/* .calendarCell.today {
+  
+} */
+
 .headerCalendarTable{
   background-color: var(--primaryColor);
   color: #FFF;
@@ -355,7 +364,7 @@ header h1{
 
 #calendarTable p{
   font-size: 0.8em;
-  color: gray;
+  color: rgb(0, 0, 0);
   margin-top: 0.3em;
 }
 
