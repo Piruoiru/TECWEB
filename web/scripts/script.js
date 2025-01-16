@@ -58,7 +58,9 @@ function buildCalendar(){
         cell.appendChild(cellText);
         row.appendChild(cell);
       } else {
-        let columnText = document.createTextNode(date);
+        let columnText = document.createElement("p");
+
+        columnText.textContent = date;
         cell.appendChild(columnText);
 
         let hoursText = document.createElement("p");
