@@ -30,6 +30,8 @@ if (isset($_POST['submit'])) {
         }
     }
     $db->close();
+    header('Location: buyingcart.php');
+    exit();
 }
 
 $template = new Parser();
