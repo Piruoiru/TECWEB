@@ -11,6 +11,8 @@
     include_once 'header.php';
     $prezzoInt = 34.99;
     $prezzoRid = 24.99;
+    $sommaInt = 0;
+    $sommaRid = 0;
 
     $db = new DatabaseClient();
     $db->connect();
@@ -43,16 +45,16 @@
             $context['prezzo'] += $prezzoRid * $biglietti['quantita'];
             $sommaRid = $prezzoRid * $biglietti['quantita'];
             $context['cart'] .= "<div id='boxDetails'>" . "<li>" . $ticket . " x" .  $biglietti['quantita'] . "</li>"
-                            ."<input type='submit' value = '-' name='rmvTrid'>" 
-                            ."<input type='submit' value = '+' name='addTrid'>" . "</div>";
+                            ."<input type='submit' value = '-' name='rmvTrid' class='btnAddRmv'>" 
+                            ."<input type='submit' value = '+' name='addTrid' class='btnAddRmv'>" . "</div>";
         }
         else{
             $ticket = "Biglieto Intero";
             $context['prezzo'] += $prezzoInt * $biglietti['quantita'];
             $sommaInt = $prezzoInt * $biglietti['quantita'];
             $context['cart'] .= "<div id='boxDetails'>" . "<li>" . $ticket . " x" .  $biglietti['quantita'] . "</li>"
-                            ."<input type='submit' value = '-' name='rmvTint'>"
-                            ."<input type='submit' value = '+' name='addTint'>" . "</div>";
+                            ."<input type='submit' value = '-' name='rmvTint' class='btnAddRmv'>"
+                            ."<input type='submit' value = '+' name='addTint' class='btnAddRmv'>" . "</div>";
         }
         
     }
