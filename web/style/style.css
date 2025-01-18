@@ -1441,5 +1441,14 @@ CART PAGE
   border-radius: 5px;
   padding: 0.5em;
   font-size: 1.1em;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  width: 10%;
+}
+
+.btnAddRmv{
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  width: 3em;
+  height: 2em;
 }
