@@ -486,26 +486,9 @@ window.onload = function () {
         const backdrop = document.getElementById("backdrop");
         backdrop.style.display = "block";
 
-        let loader = document.querySelector(".loader");
         let output = document.querySelector(".output");
-        let riempi = document.querySelector(".riempi");
-
-        loader.style.display = "block";
-        loader.style.position = "absolute";
-        var n = 0;
-        var run = setInterval(frames, 25);
-        function frames() {
-            n = n + 1;
-            if (n == 101) {
-                clearInterval(run);
-                loader.style.display = "none";
-                output.style.display = "block";
-                output.style.position = "absolute";
-            } else {
-                var contatore = document.querySelector(".contatore");
-                contatore.textContent = n + "%";
-                riempi.style.width = n + "%";
-            }
-        }
+        
+        output.style.display = "block";
+        output.style.position = "absolute";
     })
 }
