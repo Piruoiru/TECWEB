@@ -440,7 +440,7 @@ window.onload = function () {
 
     // Seleziona tutti i bottoni dei biglietti e il carrello
     const buttons = document.querySelectorAll('.cardTicket');
-    const carrello = document.getElementById('carrello');
+    const carrello = document.getElementById('carrelloUL');
     const hiddenInt = document.getElementById("intero");
     const hiddenRid = document.getElementById("ridotto");
 
