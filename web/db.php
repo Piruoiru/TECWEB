@@ -1,5 +1,6 @@
 <?php
 // I metodi get restituiscono un oggetto mysqli_result, i metodi fetch restituiscono un array associativo
+ini_set('display_errors',0);
 include_once 'config.php';
 class DatabaseClient
 {
@@ -211,24 +212,36 @@ class DatabaseClient
         return $tickets;
     }
 
-    public function createShow($title, $description, $imgPath)
+    public function createShow($title, $description, $imgPath, $imgDescription)
     {
-        $sql = "INSERT INTO spettacoli(titolo,descrizione,percorso_immagine) VALUES (?,?,?);";
+        $sql = "SELECT * FROM spettacoli WHERE titolo=?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param('sss', $title, $description, $imgPath);
+        $stmt->bind_param('s', $title);
         $status = $stmt->execute();
         if (!$status) {
-            throw new \Exception("Error querying the database");
+            return "Error querying the database";
         }
+        $result = $stmt->get_result();
+        if($result->num_rows !== 0){
+            return "Non si può creare uno spettacolo con un titolo già esistente";
+        }
+        $sql = "INSERT INTO spettacoli(titolo,descrizione,percorso_immagine,descrizione_immagine) VALUES (?,?,?,?);";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('ssss', $title, $description, $imgPath, $imgDescription);
+        $status = $stmt->execute();
+        if (!$status) {
+            return "Error querying the database";
+        }
+        return "Inserimento avvenuto con successo!";
     }
 
-    public function modifyShow($oldTitle, $title, $description, $imgPath)
+    public function modifyShow($oldTitle, $title, $description, $imgPath, $imgDescription)
     {
         $sql = "UPDATE spettacoli 
-                    SET titolo=?, descrizione=?, percorso_immagine=?
+                    SET titolo=?, descrizione=?, percorso_immagine=?, descrizione_immagine=?
                     WHERE titolo=?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param('ssss', $title, $description, $imgPath, $oldTitle);
+        $stmt->bind_param('sssss', $title, $description, $imgPath, $imgDescription,$oldTitle);
         $status = $stmt->execute();
         if (!$status) {
             throw new \Exception("Error querying the database");

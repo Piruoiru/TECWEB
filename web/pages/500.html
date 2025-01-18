@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DreamVille</title>
+        <link rel="shortcut icon" href="assets/logo.png" />
+        <meta charset="utf-8">
+        <meta name="description" content=""><!--TODO: aggiornare descrizione-->
+        <meta name="keywords" content="DreamVille, parco, divertimento, giostre, weekend"><!--TODO: aggiornare keywords-->
+
+        <!-- TODO: cambiare font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="./style/style.css" media="screen">
+        <!-- <script src="scripts/script.js"></script> -->
+    </head>
+    <body>
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <span lang="en">Home</span></p>
+            <p>Orario di oggi: {{ $orario }}</p>
+            <p>Area personale</p>
+        </nav>
+        <div id="headerNavWrapper">
+            <header>
+                <h1><span lang="en">DreamVille</span></h1>
+            </header>
+            <nav id="menu">
+                <ul>
+                    <li lang="en"><a href="index.php">Home</a></li>
+                    <li><a href="map.php">Scopri le attrazioni</a></li>
+                    <li><a href="admin.php">I nostri shows</a></li>
+                    <li><a href="calendar.php">Orari di apertura</a></li>
+                    <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main id="mainPageError500">
+            <p>{{ $error }}</p>    
+        </main>
+        <footer id="footerPageError500">
+            <p>© 2024 DreamVille</p>
+        </footer>
+    </body>
+</html>
+    

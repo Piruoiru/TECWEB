@@ -406,34 +406,24 @@ function loadRidesFilter() {
 
 /*
 ---------------------
-    ADMIN
+    ADMIN MODIFICA ED ELIMINAZIONE
 ---------------------
 */
+var createEditShowFormDetails = {
+    "titolo":["", /^[A-Za-z.,;']+/, "Inserisci un titolo"],
+    "descrizione":["", /^[A-Za-z.,;']+/, "Inserisci una password"],
+    "immagine": ["", /^.+/, "Inserisci un'immagine"],
+    "descrizione_immagine":["", /^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
+};
 
-function changeTypeOfAdminControlPanel(type,titolo="",descrizione="",image=""){
-    document.getElementById('type').value = type;
-    if(type === 'modifica'){
-        document.getElementById('vecchioTitoloContainer').style = '';
-        document.getElementById('descrizioneContainer').style = '';
-        document.getElementById('immagineContainer').style = '';
-        document.getElementById('vecchio_titolo').value = titolo;
-        document.getElementById('descrizione').value = descrizione;
-        document.getElementById('img').value = image;
-        document.getElementById('loginButton').value = 'Modifica'; //da cambiare l'id del bottone ovviamente + css
-    } else if(type === 'elimina'){
-        document.getElementById('vecchioTitoloContainer').style = 'display: none';
-        document.getElementById('descrizioneContainer').style = 'display: none';
-        document.getElementById('immagineContainer').style = 'display: none';
-        document.getElementById('titolo').value = titolo;
-        document.getElementById('loginButton').value = 'Elimina';
-    } else {
-        document.getElementById('descrizioneContainer').style = '';
-        document.getElementById('immagineContainer').style = '';
-        document.getElementById('titolo').value = '';
-        document.getElementById('descrizione').value = '';
-        document.getElementById('img') = '';
-        document.getElementById('loginButton').value = 'Crea';
-    }
+function editShow(title){
+    // richiesta conferma eliminazione
+    window.location = `/editShow.php?vecchio_titolo=${encodeURIComponent(title)}`;
+}
+
+function deleteShow(title){
+    // richiesta conferma eliminazione
+    window.location = `/deleteShow.php?titolo=${encodeURIComponent(title)}`;
 }
 
 

@@ -15,9 +15,13 @@
 
         <script src="scripts/script.js"></script>
     </head>
-    <body class="tertiaryBg" onload="loadGenericForm()">
+    @if $isAdmin
+    <body class="tertiaryBg" onload="loadGenericForm(createEditShowFormDetails)">
+    @else
+    <body class="tertiaryBg">
+    @endif
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="admin.php" lang="en">Home</a> > Admin</p>
+            <p>Ti trovi in: <a href="shows.php" lang="en">Home</a> > Shows</p>
             <p>Orario di oggi: {{ $orario }}</p>
             <div id="userCrumb">
                 @for $btn in $headerBtns
@@ -33,23 +37,19 @@
                 <ul>
                     <li lang="en"><a href="index.php">Home</a></li>
                     <li><a href="map.php">Scopri le attrazioni</a></li>
-                    <li><a href="admin.php">I nostri shows</a></li>
+                    <li><a href="shows.php">I nostri shows</a></li>
                     <li><a href="calendar.php">Orari di apertura</a></li>
                     <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                 </ul>
             </nav>
         </div>
-        <main class="card cardFormMain" id="userRegistrationMain">
+        @if $isAdmin
+        <main class="card cardFormMain">
             @if !empty($debugMessage)
                 <p>{{ $debugMessage }}</p>
             @endif
             <h1>Creazione spettacoli</h1>
-            <form method="POST" id="userRegistrationForm" class="cardForm">
-                <input type="hidden" id="type" name="type" value="crea" />
-                <div class="inputLabelContainer" id="vecchioTitoloContainer" style="display: none;"> <!-- da cambiare-->
-                    <label for="vecchio_titolo">Vecchio Titolo</label>
-                    <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="" />
-                </div>
+            <form method="POST" id="" class="cardForm" enctype="multipart/form-data">
                 <div class="inputLabelContainer">
                     <label for="titolo">Titolo</label>
                     <input type="text" id="titolo" name="titolo" value="" />
@@ -59,22 +59,30 @@
                     <input type="text" id="descrizione" name="descrizione" value="" />
                 </div>
                 <div class="inputLabelContainer" id="immagineContainer">
-                    <label for="username">Immagine</label>
-                    <input type="text" id="img" name="img" />
+                    <label for="immagine">Immagine</label>
+                    <input type="file" id="immagine" name="immagine" />
+                </div>
+                <div class="inputLabelContainer" id="descrizioneImmagineContainer">
+                    <label for="descrizione_immagine">Descrizione immagine</label>
+                    <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
                 </div>
                 <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle translateUpOnHover filledGradientBtn">
             </form>
+            
         </main>
+        @endif
         <ul id="attractionList">
             @for $row in $result
             <li data-category="adrenaliniche" class="card adrenalinicheCard">
                 <h3>{{ $row['titolo'] }}</h3>
                 <div class="rideCardBody">
                     <p>{{ $row['descrizione'] }}</p>
-                    <img src="assets/{{ $row['percorso_immagine'] }}" alt="Immagine di {{ $row['titolo'] }}">
+                    <img src="assets/{{ $row['percorso_immagine'] }}" alt="{{ $row['descrizione_immagine'] }}">
                 </div>
-                <input type="button" id="modifica" onclick="changeTypeOfAdminControlPanel(`modifica`,`{{ $row['titolo'] }}`,`{{ $row['descrizione'] }}`,`{{ $row['percorso_immagine'] }}`)" value="✏️"/>
-                <input type="button" id="elimina" onclick="changeTypeOfAdminControlPanel(`elimina`,`{{ $row['titolo'] }}`)" value="🗑️"/>
+                @if $isAdmin
+                <input type="button" id="modifica" onclick="editShow(`{{ $row['titolo'] }}`)" value="✏️"/>
+                <input type="button" id="elimina" onclick="deleteShow(`{{ $row['titolo'] }}`)" value="🗑️"/>
+                @endif  
             </li>
             @endfor
         </ul>
