@@ -21,11 +21,11 @@
 
 <body id="loginBody" class="tertiaryBg">
     <nav id="breadcrumb">
-        <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Login</p>
+        <p>Ti trovi in: <span lng="en">Home</span></p>
         <p>Orario di oggi: {{ $orario }}</p>
         <div id="userCrumb">
             @for $btn in $headerBtns
-            <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
+                <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
             @endfor
         </div>
     </nav>
@@ -35,7 +35,7 @@
         </header>
         <nav id="menu">
             <ul>
-                <li lang="en"><a href="index.php">Home</a></li>
+                <li lang="en" id="currentPageLink"><p>Home</p></li>
                 <li><a href="map.php">Scopri le attrazioni</a></li>
                 <li><a href="admin.php">I nostri shows</a></li>
                 <li><a href="calendar.php">Orari di apertura</a></li>
@@ -45,26 +45,22 @@
     </div>
     <main>
         <div class="pageCart">
-            <h1>Il tuo Carrello</h1>
+            <h1>Carrello</h1>
             <div id="boxCart">
-                <ul id="carrello">
-                    {{$cart}}
-                </ul>
-                <p id="prezzoTot"><strong>Totale: {{$prezzo}}€</strong></p>
+                <form method="POST">
+                    <ul id="carrelloUL">
+                        {{$cart}}
+                    </ul>
+                    <p id="prezzoTot"><strong>Totale: {{$prezzo}}€</strong></p>
+                </form>
             </div>
             <button id="btnCart">Acquista</button>
         </div>
     </main>
+    
     <form method="POST">
         <div id="backdrop">
             <div id="progressBar">
-                <header class="loader">
-                    <header class="barra">
-                        <header class="riempi"></header>
-                    </header>
-                    <header class="contatore">0%</header>
-                </header>
-        
                 <header class="output">
                     <span class="fas fa-check"></span>
                     <header class="textPaga">Pagamento effettuato</header>
