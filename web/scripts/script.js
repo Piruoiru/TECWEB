@@ -347,9 +347,9 @@ window.onload = function () {
             aggiungiAlCarrello(tipoBiglietto);
         });
     });
-
+    /*
     const btnCart = document.getElementById("btnCart");
-
+    
     btnCart.addEventListener('click', () => {
         const backdrop = document.getElementById("backdrop");
         backdrop.style.display = "block";
@@ -375,5 +375,5 @@ window.onload = function () {
                 riempi.style.width = n + "%";
             }
         }
-    })
+    })*/
 }
