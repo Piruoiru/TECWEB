@@ -307,29 +307,6 @@ header h1{
 ---------------------
 */
 
-.calendarCell {
-  background-color: var(--secondaryColor);
-  border: 1rem solid #000; /* Colore nero e spessore di 2px */  
-}
-
-/* .calendarCell.today {
-  
-} */
-
-.headerCalendarTable{
-  background-color: var(--primaryColor);
-  color: #FFF;
-}
-
-.headerCalendarTable button{
-  background-color: var(--primaryColor);
-  color: #FFF;
-  border: 0;
-  padding: 0.5em 0em;
-  font-size: 1.1em;
-  cursor: pointer;
-}
-
 #calendarMain>p{
   margin: 1em 0;
   text-align: center;
@@ -337,7 +314,7 @@ header h1{
 
 #calendarTable{
   text-align: center;
-  vertical-align: top; /* Allinea il testo in alto */
+  vertical-align: top;
   padding: 0em 1em;
   border-collapse: collapse;
   margin: auto;
@@ -347,19 +324,34 @@ header h1{
   padding-bottom: 1em;
 }
 
-#calendarTable th, #calendarTable td{
-  border: 1px solid #000;
-  padding: 0.2em 0.3em;
-  font-size: 1.1em;
+#calendarTable>tbody td{
+  background-color: var(--secondaryColor); 
+}
+
+#calendarTable thead{
+  background-color: var(--primaryColor);
+  color: #FFF;
 }
 
 #calendarTable thead th{
   padding: 0.4em;
+  font-size: 1.25em;
+  border: 1px solid #FFF;
 }
 
-#calendarTable tbody td p:first-child{
-  font-size: 1em;
-  color: #000;
+#calendarTable thead button{
+  background-color: var(--primaryColor);
+  color: #FFF;
+  border: 0;
+  padding: 0.5em 0em;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+#calendarTable>tbody td{
+  border: 1px solid #000;
+  padding: 0.3em;
+  font-size: 1.1em;
 }
 
 #calendarTable p{
@@ -368,14 +360,10 @@ header h1{
   margin-top: 0.3em;
 }
 
-/* #photoOpenPark{
-  width: 7em;
-  height: auto;
-  left: 25%;
-} */
-
-#closedParkCalendar{
-  text-align: center;
+#calendarTable tbody td p:first-child{
+  font-size: 1em;
+  font-weight: 600;
+  color: #000;
 }
 
 /*

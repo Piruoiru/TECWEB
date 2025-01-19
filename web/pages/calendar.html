@@ -42,17 +42,17 @@
         <main id="calendarMain">
             <h1>Calendario di apertura</h1>
             <p>Controlla i nostri giorni di apertura e pianifica un soggiorno indimenticabile!</p>
-            <caption>Calendario</caption>
                 <span id="descrTabella">In questa tabella vengono rappresentati i giorni di un mese sottoforma di calendario, avendo la possibilità di passare al mese precedente o a quello successivo</span>
                 <table  id="calendarTable"> 
-                    <caption>Calendario</caption>
+                    <caption>Calendario con le date di apertura del parco</caption>
                     <thead>
-                        <tr class="headerCalendarTable">
+                        <tr>
+                            <!-- TODO: aggiungere title a bottoni -->
                             <th scope="col"><button onclick="prevMonth()">&lt;</button></th>
                             <th colspan="5" id="month" scope="col"></th>
                             <th scope="col"><button onclick="nextMonth()">&gt;</button></th>
                         </tr>
-                        <tr class="headerCalendarTable">
+                        <tr>
                             <th scope="col">Lunedì</th>
                             <th scope="col">Martedì</th>
                             <th scope="col">Mercoledì</th>
