@@ -11,9 +11,32 @@
     include_once 'header.php';
     $prezzoInt = 34.99;
     $prezzoRid = 24.99;
+    $sommaInt = 0;
+    $sommaRid = 0;
 
     $db = new DatabaseClient();
     $db->connect();
+    
+
+    if(isset($_POST['addTrid'])){
+        $operation = 'add';
+        $db->updateCart('1',$_SESSION['username'],$operation);
+    }
+    
+    if(isset($_POST['rmvTrid'])){
+        $operation = 'rmv';
+        $db->updateCart('1',$_SESSION['username'],$operation);
+    }
+
+    if(isset($_POST['rmvTint'])){
+        $operation = 'rmv';
+        $db->updateCart('2',$_SESSION['username'],$operation);
+    }
+
+    if(isset($_POST['addTint'])){
+        $operation = 'add';
+        $db->updateCart('2',$_SESSION['username'],$operation);
+    }
 
     $risultato = $db->fetchCart($_SESSION['username']);
     foreach($risultato as $biglietti){
@@ -21,13 +44,19 @@
             $ticket = "Biglieto Ridotto";
             $context['prezzo'] += $prezzoRid * $biglietti['quantita'];
             $sommaRid = $prezzoRid * $biglietti['quantita'];
+            $context['cart'] .= "<div id='boxDetails'>" . "<li>" . $ticket . " x" .  $biglietti['quantita'] . "</li>"
+                            ."<input type='submit' value = '-' name='rmvTrid' class='btnAddRmv'>" 
+                            ."<input type='submit' value = '+' name='addTrid' class='btnAddRmv'>" . "</div>";
         }
         else{
             $ticket = "Biglieto Intero";
             $context['prezzo'] += $prezzoInt * $biglietti['quantita'];
             $sommaInt = $prezzoInt * $biglietti['quantita'];
+            $context['cart'] .= "<div id='boxDetails'>" . "<li>" . $ticket . " x" .  $biglietti['quantita'] . "</li>"
+                            ."<input type='submit' value = '-' name='rmvTint' class='btnAddRmv'>"
+                            ."<input type='submit' value = '+' name='addTint' class='btnAddRmv'>" . "</div>";
         }
-        $context['cart'] .= "<li>" . $ticket . " x" .  $biglietti['quantita'] . "</li>";
+        
     }
 
     if(isset($_POST['submit'])){
@@ -35,7 +64,7 @@
         $context['cart'] = '';
         $context['prezzo'] = 0.00;
     }
-  
+
     $template = new Parser();
     $template->render('buyingcart.html',$context);
 ?>

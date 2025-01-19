@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Modifica profilo - DreamVille</title>
+        <title>Modifica spettacolo - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <meta name="description" content="Modifica o elimina il tuo profilo">    
-        <meta name="keywords" content="modifica, eliminazione, account, profilo, utente, personale, DreamVille">
+        <meta name="description" content="Modifica uno spettacolo"> 
+        <!-- FIXME: cambiare description e keywords -->
+        <meta name="keywords" content="modifica, eliminazione, account, spettacolo, utente, personale, DreamVille">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
 
@@ -40,7 +41,6 @@
             </nav>
         </div>
         <main class="card cardFormMain" id="profileEditMain">
-            <h1>Modifica i tuoi dati</h1>
             @if !empty($updateErrorMessage)
             <div class="errorMessageBgPar">
                 <p>Si sono verificati alcuni errori durante la modifica dei dati:</p>
@@ -51,35 +51,33 @@
                 </ul>
             </div>
             @endif
-            @if !empty($updateSuccessMessage)
-            <p class="infoMessageBgPar">{{ $updateSuccessMessage }}</p>
-            <dl>
-                <dt><strong>Nome:</strong></dt>
-                <dd>{{ $userFirstName }}</dd>
-                <dt><strong>Cognome:</strong></dt>
-                <dd>{{ $userSurname }}</dd>
-                <dt><strong>Username:</strong></dt>
-                <dd>{{ $username }}</dd>
-            </dl>
-            <a href="profile.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Torna al profilo</a>
+            @if !empty($debugMessage)
+            <p class="errorMessageBgPar">{{ $debugMessage }}</p>
             @else
-            <form method="POST" id="profileEditForm" onsubmit="return validateGenericForm(editUserFormDetails);" class="cardForm">
+            <h1>Modifica lo spettacolo</h1>
+            <form method="POST" id="userRegistrationForm" class="cardForm" enctype="multipart/form-data">
                 <div class="inputLabelContainer">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="name" value="{{ $userFirstName }}">
-                </div>
-                <div class="inputLabelContainer" id="cognomeContainer">
-                    <label for="cognome">Cognome</label>
-                    <input type="text" id="cognome" name="surname" value="{{ $userSurname }}">
+                    <label for="vecchio_titolo">Vecchio Titolo</label>
+                    <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="{{ $vecchio_titolo }}" />
                 </div>
                 <div class="inputLabelContainer">
-                    <label for="username">Username (non modificabile)</label>
-                    <input type="text" id="username" name="username" value="{{ $username }}" disabled>
+                    <label for="nuovo_titolo">Nuovo Titolo</label>
+                    <input type="text" id="titolo" name="titolo" value="" />
                 </div>
-                <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle translateUpOnHover filledGradientBtn">
+                <div class="inputLabelContainer" id="descrizioneContainer">
+                    <label for="descrizione">Descrizione</label>
+                    <input type="text" id="descrizione" name="descrizione" value="" />
+                </div>
+                <div class="inputLabelContainer" id="immagineContainer">
+                    <label for="immagine">Immagine</label>
+                    <input type="file" id="immagine" name="immagine" />
+                </div>
+                <div class="inputLabelContainer" id="descrizioneImmagineContainer">
+                    <label for="descrizione_immagine">Descrizione immagine</label>
+                    <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
+                </div>
+                <input type="submit" name="submit" value="Modifica" class="buttonStyle translateUpOnHover filledGradientBtn">
             </form>
-            <p>Oppure</p>
-            <a href="deleteProfile.php" id="registrationButton" class="buttonStyle outlineGradientBtn translateUpOnHover">Elimina il tuo utente</a>
             @endif
         </main>
 
