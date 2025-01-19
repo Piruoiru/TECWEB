@@ -5,8 +5,8 @@ function initCalendar(){
   const calendar = document.getElementById("calendar");
 
   const DATE = new Date();
-  let thisMonth = DATE.getMonth();
-  let year = DATE.getFullYear();
+  let currentMonth = DATE.getMonth();
+  let currentYear = DATE.getFullYear();
 
   const MONTHS = [
     "Gennaio",
@@ -24,38 +24,39 @@ function initCalendar(){
   ];
 
   // Array con i giorni di chiusura del parco (in formato [giorno, mese, anno])
-  const closedDays = [
-    { day: 25, month: 12, year: 2024 },  // Natale 2024
-    { day: 1, month: 1, year: 2025 },    // Capodanno 2025
-    { day: 6, month: 1, year: 2025 }    // Epifania 2025
-    // Aggiungi altri giorni di chiusura se necessario
-  ];
+//   const closedDays = [
+//     { day: 25, month: 12, currentYear: 2024 },  // Natale 2024
+//     { day: 1, month: 1, currentYear: 2025 },    // Capodanno 2025
+//     { day: 6, month: 1, currentYear: 2025 }    // Epifania 2025
+//     // Aggiungi altri giorni di chiusura se necessario
+//   ];
 
   window.month = month;
   window.calendar = calendar;
   window.DATE = DATE;
-  window.thisMonth = thisMonth;
-  window.year = year; 
+  window.currentMonth = currentMonth;
+  window.currentYear = currentYear; 
   window.MONTHS = MONTHS;
-  window.closedDays = closedDays;
+//   window.closedDays = closedDays;
   buildCalendar();
 }
 
 function buildCalendar(){
-  month.innerHTML = `${MONTHS[thisMonth]} ${year}`;
+  calendar.innerHTML = "";
+  month.innerHTML = `${MONTHS[currentMonth]} ${currentYear}`;
 
-  const dayOne = (new Date(year, thisMonth).getDay()+6)%7;
-  const monthDays = 32 - new Date(year, thisMonth, 32).getDate();
+  const dayOne = (new Date(currentYear, currentMonth).getDay()+6)%7;//Primo giorno della settimana del mese selezionato (0 = Lunedì, 6 = Domenica)
+  const monthDays = 32 - new Date(currentYear, currentMonth, 32).getDate();//Numero di giorni del mese selezionato
 
   let date = 1;
   for (let i = 0; i < 6; i++) {
     let row = document.createElement("tr");
     for (let j = 0; j < 7; j++) {
       let cell = document.createElement("td");
-      if (date > monthDays) break;
+      if (date > monthDays)
+        break;
       else if (i === 0 && j < dayOne) {
-        let cellText = document.createTextNode("");
-        cell.appendChild(cellText);
+        cell.setAttribute("aria-label", "Giorno del mese precedente");
         row.appendChild(cell);
       } else {
         let columnText = document.createElement("p");
@@ -67,16 +68,17 @@ function buildCalendar(){
         hoursText.textContent = "9:00 - 18:00";
         cell.appendChild(hoursText);
 
-        if(date === DATE.getDate() && thisMonth === DATE.getMonth() && year === DATE.getFullYear()){
-          cell.classList.add("today")
-        }
+        // TODO: aggiungere visualizzazione oggi
+        // if(date === DATE.getDate() && currentMonth === DATE.getMonth() && currentYear === DATE.getFullYear()){
+        //   cell.classList.add("today")
+        // }
 
-        let cellDay = `${date}`;
-        let cellMonth = `${thisMonth + 1}`;
-        let cellYear = `${year}`;
+        // let cellDay = `${date}`;
+        // let cellMonth = `${currentMonth + 1}`;
+        // let cellcurrentYear = `${currentYear}`;
 
 
-        cell.onclick = () => dateSelected(cellDay, cellMonth, cellYear);
+        // cell.onclick = () => dateSelected(cellDay, cellMonth, cellcurrentYear);
 
         row.appendChild(cell);
 
@@ -92,44 +94,58 @@ function buildCalendar(){
   }
 };
 
-function dateSelected(date, month, year){
-  // Verifica se la data selezionata è un giorno di chiusura
-  let isClosed = closedDays.some(day => day.day === parseInt(date) && day.month === parseInt(month) && day.year === parseInt(year));
+// function dateSelected(date, month, currentYear){
+//   // Verifica se la data selezionata è un giorno di chiusura
+//   let isClosed = closedDays.some(day => day.day === parseInt(date) && day.month === parseInt(month) && day.currentYear === parseInt(currentYear));
 
-  const closedParkCalendar = window.closedParkCalendar;
+//   const closedParkCalendar = window.closedParkCalendar;
 
-  if (isClosed) {
-    closedParkCalendar.textContent = "Il parco è chiuso in questa data, ci dispiace!";
-  } else {
-    closedParkCalendar.textContent = "Il parco è aperto, Buona visita!";
-  }
+//   if (isClosed) {
+//     closedParkCalendar.textContent = "Il parco è chiuso in questa data, ci dispiace!";
+//   } else {
+//     closedParkCalendar.textContent = "Il parco è aperto, Buona visita!";
+//   }
 
-//   alert(`${date}/${month}/${year}`);
-}
+// //   alert(`${date}/${month}/${currentYear}`);
+// }
 
-const nextMonth = () => {
-  thisMonth = thisMonth + 1;
-  calendar.innerHTML = "";
+function nextMonth(){
+    currentMonth = currentMonth + 1;
 
-  if(thisMonth > 11){
-    year = year + 1;
-    thisMonth = 0;
-  }
-  buildCalendar();
-  return thisMonth;
+    if(currentMonth > 11){
+        currentYear = currentYear + 1;
+        currentMonth = 0;
+    }
+    let previousMonthButton = document.getElementById("previousMonthBtn");
+    previousMonthButton.disabled=false;
+    previousMonthButton.setAttribute("aria-label", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
+
+    document.getElementById("nextMonthBtn").setAttribute("aria-label", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+    buildCalendar();
+    return currentMonth;
 };
 
-const prevMonth = () => {
-  thisMonth = thisMonth - 1;
-  calendar.innerHTML = "";
+function prevMonth(){
+    currentMonth = currentMonth - 1;
+    if(currentMonth < 0){
+        currentYear = currentYear - 1;
+        currentMonth = 11;
+    }
+    if(currentYear === DATE.getFullYear() && currentMonth === DATE.getMonth()){
+        let btn = document.getElementById("previousMonthBtn");
+        btn.disabled=true;
+        btn.setAttribute("aria-label", "Non è possibile selezionare i mesi precedenti a quello attuale");
+    }else{
+        let previousMonthButton = document.getElementById("previousMonthBtn");
+        previousMonthButton.disabled=false;
+        previousMonthButton.setAttribute("aria-label", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
+    }
+    document.getElementById("nextMonthBtn").setAttribute("aria-label", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+    buildCalendar();
 
-  if(thisMonth < 0){
-    year = year - 1;
-    thisMonth = 11;
-  }
-  buildCalendar();
-  return thisMonth;
-};/*
+    return currentMonth;
+};
+/*
 ---------------------
     FORMS
 ---------------------
