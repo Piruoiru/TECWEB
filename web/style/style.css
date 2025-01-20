@@ -344,6 +344,20 @@ header h1{
   border: 1px solid #FFF;
 }
 
+#calendarTable thead tr:first-child th{
+  padding: 0.4em;
+  font-size: 1.25em;
+  border-top: 1px solid #000;
+}
+
+#calendarTable thead tr th:first-child{
+  border-left: 1px solid #000;
+}
+
+#calendarTable thead tr th:last-child{
+  border-right: 1px solid #000;
+}
+
 #calendarTable thead button{
   background-color: var(--primaryColor);
   color: #FFF;
