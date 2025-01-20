@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Registrazione utente - DreamVille</title>
+        <title>Shows - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <meta name="description" content="Registra un nuovo utente per accedere a DreamVille e scoprire tutte le promozioni disponibili per te">    
@@ -36,42 +36,43 @@
             <nav id="menu">
                 <ul>
                     <li lang="en"><a href="index.php">Home</a></li>
-                    <li><a href="map.php">Scopri le attrazioni</a></li>
-                    <li><a href="shows.php">I nostri shows</a></li>
+                    <li><a href="rides.php">Scopri le attrazioni</a></li>
+                    <li id="currentPageLink"><p>I nostri shows</p></li>
                     <li><a href="calendar.php">Orari di apertura</a></li>
                     <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                 </ul>
             </nav>
         </div>
+        <main id="showsMain">
         @if $isAdmin
-        <main class="card cardFormMain">
+        <div class="card cardFormMain">
             @if !empty($debugMessage)
                 <p>{{ $debugMessage }}</p>
             @endif
             <h1>Creazione spettacoli</h1>
             <form method="POST" id="" class="cardForm" enctype="multipart/form-data">
                 <div class="inputLabelContainer">
-                    <label for="titolo">Titolo</label>
-                    <input type="text" id="titolo" name="titolo" value="" />
+                    <label for="titolo" class="emptyFieldLabel">Titolo</label>
+                    <input type="text" id="titolo" name="titolo" />
                 </div>
                 <div class="inputLabelContainer" id="descrizioneContainer">
-                    <label for="descrizione">Descrizione</label>
-                    <input type="text" id="descrizione" name="descrizione" value="" />
+                    <label for="descrizione" class="emptyFieldLabel">Descrizione</label>
+                    <input type="text" id="descrizione" name="descrizione" />
                 </div>
                 <div class="inputLabelContainer" id="immagineContainer">
                     <label for="immagine">Immagine</label>
                     <input type="file" id="immagine" name="immagine" />
                 </div>
                 <div class="inputLabelContainer" id="descrizioneImmagineContainer">
-                    <label for="descrizione_immagine">Descrizione immagine</label>
+                    <label for="descrizione_immagine" class="emptyFieldLabel">Descrizione immagine</label>
                     <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
                 </div>
-                <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle translateUpOnHover filledGradientBtn">
+                <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle  filledGradientBtn">
             </form>
             
-        </main>
+        </div>
         @endif
-        <ul id="attractionList">
+        <ul id="rideList">
             @for $row in $result
             <li data-category="adrenaliniche" class="card adrenalinicheCard">
                 <h3>{{ $row['titolo'] }}</h3>
@@ -86,6 +87,7 @@
             </li>
             @endfor
         </ul>
+        </main>
 
         <a href="/privacy.php">Privacy Policy</a>
         <a href="/buyingticket.php">Biglietti</a>

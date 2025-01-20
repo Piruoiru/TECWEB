@@ -6,5 +6,5 @@
     
 
     $template = new Parser();
-    $template->render('map.html',$context);
+    $template->render('rides.html',$context);
 ?>

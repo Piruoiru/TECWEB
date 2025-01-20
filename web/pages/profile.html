@@ -32,7 +32,7 @@
             <nav id="menu">
                 <ul>
                     <li lang="en"><a href="index.php">Home</a></li>
-                    <li><a href="map.php">Scopri le attrazioni</a></li>
+                    <li><a href="rides.php">Scopri le attrazioni</a></li>
                     <li><a href="shows.php">I nostri shows</a></li>
                     <li><a href="calendar.php">Orari di apertura</a></li>
                     <li><a href="buyingticket.php">Acquista i biglietti</a></li>
@@ -54,14 +54,14 @@
                         <dt><strong>Password: </strong></dt>
                         <dd>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</dd>
                     </dl>
-                    <a href="editProfile.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Modifica o elimina il profilo</a>
+                    <a href="editProfile.php" class="buttonStyle  outlineGradientBtn">Modifica o elimina il profilo</a>
                 </div>
                 <div class="card" id="lastPurchaseCard">
                     @if empty($lastOrder)
                         <h2>Il mio primo acquisto</h2>
                         <p>Non hai ancora effettuato alcun acquisto.</p>
                         <p>Regalati un'esperienza magica! Cosa aspetti?</p>
-                        <a href="#" class="buttonStyle translateUpOnHover filledGradientBtn">Acquista i tuoi primi biglietti</a>
+                        <a href="#" class="buttonStyle  filledGradientBtn">Acquista i tuoi primi biglietti</a>
                     @else
                         <h2>Il mio ultimo acquisto</h2>
                         <h3>Ordine {{ $orderNumber}} del <time datetime="{{ $orderStdDate }}">{{ $orderDay }}/{{ $orderMonth }}/{{ $orderYear }}</time> alle <time datetime="{{ $orderStdTime }}">{{ $orderHour }}:{{ $orderMinute }}:{{ $orderSecond }}</time></h3>
@@ -88,7 +88,7 @@
                             </div>
                         @endfor
                         </div>
-                        <a href="purchases.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Visualizza tutti gli acquisti</a>
+                        <a href="purchases.php" class="buttonStyle  outlineGradientBtn">Visualizza tutti gli acquisti</a>
                     @endif
                 </div>
             </div>

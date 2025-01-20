@@ -133,7 +133,6 @@ function loadGenericForm(formDetails) {
     for(var key in formDetails){
         var input = document.getElementById(key);
         onEmptyField(input);
-        // messaggio(input, 0); se si vuole aggiungere un messaggio di aiuto
         input.firstInput = true;
         input.onblur = function() {
             validateField(this, formDetails);
@@ -146,69 +145,63 @@ function loadGenericForm(formDetails) {
             }
         }
         input.onfocus = function() {
-            this.previousElementSibling.classList.add("nonEmptyFieldLabel");
+            this.previousElementSibling.classList.remove("emptyFieldLabel");
         }
     }
 }
 
 function onEmptyField(input) {
-    if(input.value.length != 0){
-        input.previousElementSibling.classList.add("nonEmptyFieldLabel");
+    if(input.value.length === 0){
+        input.previousElementSibling.classList.add("emptyFieldLabel");
     }else{
-        input.previousElementSibling.classList.remove("nonEmptyFieldLabel");
+        input.previousElementSibling.classList.remove("emptyFieldLabel");
     }
 }
     
 
 function validateField(input, formDetails) {
-    var regex = formDetails[input.id][1];
+    var regex = formDetails[input.id][0];
     var text = input.value;
 
-    //tolgo suggerimento o errore precedente
+    //tolgo errore precedente
     var inputLabelContainer = input.parentNode;
     if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
         inputLabelContainer.nextElementSibling.remove();
     }
 
     if(text.search(regex)!=0){
-        input.setCustomValidity(formDetails[input.id][2]);
-        messaggio(input, 1, formDetails);
+        input.classList.add("invalidInput");
+        messaggio(input, formDetails);
         return false;
     }
-    input.setCustomValidity("");
+    input.classList.remove("invalidInput");
 
     return true;
 }
     
 function validateGenericForm(formDetails) {
+    let validForm = true;
+    let firstInvalidInput = true;
     for(var key in formDetails){
         var input = document.getElementById(key);
         if(!validateField(input, formDetails)){
-            return false;
+            if(firstInvalidInput){
+                input.focus();
+                firstInvalidInput = false;
+            }
+            validForm = false;
         }
     }
-    return true;
+    return validForm;
 }
     
-function messaggio(input, mode, formDetails) {
-/* mode = 0, modalità input
-   mode = 1, modalità errore */
-    var node;//tag con il messaggio
+function messaggio(input, formDetails) {
+    var node;
     var inputLabelContainer=input.parentNode;
-
-    if(!mode){
-        //creo messaggio di aiuto
-        node=document.createElement("p");
-        // node.className="default-text";
-        node.appendChild(document.createTextNode(formDetails[input.id][0]));
-        // inputLabelContainer.insertAdjacentElement('afterend', node);
-    }else{
-        //creo messaggio di errore
-        node=document.createElement("p");
-        node.className="errorMessagePar";
-        node.appendChild(document.createTextNode(formDetails[input.id][2]));
-        inputLabelContainer.insertAdjacentElement('afterend', node);
-    }
+    node=document.createElement("p");
+    node.className="errorMessagePar";
+    node.appendChild(document.createTextNode(formDetails[input.id][1]));
+    inputLabelContainer.insertAdjacentElement('afterend', node);
 }
 
     
@@ -220,8 +213,8 @@ function messaggio(input, mode, formDetails) {
 */
 
 var loginFormDetails = {
-    "username":["", /^./, "Inserisci un username"],
-    "password":["", /^./, "Inserisci una password"],
+    "username":[/^./, "Inserisci un username"],
+    "password":[/^./, "Inserisci una password"],
 };
 
 /*
@@ -231,16 +224,15 @@ var loginFormDetails = {
 */
 /*
     - chiave: id dell'input del form
-    - [0]: Feed forward per la compilazione
-    - [1]: Espressione regolare da controllare
-    - [2]: Messaggio errore
+    - [0]: Espressione regolare da controllare
+    - [1]: Messaggio errore
  */
             
 var registrationFormDetails = {
-    "nome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
-    "cognome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
-    "username":["", /^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
-    "password":["", /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}/, "Inserire una password composta da 4 a 20 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"],
+    "nome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
+    "cognome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
+    "username":[/^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
+    "password":[/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}/, "Inserire una password composta da 4 a 20 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"],
 };
 
 function loadRegistrationForm() {
@@ -257,10 +249,10 @@ function loadRegistrationForm() {
         if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
             inputLabelContainer.nextElementSibling.remove();
         }
-        input.setCustomValidity("");
+        input.classList.remove("invalidInput");
     }
     input.onfocus = function() {
-        this.previousElementSibling.classList.add("nonEmptyFieldLabel");
+        this.previousElementSibling.classList.remove("emptyFieldLabel");
     }
 
     //Reset password confirmation on password input
@@ -270,7 +262,8 @@ function loadRegistrationForm() {
             //Reset password confirmation
             var passwordConfirmationInput = document.getElementById("passwordConfirmation");
             passwordConfirmationInput.value = "";
-            passwordConfirmationInput.setCustomValidity("");
+            passwordConfirmationInput.previousElementSibling.classList.add("emptyFieldLabel");
+            passwordConfirmationInput.classList.remove("invalidInput");
             //Rimozione messaggio errore eventualmente presente
             var inputLabelContainer = passwordConfirmationInput.parentNode;
             if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
@@ -310,7 +303,8 @@ function validateRegistrationForm() {
         usernameValidation = true;
     }
     //Password confirmation validation
-    return genericValidation && usernameValidation && !passwordConfirmationMatch();
+    var passwordMatch = passwordConfirmationMatch();
+    return genericValidation && usernameValidation && passwordMatch;
 
 }
 
@@ -323,12 +317,12 @@ function passwordConfirmationMatch() {
     }
     if(document.getElementById("password").value !== input.value){
         //Messaggio password non coincidenti
-        messaggio(input, 1, {"passwordConfirmation":["", /^.*/, "Le password non coincidono"]});
-        input.setCustomValidity("Le password non coincidono");
-        return true;
+        messaggio(input, {"passwordConfirmation":[/^.*/, "Le password non coincidono"]});
+        input.classList.add("invalidInput");
+        return false;
     }
-    input.setCustomValidity("");
-    return false;
+    input.classList.remove("invalidInput");
+    return true;
 }
 
 function userExists(input) {
@@ -336,11 +330,11 @@ function userExists(input) {
     xhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
             if(this.responseText === "1"){
-                messaggio(input, 1, {"username":["", /^.*/, "Username già in uso"]});
-                input.setCustomValidity("Username già in uso");
+                messaggio(input, {"username":[/^.*/, "Username già in uso"]});
+                input.classList.add("invalidInput");
                 return true;
             }
-            input.setCustomValidity("");
+            input.classList.remove("invalidInput");
             return false;
        }
     };
@@ -367,7 +361,7 @@ var editUserFormDetails = {
 
 function loadRidesFilter() {
     var filterButtons = document.querySelectorAll('#filtersContainer button');
-    var attractions = document.querySelectorAll('#attractionList li');
+    var rides = document.querySelectorAll('#rideList li');
 
     filterButtons.forEach(clickedButton => {
         clickedButton.onclick = () => {
@@ -385,12 +379,12 @@ function loadRidesFilter() {
             });
 
             //Mostra solo le attrazioni della categoria selezionata
-            attractions.forEach(attraction => {
+            rides.forEach(ride => {
                 // Mostra tutte le attrazioni se la categoria è "tutte"
-                if (category === 'tutte' || attraction.getAttribute('data-category') === category) {
-                    attraction.classList.remove('hiddenAttraction');
+                if (category === 'tutte' || ride.getAttribute('data-category') === category) {
+                    ride.classList.remove('hiddenRide');
                 } else {
-                    attraction.classList.add('hiddenAttraction');
+                    ride.classList.add('hiddenRide');
                 }
             });
         };
@@ -403,10 +397,10 @@ function loadRidesFilter() {
 ---------------------
 */
 var createEditShowFormDetails = {
-    "titolo":["", /^[A-Za-z.,;']+/, "Inserisci un titolo"],
-    "descrizione":["", /^[A-Za-z.,;']+/, "Inserisci una password"],
-    "immagine": ["", /^.+/, "Inserisci un'immagine"],
-    "descrizione_immagine":["", /^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
+    "titolo":[/^[A-Za-z.,;']+/, "Inserisci un titolo"],
+    "descrizione":[/^[A-Za-z.,;']+/, "Inserisci una descrizione"],
+    "immagine": [/^.+/, "Inserisci un'immagine"],
+    "descrizione_immagine":[/^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
 };
 
 function editShow(title){

@@ -32,7 +32,7 @@
             <nav id="menu">
                 <ul>
                     <li lang="en"><a href="index.php">Home</a></li>
-                    <li><a href="map.php">Scopri le attrazioni</a></li>
+                    <li><a href="rides.php">Scopri le attrazioni</a></li>
                     <li><a href="shows.php">I nostri shows</a></li>
                     <li><a href="calendar.php">Orari di apertura</a></li>
                     <li><a href="buyingticket.php">Acquista i biglietti</a></li>
@@ -46,17 +46,21 @@
             @endif
             <form method="POST" id="loginForm" class="cardForm" onsubmit="return validateGenericForm(loginFormDetails);">
                 <div class="inputLabelContainer">
+                    @if empty($oldUsername)
+                    <label for="username" class="emptyFieldLabel">Username</label>
+                    @else
                     <label for="username">Username</label>
+                    @endif
                     <input type="text" id="username" name="username" value="{{ $oldUsername }}">
                 </div>
                 <div class="inputLabelContainer">
-                    <label for="password">Password</label>
+                    <label for="password" class="emptyFieldLabel">Password</label>
                     <input type="password" id="password" name="password">
                 </div>
-                <input type="submit" name="submit" value="Accedi" id="loginButton" class="buttonStyle translateUpOnHover filledGradientBtn">
+                <input type="submit" name="submit" value="Accedi" id="loginButton" class="buttonStyle  filledGradientBtn">
             </form>
             <p>Oppure</p>
-            <a href="register.php" id="goToRegistrationBtn" class="buttonStyle outlineGradientBtn translateUpOnHover">Registrati!</a>
+            <a href="register.php" id="goToRegistrationBtn" class="buttonStyle outlineGradientBtn ">Registrati!</a>
         </main>
 
         <a href="/privacy.php">Privacy Policy</a>
