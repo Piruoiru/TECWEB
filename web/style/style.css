@@ -676,6 +676,10 @@ label{
   align-items: center;
 }
 
+#attractionList > .hiddenAttraction{
+  display: none;
+}
+
 #attractionList > .adrenalinicheCard{
   border: 5px solid var(--errorColor);
 }

@@ -388,9 +388,9 @@ function loadRidesFilter() {
             attractions.forEach(attraction => {
                 // Mostra tutte le attrazioni se la categoria è "tutte"
                 if (category === 'tutte' || attraction.getAttribute('data-category') === category) {
-                    attraction.style.display = 'flex';
+                    attraction.classList.remove('hiddenAttraction');
                 } else {
-                    attraction.style.display = 'none';
+                    attraction.classList.add('hiddenAttraction');
                 }
             });
         };

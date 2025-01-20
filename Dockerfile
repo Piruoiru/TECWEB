@@ -8,4 +8,6 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 RUN chmod 777 cache/
 
+RUN chmod 777 assets/admin_uploads/
+
 EXPOSE 80
