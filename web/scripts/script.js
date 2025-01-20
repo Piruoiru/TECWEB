@@ -1,14 +1,24 @@
 "use strict";
 
 function initCalendar(){
+window.orari = [
+    { apertura: "10:00", chiusura: "18:00" },  // 0 = Lunedì
+    { apertura: "10:00", chiusura: "18:00" },
+    { apertura: "10:00", chiusura: "18:00" },
+    { apertura: "10:00", chiusura: "18:00" },
+    { apertura: "09:00", chiusura: "20:00" },
+    { apertura: "09:00", chiusura: "21:30" },
+    { apertura: "09:00", chiusura: "21:00" },
+    { apertura: "10:00", chiusura: "18:00" }
+    ];
   const month = document.getElementById("month");
   const calendar = document.getElementById("calendar");
 
-  const DATE = new Date();
-  let currentMonth = DATE.getMonth();
-  let currentYear = DATE.getFullYear();
+  const today = new Date();
+  let currentMonth = today.getMonth();
+  let currentYear = today.getFullYear();
 
-  const MONTHS = [
+  window.months = [
     "Gennaio",
     "Febbraio",
     "Marzo",
@@ -23,37 +33,28 @@ function initCalendar(){
     "Dicembre",
   ];
 
-  // Array con i giorni di chiusura del parco (in formato [giorno, mese, anno])
-//   const closedDays = [
-//     { day: 25, month: 12, currentYear: 2024 },  // Natale 2024
-//     { day: 1, month: 1, currentYear: 2025 },    // Capodanno 2025
-//     { day: 6, month: 1, currentYear: 2025 }    // Epifania 2025
-//     // Aggiungi altri giorni di chiusura se necessario
-//   ];
-
   window.month = month;
   window.calendar = calendar;
-  window.DATE = DATE;
+  window.today = today;
   window.currentMonth = currentMonth;
-  window.currentYear = currentYear; 
-  window.MONTHS = MONTHS;
-//   window.closedDays = closedDays;
+  window.currentYear = currentYear;
   buildCalendar();
 }
 
 function buildCalendar(){
   calendar.innerHTML = "";
-  month.innerHTML = `${MONTHS[currentMonth]} ${currentYear}`;
+  month.innerHTML = `${months[currentMonth]} ${currentYear}`;
 
   const dayOne = (new Date(currentYear, currentMonth).getDay()+6)%7;//Primo giorno della settimana del mese selezionato (0 = Lunedì, 6 = Domenica)
+  let weekDay = dayOne; //Giorno della settimana corrente (0 = Lunedì, 6 = Domenica)
   const monthDays = 32 - new Date(currentYear, currentMonth, 32).getDate();//Numero di giorni del mese selezionato
   updateCalendarButtons();
-  let date = 1;
+  let currentDay = 1;
   for (let i = 0; i < 6; i++) {
     let row = document.createElement("tr");
     for (let j = 0; j < 7; j++) {
       let cell = document.createElement("td");
-      if (date > monthDays)
+      if (currentDay > monthDays)
         break;
       else if (i === 0 && j < dayOne) {
         cell.setAttribute("aria-label", "Giorno del mese precedente");
@@ -61,53 +62,27 @@ function buildCalendar(){
       } else {
         let columnText = document.createElement("p");
 
-        columnText.textContent = date;
+        columnText.textContent = currentDay;
         cell.appendChild(columnText);
 
         let hoursText = document.createElement("p");
-        hoursText.textContent = "9:00 - 18:00";
+        hoursText.textContent = `${orari[weekDay].apertura} - ${orari[weekDay].chiusura}`;
         cell.appendChild(hoursText);
 
-        if(date === DATE.getDate() && currentMonth === DATE.getMonth() && currentYear === DATE.getFullYear()){
+        if(currentDay === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()){
           cell.classList.add("today");
-          cell.setAttribute("aria-label", "Giorno attuale");
+          cell.setAttribute("aria-label", "Oggi");
         }
-
-        // let cellDay = `${date}`;
-        // let cellMonth = `${currentMonth + 1}`;
-        // let cellcurrentYear = `${currentYear}`;
-
-
-        // cell.onclick = () => dateSelected(cellDay, cellMonth, cellcurrentYear);
 
         row.appendChild(cell);
 
-        // Aggiungi tabIndex per navigazione
-        // column.setAttribute("tabindex", "0");
-        // column.setAttribute("role", "button");
-        // column.setAttribute("aria-label", `Giorno ${date}`);
-
-        date++;
+        currentDay++;
+        weekDay = (weekDay + 1) % 7;
       }
     }
     calendar.appendChild(row);
   }
 };
-
-// function dateSelected(date, month, currentYear){
-//   // Verifica se la data selezionata è un giorno di chiusura
-//   let isClosed = closedDays.some(day => day.day === parseInt(date) && day.month === parseInt(month) && day.currentYear === parseInt(currentYear));
-
-//   const closedParkCalendar = window.closedParkCalendar;
-
-//   if (isClosed) {
-//     closedParkCalendar.textContent = "Il parco è chiuso in questa data, ci dispiace!";
-//   } else {
-//     closedParkCalendar.textContent = "Il parco è aperto, Buona visita!";
-//   }
-
-// //   alert(`${date}/${month}/${currentYear}`);
-// }
 
 function nextMonth(){
     currentMonth = currentMonth + 1;
@@ -127,15 +102,6 @@ function prevMonth(){
         currentYear = currentYear - 1;
         currentMonth = 11;
     }
-    // if(currentYear === DATE.getFullYear() && currentMonth === DATE.getMonth()){
-    //     let btn = document.getElementById("previousMonthBtn");
-    //     btn.disabled=true;
-    //     btn.setAttribute("aria-label", "Non è possibile selezionare i mesi precedenti a quello attuale");
-    // }else{
-    //     let previousMonthButton = document.getElementById("previousMonthBtn");
-    //     previousMonthButton.disabled=false;
-    //     previousMonthButton.setAttribute("aria-label", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
-    // }
     updateCalendarButtons();
     buildCalendar();
 
@@ -145,16 +111,16 @@ function prevMonth(){
 function updateCalendarButtons(){
     let previousMonthButton = document.getElementById("previousMonthBtn");
     let nextMonthButton = document.getElementById("nextMonthBtn");
-    if(currentYear === DATE.getFullYear() && currentMonth === DATE.getMonth()){
+    if(currentYear === today.getFullYear() && currentMonth === today.getMonth()){
         previousMonthButton.disabled=true;
         previousMonthButton.setAttribute("aria-label", "Non è possibile selezionare i mesi precedenti a quello attuale");
         previousMonthButton.classList.add("hiddenCalendarBtn");
-        nextMonthButton.setAttribute("title", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+        nextMonthButton.setAttribute("title", "Vai al mese successivo a " + `${months[currentMonth]} ${currentYear}`);
     }else{
         previousMonthButton.disabled=false;
-        previousMonthButton.setAttribute("title", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
+        previousMonthButton.setAttribute("title", "Vai al mese precedente a " + `${months[currentMonth]} ${currentYear}`);
         previousMonthButton.classList.remove("hiddenCalendarBtn");
-        nextMonthButton.setAttribute("title", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+        nextMonthButton.setAttribute("title", "Vai al mese successivo a " + `${months[currentMonth]} ${currentYear}`);
     }
 }
 /*

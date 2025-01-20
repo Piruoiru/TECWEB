@@ -7,6 +7,7 @@ if ($username !== ""){
     $db = new DatabaseClient();
     $db->connect();
     $result = $db->fetchUser($username);
+    $db->close();
 
     if($result->num_rows > 0){
         echo true;

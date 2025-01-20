@@ -40,14 +40,13 @@
             </nav>
         </div>
         <main id="calendarMain">
-            <h1>Calendario di apertura</h1>
-            <p>Controlla i nostri giorni di apertura e pianifica un soggiorno indimenticabile!</p>
-                <span id="descrTabella">In questa tabella vengono rappresentati i giorni di un mese sottoforma di calendario, avendo la possibilità di passare al mese precedente o a quello successivo</span>
+            <h1>Orari di apertura</h1>
+            <p>Controlla i nostri orari di apertura e pianifica una giornata indimenticabile!</p>
+                <span id="descrTabella" class="hidden">In questa tabella sono rappresentati i giorni di un mese come in un calendario. La prima riga dell'intestazione contiene i pulsanti per cambiare mese e il mese corrente. La seconda riga contiene i giorni della settimana. Le celle contengono il numero del giorno e l'orario di apertura per quella data.</span>
                 <table  id="calendarTable"> 
-                    <caption>Calendario con le date di apertura del parco</caption>
+                    <captio class="hidden">Calendario con le date di apertura del parco</caption>
                     <thead>
                         <tr>
-                            <!-- TODO: aggiungere title a bottoni -->
                             <th scope="col"><button onclick="prevMonth()" id="previousMonthBtn" class="buttonStyle hiddenCalendarBtn">&lt;</button></th>
                             <th colspan="5" id="month" scope="col" aria-label="Mese corrente"></th>
                             <th scope="col"><button onclick="nextMonth()" id="nextMonthBtn" class="buttonStyle">&gt;</button></th>

@@ -39,6 +39,19 @@ abbr{
 
 /*
 ---------------------
+  DISPLAY
+---------------------
+*/
+.hidden{
+  display: block;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  left: -999999em;
+}
+
+/*
+---------------------
   BACKGROUND
 ---------------------
 */
