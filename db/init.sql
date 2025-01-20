@@ -88,33 +88,3 @@ INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES
 ('Biglietto Intero',1,34.99),
 ('Biglietto Ridotto',2,24.99),
 ('Biglietto Intero',2,34.99);
-
--- CREATE TABLE bigliettiCarrello(
---     biglietto char(5),
---     utente varchar(20),
---     quantita smallint(2) NOT NULL,
---     PRIMARY KEY (biglietto,utente),
---     FOREIGN KEY (utente) REFERENCES users(username),
---     FOREIGN KEY (biglietto) REFERENCES biglietti(id)
--- );
-
--- INSERT INTO bigliettiCarrello(biglietto,utente,quantita) VALUES 
--- ('1','user',5),
--- ('2','user',1);
-
-
-
--- CREATE TABLE ordiniBiglietti(
---     ordine int NOT NULL,
---     tipoBiglietto char(5),
---     quantita smallint(2) NOT NULL,
---     PRIMARY KEY (ordine, tipoBiglietto),
---     FOREIGN KEY (ordine) REFERENCES ordini(id),
---     FOREIGN KEY (tipoBiglietto) REFERENCES biglietti(id)
--- );
-
--- INSERT INTO ordiniBiglietti(ordine, tipoBiglietto, quantita) VALUES 
--- ('1','1',5),
--- ('1','2',1),
--- ('2','1',2),
--- ('2','2',2);

@@ -40,24 +40,25 @@
             </nav>
         </div>
         <main id="calendarMain">
-            <h1>Calendario di apertura</h1>
-            <p>Controlla i nostri giorni di apertura e pianifica un soggiorno indimenticabile!</p>
-            <table  id="calendarTable" summary="In questa tabella vengono rappresentati i giorni sottoforma di calendario, con la possibilità di avanzare al mese successivo o tornare a quello precedente"> 
-                    <caption>Calendario</caption>
+            <h1>Orari di apertura</h1>
+            <p>Controlla i nostri orari di apertura e pianifica una giornata indimenticabile!</p>
+                <span id="descrTabella" class="hidden">In questa tabella sono rappresentati i giorni di un mese come in un calendario. La prima riga dell'intestazione contiene i pulsanti per cambiare mese e il mese corrente. La seconda riga contiene i giorni della settimana. Le celle contengono il numero del giorno e l'orario di apertura per quella data.</span>
+                <table  id="calendarTable"> 
+                    <captio class="hidden">Calendario con le date di apertura del parco</caption>
                     <thead>
-                        <tr class="headerCalendarTable">
-                            <th scope="col"><button onclick="prevMonth()">&lt;</button></th>
-                            <th colspan="5" id="month" scope="col"></th>
-                            <th scope="col"><button onclick="nextMonth()">&gt;</button></th>
+                        <tr>
+                            <th scope="col"><button onclick="prevMonth()" id="previousMonthBtn" class="buttonStyle hiddenCalendarBtn">&lt;</button></th>
+                            <th colspan="5" id="month" scope="col" aria-label="Mese corrente"></th>
+                            <th scope="col"><button onclick="nextMonth()" id="nextMonthBtn" class="buttonStyle">&gt;</button></th>
                         </tr>
-                        <tr class="headerCalendarTable">
-                                <th scope="col">Lunedì</th>
-                                <th scope="col">Martedì</th>
-                                <th scope="col">Mercoledì</th>
-                                <th scope="col">Giovedì</th>
-                                <th scope="col">Venerdì</th>
-                                <th scope="col">Sabato</th>
-                                <th scope="col">Domenica</th>
+                        <tr>
+                            <th scope="col">Lunedì</th>
+                            <th scope="col">Martedì</th>
+                            <th scope="col">Mercoledì</th>
+                            <th scope="col">Giovedì</th>
+                            <th scope="col">Venerdì</th>
+                            <th scope="col">Sabato</th>
+                            <th scope="col">Domenica</th>
                         </tr>
                     </thead>
                     <tbody id="calendar">
