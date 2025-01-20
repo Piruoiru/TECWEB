@@ -436,6 +436,9 @@ input[type="text"].invalidInput, input[type="password"].invalidInput{
 label{
   color: var(--primaryColor);
   font-size: 1.1em;
+}
+
+.inputLabelContainer label{
   position: absolute;
   top: 0.4em;
   transition: transform 0.3s ease-out;
@@ -450,6 +453,11 @@ label{
   position: relative;
   display: flex;
   flex-direction: column;
+  padding-top: 1.5em;
+}
+
+.fileInputLabelContainer{
+  display: flex;
   padding-top: 1.5em;
 }
 
