@@ -12,11 +12,18 @@
     $db->connect();
     $context['vecchio_titolo'] = $_GET['vecchio_titolo'];
     $debugMessage = '';
+
+    function sanitizeInput($input){
+        $sanitizedInput = trim($input);
+        $sanitizedInput = htmlspecialchars($input);
+        return $sanitizedInput;
+    }
+
     function modifyShow($db){
-        $old_title = $_GET['vecchio_titolo'];
-        $title = $_POST['titolo'];
-        $description = $_POST['descrizione'];
-        $imageDescription = $_POST['descrizione_immagine'];
+        $old_title = sanitizeInput($_GET['vecchio_titolo']);
+        $title = sanitizeInput($_POST['titolo']);
+        $description = sanitizeInput($_POST['descrizione']);
+        $imageDescription = sanitizeInput($_POST['descrizione_immagine']);
         if (!array_key_exists("immagine", $_FILES) || $_FILES["immagine"]["error"] == UPLOAD_ERR_NO_FILE){
             return "È obbligatorio caricare un'immagine";
         }
