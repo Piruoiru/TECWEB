@@ -36,7 +36,7 @@
             <nav id="menu">
                 <ul>
                     <li lang="en"><a href="index.php">Home</a></li>
-                    <li><a href="map.php">Scopri le attrazioni</a></li>
+                    <li><a href="rides.php">Scopri le attrazioni</a></li>
                     <li><a href="shows.php">I nostri shows</a></li>
                     <li><a href="calendar.php">Orari di apertura</a></li>
                     <li><a href="buyingticket.php">Acquista i biglietti</a></li>
@@ -72,7 +72,7 @@
             
         </div>
         @endif
-        <ul id="attractionList">
+        <ul id="rideList">
             @for $row in $result
             <li data-category="adrenaliniche" class="card adrenalinicheCard">
                 <h3>{{ $row['titolo'] }}</h3>

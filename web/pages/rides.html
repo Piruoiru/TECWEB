@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Mappa e attrazioni - DreamVille</title>
+        <title>Attrazioni - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <meta name="description" content="">    <!--TODO: aggiungere description e keywords-->
-        <meta name="keywords" content="parco, divertimento, giostre, weekend, DreamVille, famiglie, attività">
+        <meta name="description" content="Scopri tutte le attrazioni del parco e scegli la tua preferita. Che tu sia alla ricerca di emozioni forti o di un'esperienza più rilassante, DreamVille ha quello che fa per te!">
+        <meta name="keywords" content="attrazioni, giostre, mappa, parco, adrenalina, fantasy, bambini, DreamVille">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
 
@@ -17,7 +17,7 @@
     </head>
     <body id="loginBody" class="tertiaryBg" onload="loadRidesFilter()">
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Mappa del parco</p>
+            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> > Attrazioni</p>
             <p>Orario di oggi: {{ $orario }}</p>
             <div id="userCrumb">
                 @for $btn in $headerBtns
@@ -39,20 +39,16 @@
                 </ul>
             </nav>
         </div>
-        <main id="mapMain">
-            <h1>Mappa del parco</h1>
-            <p>A <span lang="en">Dreamville</span> ci sono ancora tantissimi angoli da esplorare! Con la mappa del Parco, potrai visitare ogni area con facilità e tornare quando preferisci. </p>
-            <p>Grazie alla sua semplicità e chiarezza, scoprirai attrazioni, negozi, ristoranti, aree tematiche e molto altro. </p>
-            <p>Tanti luoghi fantastici ti aspettano per essere scoperti!</p>
-            <img id="parkMapImg" src="assets/mappa_parco.png" alt="mappa del parco">
-            <h2>Lista delle attrazioni</h2>
+        <main id="ridesMain">
+            <h1>Attrazioni</h1>
+            <p>Seleziona la categoria di attrazioni che preferisci per trovare la tua prossima attrazione del cuore:</p>
             <div id="filtersContainer">
                 <button data-category="tutte" class="buttonStyle tutteBtnSelected" id="tutteBtn">Tutte</button>
                 <button data-category="adrenaliniche" class="buttonStyle" id="adrenalinicheBtn">Adrenaliniche</button>
                 <button data-category="fantasy" class="buttonStyle" id="fantasyBtn"><span lang="en">Fantasy</span></button>
                 <button data-category="bambini" class="buttonStyle" id="bambiniBtn">Per bambini</button>
             </div>
-            <ul id="attractionList">
+            <ul id="rideList">
                     <li data-category="adrenaliniche" class="card adrenalinicheCard">
                         <h3>La Folgore</h3>
                         <img src="../assets/la_folgore.png" alt="La Folgore, montagna russa biposto con 3 vagoni e 18 posti totali">
@@ -130,6 +126,11 @@
                     </li>
                 </div>                 
             </ul>
+            <h2>Mappa del parco</h2>
+            <p>A <span lang="en">Dreamville</span> ci sono ancora tantissimi angoli da esplorare! Con la mappa del Parco, potrai visitare ogni area con facilità e tornare quando preferisci. </p>
+            <p>Grazie alla sua semplicità e chiarezza, scoprirai attrazioni, negozi, ristoranti, aree tematiche e molto altro. </p>
+            <p>Tanti luoghi fantastici ti aspettano per essere scoperti!</p>
+            <img id="parkMapImg" src="assets/mappa_parco.png" alt="mappa del parco">
         </main>
     </body>
 </html>

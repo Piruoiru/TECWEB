@@ -8,8 +8,10 @@
   --secondaryColor: #FFC300;
   --tertiaryColor: #0071EB;
   --tertiaryColorRGB: 0, 113, 235;
-  /* arancione #F26B18; */
   --errorColor: #BD0000;
+  --adrenalineColor: #BD0000;
+  --fantastyColor:  #0071EB;
+  --kidsColor: #FFC300;
   --tertiaryColorBgRGBA: 0, 113, 235, 0.4;
 }
 
@@ -500,6 +502,7 @@ label{
   border-radius: 10px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   padding: .75em;
+  background-color: #FFF;
 }
 
 /*
@@ -541,28 +544,34 @@ label{
 
 /*
 ----------------
-    MAP PAGE
+    RIDES AND CALENDAR PAGE
 ----------------
 */
 
-#mapMain, #calendarMain{
+#ridesMain, #calendarMain{
   padding: 2em;
   box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
 }
 
-#mapMain>h1, #calendarMain>h1{
-  font-size: 2.5em;
+#ridesMain>h1, #calendarMain>h1{
+  font-size: 2.75em;
   margin-bottom: 0.25em;
   text-align: center;
 }
 
-#mapMain>h2, #calendarMain>h2{
+#ridesMain>h2, #calendarMain>h2{
   font-size: 2em;
   margin-bottom: 0.25em;
   text-align: center;
 }
 
-#mapMain>p{
+/*
+----------------
+    RIDES ONLY
+----------------
+*/
+
+#ridesMain>p{
   text-align: center;
   font-size: 1.1em;
 }
@@ -594,48 +603,48 @@ label{
 }
 
 #adrenalinicheBtn{
-  border: 5px solid var(--errorColor); /*FIXME: cambiare error color*/
+  border: 5px solid var(--adrenalineColor);
   color: #000;
 }
 
 #adrenalinicheBtn:hover{
-  background-color: var(--errorColor);
+  background-color: var(--adrenalineColor);
   color: #FFF;
 }
 
 #filtersContainer>.adrenalinicheBtnSelected{
-  background-color: var(--errorColor);
+  background-color: var(--adrenalineColor);
   color: #FFF;
   cursor: default;
 }
 
 #fantasyBtn{
-  border: 5px solid var(--tertiaryColor);
+  border: 5px solid var(--fantastyColor);
   color: #000;
 }
 
 #fantasyBtn:hover{
-  background-color: var(--tertiaryColor);
+  background-color: var(--fantastyColor);
   color: #FFF;
 }
 
 #filtersContainer>.fantasyBtnSelected{
-  background-color: var(--tertiaryColor);
+  background-color: var(--fantastyColor);
   color: #FFF;
   cursor: default;
 }
 
 #bambiniBtn{
-  border: 5px solid var(--secondaryColor);
+  border: 5px solid var(--kidsColor);
   color: #000;
 }
 
 #bambiniBtn:hover{
-  background-color: var(--secondaryColor);
+  background-color: var(--kidsColor);
 }
 
 #filtersContainer>.bambiniBtnSelected{
-  background-color: var(--secondaryColor);
+  background-color: var(--kidsColor);
   cursor: default;
 }
 
@@ -651,13 +660,13 @@ label{
   display: block;
 }
 
-#attractionList{
+#rideList{
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-#attractionList > .card{
+#rideList > .card{
   padding: 1rem;
   margin: 1.2rem;
   max-height: fit-content;
@@ -668,32 +677,32 @@ label{
   align-items: center;
 }
 
-#attractionList > .hiddenAttraction{
+#rideList > .hiddenRide{
   display: none;
 }
 
-#attractionList > .adrenalinicheCard{
-  border: 5px solid var(--errorColor);
+#rideList > .adrenalinicheCard{
+  border: 5px solid var(--adrenalineColor);
 }
 
-#attractionList > .fantasyCard{
-  border: 5px solid var(--tertiaryColor);
+#rideList > .fantasyCard{
+  border: 5px solid var(--fantastyColor);
 }
 
-#attractionList > .bambiniCard{
-  border: 5px solid var(--secondaryColor);
+#rideList > .bambiniCard{
+  border: 5px solid var(--kidsColor);
 }
 
-#attractionList > .card h3{
+#rideList > .card h3{
   font-size: 1.75em;
   text-align: center;
 }
 
-#attractionList > .card p{
+#rideList > .card p{
   padding: 1.5em 0em;
 }
 
-#attractionList img{
+#rideList img{
   max-width: 18em;
   height: auto;
   border-radius: 15px;
@@ -1220,14 +1229,14 @@ HOME PAGE
   cursor: pointer;
 }
 
-.containerAttractionsIndex{
+.containerRidesIndex{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 2em 0em;
 }
 
-.containerAttractionsIndexScript{
+.containerRidesIndexScript{
   display: flex;
   flex-direction: column;
   padding-top: 2em;
@@ -1235,20 +1244,20 @@ HOME PAGE
   padding-right: 1em;
 }
 
-.containerAttractionsIndexScript h3{
+.containerRidesIndexScript h3{
   font-size: 2.3em;
 }
 
-.containerAttractionsIndexScript p{
+.containerRidesIndexScript p{
   font-size: 1.1em;
 }
 
-.containerAttractionsIndexImg{
+.containerRidesIndexImg{
   padding-top: 1em;
   border-radius: 50%;
 }
 
-.containerAttractionsIndexImg img{
+.containerRidesIndexImg img{
   border-radius: 11%;
   height: 20em;
 

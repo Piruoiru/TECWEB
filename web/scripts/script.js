@@ -361,7 +361,7 @@ var editUserFormDetails = {
 
 function loadRidesFilter() {
     var filterButtons = document.querySelectorAll('#filtersContainer button');
-    var attractions = document.querySelectorAll('#attractionList li');
+    var rides = document.querySelectorAll('#rideList li');
 
     filterButtons.forEach(clickedButton => {
         clickedButton.onclick = () => {
@@ -379,12 +379,12 @@ function loadRidesFilter() {
             });
 
             //Mostra solo le attrazioni della categoria selezionata
-            attractions.forEach(attraction => {
+            rides.forEach(ride => {
                 // Mostra tutte le attrazioni se la categoria è "tutte"
-                if (category === 'tutte' || attraction.getAttribute('data-category') === category) {
-                    attraction.classList.remove('hiddenAttraction');
+                if (category === 'tutte' || ride.getAttribute('data-category') === category) {
+                    ride.classList.remove('hiddenRide');
                 } else {
-                    attraction.classList.add('hiddenAttraction');
+                    ride.classList.add('hiddenRide');
                 }
             });
         };
