@@ -68,10 +68,10 @@ function buildCalendar(){
         hoursText.textContent = "9:00 - 18:00";
         cell.appendChild(hoursText);
 
-        // TODO: aggiungere visualizzazione oggi
-        // if(date === DATE.getDate() && currentMonth === DATE.getMonth() && currentYear === DATE.getFullYear()){
-        //   cell.classList.add("today")
-        // }
+        if(date === DATE.getDate() && currentMonth === DATE.getMonth() && currentYear === DATE.getFullYear()){
+          cell.classList.add("today");
+          cell.setAttribute("aria-label", "Giorno attuale");
+        }
 
         // let cellDay = `${date}`;
         // let cellMonth = `${currentMonth + 1}`;
@@ -148,13 +148,13 @@ function updateCalendarButtons(){
     if(currentYear === DATE.getFullYear() && currentMonth === DATE.getMonth()){
         previousMonthButton.disabled=true;
         previousMonthButton.setAttribute("aria-label", "Non è possibile selezionare i mesi precedenti a quello attuale");
-        previousMonthButton.classList.add("hiddenCalendarBtn")
-        nextMonthButton.setAttribute("aria-label", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+        previousMonthButton.classList.add("hiddenCalendarBtn");
+        nextMonthButton.setAttribute("title", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
     }else{
         previousMonthButton.disabled=false;
-        previousMonthButton.setAttribute("aria-label", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
-        previousMonthButton.classList.remove("hiddenCalendarBtn")
-        nextMonthButton.setAttribute("aria-label", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+        previousMonthButton.setAttribute("title", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
+        previousMonthButton.classList.remove("hiddenCalendarBtn");
+        nextMonthButton.setAttribute("title", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
     }
 }
 /*
