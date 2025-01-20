@@ -426,7 +426,7 @@ input[type="text"]:focus, input[type="password"]:focus{
   outline: none;
 }
 
-input[type="text"]:invalid, input[type="password"]:invalid{
+input[type="text"].invalidInput, input[type="password"].invalidInput{
   border-bottom: 3px solid var(--errorColor);
   outline: none;
 }
@@ -435,12 +435,12 @@ label{
   color: var(--primaryColor);
   font-size: 1.1em;
   position: absolute;
-  top: 1.5em;
+  top: 0.4em;
   transition: transform 0.3s ease-out;
 }
 
-.nonEmptyFieldLabel{
-  transform: translateY(-1.1em);
+.emptyFieldLabel{
+  transform: translateY(1.1em);
 }
 
 .inputLabelContainer{

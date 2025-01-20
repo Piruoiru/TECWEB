@@ -145,16 +145,16 @@ function loadGenericForm(formDetails) {
             }
         }
         input.onfocus = function() {
-            this.previousElementSibling.classList.add("nonEmptyFieldLabel");
+            this.previousElementSibling.classList.remove("emptyFieldLabel");
         }
     }
 }
 
 function onEmptyField(input) {
-    if(input.value.length != 0){
-        input.previousElementSibling.classList.add("nonEmptyFieldLabel");
+    if(input.value.length === 0){
+        input.previousElementSibling.classList.add("emptyFieldLabel");
     }else{
-        input.previousElementSibling.classList.remove("nonEmptyFieldLabel");
+        input.previousElementSibling.classList.remove("emptyFieldLabel");
     }
 }
     
@@ -170,11 +170,11 @@ function validateField(input, formDetails) {
     }
 
     if(text.search(regex)!=0){
-        input.setCustomValidity(formDetails[input.id][1]);
+        input.classList.add("invalidInput");
         messaggio(input, formDetails);
         return false;
     }
-    input.setCustomValidity("");
+    input.classList.remove("invalidInput");
 
     return true;
 }
@@ -243,10 +243,10 @@ function loadRegistrationForm() {
         if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
             inputLabelContainer.nextElementSibling.remove();
         }
-        input.setCustomValidity("");
+        input.classList.remove("invalidInput");
     }
     input.onfocus = function() {
-        this.previousElementSibling.classList.add("nonEmptyFieldLabel");
+        this.previousElementSibling.classList.remove("emptyFieldLabel");
     }
 
     //Reset password confirmation on password input
@@ -256,7 +256,7 @@ function loadRegistrationForm() {
             //Reset password confirmation
             var passwordConfirmationInput = document.getElementById("passwordConfirmation");
             passwordConfirmationInput.value = "";
-            passwordConfirmationInput.setCustomValidity("");
+            passwordConfirmationInput.classList.remove("invalidInput");
             //Rimozione messaggio errore eventualmente presente
             var inputLabelContainer = passwordConfirmationInput.parentNode;
             if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
@@ -310,10 +310,10 @@ function passwordConfirmationMatch() {
     if(document.getElementById("password").value !== input.value){
         //Messaggio password non coincidenti
         messaggio(input, {"passwordConfirmation":[/^.*/, "Le password non coincidono"]});
-        input.setCustomValidity("Le password non coincidono");
+        input.classList.add("invalidInput");
         return true;
     }
-    input.setCustomValidity("");
+    input.classList.remove("invalidInput");
     return false;
 }
 
@@ -323,10 +323,10 @@ function userExists(input) {
         if(this.readyState == 4 && this.status == 200) {
             if(this.responseText === "1"){
                 messaggio(input, {"username":[/^.*/, "Username già in uso"]});
-                input.setCustomValidity("Username già in uso");
+                input.classList.add("invalidInput");
                 return true;
             }
-            input.setCustomValidity("");
+            input.classList.remove("invalidInput");
             return false;
        }
     };
