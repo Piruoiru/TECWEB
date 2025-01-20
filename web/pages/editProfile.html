@@ -61,7 +61,7 @@
                 <dt><strong>Username:</strong></dt>
                 <dd>{{ $username }}</dd>
             </dl>
-            <a href="profile.php" class="buttonStyle translateUpOnHover outlineGradientBtn">Torna al profilo</a>
+            <a href="profile.php" class="buttonStyle  outlineGradientBtn">Torna al profilo</a>
             @else
             <form method="POST" id="profileEditForm" onsubmit="return validateGenericForm(editUserFormDetails);" class="cardForm">
                 <div class="inputLabelContainer">
@@ -76,10 +76,10 @@
                     <label for="username">Username (non modificabile)</label>
                     <input type="text" id="username" name="username" value="{{ $username }}" disabled>
                 </div>
-                <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle translateUpOnHover filledGradientBtn">
+                <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle  filledGradientBtn">
             </form>
             <p>Oppure</p>
-            <a href="deleteProfile.php" id="registrationButton" class="buttonStyle outlineGradientBtn translateUpOnHover">Elimina il tuo utente</a>
+            <a href="deleteProfile.php" id="registrationButton" class="buttonStyle outlineGradientBtn ">Elimina il tuo utente</a>
             @endif
         </main>
 

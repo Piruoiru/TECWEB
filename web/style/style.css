@@ -95,15 +95,6 @@ a:hover{
   text-decoration: none;
 }
 
-.translateUpOnHover{
-  transition: transform 0.3s ease-out;
-  margin-top: 0.5em;
-}
-
-.translateUpOnHover:hover{
- transform: translateY(-2px);
-}
-
 .outlineGradientBtn, .outlineGradientBtn:visited{
   color: #000;
   border-color: #000;
