@@ -47,7 +47,7 @@ function buildCalendar(){
 
   const dayOne = (new Date(currentYear, currentMonth).getDay()+6)%7;//Primo giorno della settimana del mese selezionato (0 = Lunedì, 6 = Domenica)
   const monthDays = 32 - new Date(currentYear, currentMonth, 32).getDate();//Numero di giorni del mese selezionato
-
+  updateCalendarButtons();
   let date = 1;
   for (let i = 0; i < 6; i++) {
     let row = document.createElement("tr");
@@ -116,11 +116,7 @@ function nextMonth(){
         currentYear = currentYear + 1;
         currentMonth = 0;
     }
-    let previousMonthButton = document.getElementById("previousMonthBtn");
-    previousMonthButton.disabled=false;
-    previousMonthButton.setAttribute("aria-label", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
-
-    document.getElementById("nextMonthBtn").setAttribute("aria-label", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+    updateCalendarButtons();
     buildCalendar();
     return currentMonth;
 };
@@ -131,20 +127,36 @@ function prevMonth(){
         currentYear = currentYear - 1;
         currentMonth = 11;
     }
-    if(currentYear === DATE.getFullYear() && currentMonth === DATE.getMonth()){
-        let btn = document.getElementById("previousMonthBtn");
-        btn.disabled=true;
-        btn.setAttribute("aria-label", "Non è possibile selezionare i mesi precedenti a quello attuale");
-    }else{
-        let previousMonthButton = document.getElementById("previousMonthBtn");
-        previousMonthButton.disabled=false;
-        previousMonthButton.setAttribute("aria-label", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
-    }
-    document.getElementById("nextMonthBtn").setAttribute("aria-label", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+    // if(currentYear === DATE.getFullYear() && currentMonth === DATE.getMonth()){
+    //     let btn = document.getElementById("previousMonthBtn");
+    //     btn.disabled=true;
+    //     btn.setAttribute("aria-label", "Non è possibile selezionare i mesi precedenti a quello attuale");
+    // }else{
+    //     let previousMonthButton = document.getElementById("previousMonthBtn");
+    //     previousMonthButton.disabled=false;
+    //     previousMonthButton.setAttribute("aria-label", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
+    // }
+    updateCalendarButtons();
     buildCalendar();
 
     return currentMonth;
 };
+
+function updateCalendarButtons(){
+    let previousMonthButton = document.getElementById("previousMonthBtn");
+    let nextMonthButton = document.getElementById("nextMonthBtn");
+    if(currentYear === DATE.getFullYear() && currentMonth === DATE.getMonth()){
+        previousMonthButton.disabled=true;
+        previousMonthButton.setAttribute("aria-label", "Non è possibile selezionare i mesi precedenti a quello attuale");
+        previousMonthButton.classList.add("hiddenCalendarBtn")
+        nextMonthButton.setAttribute("aria-label", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+    }else{
+        previousMonthButton.disabled=false;
+        previousMonthButton.setAttribute("aria-label", "Vai al mese precedente a " + `${MONTHS[currentMonth]} ${currentYear}`);
+        previousMonthButton.classList.remove("hiddenCalendarBtn")
+        nextMonthButton.setAttribute("aria-label", "Vai al mese successivo a " + `${MONTHS[currentMonth]} ${currentYear}`);
+    }
+}
 /*
 ---------------------
     FORMS

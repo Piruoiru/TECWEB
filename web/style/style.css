@@ -353,6 +353,10 @@ header h1{
   cursor: pointer;
 }
 
+#calendarTable .hiddenCalendarBtn{
+  display: none;
+}
+
 #calendarTable>tbody td{
   border: 1px solid #000;
   padding: 0.3em;
