@@ -441,6 +441,7 @@ label{
 
 .emptyFieldLabel{
   transform: translateY(1.1em);
+  cursor: text;
 }
 
 .inputLabelContainer{

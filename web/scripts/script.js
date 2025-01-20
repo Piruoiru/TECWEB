@@ -180,14 +180,19 @@ function validateField(input, formDetails) {
 }
     
 function validateGenericForm(formDetails) {
+    let validForm = true;
+    let firstInvalidInput = true;
     for(var key in formDetails){
         var input = document.getElementById(key);
         if(!validateField(input, formDetails)){
-            input.focus();
-            return false;
+            if(firstInvalidInput){
+                input.focus();
+                firstInvalidInput = false;
+            }
+            validForm = false;
         }
     }
-    return true;
+    return validForm;
 }
     
 function messaggio(input, formDetails) {
@@ -257,6 +262,7 @@ function loadRegistrationForm() {
             //Reset password confirmation
             var passwordConfirmationInput = document.getElementById("passwordConfirmation");
             passwordConfirmationInput.value = "";
+            passwordConfirmationInput.previousElementSibling.classList.add("emptyFieldLabel");
             passwordConfirmationInput.classList.remove("invalidInput");
             //Rimozione messaggio errore eventualmente presente
             var inputLabelContainer = passwordConfirmationInput.parentNode;
@@ -297,7 +303,8 @@ function validateRegistrationForm() {
         usernameValidation = true;
     }
     //Password confirmation validation
-    return genericValidation && usernameValidation && !passwordConfirmationMatch();
+    var passwordMatch = passwordConfirmationMatch();
+    return genericValidation && usernameValidation && passwordMatch;
 
 }
 
@@ -312,10 +319,10 @@ function passwordConfirmationMatch() {
         //Messaggio password non coincidenti
         messaggio(input, {"passwordConfirmation":[/^.*/, "Le password non coincidono"]});
         input.classList.add("invalidInput");
-        return true;
+        return false;
     }
     input.classList.remove("invalidInput");
-    return false;
+    return true;
 }
 
 function userExists(input) {
