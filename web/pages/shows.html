@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Registrazione utente - DreamVille</title>
+        <title>Shows - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <meta name="description" content="Registra un nuovo utente per accedere a DreamVille e scoprire tutte le promozioni disponibili per te">    
@@ -43,8 +43,9 @@
                 </ul>
             </nav>
         </div>
+        <main id="showsMain">
         @if $isAdmin
-        <main class="card cardFormMain">
+        <div class="card cardFormMain">
             @if !empty($debugMessage)
                 <p>{{ $debugMessage }}</p>
             @endif
@@ -69,7 +70,7 @@
                 <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle  filledGradientBtn">
             </form>
             
-        </main>
+        </div>
         @endif
         <ul id="attractionList">
             @for $row in $result
@@ -86,6 +87,7 @@
             </li>
             @endfor
         </ul>
+        </main>
 
         <a href="/privacy.php">Privacy Policy</a>
         <a href="/buyingticket.php">Biglietti</a>

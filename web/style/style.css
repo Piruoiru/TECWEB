@@ -1487,3 +1487,13 @@ CART PAGE
   width: 3em;
   height: 2em;
 }
+
+/*
+----------
+SHOWS
+----------
+*/
+
+#showsMain{
+  background-color: transparent;
+}
