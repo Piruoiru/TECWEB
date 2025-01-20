@@ -163,7 +163,7 @@ function validateField(input, formDetails) {
     var regex = formDetails[input.id][0];
     var text = input.value;
 
-    //tolgo suggerimento o errore precedente
+    //tolgo errore precedente
     var inputLabelContainer = input.parentNode;
     if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
         inputLabelContainer.nextElementSibling.remove();
@@ -183,6 +183,7 @@ function validateGenericForm(formDetails) {
     for(var key in formDetails){
         var input = document.getElementById(key);
         if(!validateField(input, formDetails)){
+            input.focus();
             return false;
         }
     }
