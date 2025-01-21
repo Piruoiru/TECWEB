@@ -426,26 +426,45 @@ window.onload = function () {
     let nRidotti = 0;
 
     // Seleziona tutti i bottoni dei biglietti e il carrello
-    const buttons = document.querySelectorAll('.cardTicket');
-    const carrello = document.getElementById('carrelloUL');
+    const buttons = document.querySelectorAll('.btnTicket');
     const hiddenInt = document.getElementById("intero");
     const hiddenRid = document.getElementById("ridotto");
 
     // Funzione per aggiungere biglietti al carrello
-    function aggiungiAlCarrello(tipoBiglietto) {
+    function aggiungiAlCarrello(tipoBiglietto, operation) {
         // Crea un nuovo elemento della lista
-        const li = document.createElement('li');
-        li.textContent = tipoBiglietto;
-        if (tipoBiglietto == "Biglietto Intero 34,99€") {
-            nInteri++;
+        if (tipoBiglietto == "Biglietto Intero") {
+            const li = document.getElementById('rowInt');
+            if (operation == "add") {
+                nInteri++;
+            }
+            if (operation == "rmv"){
+                nInteri--;
+                if(nInteri <= 0){
+                    nInteri = 0;
+                    li.textContent = "";
+                    return;
+                }
+            }
+            li.textContent = tipoBiglietto + " x" + nInteri;
             hiddenInt.setAttribute('value', nInteri);
         }
         else {
-            nRidotti++;
+            const li = document.getElementById('rowRid');
+            if (operation == "add"){
+                nRidotti++;
+            }
+            if (operation == "rmv"){
+                nRidotti--;
+                if(nRidotti <= 0){
+                    nRidotti = 0;
+                    li.textContent = "";
+                    return;
+                }
+            }
+            li.textContent = tipoBiglietto + " x" + nRidotti;
             hiddenRid.setAttribute('value', nRidotti);
         }
-        // Aggiungi il nuovo elemento alla lista del carrello
-        carrello.appendChild(li);
     }
 
     // Aggiungi un evento "click" a ogni bottone
@@ -453,7 +472,8 @@ window.onload = function () {
         button.addEventListener('click', () => {
             // Leggi il tipo di biglietto dall'attributo "data-ticket-type"
             const tipoBiglietto = button.getAttribute('data-ticket-type');
-            aggiungiAlCarrello(tipoBiglietto);
+            const operation = button.getAttribute('operation');
+            aggiungiAlCarrello(tipoBiglietto, operation);
         });
     });
 
@@ -464,7 +484,7 @@ window.onload = function () {
         backdrop.style.display = "block";
 
         let output = document.querySelector(".output");
-        
+
         output.style.display = "block";
         output.style.position = "absolute";
     })
