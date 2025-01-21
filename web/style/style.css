@@ -1014,6 +1014,14 @@ CART PAGE
   margin: 0.5em;
 }
 
+#rowInt{
+  margin: 0.4em;
+}
+
+#rowRid{
+  margin: 0.4em;
+}
+
 .btnAddRmv{
   width: 3em;
   height: 2em;
@@ -1159,7 +1167,7 @@ TICKET PAGE
 }
 
 #confermaCart{
-  margin-top: auto;
+  margin-top: 0.4em;
   padding: 0.7em;
   font-size: 1.2em;
   background-color: #000a99;
