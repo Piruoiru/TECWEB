@@ -938,6 +938,7 @@ CART PAGE
   justify-content: center;
   background: rgba(0,0,0,0.5);
   backdrop-filter: blur(2px);
+  z-index: 2;
 }
 
 #backdrop.visible{
@@ -945,15 +946,21 @@ CART PAGE
 }
 
 #boxCart{
-  width: 35%;
-  background-color: #d8d8d8;
+  width: 25%;
+  background-color: #FFC300;
   border-radius: 5px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
-  padding: .75rem;
-  margin-top: 1em;
+  padding: 0.75rem;
+  margin-top: 1.3em;
   margin-bottom: 1.3em;
+  font-weight: bold;
+}
+
+#rowCart{
+  width: 50%;
+  float: left;
 }
 
 #prezzoTot{
@@ -962,6 +969,7 @@ CART PAGE
 
 .pageCart{
   margin-left: 0.8em;
+  justify-items: center;
 }
 
 #btnCart{
@@ -969,6 +977,106 @@ CART PAGE
   padding: 0.5em;
   font-size: 1.1em;
   margin-bottom: 1em;
+  background-color: #000a99;
+  color: #fff;
+}
+
+#ticketSel{
+  list-style-type: none;
+}
+
+.rowCart{
+  width: 50%;
+  display: inline-block;
+  margin: 0.5em;
+}
+
+.btnAddRmv{
+  width: 3em;
+  height: 2em;
+  background-color: #000a99;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 0.1em;
+}
+
+#pageCartMain{
+  text-align: center;
+}
+
+.btnAddRmv:hover{
+  background-color: #fff;
+  cursor: pointer;
+  color: #000;
+}
+
+#btnCart:hover{
+  background-color: #fff;
+  cursor: pointer;
+  color: #000;
+}
+
+#btnChiudi:hover{
+  background-color: #fff;
+  cursor: pointer;
+  color: #000;
+}
+
+.output{
+  width: 500px;
+  padding: 30px 0;
+  box-shadow: 0 0 35px rgba(0, 3, 41, 0.8);
+  background-color: #FFC300;
+  border-radius: 5px;
+  text-align: center;
+  display: none;
+  top: 32%;
+  left: 38%;
+  margin: -25px 0 0 -25px;
+  font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
+}
+
+.output .fa-check{
+  height: 150px;
+  width: 150px;
+  border: 5px solid #000a99;
+  line-height: 150px;
+  border-radius: 50%;
+  color: #000a99;
+  font-size: 85px;
+  margin-bottom: 30px;
+  animation: animate 1s ease;
+}
+
+@keyframes animate{
+  0%{
+      transform: translateY(60px) scale(0.7) rotate(0deg);
+      opacity: 0.2;
+  }
+  100%{
+      transform: translateY(0px) scale(1) rotate(360deg);
+      opacity: 1;
+  }
+}
+
+.textPaga{
+  font-size: 40px;
+  font-weight: 600;
+  color: #000a99;
+  letter-spacing: 1px;
+}
+
+#btnChiudi{
+  margin-top: 0.8em;
+  width: 5em;
+  height: 3em;
+  background-color: #000a99;
+  color: #fff;
+  border-radius: 5px;
+}
+
+#pageCartMain{
+  font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
 }
 
 /*
@@ -978,7 +1086,7 @@ TICKET PAGE
 */
 
 #buyTicketKart{
-  background-color: #d8d8d8;
+  background-color: #FFC300;
   display:flex;
   flex-direction: column;
   border-radius: 10px;
@@ -987,16 +1095,13 @@ TICKET PAGE
   position: sticky;
   width: 35%;
   margin: 1em 1em;
+  text-align: center;
+  font-weight: bold;
 }
 
 #carrelloUL{
   list-style-type: none;
-}
-
-#boxRiepilogo{
-  text-align: center;
-  background-color: #ADD8E6;
-  border-radius: 15px;
+  justify-items: baseline;
 }
 
 #boxSconto{
@@ -1005,6 +1110,7 @@ TICKET PAGE
 
 #boxTicket{
   padding: 15px;
+  justify-items: center;
 }
 
 #ticketChoice{
@@ -1012,10 +1118,36 @@ TICKET PAGE
   padding-bottom: 1.5em;
 }
 
+.btnTicket{
+  width: 45%;
+  margin: 0.1em;
+  padding: 0.7em;
+  font-size: 1.3em;
+  background-color: #000a99;
+  color: #fff; 
+  border-radius: 10px;
+  text-align: center;
+  float: left;
+}
+
+.btnTicket:hover{
+  background-color: var(--secondaryColor);
+  cursor: pointer;
+}
+
 #confermaCart{
   margin-top: auto;
   padding: 0.7em;
-  font-size: 1.2em; 
+  font-size: 1.2em;
+  background-color: #000a99;
+  color: #fff; 
+  border-radius: 10px;
+}
+
+#confermaCart:hover{
+  background-color: #fff;
+  cursor: pointer;
+  color: #000;
 }
 
 #containerTicket{
@@ -1043,15 +1175,12 @@ TICKET PAGE
   width: 95%; 
 }
 
-.cardTicket:hover{
-  background-color: var(--secondaryColor);
-  cursor: pointer;
-}
-
 .ticketInfo{
   display: flex;
   flex-direction: column;
   text-align: left;
+  width: 55%;
+  float: left;
 }
 
 .cardTicket h3{
@@ -1061,98 +1190,10 @@ TICKET PAGE
 .cardTicket p{
   font-size: 1.2em;
 }
+
 .cardTicket img{
   width: 10em;
   height: 10em;
-}
-
-.loader{
-  width: 400px;
-  padding: 50px 0;
-  background-color: #000a99;;
-  border-radius: 5px;
-  box-shadow: 0 0 35px rgba(0, 3, 41, 0.8);
-  text-align: center;
-  display: none;
-  top: 40%;
-  left: 40%;
-  margin: -25px 0 0 -25px;
-}
-
-.barra{
-  background-color: white;
-  width: 85%;
-  height: 25px;
-  margin: 5px auto;
-  border-radius: 50px;
-  overflow: hidden;
-}
-
-.riempi{
-  height: 100%;
-  width: 0%;
-  background-color: #FFC300;
-}
-
-.contatore{
-  font-size: 30px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: white;
-  padding: 5px 0;
-}
-
-.output{
-  width: 500px;
-  padding: 30px 0;
-  box-shadow: 0 0 35px rgba(0, 3, 41, 0.8);
-  background-color: #000a99;;
-  border-radius: 5px;
-  text-align: center;
-  display: none;
-  top: 32%;
-  left: 38%;
-  margin: -25px 0 0 -25px;
-}
-
-.output .fa-check{
-  height: 150px;
-  width: 150px;
-  border: 5px solid #FFC300;
-  line-height: 150px;
-  border-radius: 50%;
-  color: #FFC300;
-  font-size: 85px;
-  margin-bottom: 30px;
-  animation: animate 1s ease;
-}
-
-@keyframes animate{
-  0%{
-      transform: translateY(60px) scale(0.7) rotate(0deg);
-      opacity: 0.2;
-  }
-  100%{
-      transform: translateY(0px) scale(1) rotate(360deg);
-      opacity: 1;
-  }
-}
-
-.textPaga{
-  font-size: 40px;
-  font-weight: 600;
-  font-family: sans-serif;
-  color: #FFC300;
-  letter-spacing: 1px;
-}
-
-#btnChiudi{
-  margin-top: 0.8em;
-  width: 5em;
-  height: 3em;
-  background-color: #1b1919;
-  border-color: #FFC300;
-  color: #FFC300;
-  border-radius: 5px;
 }
 
 /*
@@ -1444,65 +1485,6 @@ HOME PAGE
 
 #profileDeletionMain .infoMessageBgPar, #profileDeletionMain .errorMessageBgPar{
   padding: 0.5em 1.5em;
-}
-
-/*
------------------
-CART PAGE
------------------
-*/
-
-#backdrop{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(2px);
-}
-
-#backdrop.visible{
-  display: flex;
-}
-
-#boxCart{
-  width: 35%;
-  background-color: #d8d8d8;
-  border-radius: 5px;
-  display:flex;
-  flex-direction: column;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
-  padding: .75rem;
-  margin-top: 1em;
-  margin-bottom: 1.3em;
-}
-
-#prezzoTot{
-  margin-top: 0.5em;
-}
-
-.pageCart{
-  margin-left: 0.8em;
-}
-
-#btnCart{
-  border-radius: 5px;
-  padding: 0.5em;
-  font-size: 1.1em;
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
-  width: 10%;
-}
-
-.btnAddRmv{
-  margin-top: 0.8em;
-  margin-bottom: 0.8em;
-  width: 3em;
-  height: 2em;
 }
 
 /*
