@@ -268,18 +268,41 @@ header h1{
 */
 
 #mainPageError404{
-  display: grid;
-  grid-template-columns: 3fr 4fr;
+  display: flex;
   background-color: var(--btncolor);
+  margin-bottom: 12.5em;
 }
 
 #mainPageError404>img{
-  width: 100%;
+  width: 65%;
   height: auto;
   filter: drop-shadow(5px 5px 5px #000);
 }
 
 #mainPageError404>p{
+  font-size: 2em;
+  padding: 7em 1em;
+}
+
+/*
+---------------------
+    ERROR 500 PAGE
+---------------------
+*/
+
+#mainPageError500{
+  display: flex;
+  background-color: var(--btncolor);
+  margin-bottom: 9.8em;
+}
+
+#mainPageError500>img{
+  width: 55%;
+  height: auto;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+#mainPageError500>p{
   font-size: 2em;
   padding: 7em 1em;
 }
