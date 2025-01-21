@@ -22,7 +22,7 @@
 
 <body id="loginBody" class="tertiaryBg">
     <nav id="breadcrumb">
-        <p>Ti trovi in: <span lng="en">Home</span></p>
+        <p>Ti trovi in: <span lng="en">Home</span> > Carrello</p>
         <p>Orario di oggi: {{ $orario }}</p>
         <div id="userCrumb">
             @for $btn in $headerBtns
@@ -44,7 +44,7 @@
             </ul>
         </nav>
     </div>
-    <main>
+    <main id="pageCartMain">
         <div class="pageCart">
             <h1>Carrello</h1>
             <div id="boxCart">
@@ -57,19 +57,18 @@
             </div>
             <button id="btnCart">Acquista</button>
         </div>
-    </main>
-    
-    <form method="POST">
-        <div id="backdrop">
-            <div id="progressBar">
-                <header class="output">
-                    <span class="fas fa-check"></span>
-                    <header class="textPaga">Pagamento effettuato</header>
-                    <input type="submit" name="submit" id="btnChiudi" value="Chiudi">
-                </header>
+        <form method="POST">
+            <div id="backdrop">
+                <div>
+                    <header class="output">
+                        <span class="fas fa-check"></span>
+                        <header class="textPaga">Pagamento effettuato</header>
+                        <input type="submit" name="submit" id="btnChiudi" value="Chiudi">
+                    </header>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </main>
 </body>
 
 </html>
