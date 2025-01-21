@@ -17,9 +17,13 @@
     </head>
     <body>
         <nav id="breadcrumb">
-            <p>Ti trovi in: <span lang="en">Home</span></p>
+            <p>Ti trovi in: <a href="index.php" lang="en">404</a></p>
             <p>Orario di oggi: {{ $orario }}</p>
-            <p>Area personale</p>
+            <div id="userCrumb">
+                @for $btn in $headerBtns
+                    <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
+                @endfor
+            </div>
         </nav>
         <div id="headerNavWrapper">
             <header>
@@ -36,9 +40,8 @@
             </nav>
         </div>
         <main id="mainPageError404">
-            <img src="assets/chill_guy_transparent.png" alt="404">
-            <p>Oh no! Sembra che questa giostra sia fuori servizio... </br>
-                O forse questa pagina non esiste proprio!</p>    
+            <img src="assets/casaStregata.png" alt="404">
+            <p>Che ci fai qui? <br>Ti sei forse perso nella <strong>Casa Stregata?</strong></p>    
         </main>
         <footer id="footerPageError404">
             <p>© 2024 DreamVille</p>
