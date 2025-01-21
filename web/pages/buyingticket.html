@@ -21,7 +21,7 @@
 
 <body id="loginBody" class="tertiaryBg">
     <nav id="breadcrumb">
-        <p>Ti trovi in: <span lng="en">Home</span></p>
+        <p>Ti trovi in: <span lng="en">Home</span> > Acquisto Biglietti</p>
         <p>Orario di oggi: {{ $orario }}</p>
         <div id="userCrumb">
             @for $btn in $headerBtns
@@ -35,11 +35,11 @@
         </header>
         <nav id="menu">
             <ul>
-                <li lang="en" id="currentPageLink"><p>Home</p></li>
+                <li lang="en"><a href="index.php">Home</a></li>
                 <li><a href="rides.php">Scopri le attrazioni</a></li>
                 <li><a href="shows.php">I nostri shows</a></li>
                 <li><a href="calendar.php">Orari di apertura</a></li>
-                <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                <li id="currentPageLink"><p>Acquista i Biglietti</p></li>
             </ul>
         </nav>
     </div>
@@ -48,24 +48,33 @@
             <div id="boxTicket">
                 <h1>Acquista i tuoi biglietti</h1>
                 <p> </p>
-                <p>Acquista qui il tuo biglietto e goditi la visita a DreamVille!</p>
+                <h3>Acquista qui il tuo biglietto cliccando sui pulsanti posizionati qui sotto e goditi la visita a DreamVille!</h3>
                 <div id="ticketChoice">
-                    <button class="cardTicket" data-ticket-type="Biglietto Intero 34,99€">
+                    <div class="cardTicket">
                         <img src="assets/ticketimg.png" alt="Biglietto Intero">
                         <div class="ticketInfo">
-                            <h3>Biglietto Intero</h3>
+                            <h3>Biglietto Intero 34,99€</h3>
                             <p>Questo biglietto permette un ingresso al parco Dreamville, 1 giorno di visita per la
                                 stagione corrente.</p>
                         </div>
-                    </button>
-                    <button class="cardTicket" data-ticket-type="Biglietto Ridotto 24,99€">
+                        <div>
+                            <button id="btnAdd" class="btnTicket" data-ticket-type="Biglietto Intero" operation="add">+</button>
+                            <button id="btnRmv" class="btnTicket" data-ticket-type="Biglietto Intero" operation="rmv">-</button>
+                        </div>
+                    </div>
+                    <div class="cardTicket">
                         <img src="assets/ticketimg.png" alt="Biglietto Ridotto">
                         <div class="ticketInfo">
-                            <h3>Biglietto Ridotto</h3>
+                            <h3>Biglietto Ridotto 24,99€</h3>
                             <p>Valido per bambini di altezza superiore a 100 cm e di età inferiore ai 14 anni, over 65,
                                 donne in gravidanza e accompagnatori di persone con disabilità non autosufficienti.</p>
+                        
                         </div>
-                    </button>
+                        <div>
+                            <button id="btnAdd" class="btnTicket" data-ticket-type="Biglietto Ridotto" operation="add">+</button>
+                            <button id="btnRmv" class="btnTicket" data-ticket-type="Biglietto Ridotto" operation="rmv">-</button>
+                        </div>
+                    </div>
                 </div>
                 <h3>Attenzione</h3>
                 <p>Questi prezzi possono essere soggetti a modifiche e cambiamenti in ogni momento.</p>
@@ -73,14 +82,14 @@
                     cui si visita il parco.</p>
             </div>
             <div id="buyTicketKart">
-                <div id="boxRiepilogo">
+                <div>
                     <form method="POST">
                         <h2>Biglietti Selezionati</h2>
                         <p>______________________________</p>
-                        <p> </p>
-                        <p>Seleziona le tue preferenze</p>
-                        <p>e procedi nell’acquisto</p>
-                        <ul id="carrelloUL"></ul>
+                        <ul id="ticketSel">
+                            <li id="rowInt"></li>
+                            <li id="rowRid"></li>
+                        </ul>
                 </div>
                 <input type="hidden" id="intero" name="intero">
                 <input type="hidden" id="ridotto" name="ridotto">
