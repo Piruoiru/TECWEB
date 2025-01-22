@@ -30,8 +30,10 @@ if (isset($_POST['submit'])) {
         }
     }
     $db->close();
-    header('Location: buyingcart.php');
-    exit();
+    if($intero != 0 || $ridotto != 0){
+        header('Location: buyingcart.php');
+        exit();
+    } 
 }
 
 $template = new Parser();
