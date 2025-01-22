@@ -13,6 +13,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="./style/style.css" media="screen">
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 600px)"> <!-- Per il mobile, va messo dopo quello desktop -->
+
         <script src="scripts/script.js"></script>
     </head>
     <body class="tertiaryBg" onload="initCalendar()">
@@ -42,7 +44,7 @@
         <main id="calendarMain">
             <h1>Orari di apertura</h1>
             <p>Controlla i nostri orari di apertura e pianifica una giornata indimenticabile!</p>
-                <span id="descrTabella" class="hidden">In questa tabella sono rappresentati i giorni di un mese come in un calendario. La prima riga dell'intestazione contiene i pulsanti per cambiare mese e il mese corrente. La seconda riga contiene i giorni della settimana. Le celle contengono il numero del giorno e l'orario di apertura per quella data.</span>
+                <span id="calendarTable" class="hidden">In questa tabella sono rappresentati i giorni di un mese come in un calendario. La prima riga dell'intestazione contiene i pulsanti per cambiare mese e il mese corrente. La seconda riga contiene i giorni della settimana. Le celle contengono il numero del giorno e l'orario di apertura per quella data.</span>
                 <table  id="calendarTable"> 
                     <captio class="hidden">Calendario con le date di apertura del parco</caption>
                     <thead>
