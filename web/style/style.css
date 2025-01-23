@@ -995,11 +995,6 @@ CART PAGE
   font-weight: bold;
 }
 
-#rowCart{
-  width: 50%;
-  float: left;
-}
-
 #prezzoTot{
   margin-top: 0.5em;
 }
@@ -1200,12 +1195,6 @@ TICKET PAGE
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-#btnSconto{
-  margin-left: 1em;
-  padding: 0.6em;
-  font-size: 1.0em; 
 }
 
 .cardTicket{
