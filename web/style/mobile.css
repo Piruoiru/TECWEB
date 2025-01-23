@@ -45,20 +45,24 @@ header{
     display: block;
     visibility: hidden;
     opacity: 0;
-    width: 3em;
-    background-color: var(--primaryColor);
     padding: 0.5em;
     border-radius: 10px;
     position: fixed;
-    top:1.5em;
-    right: 1em;
+    top: 2em;
+    right: 1.5em;
+    transition: all 0.2s ease-out;
+    background-color: var(--primaryColor);
+    border: 0;
     z-index: 1;
+}
+
+#hamburgerIcon>svg, #closeIcon>svg{
+    width: 3em;
     stroke: #FFF;
     stroke-width: 2;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: all 0.2s ease-out;
 }
 
 #menu>ul{
@@ -78,7 +82,7 @@ header{
     margin: 0;
 }
 
-#menu>ul.visible, #menu>svg.visible{
+#menu>ul.visible, #menu>.visible{
     visibility: visible;
     opacity: 1;
     transition: all 0.2s ease-out;
