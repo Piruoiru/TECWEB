@@ -127,17 +127,17 @@ a:hover{
 #breadcrumb{
   font-size: 1.1em;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr minmax(max-content, 1fr);
   background-color: var(--primaryColor);
   border-bottom: 2px solid #FFF;
   align-items: center;
 }
 
-#breadcrumb p:first-child{
+#breadcrumbNav{
   justify-self: left;
 }
 
-#breadcrumb p:nth-child(2){
+#todaysOpeningHours{
   justify-self: center;
 }
 
@@ -146,15 +146,16 @@ a:hover{
 }
 
 #breadcrumb p, #breadcrumb a{
+  display: inline-block;
+}
+#todaysOpeningHours, #breadcrumb a, #breadcrumbNav{
   padding: 0.2em 0.5em;
   margin: 0.35em 0;
-  border: 2px solid var(--primaryColor);
-  display: inline-block;
   color: #FFF;
   
 }
 
-#breadcrumb p a{
+#todaysOpeningHours a{
   margin: 0;
   border: 0;
   padding: 0;
@@ -191,13 +192,22 @@ header h1{
   text-indent: -9999px;
 }
 
-#headerNavWrapper{
+header{
   display: grid;
   grid-template-columns: 1fr 5fr;
   background-color: var(--primaryColor);
+}
+
+#headerBreadcrumbWrapper{
+  display: flex;
+  flex-direction: column-reverse;
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+#hamburgerIcon, #closeIcon{
+  display: none;
 }
 
 #menu>ul{
@@ -224,6 +234,9 @@ header h1{
   color: var(--secondaryColor);
 }
 
+#menu>ul>li.mobileOnlyLink{
+  display: none;
+}
 
 #menu>ul>li>a{
   line-height: 1.5em;
@@ -231,6 +244,7 @@ header h1{
   text-decoration: none;
   transition: color .3s ease-in-out;
   padding: 0 0.25em;
+  z-index: 1;
 }
 
 #menu>ul>li>a:visited::before{

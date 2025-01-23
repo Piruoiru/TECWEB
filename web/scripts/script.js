@@ -417,7 +417,7 @@ function deleteShow(title){
 
 /*
 ---------------------
-TICKET AND CART PAGE
+    TICKET AND CART PAGE
 ---------------------
 */
 
@@ -492,4 +492,15 @@ window.onload = function () {
             output.style.position = "absolute";
         }
     })
+}
+
+/*
+---------------------
+HOMEPAGE
+---------------------
+*/
+function toggleMobileNav(){
+    document.getElementById("menuUl").classList.toggle("visible");
+    document.getElementById("closeIcon").classList.toggle("visible");
+    document.getElementById("hamburgerIcon").classList.toggle("visible");
 }

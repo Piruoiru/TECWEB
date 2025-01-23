@@ -19,6 +19,94 @@ html{
     color: #000;
 }
 
+/* 
+----------------
+    BREADCRUMB 
+----------------
+*/
+#breadcrumb{
+    border-top: 2px solid #FFF;
+    border-bottom: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 0.95em;
+}
+
+#userCrumb{
+    display: none;
+}
+
+p#todaysOpeningHours{
+    display: none;
+}
+/* 
+----------------
+    HEADER AND NAV 
+----------------
+*/
+#headerBreadcrumbWrapper{
+    position: static;
+    flex-direction: column;
+}
+
+header{
+    grid-template-columns: 1fr;
+}
+
+#hamburgerIcon, #closeIcon{
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    padding: 0.5em;
+    border-radius: 10px;
+    position: fixed;
+    top: 2.5em;
+    right: 2.5em;
+    transition: all 0.2s ease-out;
+    background-color: var(--primaryColor);
+    border: 0;
+    z-index: 1;
+}
+
+#hamburgerIcon>svg, #closeIcon>svg{
+    width: 3em;
+    stroke: #FFF;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#menu>ul{
+    visibility: hidden;
+    opacity:0;
+    transition: all 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primaryColor);
+    height: 100vh;
+    width: 100%;
+    border: 0;
+    margin: 0;
+}
+
+#menu>ul.visible, #menu>.visible{
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.2s ease-out;
+}
+
+#menu>ul>li{
+    margin: 1em auto;
+}
+
+#menu>ul>li.mobileOnlyLink{
+    display: block;
+}
 
 /* 
 ----------
@@ -57,6 +145,7 @@ HOMEPAGE
 
 .containerRidesIndexImg img {
     border-radius: 11%;
+    max-width: 95%;
     height: 15em;
 }
 

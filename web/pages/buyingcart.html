@@ -21,27 +21,27 @@
 </head>
 
 <body id="loginBody" class="tertiaryBg">
-    <nav id="breadcrumb">
-        <p>Ti trovi in: <span lng="en">Home</span> > Carrello</p>
-        <p>Orario di oggi: {{ $orario }}</p>
-        <div id="userCrumb">
-            @for $btn in $headerBtns
-                <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
-            @endfor
-        </div>
-    </nav>
-    <div id="headerNavWrapper">
+    <div id="headerBreadcrumbWrapper">
         <header>
             <h1><span lang="en">DreamVille</span></h1>
+            <nav id="menu">
+                <ul>
+                    <li lang="en" id="currentPageLink"><p>Home</p></li>
+                    <li><a href="rides.php">Scopri le attrazioni</a></li>
+                    <li><a href="shows.php">I nostri shows</a></li>
+                    <li><a href="calendar.php">Orari di apertura</a></li>
+                    <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                </ul>
+            </nav>
         </header>
-        <nav id="menu">
-            <ul>
-                <li lang="en" id="currentPageLink"><p>Home</p></li>
-                <li><a href="rides.php">Scopri le attrazioni</a></li>
-                <li><a href="shows.php">I nostri shows</a></li>
-                <li><a href="calendar.php">Orari di apertura</a></li>
-                <li><a href="buyingticket.php">Acquista i biglietti</a></li>
-            </ul>
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <span lng="en">Home</span> > Carrello</p>
+            <p>Orario di oggi: {{ $orario }}</p>
+            <div id="userCrumb">
+                @for $btn in $headerBtns
+                    <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
+                @endfor
+            </div>
         </nav>
     </div>
     <main id="pageCartMain">
