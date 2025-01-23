@@ -480,12 +480,14 @@ window.onload = function () {
     const btnCart = document.getElementById("btnCart");
 
     btnCart.addEventListener('click', () => {
-        const backdrop = document.getElementById("backdrop");
-        backdrop.style.display = "block";
-
-        let output = document.querySelector(".output");
-
-        output.style.display = "block";
-        output.style.position = "absolute";
+        if(document.getElementById("carrelloUL").innerHTML.trim() != ""){
+            const backdrop = document.getElementById("backdrop");
+            backdrop.style.display = "block";
+    
+            let output = document.querySelector(".output");
+    
+            output.style.display = "block";
+            output.style.position = "absolute";
+        }
     })
 }
