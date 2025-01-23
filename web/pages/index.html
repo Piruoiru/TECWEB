@@ -22,10 +22,13 @@
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
                 <nav id="menu">
-                    <svg viewBox="0 0 24 24" id="hamburgerIcon" fill="none" onclick="toggleMobileNav()">
-                        <path d="M4 18L20 18" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M4 12L20 12" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M4 6L20 6" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+                    <svg viewBox="0 0 24 24" id="hamburgerIcon" onclick="toggleMobileNav()" aria-hidden="true" class="visible">
+                        <path d="M4 18L20 18" />
+                        <path d="M4 12L20 12" />
+                        <path d="M4 6L20 6" />
+                    </svg>
+                    <svg viewBox="0 0 24 24" id="closeIcon" aria-hidden="true" onclick="toggleMobileNav()">
+                        <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" />
                     </svg>
                     <ul id="menuUl">
                         <li lang="en" id="currentPageLink"><p>Home</p></li>

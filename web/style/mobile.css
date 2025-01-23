@@ -41,8 +41,10 @@ header{
     grid-template-columns: 1fr;
 }
 
-#hamburgerIcon{
+#hamburgerIcon, #closeIcon{
     display: block;
+    visibility: hidden;
+    opacity: 0;
     width: 3em;
     background-color: var(--primaryColor);
     padding: 0.5em;
@@ -51,6 +53,12 @@ header{
     top:1.5em;
     right: 1em;
     z-index: 1;
+    stroke: #FFF;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.2s ease-out;
 }
 
 #menu>ul{
@@ -70,7 +78,7 @@ header{
     margin: 0;
 }
 
-#menu>ul.visible{
+#menu>ul.visible, #menu>svg.visible{
     visibility: visible;
     opacity: 1;
     transition: all 0.2s ease-out;

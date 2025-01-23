@@ -204,7 +204,7 @@ header{
   z-index: 1;
 }
 
-#hamburgerIcon{
+#hamburgerIcon, #closeIcon{
   display: none;
 }
 
