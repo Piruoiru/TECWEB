@@ -127,7 +127,7 @@ a:hover{
 #breadcrumb{
   font-size: 1.1em;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr minmax(max-content, 1fr);
   background-color: var(--primaryColor);
   border-bottom: 2px solid #FFF;
   align-items: center;
@@ -148,7 +148,6 @@ a:hover{
 #breadcrumb p, #breadcrumb a{
   padding: 0.2em 0.5em;
   margin: 0.35em 0;
-  border: 2px solid var(--primaryColor);
   display: inline-block;
   color: #FFF;
   
