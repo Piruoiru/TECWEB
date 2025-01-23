@@ -204,6 +204,10 @@ header{
   z-index: 1;
 }
 
+#hamburgerIcon{
+  display: none;
+}
+
 #menu>ul{
   display: flex;
   height: 100%;
