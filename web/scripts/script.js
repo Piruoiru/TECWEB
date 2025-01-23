@@ -443,6 +443,7 @@ window.onload = function () {
                 if(nInteri <= 0){
                     nInteri = 0;
                     li.textContent = "";
+                    hiddenInt.setAttribute('value', nInteri);
                     return;
                 }
             }
@@ -459,6 +460,7 @@ window.onload = function () {
                 if(nRidotti <= 0){
                     nRidotti = 0;
                     li.textContent = "";
+                    hiddenRid.setAttribute('value', nRidotti);
                     return;
                 }
             }

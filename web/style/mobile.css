@@ -140,7 +140,7 @@ HOMEPAGE
     border-radius: 10px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
     width: 100%;
-    height: 11em;
+    margin: 1em;
 }
 
 .containerRidesIndexImg img {
@@ -161,12 +161,14 @@ HOMEPAGE
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: center;
 }
 
 #containerRidesIndex2{
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
+    text-align: center;
 }
 
 #footerSponsors {
