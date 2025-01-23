@@ -329,3 +329,113 @@ body {
 #calendarTable tbody td:empty {
     display: none;
 }
+
+/*
+-----------------
+TICKET PAGE
+-----------------
+*/
+
+#containerTicket {
+    display: inline-block;
+}
+
+#boxTicket {
+    padding: 10px;
+}
+
+#boxTicket h3 {
+    text-align: center;
+}
+
+#boxTicket p {
+    text-align: center;
+}
+
+.cardTicket {
+    padding: .75rem;
+    margin: 1.1em;
+    width: 90%;
+}
+
+.btnTicket {
+    margin: 0.5em;
+    padding: 0.8em;
+    float: right;
+}
+
+#buyTicketKart {
+    width: 90%;
+    height: 20%;
+    margin-top: 1em;
+    margin-left: 1.1em;
+    position: unset;
+}
+
+/*
+-----------------
+CART PAGE
+-----------------
+*/
+
+.btnAddRmv {
+    width: 4em;
+    height: 3em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+#boxCart {
+    width: 60%;
+}
+
+.output {
+    width: 60%;
+    height: 35%;
+    left: 25%;
+}
+
+/*
+---------------------
+    ERROR 404 PAGE
+---------------------
+*/
+
+#mainPageError404 {
+    display: inline-block;
+    margin-bottom: 23%;
+}
+
+#mainPageError404>img {
+    width: 100%;
+    z-index: -1;
+}
+
+#mainPageError404>p {
+    font-size: 2em;
+    padding: 0.5em;
+}
+
+/*
+---------------------
+    ERROR 500 PAGE
+---------------------
+*/
+
+#mainPageError500 {
+    display: inline-block;
+    margin-bottom: 1%;
+}
+
+#mainPageError500>img {
+    width: 95%;
+}
+
+#mainPageError500>p {
+    font-size: 2em;
+    padding: 0.5em;
+}
+
+#menu{
+    z-index: 1;
+}
