@@ -133,11 +133,11 @@ a:hover{
   align-items: center;
 }
 
-#breadcrumb p:first-child{
+#breadcrumbNav{
   justify-self: left;
 }
 
-#breadcrumb p:nth-child(2){
+#todaysOpeningHours{
   justify-self: center;
 }
 
@@ -146,14 +146,16 @@ a:hover{
 }
 
 #breadcrumb p, #breadcrumb a{
+  display: inline-block;
+}
+#todaysOpeningHours, #breadcrumb a, #breadcrumbNav{
   padding: 0.2em 0.5em;
   margin: 0.35em 0;
-  display: inline-block;
   color: #FFF;
   
 }
 
-#breadcrumb p a{
+#todaysOpeningHours a{
   margin: 0;
   border: 0;
   padding: 0;
@@ -232,6 +234,9 @@ header{
   color: var(--secondaryColor);
 }
 
+#menu>ul>li.mobileOnlyLink{
+  display: none;
+}
 
 #menu>ul>li>a{
   line-height: 1.5em;

@@ -9,7 +9,7 @@
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 600px)"> <!-- Per il mobile, va messo dopo quello desktop -->
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 600px)">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,18 +42,23 @@
                         <li><a href="shows.php">I nostri shows</a></li>
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        @for $btn in $essentialHeaderBtns
+                        <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @endfor
                     </ul>
                 </nav>
             </header>
-            <nav id="breadcrumb">
-                <p>Ti trovi in: <span lng="en">Home</span></p>
-                <p>Orario di oggi: {{ $orario }}</p>
+            <div id="breadcrumb">
+                <nav id="breadcrumbNav">
+                    <p>Ti trovi in: <span lang="en">Home</span></p>
+                </nav>
+                <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
                 <div id="userCrumb">
                     @for $btn in $headerBtns
                         <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
                     @endfor
                 </div>
-            </nav>
+            </div>
         </div>
         <main>
             <h1 id="titleHomePage">BENVENUTI A DREAMVILLE</h1> 

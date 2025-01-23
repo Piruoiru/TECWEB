@@ -25,16 +25,27 @@ html{
 ----------------
 */
 #breadcrumb{
+    border-top: 2px solid #FFF;
+    border-bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#userCrumb{
     display: none;
 }
 
+p#todaysOpeningHours{
+    display: none;
+}
 /* 
 ----------------
     HEADER AND NAV 
 ----------------
 */
 #headerBreadcrumbWrapper{
-    position: relative;
+    position: static;
+    flex-direction: column;
 }
 
 header{
@@ -48,8 +59,8 @@ header{
     padding: 0.5em;
     border-radius: 10px;
     position: fixed;
-    top: 2em;
-    right: 1.5em;
+    top: 2.5em;
+    right: 2.5em;
     transition: all 0.2s ease-out;
     background-color: var(--primaryColor);
     border: 0;
@@ -90,6 +101,10 @@ header{
 
 #menu>ul>li{
     margin: 1em auto;
+}
+
+#menu>ul>li.mobileOnlyLink{
+    display: block;
 }
 
 /* 
