@@ -98,6 +98,11 @@ HOMEPAGE
 ----------
 */
 
+.containerRidesIndexImg img {
+    border-radius: 11%;
+    height: 15em;
+    padding-left: 1em;
+}
 
 
 .paragHomePage  {
@@ -278,8 +283,8 @@ body {
 
 #calendarTable tbody tr {
     font-size: 1em;
-    width: 35.5em;
-    margin-left: 190%;
+    width: 39.3em;
+    margin-left: 192%;
     border:none;
 }
 
@@ -301,4 +306,8 @@ body {
     font-size: 1em;
     color: rgb(0, 0, 0);
     margin-top: 0.3em;
+}
+
+#calendarTable tbody td:empty {
+    display: none;
 }
