@@ -845,6 +845,10 @@ label{
   margin-top: 0.1em;
 }
 
+#lastPurchaseCard p:last-of-type, #purchasesMain .card p:last-of-type{
+  margin-bottom: 1em;
+}
+
 /*
 ---------------------
     PROFILE PAGE
