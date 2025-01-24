@@ -48,14 +48,18 @@
                     <li><a href="calendar.php">Orari di apertura</a></li>
                     <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                     @for $btn in $essentialHeaderBtns
-                    <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @if $btn['url'] == 'buyingcart.php'
+                        <li id="currentPageLink" class="mobileOnlyLink"><p>{{ $btn['text'] }}</p></li>
+                        @else
+                        <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @endif
                     @endfor
                 </ul>
             </nav>
         </header>
         <nav id="breadcrumb">
             <nav id="breadcrumbNav">
-                <p>Ti trovi in: <span lang="en">Home</span> > Carrello</p>
+                <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Carrello</p>
             </nav>
             <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
             <div id="userCrumb">
