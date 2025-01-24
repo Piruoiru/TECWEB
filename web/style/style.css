@@ -133,8 +133,14 @@ a:hover{
   align-items: center;
 }
 
+#breadcrumb>*{
+  margin: 0.5em 0em;
+  color: #FFF
+}
+
 #breadcrumbNav{
   justify-self: left;
+  margin-left: 0.5em;
 }
 
 #todaysOpeningHours{
@@ -143,16 +149,11 @@ a:hover{
 
 #userCrumb{
   justify-self: right;
+  margin-right: 0.25em;
 }
 
-#breadcrumb p, #breadcrumb a{
-  display: inline-block;
-}
-#todaysOpeningHours, #breadcrumb a, #breadcrumbNav{
-  padding: 0.2em 0.5em;
-  margin: 0.35em 0;
-  color: #FFF;
-  
+#breadcrumb a{
+  color: var(--secondaryColor)
 }
 
 #todaysOpeningHours a{
@@ -166,8 +167,8 @@ a:hover{
   border: 2px solid var(--secondaryColor);
   border-radius: 2px;
   color: #FFF;
-  margin: 0.35em;
   transition: all .2s ease-in-out;
+  padding: 0.2em 0.5em;
 }
 
 #breadcrumb .buttonStyle:hover{
@@ -470,6 +471,11 @@ input[type="text"].invalidInput, input[type="password"].invalidInput{
   outline: none;
 }
 
+input[type="text"]:disabled{
+  color: #757575;
+  background-color: #FFF;
+}
+
 label{
   color: var(--primaryColor);
   font-size: 1.1em;
@@ -505,6 +511,7 @@ label{
   max-width: 75%;
   width: fit-content;
   text-align: center;
+  word-wrap: break-word;
 }
 
 .errorMessageBgPar{
@@ -534,6 +541,7 @@ label{
 .errorMessagePar{
   color: var(--errorColor);
   font-size: 1.1em;
+  word-wrap: break-word;
 }
 
 /*
@@ -565,6 +573,10 @@ label{
   justify-content: center;
 }
 
+.cardFormMainContainer{
+  margin: 0 1em;
+}
+
 .cardForm{
   width: 75%;
   margin: 0 auto;
@@ -576,6 +588,8 @@ label{
   font-size: 2.5em;
   margin-top: 0.5em;
   text-align: center;
+  max-width: 90%;
+  word-wrap: break-word;
 }
 
 .cardForm .filledGradientBtn{
@@ -585,6 +599,8 @@ label{
 .cardFormMain .outlineGradientBtn{
   margin: 1em 0 0.5em 0;
   padding: 1em 2em;
+  box-sizing: border-box;
+  width: 75%;
 }
 
 /*
@@ -602,12 +618,14 @@ label{
   font-size: 2.75em;
   margin-bottom: 0.25em;
   text-align: center;
+  word-wrap: break-word;
 }
 
 #ridesMain>h2, #calendarMain>h2{
   font-size: 2em;
   margin-bottom: 0.25em;
   text-align: center;
+  word-wrap: break-word;
 }
 
 /*
@@ -769,6 +787,7 @@ label{
   padding-top: 0.5em;
   text-align: center;
   text-shadow: #FFF 0 0 25px;
+  word-wrap: break-word;
 }
 
 #profileCardsContainer>.card, #purchasesMain>.card{
@@ -781,13 +800,14 @@ label{
 #profileMain .card > h2, #purchasesMain h2{
   font-size: 2em;
   text-align: center;
+  word-wrap: break-word;
 }
 
 #profileMain .card > h3, #purchasesMain .card > h3{
   font-size: 1.35em;
   text-align: center;
   font-weight: 500;
-  margin: 0.25em 0;
+  margin-top: 0.25em;
 }
 
 .ticketCardsContainer{
@@ -795,6 +815,7 @@ label{
   justify-content: center;
   flex-wrap:wrap;
   gap: 0.5em;
+  margin: 1em 0;
 }
 
 .ticketCardDetails{
@@ -807,7 +828,6 @@ label{
 }
 
 .ticketCardsContainer .ticketCard{
-  margin: 0.5em 0;
   box-shadow: none;
   background-color: var(--primaryColor);
   color: #FFF;
@@ -820,16 +840,6 @@ label{
   width: 3.5em;
   fill: #FFF;
   stroke: #FFF;
-}
-
-#lastPurchaseCard>p, #purchasesMain .card p{
-  margin-top: 1em;
-  margin-bottom: 0.25em;
-  font-size: 1.1em;
-}
-
-#lastPurchaseCard p+p, #purchasesMain .card p+p{
-  margin-top: 0.1em;
 }
 
 /*
@@ -852,7 +862,7 @@ label{
 
 #profileCard dl{
   font-size: 1.1em;
-  margin: 0.75em 0;
+  margin: 0.75em 0 0.5em 0;
 }
 
 #profileCard dt, #profileCard dd{
@@ -865,9 +875,10 @@ label{
   white-space: pre;
 }
 
-#profileCard .outlineGradientBtn{
-  width: 75%;
-  margin: 0 auto;
+#profileCard .outlineGradientBtn, #lastPurchaseCard .outlineGradientBtn{
+  margin: 0.25em auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #profileCard *:last-child{
@@ -881,15 +892,18 @@ label{
   align-items: center;
 }
 
-#lastPurchaseCard .filledGradientBtn{
-  width: fit-content;
-  max-width: 75%;
-  margin: 0.5em auto;
+#lastPurchaseCard>p{
+  margin-top: 1em;
+  margin-bottom: 0.25em;
+  font-size: 1.1em;
 }
 
-#lastPurchaseCard .outlineGradientBtn{
-  width: 50%;
-  margin: 0.5em auto;
+#lastPurchaseCard p+p{
+  margin-top: 0.1em;
+}
+
+#lastPurchaseCard p:last-of-type{
+  margin-bottom: 1em;
 }
 
 /*
@@ -906,12 +920,23 @@ label{
 #purchasesMain>h2{
   text-shadow: #FFF 0 0 25px;
   margin-top: 0.5em;
+  word-wrap: break-word;
 }
 
 #purchasesMain>.card{
   width: fit-content;
   margin: 1em 2em;
 }
+
+#lastPurchaseCard>p, #purchasesMain .card p{
+  margin-top: 0.25em;
+  font-size: 1.1em;
+}
+
+#lastPurchaseCard p+p, #purchasesMain .card p+p{
+  margin-top: 0.1em;
+}
+
 
 /*
 ---------------------
@@ -1481,6 +1506,7 @@ HOME PAGE
 #purchasesMain>h2{
   text-shadow: #FFF 0 0 25px;
   margin-top: 0.5em;
+  word-wrap: break-word;
 }
 
 #purchasesMain>.card{

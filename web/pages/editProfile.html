@@ -8,6 +8,8 @@
         <meta name="keywords" content="modifica, eliminazione, account, profilo, utente, personale, DreamVille">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,68 +22,89 @@
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
                 <nav id="menu">
-                    <ul>
+                    <button id="hamburgerIcon" onclick="toggleMobileNav()" class="buttonStyle visible">
+                        <svg viewBox="0 0 24 22">
+                            <path d="M4 18L20 18" />
+                            <path d="M4 12L20 12" />
+                            <path d="M4 6L20 6" />
+                            <title>Apri menù</title>
+                        </svg>
+                    </button>
+                    <button class="buttonStyle" id="closeIcon" onclick="toggleMobileNav()">
+                        <svg viewBox="0 0 24 22">
+                            <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" />
+                            <title>Chiudi menù</title>
+                        </svg>
+                    </button>
+                    <ul id="menuUl">
                         <li lang="en"><a href="index.php">Home</a></li>
                         <li><a href="rides.php">Scopri le attrazioni</a></li>
                         <li><a href="shows.php">I nostri shows</a></li>
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        @for $btn in $essentialHeaderBtns
+                        <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @endfor
                     </ul>
                 </nav>
             </header>
-            <nav id="breadcrumb">
-                <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; <a href="profile.php" lang="en">Profilo</a> &gt; Modifica profilo</p>
-                <p>Orario di oggi: {{ $orario }}</p>
+            <div id="breadcrumb">
+                <nav id="breadcrumbNav">
+                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; <a href="profile.php" lang="en">Profilo</a> &gt; Modifica profilo</p>
+                </nav>
+                <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
                 <div id="userCrumb">
                     @for $btn in $headerBtns
                         <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
                     @endfor
                 </div>
-            </nav>
-        </div>
-        <main class="card cardFormMain" id="profileEditMain">
-            <h1>Modifica i tuoi dati</h1>
-            @if !empty($updateErrorMessage)
-            <div class="errorMessageBgPar">
-                <p>Si sono verificati alcuni errori durante la modifica dei dati:</p>
-                <ul>
-                    @for $error in $updateErrorMessage
-                        <li>{{ $error }}</li>
-                    @endfor
-                </ul>
             </div>
-            @endif
-            @if !empty($updateSuccessMessage)
-            <p class="infoMessageBgPar">{{ $updateSuccessMessage }}</p>
-            <dl>
-                <dt><strong>Nome:</strong></dt>
-                <dd>{{ $userFirstName }}</dd>
-                <dt><strong>Cognome:</strong></dt>
-                <dd>{{ $userSurname }}</dd>
-                <dt><strong>Username:</strong></dt>
-                <dd>{{ $username }}</dd>
-            </dl>
-            <a href="profile.php" class="buttonStyle  outlineGradientBtn">Torna al profilo</a>
-            @else
-            <form method="POST" id="profileEditForm" onsubmit="return validateGenericForm(editUserFormDetails);" class="cardForm">
-                <div class="inputLabelContainer">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="name" value="{{ $userFirstName }}">
+        </div>
+        <div class="cardFormMainContainer">
+            <main class="card cardFormMain" id="profileEditMain">
+                <h1>Modifica i tuoi dati</h1>
+                @if !empty($updateErrorMessage)
+                <div class="errorMessageBgPar">
+                    <p>Si sono verificati alcuni errori durante la modifica dei dati:</p>
+                    <ul>
+                        @for $error in $updateErrorMessage
+                            <li>{{ $error }}</li>
+                        @endfor
+                    </ul>
                 </div>
-                <div class="inputLabelContainer" id="cognomeContainer">
-                    <label for="cognome">Cognome</label>
-                    <input type="text" id="cognome" name="surname" value="{{ $userSurname }}">
-                </div>
-                <div class="inputLabelContainer">
-                    <label for="username">Username (non modificabile)</label>
-                    <input type="text" id="username" name="username" value="{{ $username }}" disabled>
-                </div>
-                <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle  filledGradientBtn">
-            </form>
-            <p>Oppure</p>
-            <a href="deleteProfile.php" id="registrationButton" class="buttonStyle outlineGradientBtn ">Elimina il tuo utente</a>
-            @endif
-        </main>
+                @endif
+                @if !empty($updateSuccessMessage)
+                <p class="infoMessageBgPar">{{ $updateSuccessMessage }}</p>
+                <dl>
+                    <dt><strong>Nome:</strong></dt>
+                    <dd>{{ $userFirstName }}</dd>
+                    <dt><strong>Cognome:</strong></dt>
+                    <dd>{{ $userSurname }}</dd>
+                    <dt><strong>Username:</strong></dt>
+                    <dd>{{ $username }}</dd>
+                </dl>
+                <a href="profile.php" class="buttonStyle  outlineGradientBtn">Torna al profilo</a>
+                @else
+                <form method="POST" id="profileEditForm" onsubmit="return validateGenericForm(editUserFormDetails);" class="cardForm">
+                    <div class="inputLabelContainer">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="name" value="{{ $userFirstName }}">
+                    </div>
+                    <div class="inputLabelContainer" id="cognomeContainer">
+                        <label for="cognome">Cognome</label>
+                        <input type="text" id="cognome" name="surname" value="{{ $userSurname }}">
+                    </div>
+                    <div class="inputLabelContainer">
+                        <label for="username">Username (non modificabile)</label>
+                        <input type="text" id="username" name="username" value="{{ $username }}" disabled>
+                    </div>
+                    <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle  filledGradientBtn">
+                </form>
+                <p>Oppure</p>
+                <a href="deleteProfile.php" id="registrationButton" class="buttonStyle outlineGradientBtn ">Elimina il tuo utente</a>
+                @endif
+            </main>
+        </div>
 
         <a href="/privacy.php">Privacy Policy</a>
         <a href="/buyingticket.php">Biglietti</a>

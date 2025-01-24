@@ -255,20 +255,13 @@ function loadRegistrationForm() {
         this.previousElementSibling.classList.remove("emptyFieldLabel");
     }
 
-    //Reset password confirmation on password input
     document.getElementById("password").oninput = function() {
         if(!this.firstInput){
             validateField(this, registrationFormDetails);
-            //Reset password confirmation
-            var passwordConfirmationInput = document.getElementById("passwordConfirmation");
-            passwordConfirmationInput.value = "";
-            passwordConfirmationInput.previousElementSibling.classList.add("emptyFieldLabel");
-            passwordConfirmationInput.classList.remove("invalidInput");
-            //Rimozione messaggio errore eventualmente presente
-            var inputLabelContainer = passwordConfirmationInput.parentNode;
-            if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
-                inputLabelContainer.nextElementSibling.remove();
-            }
+        }
+        //Check password confirmation on password input
+        if(input.value.length > 0){
+            passwordConfirmationMatch();
         }
     }
 
@@ -418,7 +411,7 @@ var editShowFormDetails = {
 ---------------------
 */
 
-window.onload = function () {
+function loadTicketAndCart(){
     let nInteri = 0;
     let nRidotti = 0;
 

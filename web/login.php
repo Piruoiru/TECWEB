@@ -9,6 +9,8 @@
     include_once 'db.php';
 
     unset($context['headerBtns']['login']);//non mostro il pulsante login in alto
+    unset($context['essentialHeaderBtns']['login']);//sostituisco  accedi o registrati nel menù mobile con registrati
+    $context['essentialHeaderBtns']['register'] = ['url' => "register.php", 'text' => 'Registrati'];
 
     $context['loginErrorMessage'] = '';
     $context['oldUsername'] = '';
