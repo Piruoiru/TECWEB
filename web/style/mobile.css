@@ -41,7 +41,7 @@ p#todaysOpeningHours{
 }
 
 #breadcrumbNav>p, #breadcrumbNav>a{
-    margin: 0;
+    margin: 0.1em;
 }
 /* 
 ----------------
@@ -355,13 +355,11 @@ body {
     LOGIN, REGISTRATION AND PROFILE EDIT PAGES
 ---------------------
 */
+.cardForm{
+    width:85%;
+}
 
-.cardFormMain{
-    margin: 2em auto;
-    margin-right: max(2em, auto);
-    max-width: 425px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.cardFormMain .outlineGradientBtn{
+    box-sizing: border-box;
+    width: 85%;
 }
