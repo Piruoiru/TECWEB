@@ -145,14 +145,18 @@ a:hover{
   justify-self: right;
 }
 
-#breadcrumb p, #breadcrumb a{
+#todaysOpeningHours, #breadcrumb a{
+  padding: 0.2em 0.1em;
+  margin: 0.35em 0;
   display: inline-block;
 }
-#todaysOpeningHours, #breadcrumb a, #breadcrumbNav{
-  padding: 0.2em 0.5em;
-  margin: 0.35em 0;
+
+#breadcrumbNav, #todaysOpeningHours{
   color: #FFF;
-  
+}
+
+#breadcrumb a{
+  color: var(--secondaryColor)
 }
 
 #todaysOpeningHours a{
@@ -168,6 +172,7 @@ a:hover{
   color: #FFF;
   margin: 0.35em;
   transition: all .2s ease-in-out;
+  padding: 0.2em 0.5em;
 }
 
 #breadcrumb .buttonStyle:hover{
@@ -563,6 +568,10 @@ label{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.cardFormMainContainer{
+  margin: 0 1em;
 }
 
 .cardForm{

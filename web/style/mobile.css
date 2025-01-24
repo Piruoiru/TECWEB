@@ -39,6 +39,10 @@ html{
 p#todaysOpeningHours{
     display: none;
 }
+
+#breadcrumbNav>p, #breadcrumbNav>a{
+    margin: 0;
+}
 /* 
 ----------------
     HEADER AND NAV 
@@ -65,7 +69,7 @@ header{
     transition: all 0.2s ease-out;
     background-color: var(--primaryColor);
     border: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 #hamburgerIcon>svg, #closeIcon>svg{
@@ -92,6 +96,7 @@ header{
     width: 100%;
     border: 0;
     margin: 0;
+    z-index: 1;
 }
 
 #menu>ul.visible, #menu>.visible{
@@ -328,4 +333,35 @@ body {
 
 #calendarTable tbody td:empty {
     display: none;
+}
+
+/*
+---------------------
+  BACKGROUND
+---------------------
+*/
+
+#loginForm{
+    max-width: 320px;
+}
+
+#loginMain{
+    max-width: 350px;
+    padding: 0.5em;
+}
+
+/*
+---------------------
+    LOGIN, REGISTRATION AND PROFILE EDIT PAGES
+---------------------
+*/
+
+.cardFormMain{
+    margin: 2em auto;
+    margin-right: max(2em, auto);
+    max-width: 425px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
