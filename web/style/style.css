@@ -595,6 +595,8 @@ label{
 .cardFormMain .outlineGradientBtn{
   margin: 1em 0 0.5em 0;
   padding: 1em 2em;
+  box-sizing: border-box;
+  width: 75%;
 }
 
 /*
