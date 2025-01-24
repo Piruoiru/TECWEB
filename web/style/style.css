@@ -135,6 +135,7 @@ a:hover{
 
 #breadcrumb>*{
   margin: 0.5em 0em;
+  color: #FFF
 }
 
 #breadcrumbNav{
@@ -148,10 +149,7 @@ a:hover{
 
 #userCrumb{
   justify-self: right;
-}
-
-#breadcrumbNav, #todaysOpeningHours{
-  color: #FFF;
+  margin-right: 0.25em;
 }
 
 #breadcrumb a{
@@ -169,7 +167,6 @@ a:hover{
   border: 2px solid var(--secondaryColor);
   border-radius: 2px;
   color: #FFF;
-  margin: 0.35em;
   transition: all .2s ease-in-out;
   padding: 0.2em 0.5em;
 }
@@ -798,7 +795,7 @@ label{
   font-size: 1.35em;
   text-align: center;
   font-weight: 500;
-  margin: 0.25em 0;
+  margin-top: 0.25em;
 }
 
 .ticketCardsContainer{
@@ -806,6 +803,7 @@ label{
   justify-content: center;
   flex-wrap:wrap;
   gap: 0.5em;
+  margin: 1em 0;
 }
 
 .ticketCardDetails{
@@ -818,7 +816,6 @@ label{
 }
 
 .ticketCardsContainer .ticketCard{
-  margin: 0.5em 0;
   box-shadow: none;
   background-color: var(--primaryColor);
   color: #FFF;
@@ -863,7 +860,7 @@ label{
 
 #profileCard dl{
   font-size: 1.1em;
-  margin: 0.75em 0;
+  margin: 0.75em 0 0.5em 0;
 }
 
 #profileCard dt, #profileCard dd{
@@ -876,9 +873,10 @@ label{
   white-space: pre;
 }
 
-#profileCard .outlineGradientBtn{
-  width: 75%;
-  margin: 0 auto;
+#profileCard .outlineGradientBtn, #lastPurchaseCard .outlineGradientBtn{
+  margin: 0.25em auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #profileCard *:last-child{
@@ -890,17 +888,6 @@ label{
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#lastPurchaseCard .filledGradientBtn{
-  width: fit-content;
-  max-width: 75%;
-  margin: 0.5em auto;
-}
-
-#lastPurchaseCard .outlineGradientBtn{
-  width: 50%;
-  margin: 0.5em auto;
 }
 
 /*

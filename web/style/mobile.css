@@ -368,3 +368,28 @@ body {
 .cardFormMain .outlineGradientBtn{
     width: 85%;
 }
+
+/*
+---------------------
+    PROFILE AND PURCHASES PAGES
+---------------------
+*/
+#profileCardsContainer{
+    flex-direction: column;
+    align-items: center;
+}
+
+#profileCardsContainer>.card{
+    width:fit-content;
+    margin: 0.5em 0;
+    box-sizing: border-box;
+}
+
+#profileMain>h1{
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profileCard{
+}
