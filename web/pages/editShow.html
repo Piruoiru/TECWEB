@@ -16,9 +16,9 @@
 
         <script src="scripts/script.js"></script>
     </head>
-    <body class="tertiaryBg" onload="loadGenericForm(editUserFormDetails)">
+    <body class="tertiaryBg" onload="loadGenericForm(editShowFormDetails)">
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; <a href="profile.php" lang="en">Profilo</a> &gt; Modifica profilo</p>
+            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Modifica spettacolo</p>
             <p>Orario di oggi: {{ $orario }}</p>
             <div id="userCrumb">
                 @for $btn in $headerBtns
@@ -40,7 +40,7 @@
                 </ul>
             </nav>
         </div>
-        <main class="card cardFormMain" id="profileEditMain">
+        <main class="card cardFormMain">
             @if !empty($updateErrorMessage)
             <div class="errorMessageBgPar">
                 <p>Si sono verificati alcuni errori durante la modifica dei dati:</p>
@@ -55,7 +55,7 @@
             <p class="errorMessageBgPar">{{ $debugMessage }}</p>
             @else
             <h1>Modifica lo spettacolo</h1>
-            <form method="POST" id="userRegistrationForm" class="cardForm" enctype="multipart/form-data">
+            <form method="POST" class="cardForm" enctype="multipart/form-data">
                 <div class="inputLabelContainer">
                     <label for="vecchio_titolo">Vecchio Titolo</label>
                     <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="{{ $vecchio_titolo }}" />

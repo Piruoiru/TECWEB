@@ -409,20 +409,17 @@ function loadRidesFilter() {
 */
 var createEditShowFormDetails = {
     "titolo":["", /^[A-Za-z.,;']+/, "Inserisci un titolo"],
-    "descrizione":["", /^[A-Za-z.,;']+/, "Inserisci una password"],
+    "descrizione":["", /^[A-Za-z.,;']+/, "Inserisci una descrizione"],
     "immagine": ["", /^.+/, "Inserisci un'immagine"],
     "descrizione_immagine":["", /^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
 };
 
-function editShow(title){
-    // richiesta conferma eliminazione
-    window.location = `/editShow.php?vecchio_titolo=${encodeURIComponent(title)}`;
-}
-
-function deleteShow(title){
-    // richiesta conferma eliminazione
-    window.location = `/deleteShow.php?titolo=${encodeURIComponent(title)}`;
-}
+var editShowFormDetails = {
+    "nuovo_titolo":["", /^[A-Za-z.,;']+/, "Inserisci un titolo"],
+    "descrizione":["", /^[A-Za-z.,;']+/, "Inserisci una descrizione"],
+    "immagine": ["", /^.+/, "Inserisci un'immagine"],
+    "descrizione_immagine":["", /^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
+};
 
 
 
