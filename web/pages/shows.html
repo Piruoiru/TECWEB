@@ -47,11 +47,12 @@
         </div>
         <main id="cardFormMainShows">
         @if $isAdmin
+        <div class="card cardFormMain">
             @if !empty($debugMessage)
                 <p>{{ $debugMessage }}</p>
             @endif
             <h1>Creazione spettacoli</h1>
-            <form method="POST" id="" class="cardForm" enctype="multipart/form-data">
+            <form method="POST" class="cardForm" enctype="multipart/form-data">
                 <div class="inputLabelContainer">
                     <label for="titolo" class="emptyFieldLabel">Titolo</label>
                     <input type="text" id="titolo" name="titolo" />
