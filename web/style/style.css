@@ -285,7 +285,7 @@ header{
 
 #mainPageError404{
   display: flex;
-  background-color: var(--btncolor);
+  align-items: center;
   margin-bottom: 12.5em;
 }
 
@@ -297,7 +297,6 @@ header{
 
 #mainPageError404>p{
   font-size: 2em;
-  padding: 7em 1em;
 }
 
 /*
