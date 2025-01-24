@@ -8,8 +8,10 @@
   --secondaryColor: #FFC300;
   --tertiaryColor: #0071EB;
   --tertiaryColorRGB: 0, 113, 235;
-  /* arancione #F26B18; */
   --errorColor: #BD0000;
+  --adrenalineColor: #BD0000;
+  --fantastyColor:  #0071EB;
+  --kidsColor: #FFC300;
   --tertiaryColorBgRGBA: 0, 113, 235, 0.4;
 }
 
@@ -35,6 +37,19 @@ body, button{
 
 abbr{
   text-decoration: none;
+}
+
+/*
+---------------------
+  DISPLAY
+---------------------
+*/
+.hidden{
+  display: block;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  left: -999999em;
 }
 
 /*
@@ -82,15 +97,6 @@ a:hover{
   text-decoration: none;
 }
 
-.translateUpOnHover{
-  transition: transform 0.3s ease-out;
-  margin-top: 0.5em;
-}
-
-.translateUpOnHover:hover{
- transform: translateY(-2px);
-}
-
 .outlineGradientBtn, .outlineGradientBtn:visited{
   color: #000;
   border-color: #000;
@@ -121,17 +127,17 @@ a:hover{
 #breadcrumb{
   font-size: 1.1em;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr minmax(max-content, 1fr);
   background-color: var(--primaryColor);
   border-bottom: 2px solid #FFF;
   align-items: center;
 }
 
-#breadcrumb p:first-child{
+#breadcrumbNav{
   justify-self: left;
 }
 
-#breadcrumb p:nth-child(2){
+#todaysOpeningHours{
   justify-self: center;
 }
 
@@ -140,15 +146,16 @@ a:hover{
 }
 
 #breadcrumb p, #breadcrumb a{
+  display: inline-block;
+}
+#todaysOpeningHours, #breadcrumb a, #breadcrumbNav{
   padding: 0.2em 0.5em;
   margin: 0.35em 0;
-  border: 2px solid var(--primaryColor);
-  display: inline-block;
   color: #FFF;
   
 }
 
-#breadcrumb p a{
+#todaysOpeningHours a{
   margin: 0;
   border: 0;
   padding: 0;
@@ -185,13 +192,22 @@ header h1{
   text-indent: -9999px;
 }
 
-#headerNavWrapper{
+header{
   display: grid;
   grid-template-columns: 1fr 5fr;
   background-color: var(--primaryColor);
+}
+
+#headerBreadcrumbWrapper{
+  display: flex;
+  flex-direction: column-reverse;
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+#hamburgerIcon, #closeIcon{
+  display: none;
 }
 
 #menu>ul{
@@ -218,6 +234,9 @@ header h1{
   color: var(--secondaryColor);
 }
 
+#menu>ul>li.mobileOnlyLink{
+  display: none;
+}
 
 #menu>ul>li>a{
   line-height: 1.5em;
@@ -225,6 +244,7 @@ header h1{
   text-decoration: none;
   transition: color .3s ease-in-out;
   padding: 0 0.25em;
+  z-index: 1;
 }
 
 #menu>ul>li>a:visited::before{
@@ -262,18 +282,41 @@ header h1{
 */
 
 #mainPageError404{
-  display: grid;
-  grid-template-columns: 3fr 4fr;
+  display: flex;
   background-color: var(--btncolor);
+  margin-bottom: 12.5em;
 }
 
 #mainPageError404>img{
-  width: 100%;
+  width: 65%;
   height: auto;
   filter: drop-shadow(5px 5px 5px #000);
 }
 
 #mainPageError404>p{
+  font-size: 2em;
+  padding: 7em 1em;
+}
+
+/*
+---------------------
+    ERROR 500 PAGE
+---------------------
+*/
+
+#mainPageError500{
+  display: flex;
+  background-color: var(--btncolor);
+  margin-bottom: 9.8em;
+}
+
+#mainPageError500>img{
+  width: 55%;
+  height: auto;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+#mainPageError500>p{
   font-size: 2em;
   padding: 7em 1em;
 }
@@ -307,29 +350,6 @@ header h1{
 ---------------------
 */
 
-.calendarCell {
-  background-color: var(--secondaryColor);
-  border: 1rem solid #000; /* Colore nero e spessore di 2px */  
-}
-
-/* .calendarCell.today {
-  
-} */
-
-.headerCalendarTable{
-  background-color: var(--primaryColor);
-  color: #FFF;
-}
-
-.headerCalendarTable button{
-  background-color: var(--primaryColor);
-  color: #FFF;
-  border: 0;
-  padding: 0.5em 0em;
-  font-size: 1.1em;
-  cursor: pointer;
-}
-
 #calendarMain>p{
   margin: 1em 0;
   text-align: center;
@@ -337,45 +357,94 @@ header h1{
 
 #calendarTable{
   text-align: center;
-  vertical-align: top; /* Allinea il testo in alto */
+  vertical-align: top;
   padding: 0em 1em;
   border-collapse: collapse;
   margin: auto;
+  table-layout: fixed;
+}
+
+#calendarTable th, #calendarTable td {
+  width: calc(100% / 7);
 }
 
 #calendarTable caption{
   padding-bottom: 1em;
 }
 
-#calendarTable th, #calendarTable td{
-  border: 1px solid #000;
-  padding: 0.2em 0.3em;
-  font-size: 1.1em;
+#calendarTable>tbody td{
+  background-color: var(--secondaryColor); 
+}
+
+#calendarTable thead{
+  background-color: var(--primaryColor);
+  color: #FFF;
 }
 
 #calendarTable thead th{
   padding: 0.4em;
+  font-size: 1.25em;
+  border: 1px solid #FFF;
 }
 
-#calendarTable tbody td p:first-child{
-  font-size: 1em;
+#calendarTable thead tr:first-child th{
+  padding: 0.4em;
+  font-size: 1.25em;
+  border-top: 1px solid #000;
+}
+
+#calendarTable thead tr th:first-child{
+  border-left: 1px solid #000;
+}
+
+#calendarTable thead tr th:last-child{
+  border-right: 1px solid #000;
+}
+
+#calendarTable thead .buttonStyle{
+  background-color: var(--primaryColor);
+  padding: 0.3em 0.5em;
+  font-size: 1.1em;
+  border: 2px solid var(--secondaryColor);
+  border-radius: 2px;
+  color: #FFF;
+  margin: 0.35em;
+  transition: all .2s ease-in-out;
+}
+
+#calendarTable .buttonStyle:hover{
   color: #000;
+  background-color: var(--secondaryColor);
+}
+
+#calendarTable .hiddenCalendarBtn{
+  display: none;
+}
+
+#calendarTable .today{
+  background-color: var(--primaryColor);
+}
+
+#calendarTable .today p{
+  color: #FFF;
+}
+
+#calendarTable>tbody td{
+  border: 1px solid #000;
+  padding: 0.5em;
+  font-size: 1.1em;
 }
 
 #calendarTable p{
-  font-size: 0.8em;
+  font-size: 0.9em;
   color: rgb(0, 0, 0);
   margin-top: 0.3em;
 }
 
-/* #photoOpenPark{
-  width: 7em;
-  height: auto;
-  left: 25%;
-} */
-
-#closedParkCalendar{
-  text-align: center;
+#calendarTable tbody td p:first-child{
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 0;
 }
 
 /*
@@ -396,7 +465,7 @@ input[type="text"]:focus, input[type="password"]:focus{
   outline: none;
 }
 
-input[type="text"]:invalid, input[type="password"]:invalid{
+input[type="text"].invalidInput, input[type="password"].invalidInput{
   border-bottom: 3px solid var(--errorColor);
   outline: none;
 }
@@ -404,19 +473,28 @@ input[type="text"]:invalid, input[type="password"]:invalid{
 label{
   color: var(--primaryColor);
   font-size: 1.1em;
+}
+
+.inputLabelContainer label{
   position: absolute;
-  top: 1.5em;
+  top: 0.4em;
   transition: transform 0.3s ease-out;
 }
 
-.nonEmptyFieldLabel{
-  transform: translateY(-1.1em);
+.emptyFieldLabel{
+  transform: translateY(1.1em);
+  cursor: text;
 }
 
 .inputLabelContainer{
   position: relative;
   display: flex;
   flex-direction: column;
+  padding-top: 1.5em;
+}
+
+.fileInputLabelContainer{
+  display: flex;
   padding-top: 1.5em;
 }
 
@@ -469,6 +547,7 @@ label{
   border-radius: 10px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   padding: .75em;
+  background-color: #FFF;
 }
 
 /*
@@ -510,28 +589,34 @@ label{
 
 /*
 ----------------
-    MAP PAGE
+    RIDES AND CALENDAR PAGE
 ----------------
 */
 
-#mapMain, #calendarMain{
+#ridesMain, #calendarMain{
   padding: 2em;
   box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
 }
 
-#mapMain>h1, #calendarMain>h1{
-  font-size: 2.5em;
+#ridesMain>h1, #calendarMain>h1{
+  font-size: 2.75em;
   margin-bottom: 0.25em;
   text-align: center;
 }
 
-#mapMain>h2, #calendarMain>h2{
+#ridesMain>h2, #calendarMain>h2{
   font-size: 2em;
   margin-bottom: 0.25em;
   text-align: center;
 }
 
-#mapMain>p{
+/*
+----------------
+    RIDES ONLY
+----------------
+*/
+
+#ridesMain>p{
   text-align: center;
   font-size: 1.1em;
 }
@@ -563,48 +648,48 @@ label{
 }
 
 #adrenalinicheBtn{
-  border: 5px solid var(--errorColor); /*FIXME: cambiare error color*/
+  border: 5px solid var(--adrenalineColor);
   color: #000;
 }
 
 #adrenalinicheBtn:hover{
-  background-color: var(--errorColor);
+  background-color: var(--adrenalineColor);
   color: #FFF;
 }
 
 #filtersContainer>.adrenalinicheBtnSelected{
-  background-color: var(--errorColor);
+  background-color: var(--adrenalineColor);
   color: #FFF;
   cursor: default;
 }
 
 #fantasyBtn{
-  border: 5px solid var(--tertiaryColor);
+  border: 5px solid var(--fantastyColor);
   color: #000;
 }
 
 #fantasyBtn:hover{
-  background-color: var(--tertiaryColor);
+  background-color: var(--fantastyColor);
   color: #FFF;
 }
 
 #filtersContainer>.fantasyBtnSelected{
-  background-color: var(--tertiaryColor);
+  background-color: var(--fantastyColor);
   color: #FFF;
   cursor: default;
 }
 
 #bambiniBtn{
-  border: 5px solid var(--secondaryColor);
+  border: 5px solid var(--kidsColor);
   color: #000;
 }
 
 #bambiniBtn:hover{
-  background-color: var(--secondaryColor);
+  background-color: var(--kidsColor);
 }
 
 #filtersContainer>.bambiniBtnSelected{
-  background-color: var(--secondaryColor);
+  background-color: var(--kidsColor);
   cursor: default;
 }
 
@@ -620,13 +705,13 @@ label{
   display: block;
 }
 
-#attractionList{
+#rideList{
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-#attractionList > .card{
+#rideList > .card{
   padding: 1rem;
   margin: 1.2rem;
   max-height: fit-content;
@@ -637,32 +722,32 @@ label{
   align-items: center;
 }
 
-#attractionList > .hiddenAttraction{
+#rideList > .hiddenRide{
   display: none;
 }
 
-#attractionList > .adrenalinicheCard{
-  border: 5px solid var(--errorColor);
+#rideList > .adrenalinicheCard{
+  border: 5px solid var(--adrenalineColor);
 }
 
-#attractionList > .fantasyCard{
-  border: 5px solid var(--tertiaryColor);
+#rideList > .fantasyCard{
+  border: 5px solid var(--fantastyColor);
 }
 
-#attractionList > .bambiniCard{
-  border: 5px solid var(--secondaryColor);
+#rideList > .bambiniCard{
+  border: 5px solid var(--kidsColor);
 }
 
-#attractionList > .card h3{
+#rideList > .card h3{
   font-size: 1.75em;
   text-align: center;
 }
 
-#attractionList > .card p{
+#rideList > .card p{
   padding: 1.5em 0em;
 }
 
-#attractionList img{
+#rideList img{
   max-width: 18em;
   height: auto;
   border-radius: 15px;
@@ -890,6 +975,7 @@ CART PAGE
   justify-content: center;
   background: rgba(0,0,0,0.5);
   backdrop-filter: blur(2px);
+  z-index: 2;
 }
 
 #backdrop.visible{
@@ -897,15 +983,16 @@ CART PAGE
 }
 
 #boxCart{
-  width: 35%;
-  background-color: #d8d8d8;
+  width: 25%;
+  background-color: #FFC300;
   border-radius: 5px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
-  padding: .75rem;
-  margin-top: 1em;
+  padding: 0.75rem;
+  margin-top: 1.3em;
   margin-bottom: 1.3em;
+  font-weight: bold;
 }
 
 #prezzoTot{
@@ -914,6 +1001,7 @@ CART PAGE
 
 .pageCart{
   margin-left: 0.8em;
+  justify-items: center;
 }
 
 #btnCart{
@@ -921,158 +1009,80 @@ CART PAGE
   padding: 0.5em;
   font-size: 1.1em;
   margin-bottom: 1em;
+  background-color: #000a99;
+  color: #fff;
 }
 
-/*
------------------
-TICKET PAGE
------------------
-*/
-
-#buyTicketKart{
-  background-color: #d8d8d8;
-  display:flex;
-  flex-direction: column;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
-  padding: .75rem;
-  position: sticky;
-  width: 35%;
-  margin: 1em 1em;
-}
-
-#carrelloUL{
+#ticketSel{
   list-style-type: none;
 }
 
-#boxRiepilogo{
-  text-align: center;
-  background-color: #ADD8E6;
-  border-radius: 15px;
+.rowCart{
+  width: 50%;
+  display: inline-block;
+  margin: 0.5em;
 }
 
-#boxSconto{
-  margin-bottom: 10px;
+#rowInt{
+  margin: 0.4em;
 }
 
-#boxTicket{
-  padding: 15px;
+#rowRid{
+  margin: 0.4em;
 }
 
-#ticketChoice{
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
-}
-
-#confermaCart{
-  margin-top: auto;
-  padding: 0.7em;
-  font-size: 1.2em; 
-}
-
-#containerTicket{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#btnSconto{
-  margin-left: 1em;
-  padding: 0.6em;
-  font-size: 1.0em; 
-}
-
-.cardTicket{
-  display: flex;
-  flex-direction: row;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
-  padding: .75rem;
-  margin: 1em;
-  justify-content: space-between;
-  background-color: white;
-  border:none; 
-  width: 95%; 
-}
-
-.cardTicket:hover{
-  background-color: var(--secondaryColor);
-  cursor: pointer;
-}
-
-.ticketInfo{
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.cardTicket h3{
-  font-size: 1.5em;
-}
-
-.cardTicket p{
-  font-size: 1.2em;
-}
-.cardTicket img{
-  width: 10em;
-  height: 10em;
-}
-
-.loader{
-  width: 400px;
-  padding: 50px 0;
-  background-color: #000a99;;
+.btnAddRmv{
+  width: 3em;
+  height: 2em;
+  background-color: #000a99;
+  color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 35px rgba(0, 3, 41, 0.8);
+  margin-left: 0.1em;
+}
+
+#pageCartMain{
   text-align: center;
-  display: none;
-  top: 40%;
-  left: 40%;
-  margin: -25px 0 0 -25px;
 }
 
-.barra{
-  background-color: white;
-  width: 85%;
-  height: 25px;
-  margin: 5px auto;
-  border-radius: 50px;
-  overflow: hidden;
+.btnAddRmv:hover{
+  background-color: #fff;
+  cursor: pointer;
+  color: #000;
 }
 
-.riempi{
-  height: 100%;
-  width: 0%;
-  background-color: #FFC300;
+#btnCart:hover{
+  background-color: #fff;
+  cursor: pointer;
+  color: #000;
 }
 
-.contatore{
-  font-size: 30px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: white;
-  padding: 5px 0;
+#btnChiudi:hover{
+  background-color: #fff;
+  cursor: pointer;
+  color: #000;
 }
 
 .output{
   width: 500px;
   padding: 30px 0;
   box-shadow: 0 0 35px rgba(0, 3, 41, 0.8);
-  background-color: #000a99;;
+  background-color: #FFC300;
   border-radius: 5px;
   text-align: center;
   display: none;
   top: 32%;
   left: 38%;
   margin: -25px 0 0 -25px;
+  font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
 }
 
 .output .fa-check{
   height: 150px;
   width: 150px;
-  border: 5px solid #FFC300;
+  border: 5px solid #000a99;
   line-height: 150px;
   border-radius: 50%;
-  color: #FFC300;
+  color: #000a99;
   font-size: 85px;
   margin-bottom: 30px;
   animation: animate 1s ease;
@@ -1092,8 +1102,7 @@ TICKET PAGE
 .textPaga{
   font-size: 40px;
   font-weight: 600;
-  font-family: sans-serif;
-  color: #FFC300;
+  color: #000a99;
   letter-spacing: 1px;
 }
 
@@ -1101,10 +1110,125 @@ TICKET PAGE
   margin-top: 0.8em;
   width: 5em;
   height: 3em;
-  background-color: #1b1919;
-  border-color: #FFC300;
-  color: #FFC300;
+  background-color: #000a99;
+  color: #fff;
   border-radius: 5px;
+}
+
+#pageCartMain{
+  font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
+}
+
+/*
+-----------------
+TICKET PAGE
+-----------------
+*/
+
+#buyTicketKart{
+  background-color: #FFC300;
+  display:flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  padding: .75rem;
+  position: sticky;
+  width: 35%;
+  height: 20%;
+  margin: 1em 1em;
+  text-align: center;
+  font-weight: bold;
+}
+
+#carrelloUL{
+  list-style-type: none;
+  justify-items: baseline;
+}
+
+#boxSconto{
+  margin-bottom: 10px;
+}
+
+#boxTicket{
+  padding: 15px;
+  justify-items: center;
+}
+
+#ticketChoice{
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+.btnTicket{
+  width: 45%;
+  margin: 0.1em;
+  padding: 0.7em;
+  font-size: 1.3em;
+  background-color: #000a99;
+  color: #fff; 
+  border-radius: 10px;
+  text-align: center;
+  float: left;
+}
+
+.btnTicket:hover{
+  background-color: var(--secondaryColor);
+  cursor: pointer;
+}
+
+#confermaCart{
+  margin-top: 0.4em;
+  padding: 0.7em;
+  font-size: 1.2em;
+  background-color: #000a99;
+  color: #fff; 
+  border-radius: 10px;
+}
+
+#confermaCart:hover{
+  background-color: #fff;
+  cursor: pointer;
+  color: #000;
+}
+
+#containerTicket{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardTicket{
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  padding: .75rem;
+  margin: 1em;
+  justify-content: space-between;
+  background-color: white;
+  border:none; 
+  width: 95%; 
+}
+
+.ticketInfo{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 55%;
+  float: left;
+}
+
+.cardTicket h3{
+  font-size: 1.5em;
+}
+
+.cardTicket p{
+  font-size: 1.2em;
+}
+
+.cardTicket img{
+  width: 10em;
+  height: 10em;
 }
 
 /*
@@ -1149,7 +1273,32 @@ HOME PAGE
   border-radius: 10px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   width: 23em;
-  height: 15em;
+  margin: 1em;
+}
+
+.cardIndex a{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+  border: none;
+  border-radius: 5%;
+  padding: 1em;
+  margin: 0.5em;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.cardIndex a:hover{
+  background-color: var(--primaryColor);
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cardIndexScriptButton{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cardIndex img{
@@ -1168,35 +1317,21 @@ HOME PAGE
   padding-right: 0.5em;
 }
 
-.cardIndexButton{
-  align-self: flex-end;
-  padding: 0.5em;
-}
-
-.cardIndexButton button{
-  border-radius: 20%;
-  border: none;
-  font-size: 1.5em;
-  height: 2em;
-  width: 2em;
-  background-color: var(--tertiaryColor);
-  color: white;
-}
-
-.cardIndexButton button:hover{
-  background-color: var(--primaryColor);
-  color: #FFF;
-  cursor: pointer;
-}
-
-.containerAttractionsIndex{
+#containerRidesIndex1{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 2em 0em;
 }
 
-.containerAttractionsIndexScript{
+#containerRidesIndex2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em 0em;
+}
+
+.containerRidesIndexScript{
   display: flex;
   flex-direction: column;
   padding-top: 2em;
@@ -1204,20 +1339,20 @@ HOME PAGE
   padding-right: 1em;
 }
 
-.containerAttractionsIndexScript h3{
+.containerRidesIndexScript h3{
   font-size: 2.3em;
 }
 
-.containerAttractionsIndexScript p{
+.containerRidesIndexScript p{
   font-size: 1.1em;
 }
 
-.containerAttractionsIndexImg{
+.containerRidesIndexImg{
   padding-top: 1em;
   border-radius: 50%;
 }
 
-.containerAttractionsIndexImg img{
+.containerRidesIndexImg img{
   border-radius: 11%;
   height: 20em;
 
@@ -1399,60 +1534,11 @@ HOME PAGE
 }
 
 /*
------------------
-CART PAGE
------------------
+----------
+SHOWS
+----------
 */
 
-#backdrop{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(2px);
-}
-
-#backdrop.visible{
-  display: flex;
-}
-
-#boxCart{
-  width: 35%;
-  background-color: #d8d8d8;
-  border-radius: 5px;
-  display:flex;
-  flex-direction: column;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
-  padding: .75rem;
-  margin-top: 1em;
-  margin-bottom: 1.3em;
-}
-
-#prezzoTot{
-  margin-top: 0.5em;
-}
-
-.pageCart{
-  margin-left: 0.8em;
-}
-
-#btnCart{
-  border-radius: 5px;
-  padding: 0.5em;
-  font-size: 1.1em;
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
-  width: 10%;
-}
-
-.btnAddRmv{
-  margin-top: 0.8em;
-  margin-bottom: 0.8em;
-  width: 3em;
-  height: 2em;
+#showsMain{
+  background-color: transparent;
 }

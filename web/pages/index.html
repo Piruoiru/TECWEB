@@ -5,9 +5,11 @@
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <meta name="description" content="Accedi al sito di DreamVille con il tuo utente">    
-        <meta name="keywords" content="login, accesso, DreamVille, utente, account">
+        <meta name="keywords" content="Dreamville, parco divertimenti, famiglie, weekend">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,28 +18,47 @@
         <script src="scripts/script.js"></script>
     </head>
     <body>
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <span lng="en">Home</span></p>
-            <p>Orario di oggi: {{ $orario }}</p>
-            <div id="userCrumb">
-                @for $btn in $headerBtns
-                    <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
-                @endfor
-            </div>
-        </nav>
-        <div id="headerNavWrapper">
+        <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
+                <nav id="menu">
+                    <button id="hamburgerIcon" onclick="toggleMobileNav()" class="buttonStyle visible">
+                        <svg viewBox="0 0 24 22">
+                            <path d="M4 18L20 18" />
+                            <path d="M4 12L20 12" />
+                            <path d="M4 6L20 6" />
+                            <title>Apri menù</title>
+                        </svg>
+                    </button>
+                    <button class="buttonStyle" id="closeIcon" onclick="toggleMobileNav()">
+                        <svg viewBox="0 0 24 22">
+                            <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" />
+                            <title>Chiudi menù</title>
+                        </svg>
+                    </button>
+                    <ul id="menuUl">
+                        <li lang="en" id="currentPageLink"><p>Home</p></li>
+                        <li><a href="rides.php">Scopri le attrazioni</a></li>
+                        <li><a href="shows.php">I nostri shows</a></li>
+                        <li><a href="calendar.php">Orari di apertura</a></li>
+                        <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        @for $btn in $essentialHeaderBtns
+                        <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @endfor
+                    </ul>
+                </nav>
             </header>
-            <nav id="menu">
-                <ul>
-                    <li lang="en" id="currentPageLink"><p>Home</p></li>
-                    <li><a href="map.php">Scopri le attrazioni</a></li>
-                    <li><a href="shows.php">I nostri shows</a></li>
-                    <li><a href="calendar.php">Orari di apertura</a></li>
-                    <li><a href="buyingticket.php">Acquista i biglietti</a></li>
-                </ul>
-            </nav>
+            <div id="breadcrumb">
+                <nav id="breadcrumbNav">
+                    <p>Ti trovi in: <span lang="en">Home</span></p>
+                </nav>
+                <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
+                <div id="userCrumb">
+                    @for $btn in $headerBtns
+                        <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
+                    @endfor
+                </div>
+            </div>
         </div>
         <main>
             <h1 id="titleHomePage">BENVENUTI A DREAMVILLE</h1> 
@@ -49,88 +70,66 @@
                 <img src="../assets/homepage_dreamville.webp" alt="">
             </div>
 
-
             <div id="containerCardIndex">
                 <div class="cardIndex">
                     <img src="../assets/mostrailparco.jpg" alt="">
-                    <div class="cardIndexScript">
-                        <h2>Esplora il parco</h2>
-                        <p>Non perderti neanche un'attrazione</p> 
-                        <p>La nostra mappa ti guida in ogni angolo del parco</p>
-                    </div>
-                    <div class="cardIndexButton">
-                        <a href="map.php" class="buttonHome" title="vai a esplora il parco">→</a>
+                    <div class="cardIndexScriptButton">
+                        <div class="cardIndexScript">
+                            <h2>Esplora il parco</h2>
+                            <p>Non perderti neanche un'attrazione</p> 
+                            <p>La nostra mappa ti guida in ogni angolo del parco</p>
+                        </div>
+                        <a href="rides.php">Vai alle Attrazioni</a>
                     </div>
                 </div>
                 
                 <div class="cardIndex">
                     <img src="../assets/spettacoli.jpg" alt="">
-                    <div class="cardIndexScript">
-                        <h2>Spettacoli per Tutta la Famiglia</h2>
-                        <p>Preparati a vivere momenti indimenticabili</p> 
-                        <p>Il nostro parco offre una varietà di spettacoli mozzafiato</p>
-                    </div>
-                    <div class="cardIndexButton">
-                        <a href="admin.php" class="buttonHome" title="vai alla pagina degli show">→</a>
+                    <div class="cardIndexScriptButton">
+                        <div class="cardIndexScript">
+                            <h2>Spettacoli per Tutta la Famiglia</h2>
+                            <p>Preparati a vivere momenti indimenticabili</p> 
+                            <p>Il nostro parco offre una varietà di spettacoli mozzafiato</p>
+                        </div>
+                        <a href="shows.php">Vai agli Spettacoli</a>
                     </div>
                 </div>
     
                 <div class="cardIndex">
                     <img src="../assets/calendario.jpg" alt="">
-                    <div class="cardIndexScript">
-                        <h2>I nostri orari</h2>
-                        <p>Non perderti nessuna data importante</p> 
-                        <p>Consulta il nostro calendario per scoprire quando venirci a trovare</p>
-                    </div>
-                    <div class="cardIndexButton">
-                        <a href="calendar.php" class="buttonHome" title="vai al calendario">→</a>
+                    <div class="cardIndexScriptButton">
+                        <div class="cardIndexScript">
+                            <h2>I nostri orari</h2>
+                            <p>Non perderti nessuna data importante</p> 
+                            <p>Consulta il nostro calendario per scoprire quando venirci a trovare</p>
+                        </div>
+                        <a href="calendar.php">Vai agli Orari</a>
                     </div>
                 </div>  
             </div>
-        </main>
-        <!-- BISOGNA VEDERE ANCHE PERCHE LE ICONE VANNO SOPRA L'HEADBAR -->
-            <div class="containerHomePage">
-                <div class="menuItem">
-                    <img src="../assets/ticketimg.png" alt="">
-                    <p>DA</p>
-                </div>
-                <div class="menuItem" tabindex="0">
-                    <img src="../assets/ticketimg.png" alt="">
-                    <p>DECIDERE</p>
-                </div>
-                <div class="menuItem" tabindex="0">
-                    <img src="../assets/ticketimg.png" alt="">
-                    <p>COSA</p>
-                </div>
-                <div class="menuItem" tabindex="0">
-                    <img src="../assets/ticketimg.png" alt="">
-                    <p>INSERIRE</p>
-                </div>
-            </div>
-        <main>
-            <div class="containerAttractionsIndex">
-                <div class="containerAttractionsIndexScript">
+            <div id="containerRidesIndex1">
+                <div class="containerRidesIndexScript">
                     <h3>Sali sulle nostre attrazioni!</h3>
                     <p>Divertiti con le nostre attrazioni adatte a tutte le età</p>
                     <p>Tranquille, moderate, intense… Un'emozione diversa per tutti al Parco divertimenti migliore d'Italia!</p>
                 </div>
-                <div class="containerAttractionsIndexImg">
+                <div class="containerRidesIndexImg">
                     <img src="../assets/attrazioni.jpg" alt="">
                 </div>
             </div>  
 
-            <div class="containerAttractionsIndex">
-                <div class="containerAttractionsIndexImg">
+            <div id="containerRidesIndex2">
+                <div class="containerRidesIndexImg">
                     <img src="../assets/spettacoli.jpg" alt="">
                 </div>
-                <div class="containerAttractionsIndexScript">
+                <div class="containerRidesIndexScript">
                     <h3>Grandi emozioni per tutta la famiglia!</h3>
                     <p>Rendi la tua visita ancora più unica con il nostro palinsesto degli spettacoli!</p>
                     <p>I nostri spettacoli sono pensati per tutte le età. Cosa aspetti? Vieni a viverli dal vivo!</p>
                 </div>
             </div>
 
-            <!-- <ul id="attractionList">
+            <!-- <ul id="rideList">
                 @for $row in $result
                 <li data-category="adrenaliniche" class="card adrenalinicheCard">
                     <h3>{{ $row['titolo'] }}</h3>

@@ -5,7 +5,7 @@
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <meta name="description" content=""><!--TODO: aggiornare descrizione-->
-        <meta name="keywords" content="DreamVille, parco, divertimento, giostre, weekend"><!--TODO: aggiornare keywords-->
+        <meta name="keywords" content="DreamVille, parco, divertimento, giostre, weekend, orario"><!--TODO: aggiornare keywords--> 
 
         <!-- TODO: cambiare font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,51 +13,55 @@
         <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="./style/style.css" media="screen">
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <script src="scripts/script.js"></script>
     </head>
     <body class="tertiaryBg" onload="initCalendar()">
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Orari</p>
-            <p>Orario di oggi: {{ $orario }}</p>
-            <div id="userCrumb">
-                @for $btn in $headerBtns
-                    <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
-                @endfor
-            </div>
-        </nav>
-        <div id="headerNavWrapper">
+        <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
+                <nav id="menu">
+                    <ul>
+                        <li lang="en"><a href="index.php">Home</a></li>
+                        <li><a href="rides.php">Scopri le attrazioni</a></li>
+                        <li><a href="shows.php">I nostri shows</a></li>
+                        <li id="currentPageLink"><p>Orari di apertura</p></li>
+                        <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                    </ul>
+                </nav>
             </header>
-            <nav id="menu">
-                <ul>
-                    <li lang="en"><a href="index.php">Home</a></li>
-                    <li><a href="map.php">Scopri le attrazioni</a></li>
-                    <li><a href="shows.php">I nostri shows</a></li>
-                    <li id="currentPageLink"><p>Orari di apertura</p></li>
-                    <li><a href="buyingticket.php">Acquista i biglietti</a></li>
-                </ul>
+            <nav id="breadcrumb">
+                <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Orari</p>
+                <p>Orario di oggi: {{ $orario }}</p>
+                <div id="userCrumb">
+                    @for $btn in $headerBtns
+                        <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
+                    @endfor
+                </div>
             </nav>
         </div>
         <main id="calendarMain">
-            <h1>Calendario di apertura</h1>
-            <p>Controlla i nostri giorni di apertura e pianifica un soggiorno indimenticabile!</p>
-            <table  id="calendarTable" summary="In questa tabella vengono rappresentati i giorni sottoforma di calendario, con la possibilità di avanzare al mese successivo o tornare a quello precedente"> 
-                    <caption>Calendario</caption>
+            <h1>Orari di apertura</h1>
+            <p>Controlla i nostri orari di apertura e pianifica una giornata indimenticabile!</p>
+                <span id="calendarTable" class="hidden">In questa tabella sono rappresentati i giorni di un mese come in un calendario. La prima riga dell'intestazione contiene i pulsanti per cambiare mese e il mese corrente. La seconda riga contiene i giorni della settimana. Le celle contengono il numero del giorno e l'orario di apertura per quella data.</span>
+                <table  id="calendarTable"> 
+                    <captio class="hidden">Calendario con le date di apertura del parco</caption>
                     <thead>
-                        <tr class="headerCalendarTable">
-                            <th scope="col"><button onclick="prevMonth()">&lt;</button></th>
-                            <th colspan="5" id="month" scope="col"></th>
-                            <th scope="col"><button onclick="nextMonth()">&gt;</button></th>
+                        <tr>
+                            <th scope="col"><button onclick="prevMonth()" id="previousMonthBtn" class="buttonStyle hiddenCalendarBtn">&lt;</button></th>
+                            <th colspan="5" id="month" scope="col" aria-label="Mese corrente"></th>
+                            <th scope="col"><button onclick="nextMonth()" id="nextMonthBtn" class="buttonStyle">&gt;</button></th>
                         </tr>
-                        <tr class="headerCalendarTable">
-                                <th scope="col">Lunedì</th>
-                                <th scope="col">Martedì</th>
-                                <th scope="col">Mercoledì</th>
-                                <th scope="col">Giovedì</th>
-                                <th scope="col">Venerdì</th>
-                                <th scope="col">Sabato</th>
-                                <th scope="col">Domenica</th>
+                        <tr>
+                            <th scope="col">Lunedì</th>
+                            <th scope="col">Martedì</th>
+                            <th scope="col">Mercoledì</th>
+                            <th scope="col">Giovedì</th>
+                            <th scope="col">Venerdì</th>
+                            <th scope="col">Sabato</th>
+                            <th scope="col">Domenica</th>
                         </tr>
                     </thead>
                     <tbody id="calendar">

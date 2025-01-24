@@ -1,14 +1,24 @@
 "use strict";
 
 function initCalendar(){
+window.orari = [
+    { apertura: "10:00", chiusura: "18:00" },  // 0 = Lunedì
+    { apertura: "10:00", chiusura: "18:00" },
+    { apertura: "10:00", chiusura: "18:00" },
+    { apertura: "10:00", chiusura: "18:00" },
+    { apertura: "09:00", chiusura: "20:00" },
+    { apertura: "09:00", chiusura: "21:30" },
+    { apertura: "09:00", chiusura: "21:00" },
+    { apertura: "10:00", chiusura: "18:00" }
+    ];
   const month = document.getElementById("month");
   const calendar = document.getElementById("calendar");
 
-  const DATE = new Date();
-  let thisMonth = DATE.getMonth();
-  let year = DATE.getFullYear();
+  const today = new Date();
+  let currentMonth = today.getMonth();
+  let currentYear = today.getFullYear();
 
-  const MONTHS = [
+  window.months = [
     "Gennaio",
     "Febbraio",
     "Marzo",
@@ -23,112 +33,97 @@ function initCalendar(){
     "Dicembre",
   ];
 
-  // Array con i giorni di chiusura del parco (in formato [giorno, mese, anno])
-  const closedDays = [
-    { day: 25, month: 12, year: 2024 },  // Natale 2024
-    { day: 1, month: 1, year: 2025 },    // Capodanno 2025
-    { day: 6, month: 1, year: 2025 }    // Epifania 2025
-    // Aggiungi altri giorni di chiusura se necessario
-  ];
-
   window.month = month;
   window.calendar = calendar;
-  window.DATE = DATE;
-  window.thisMonth = thisMonth;
-  window.year = year; 
-  window.MONTHS = MONTHS;
-  window.closedDays = closedDays;
+  window.today = today;
+  window.currentMonth = currentMonth;
+  window.currentYear = currentYear;
   buildCalendar();
 }
 
 function buildCalendar(){
-  month.innerHTML = `${MONTHS[thisMonth]} ${year}`;
+  calendar.innerHTML = "";
+  month.innerHTML = `${months[currentMonth]} ${currentYear}`;
 
-  const dayOne = (new Date(year, thisMonth).getDay()+6)%7;
-  const monthDays = 32 - new Date(year, thisMonth, 32).getDate();
-
-  let date = 1;
+  const dayOne = (new Date(currentYear, currentMonth).getDay()+6)%7;//Primo giorno della settimana del mese selezionato (0 = Lunedì, 6 = Domenica)
+  let weekDay = dayOne; //Giorno della settimana corrente (0 = Lunedì, 6 = Domenica)
+  const monthDays = 32 - new Date(currentYear, currentMonth, 32).getDate();//Numero di giorni del mese selezionato
+  updateCalendarButtons();
+  let currentDay = 1;
   for (let i = 0; i < 6; i++) {
     let row = document.createElement("tr");
     for (let j = 0; j < 7; j++) {
       let cell = document.createElement("td");
-      cell.classList.add("calendarCell");
-      if (date > monthDays) break;
+      if (currentDay > monthDays)
+        break;
       else if (i === 0 && j < dayOne) {
-        let cellText = document.createTextNode("");
-        cell.appendChild(cellText);
+        cell.setAttribute("aria-label", "Giorno del mese precedente");
         row.appendChild(cell);
       } else {
         let columnText = document.createElement("p");
 
-        columnText.textContent = date;
+        columnText.textContent = currentDay;
         cell.appendChild(columnText);
 
         let hoursText = document.createElement("p");
-        hoursText.textContent = "9:00 - 18:00";
+        hoursText.textContent = `${orari[weekDay].apertura} - ${orari[weekDay].chiusura}`;
         cell.appendChild(hoursText);
 
-        if(date === DATE.getDate() && thisMonth === DATE.getMonth() && year === DATE.getFullYear()){
-          cell.classList.add("today")
+        if(currentDay === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()){
+          cell.classList.add("today");
+          cell.setAttribute("aria-label", "Oggi");
         }
-
-        let cellDay = `${date}`;
-        let cellMonth = `${thisMonth + 1}`;
-        let cellYear = `${year}`;
-
-
-        cell.onclick = () => dateSelected(cellDay, cellMonth, cellYear);
 
         row.appendChild(cell);
 
-        // Aggiungi tabIndex per navigazione
-        // column.setAttribute("tabindex", "0");
-        // column.setAttribute("role", "button");
-        // column.setAttribute("aria-label", `Giorno ${date}`);
-
-        date++;
+        currentDay++;
+        weekDay = (weekDay + 1) % 7;
       }
     }
     calendar.appendChild(row);
   }
 };
 
-function dateSelected(date, month, year){
-  // Verifica se la data selezionata è un giorno di chiusura
-  let isClosed = closedDays.some(day => day.day === parseInt(date) && day.month === parseInt(month) && day.year === parseInt(year));
+function nextMonth(){
+    currentMonth = currentMonth + 1;
 
-  const closedParkCalendar = window.closedParkCalendar;
-
-  if (isClosed) {
-    closedParkCalendar.textContent = "Il parco è chiuso in questa data, ci dispiace!";
-  } else {
-    closedParkCalendar.textContent = "Il parco è aperto, Buona visita!";
-  }
-}
-
-const nextMonth = () => {
-  thisMonth = thisMonth + 1;
-  calendar.innerHTML = "";
-
-  if(thisMonth > 11){
-    year = year + 1;
-    thisMonth = 0;
-  }
-  buildCalendar();
-  return thisMonth;
+    if(currentMonth > 11){
+        currentYear = currentYear + 1;
+        currentMonth = 0;
+    }
+    updateCalendarButtons();
+    buildCalendar();
+    return currentMonth;
 };
 
-const prevMonth = () => {
-  thisMonth = thisMonth - 1;
-  calendar.innerHTML = "";
+function prevMonth(){
+    currentMonth = currentMonth - 1;
+    if(currentMonth < 0){
+        currentYear = currentYear - 1;
+        currentMonth = 11;
+    }
+    updateCalendarButtons();
+    buildCalendar();
 
-  if(thisMonth < 0){
-    year = year - 1;
-    thisMonth = 11;
-  }
-  buildCalendar();
-  return thisMonth;
-};/*
+    return currentMonth;
+};
+
+function updateCalendarButtons(){
+    let previousMonthButton = document.getElementById("previousMonthBtn");
+    let nextMonthButton = document.getElementById("nextMonthBtn");
+    if(currentYear === today.getFullYear() && currentMonth === today.getMonth()){
+        previousMonthButton.disabled=true;
+        previousMonthButton.setAttribute("aria-label", "Non è possibile selezionare i mesi precedenti a quello attuale");
+        previousMonthButton.classList.add("hiddenCalendarBtn");
+        nextMonthButton.setAttribute("title", "Vai al mese successivo a " + `${months[currentMonth]} ${currentYear}`);
+    }else{
+        previousMonthButton.disabled=false;
+        previousMonthButton.setAttribute("title", "Vai al mese precedente a " + `${months[currentMonth]} ${currentYear}`);
+        previousMonthButton.classList.remove("hiddenCalendarBtn");
+        nextMonthButton.setAttribute("title", "Vai al mese successivo a " + `${months[currentMonth]} ${currentYear}`);
+    }
+}
+/*
 ---------------------
     FORMS
 ---------------------
@@ -138,7 +133,6 @@ function loadGenericForm(formDetails) {
     for(var key in formDetails){
         var input = document.getElementById(key);
         onEmptyField(input);
-        // messaggio(input, 0); se si vuole aggiungere un messaggio di aiuto
         input.firstInput = true;
         input.onblur = function() {
             validateField(this, formDetails);
@@ -151,69 +145,63 @@ function loadGenericForm(formDetails) {
             }
         }
         input.onfocus = function() {
-            this.previousElementSibling.classList.add("nonEmptyFieldLabel");
+            this.previousElementSibling.classList.remove("emptyFieldLabel");
         }
     }
 }
 
 function onEmptyField(input) {
-    if(input.value.length != 0){
-        input.previousElementSibling.classList.add("nonEmptyFieldLabel");
+    if(input.value.length === 0){
+        input.previousElementSibling.classList.add("emptyFieldLabel");
     }else{
-        input.previousElementSibling.classList.remove("nonEmptyFieldLabel");
+        input.previousElementSibling.classList.remove("emptyFieldLabel");
     }
 }
     
 
 function validateField(input, formDetails) {
-    var regex = formDetails[input.id][1];
+    var regex = formDetails[input.id][0];
     var text = input.value;
 
-    //tolgo suggerimento o errore precedente
+    //tolgo errore precedente
     var inputLabelContainer = input.parentNode;
     if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
         inputLabelContainer.nextElementSibling.remove();
     }
 
     if(text.search(regex)!=0){
-        input.setCustomValidity(formDetails[input.id][2]);
-        messaggio(input, 1, formDetails);
+        input.classList.add("invalidInput");
+        messaggio(input, formDetails);
         return false;
     }
-    input.setCustomValidity("");
+    input.classList.remove("invalidInput");
 
     return true;
 }
     
 function validateGenericForm(formDetails) {
+    let validForm = true;
+    let firstInvalidInput = true;
     for(var key in formDetails){
         var input = document.getElementById(key);
         if(!validateField(input, formDetails)){
-            return false;
+            if(firstInvalidInput){
+                input.focus();
+                firstInvalidInput = false;
+            }
+            validForm = false;
         }
     }
-    return true;
+    return validForm;
 }
     
-function messaggio(input, mode, formDetails) {
-/* mode = 0, modalità input
-   mode = 1, modalità errore */
-    var node;//tag con il messaggio
+function messaggio(input, formDetails) {
+    var node;
     var inputLabelContainer=input.parentNode;
-
-    if(!mode){
-        //creo messaggio di aiuto
-        node=document.createElement("p");
-        // node.className="default-text";
-        node.appendChild(document.createTextNode(formDetails[input.id][0]));
-        // inputLabelContainer.insertAdjacentElement('afterend', node);
-    }else{
-        //creo messaggio di errore
-        node=document.createElement("p");
-        node.className="errorMessagePar";
-        node.appendChild(document.createTextNode(formDetails[input.id][2]));
-        inputLabelContainer.insertAdjacentElement('afterend', node);
-    }
+    node=document.createElement("p");
+    node.className="errorMessagePar";
+    node.appendChild(document.createTextNode(formDetails[input.id][1]));
+    inputLabelContainer.insertAdjacentElement('afterend', node);
 }
 
     
@@ -225,8 +213,8 @@ function messaggio(input, mode, formDetails) {
 */
 
 var loginFormDetails = {
-    "username":["", /^./, "Inserisci un username"],
-    "password":["", /^./, "Inserisci una password"],
+    "username":[/^./, "Inserisci un username"],
+    "password":[/^./, "Inserisci una password"],
 };
 
 /*
@@ -236,16 +224,15 @@ var loginFormDetails = {
 */
 /*
     - chiave: id dell'input del form
-    - [0]: Feed forward per la compilazione
-    - [1]: Espressione regolare da controllare
-    - [2]: Messaggio errore
+    - [0]: Espressione regolare da controllare
+    - [1]: Messaggio errore
  */
             
 var registrationFormDetails = {
-    "nome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
-    "cognome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
-    "username":["", /^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
-    "password":["", /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}/, "Inserire una password composta da 4 a 20 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"],
+    "nome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
+    "cognome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
+    "username":[/^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
+    "password":[/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}/, "Inserire una password composta da 4 a 20 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"],
 };
 
 function loadRegistrationForm() {
@@ -262,10 +249,10 @@ function loadRegistrationForm() {
         if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
             inputLabelContainer.nextElementSibling.remove();
         }
-        input.setCustomValidity("");
+        input.classList.remove("invalidInput");
     }
     input.onfocus = function() {
-        this.previousElementSibling.classList.add("nonEmptyFieldLabel");
+        this.previousElementSibling.classList.remove("emptyFieldLabel");
     }
 
     //Reset password confirmation on password input
@@ -275,7 +262,8 @@ function loadRegistrationForm() {
             //Reset password confirmation
             var passwordConfirmationInput = document.getElementById("passwordConfirmation");
             passwordConfirmationInput.value = "";
-            passwordConfirmationInput.setCustomValidity("");
+            passwordConfirmationInput.previousElementSibling.classList.add("emptyFieldLabel");
+            passwordConfirmationInput.classList.remove("invalidInput");
             //Rimozione messaggio errore eventualmente presente
             var inputLabelContainer = passwordConfirmationInput.parentNode;
             if(inputLabelContainer.nextElementSibling !== null && inputLabelContainer.nextElementSibling.classList.contains("errorMessagePar")){
@@ -315,7 +303,8 @@ function validateRegistrationForm() {
         usernameValidation = true;
     }
     //Password confirmation validation
-    return genericValidation && usernameValidation && !passwordConfirmationMatch();
+    var passwordMatch = passwordConfirmationMatch();
+    return genericValidation && usernameValidation && passwordMatch;
 
 }
 
@@ -328,12 +317,12 @@ function passwordConfirmationMatch() {
     }
     if(document.getElementById("password").value !== input.value){
         //Messaggio password non coincidenti
-        messaggio(input, 1, {"passwordConfirmation":["", /^.*/, "Le password non coincidono"]});
-        input.setCustomValidity("Le password non coincidono");
-        return true;
+        messaggio(input, {"passwordConfirmation":[/^.*/, "Le password non coincidono"]});
+        input.classList.add("invalidInput");
+        return false;
     }
-    input.setCustomValidity("");
-    return false;
+    input.classList.remove("invalidInput");
+    return true;
 }
 
 function userExists(input) {
@@ -341,11 +330,11 @@ function userExists(input) {
     xhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
             if(this.responseText === "1"){
-                messaggio(input, 1, {"username":["", /^.*/, "Username già in uso"]});
-                input.setCustomValidity("Username già in uso");
+                messaggio(input, {"username":[/^.*/, "Username già in uso"]});
+                input.classList.add("invalidInput");
                 return true;
             }
-            input.setCustomValidity("");
+            input.classList.remove("invalidInput");
             return false;
        }
     };
@@ -372,7 +361,7 @@ var editUserFormDetails = {
 
 function loadRidesFilter() {
     var filterButtons = document.querySelectorAll('#filtersContainer button');
-    var attractions = document.querySelectorAll('#attractionList li');
+    var rides = document.querySelectorAll('#rideList li');
 
     filterButtons.forEach(clickedButton => {
         clickedButton.onclick = () => {
@@ -390,12 +379,12 @@ function loadRidesFilter() {
             });
 
             //Mostra solo le attrazioni della categoria selezionata
-            attractions.forEach(attraction => {
+            rides.forEach(ride => {
                 // Mostra tutte le attrazioni se la categoria è "tutte"
-                if (category === 'tutte' || attraction.getAttribute('data-category') === category) {
-                    attraction.classList.remove('hiddenAttraction');
+                if (category === 'tutte' || ride.getAttribute('data-category') === category) {
+                    ride.classList.remove('hiddenRide');
                 } else {
-                    attraction.classList.add('hiddenAttraction');
+                    ride.classList.add('hiddenRide');
                 }
             });
         };
@@ -425,7 +414,7 @@ var editShowFormDetails = {
 
 /*
 ---------------------
-TICKET AND CART PAGE
+    TICKET AND CART PAGE
 ---------------------
 */
 
@@ -434,26 +423,47 @@ window.onload = function () {
     let nRidotti = 0;
 
     // Seleziona tutti i bottoni dei biglietti e il carrello
-    const buttons = document.querySelectorAll('.cardTicket');
-    const carrello = document.getElementById('carrelloUL');
+    const buttons = document.querySelectorAll('.btnTicket');
     const hiddenInt = document.getElementById("intero");
     const hiddenRid = document.getElementById("ridotto");
 
     // Funzione per aggiungere biglietti al carrello
-    function aggiungiAlCarrello(tipoBiglietto) {
+    function aggiungiAlCarrello(tipoBiglietto, operation) {
         // Crea un nuovo elemento della lista
-        const li = document.createElement('li');
-        li.textContent = tipoBiglietto;
-        if (tipoBiglietto == "Biglietto Intero 34,99€") {
-            nInteri++;
+        if (tipoBiglietto == "Biglietto Intero") {
+            const li = document.getElementById('rowInt');
+            if (operation == "add") {
+                nInteri++;
+            }
+            if (operation == "rmv"){
+                nInteri--;
+                if(nInteri <= 0){
+                    nInteri = 0;
+                    li.textContent = "";
+                    hiddenInt.setAttribute('value', nInteri);
+                    return;
+                }
+            }
+            li.textContent = tipoBiglietto + " x" + nInteri;
             hiddenInt.setAttribute('value', nInteri);
         }
         else {
-            nRidotti++;
+            const li = document.getElementById('rowRid');
+            if (operation == "add"){
+                nRidotti++;
+            }
+            if (operation == "rmv"){
+                nRidotti--;
+                if(nRidotti <= 0){
+                    nRidotti = 0;
+                    li.textContent = "";
+                    hiddenRid.setAttribute('value', nRidotti);
+                    return;
+                }
+            }
+            li.textContent = tipoBiglietto + " x" + nRidotti;
             hiddenRid.setAttribute('value', nRidotti);
         }
-        // Aggiungi il nuovo elemento alla lista del carrello
-        carrello.appendChild(li);
     }
 
     // Aggiungi un evento "click" a ogni bottone
@@ -461,19 +471,33 @@ window.onload = function () {
         button.addEventListener('click', () => {
             // Leggi il tipo di biglietto dall'attributo "data-ticket-type"
             const tipoBiglietto = button.getAttribute('data-ticket-type');
-            aggiungiAlCarrello(tipoBiglietto);
+            const operation = button.getAttribute('operation');
+            aggiungiAlCarrello(tipoBiglietto, operation);
         });
     });
 
     const btnCart = document.getElementById("btnCart");
 
     btnCart.addEventListener('click', () => {
-        const backdrop = document.getElementById("backdrop");
-        backdrop.style.display = "block";
-
-        let output = document.querySelector(".output");
-        
-        output.style.display = "block";
-        output.style.position = "absolute";
+        if(document.getElementById("carrelloUL").innerHTML.trim() != ""){
+            const backdrop = document.getElementById("backdrop");
+            backdrop.style.display = "block";
+    
+            let output = document.querySelector(".output");
+    
+            output.style.display = "block";
+            output.style.position = "absolute";
+        }
     })
+}
+
+/*
+---------------------
+HOMEPAGE
+---------------------
+*/
+function toggleMobileNav(){
+    document.getElementById("menuUl").classList.toggle("visible");
+    document.getElementById("closeIcon").classList.toggle("visible");
+    document.getElementById("hamburgerIcon").classList.toggle("visible");
 }

@@ -327,7 +327,7 @@ class DatabaseClient
             }
             $result = $stmt->get_result();
             while ($ticket = $result->fetch_assoc()) {
-                    if ($ticket['biglietto'] == '1') {
+                if ($ticket['biglietto'] == '1' && $sommaRid > 0.00) {
                     $biglietto = 'Biglietto Ridotto';
                     $sql = "INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES (?,?,?)";
                     $stmt = $this->conn->prepare($sql);
@@ -336,7 +336,8 @@ class DatabaseClient
                     if (!$status) {
                         throw new \Exception("Error querying the database");
                     }
-                } else {
+                }
+                if($ticket['biglietto'] == '2' && $sommaInt > 0.00){
                     $biglietto = 'Biglietto Intero';
                     $sql = "INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES (?,?,?)";
                     $stmt = $this->conn->prepare($sql);
