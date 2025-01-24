@@ -842,20 +842,6 @@ label{
   stroke: #FFF;
 }
 
-#lastPurchaseCard>p, #purchasesMain .card p{
-  margin-top: 1em;
-  margin-bottom: 0.25em;
-  font-size: 1.1em;
-}
-
-#lastPurchaseCard p+p, #purchasesMain .card p+p{
-  margin-top: 0.1em;
-}
-
-#lastPurchaseCard p:last-of-type, #purchasesMain .card p:last-of-type{
-  margin-bottom: 1em;
-}
-
 /*
 ---------------------
     PROFILE PAGE
@@ -906,6 +892,20 @@ label{
   align-items: center;
 }
 
+#lastPurchaseCard>p{
+  margin-top: 1em;
+  margin-bottom: 0.25em;
+  font-size: 1.1em;
+}
+
+#lastPurchaseCard p+p{
+  margin-top: 0.1em;
+}
+
+#lastPurchaseCard p:last-of-type{
+  margin-bottom: 1em;
+}
+
 /*
 ---------------------
     PURCHASES PAGE
@@ -927,6 +927,16 @@ label{
   width: fit-content;
   margin: 1em 2em;
 }
+
+#lastPurchaseCard>p, #purchasesMain .card p{
+  margin-top: 0.25em;
+  font-size: 1.1em;
+}
+
+#lastPurchaseCard p+p, #purchasesMain .card p+p{
+  margin-top: 0.1em;
+}
+
 
 /*
 ---------------------
