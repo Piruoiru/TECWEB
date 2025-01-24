@@ -40,9 +40,15 @@ p#todaysOpeningHours{
     display: none;
 }
 
-#breadcrumbNav>p, #breadcrumbNav>a{
-    margin: 0.1em;
+#breadcrumbNav{
+    margin: 0.75em;
 }
+
+#breadcrumb a{
+    margin: 0;
+    padding: 0;
+}
+
 /* 
 ----------------
     HEADER AND NAV 

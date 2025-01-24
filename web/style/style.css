@@ -133,8 +133,13 @@ a:hover{
   align-items: center;
 }
 
+#breadcrumb>*{
+  margin: 0.5em 0em;
+}
+
 #breadcrumbNav{
   justify-self: left;
+  margin-left: 0.5em;
 }
 
 #todaysOpeningHours{
@@ -143,12 +148,6 @@ a:hover{
 
 #userCrumb{
   justify-self: right;
-}
-
-#todaysOpeningHours, #breadcrumb a{
-  padding: 0.2em 0.1em;
-  margin: 0.35em 0;
-  display: inline-block;
 }
 
 #breadcrumbNav, #todaysOpeningHours{
