@@ -43,7 +43,11 @@
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                         @for $btn in $essentialHeaderBtns
-                        <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @if $btn['url'] == 'profile.php'
+                            <li class="mobileOnlyLink" id="currentPageLink">{{ $btn['text'] }}</li>
+                        @else
+                            <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @endif
                         @endfor
                     </ul>
                 </nav>
