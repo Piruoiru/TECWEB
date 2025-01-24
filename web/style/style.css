@@ -471,6 +471,11 @@ input[type="text"].invalidInput, input[type="password"].invalidInput{
   outline: none;
 }
 
+input[type="text"]:disabled{
+  color: #757575;
+  background-color: #FFF;
+}
+
 label{
   color: var(--primaryColor);
   font-size: 1.1em;
