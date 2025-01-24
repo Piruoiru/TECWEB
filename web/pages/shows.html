@@ -4,10 +4,12 @@
         <title>Shows - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <meta name="description" content="Registra un nuovo utente per accedere a DreamVille e scoprire tutte le promozioni disponibili per te">    
-        <meta name="keywords" content="registrazione, DreamVille, utente, account, nuovo">
+        <meta name="description" content="Scopri i nostri fantastici shows e scegli quello che fa per te!">    
+        <meta name="keywords" content="shows, DreamVille, spettacoli, divertimento">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +45,7 @@
                 </div>
             </nav>
         </div>
-        <main class="card cardFormMain">
+        <main id="cardFormMainShows">
         @if $isAdmin
             @if !empty($debugMessage)
                 <p>{{ $debugMessage }}</p>
