@@ -511,6 +511,7 @@ label{
   max-width: 75%;
   width: fit-content;
   text-align: center;
+  word-wrap: break-word;
 }
 
 .errorMessageBgPar{
@@ -540,6 +541,7 @@ label{
 .errorMessagePar{
   color: var(--errorColor);
   font-size: 1.1em;
+  word-wrap: break-word;
 }
 
 /*
@@ -587,6 +589,7 @@ label{
   margin-top: 0.5em;
   text-align: center;
   max-width: 90%;
+  word-wrap: break-word;
 }
 
 .cardForm .filledGradientBtn{
@@ -615,12 +618,14 @@ label{
   font-size: 2.75em;
   margin-bottom: 0.25em;
   text-align: center;
+  word-wrap: break-word;
 }
 
 #ridesMain>h2, #calendarMain>h2{
   font-size: 2em;
   margin-bottom: 0.25em;
   text-align: center;
+  word-wrap: break-word;
 }
 
 /*
@@ -782,6 +787,7 @@ label{
   padding-top: 0.5em;
   text-align: center;
   text-shadow: #FFF 0 0 25px;
+  word-wrap: break-word;
 }
 
 #profileCardsContainer>.card, #purchasesMain>.card{
@@ -794,6 +800,7 @@ label{
 #profileMain .card > h2, #purchasesMain h2{
   font-size: 2em;
   text-align: center;
+  word-wrap: break-word;
 }
 
 #profileMain .card > h3, #purchasesMain .card > h3{
@@ -913,6 +920,7 @@ label{
 #purchasesMain>h2{
   text-shadow: #FFF 0 0 25px;
   margin-top: 0.5em;
+  word-wrap: break-word;
 }
 
 #purchasesMain>.card{
@@ -1499,6 +1507,7 @@ HOME PAGE
 #purchasesMain>h2{
   text-shadow: #FFF 0 0 25px;
   margin-top: 0.5em;
+  word-wrap: break-word;
 }
 
 #purchasesMain>.card{

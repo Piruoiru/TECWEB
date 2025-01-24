@@ -369,6 +369,10 @@ body {
     width: 85%;
 }
 
+.cardFormMain>h1{
+    max-width: 100%;
+}
+
 /*
 ---------------------
     PROFILE AND PURCHASES PAGES
