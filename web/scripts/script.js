@@ -414,7 +414,7 @@ function deleteShow(title){
 ---------------------
 */
 
-window.onload = function () {
+function loadTicketAndCart(){
     let nInteri = 0;
     let nRidotti = 0;
 
