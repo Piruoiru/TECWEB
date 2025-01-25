@@ -1,25 +1,93 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>DreamVille</title>
+        <title>Mappa - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <meta name="description" content="">    
-        <meta name="keywords" content="parco, divertimento, giostre, weekend, DreamVille, famiglie, attività">
+        <meta name="description" content="Scopri la mappa di DreamVille e visita ogni angolo del parco! Attrazioni, negozi e molto altro ti aspettano!">
+        <meta name="keywords" content="attrazioni, mappa, parco, DreamVille">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
         <script src="scripts/script.js"></script>
     </head>
-    <body>
-        <h2>Mappa del Parco</h2>
-        <p>A Dreamville ci sono ancora tantissimi angoli da esplorare! <br>
-           Con la mappa del Parco, potrai visitare ogni area con facilità e tornare quando preferisci. Grazie alla sua semplicità e chiarezza, scoprirai attrazioni, negozi, ristoranti, aree tematiche e molto altro. <br>
-           Tanti luoghi fantastici ti aspettano per essere scoperti!
-        </p>
-        <main>
-            <h3>Scopri la mappa del Parco</h3>
-            <img src="assets/mappa_parco.jpeg" alt="Mappa del Parco">
-            <div></div>
+    <body class="tertiaryBg" onload="loadRidesFilter()">
+        <div id="headerBreadcrumbWrapper">
+            <header>
+                <h1><span lang="en">DreamVille</span></h1>
+                <nav id="menu">
+                    <button id="hamburgerIcon" onclick="toggleMobileNav()" class="buttonStyle visible">
+                        <svg viewBox="0 0 24 22">
+                            <path d="M4 18L20 18" />
+                            <path d="M4 12L20 12" />
+                            <path d="M4 6L20 6" />
+                            <title>Apri menù</title>
+                        </svg>
+                    </button>
+                    <button class="buttonStyle" id="closeIcon" onclick="toggleMobileNav()">
+                        <svg viewBox="0 0 24 22">
+                            <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" />
+                            <title>Chiudi menù</title>
+                        </svg>
+                    </button>
+                    <ul id="menuUl">
+                        <li lang="en"><a href="index.php">Home</a></li>
+                        <li id="currentPageLink"><a href="rides.php">Scopri le attrazioni</a></li>
+                        <li><a href="shows.php">I nostri shows</a></li>
+                        <li><a href="calendar.php">Orari di apertura</a></li>
+                        <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        @for $btn in $essentialHeaderBtns
+                        <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @endfor
+                    </ul>
+                </nav>
+            </header>
+            <div id="breadcrumb">
+                <nav id="breadcrumbNav">
+                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Mappa</p>
+                </nav>
+                <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
+                <div id="userCrumb">
+                    @for $btn in $headerBtns
+                        <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
+                    @endfor
+                </div>
+            </div>
+        </div>
+        <main id="mapMain">
+            <h1>Mappa del parco</h1>
+            <p>A <span lang="en">Dreamville</span> ci sono ancora tantissimi angoli da esplorare! Con la mappa del Parco, potrai visitare ogni area con facilità e tornare quando preferisci. </p>
+            <p>Grazie alla sua semplicità e chiarezza, scoprirai attrazioni, negozi, ristoranti, aree tematiche e molto altro. </p>
+            <p>Tanti luoghi fantastici ti aspettano per essere scoperti!</p>
+            <img id="parkMapImg" src="assets/mappa_parco.png" alt="mappa del parco">
+            <a id="mapButton" href="rides.php">Torna alle Attrazioni</a>
         </main>
+        <footer>
+            <div class="footerSponsors">
+                <p>Powered by</p>
+                <p> </p>
+                <img src="../assets/sparkleco.jpg" alt="logo sparklego">
+                <img src="../assets/whirldenergy.jpg" alt="logo whirldenergy">
+                <img src="../assets/hippysnacks.jpg" alt="logo hippysnacks">
+                <img src="../assets/ridetech.jpg" alt="logo ridetech">
+                <img src="../assets/cloud9.jpg" alt="logo cloud9">
+                <img src="../assets/cloudpaints.jpg" alt="logo cloudpaints">
+            </div>          
+            <div class="footer">
+                <a href="whoweare.php">Chi siamo</a>
+                <a href="privacy.php">Privacy</a>
+                <p></p>
+                <img src="../assets/instagram.png" alt="instagram DreamVille">                   
+                <img src="../assets/tik_tok.png" alt="tik tok DreamVille">                   
+                <img src="../assets/facebook.png" alt="facebook DreamVille">                   
+                <img src="../assets/logorealx.png" alt="x DreamVille">                   
+            </div>
+        </footer>
     </body>
 </html>

@@ -298,20 +298,33 @@ header{
   width: 65%;
   height: auto;
   filter: drop-shadow(5px 5px 5px #000);
+  margin: 0 1em;
 }
 
-#error404LinKHome>p{
-  font-size: 2em;
+#error404LinKHome p{
+  display: flex;
+  font-size: 2.3em;
+  text-align: center;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  padding: 2em;
 }
 
 #LinkHomePage404 {
-  display: inline-block; /* Evita che il bottone occupi tutta la larghezza */
-  padding: 1em 2em; /* Dimensione del bottone */
-  background-color: var(--fantastyColor);
-  color: var(--secondaryColor);
-  text-align: center; /* Centra il testo dentro il bottone */
-  border-radius: 5px; /* Bordo arrotondato per migliorare l'estetica */
-  cursor: pointer; /* Aggiunge l'icona della mano quando si passa sopra */
+  border-radius: 2px;
+  background: transparent;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 0.35em;
+  padding: 0.75em 1.5em;
+  transition: all .2s ease-in-out;
+  border: 5px solid var(--primaryColor);
+  color: #000;
+}
+
+#LinkHomePage404:hover{
+  background-color: var(--primaryColor);
+  color: #FFF;
 }
 
 #error404{
@@ -374,6 +387,7 @@ header{
 #calendarMain>p{
   margin: 1em 0;
   text-align: center;
+  font-size: 1.3em;
 }
 
 #calendarTable{
@@ -655,7 +669,7 @@ label{
 
 #ridesMain>p{
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 #filtersContainer>button{
@@ -714,6 +728,25 @@ label{
   background-color: var(--fantastyColor);
   color: #FFF;
   cursor: default;
+}
+#filtersContainer>a{
+border-radius: 2px;
+  background: transparent;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 0.35em;
+  padding: 0.75em 1.5em;
+  transition: all .2s ease-in-out;
+}
+
+#mapBtn{
+  border: 5px solid var(--primaryColor);
+  color: #000;
+}
+
+#mapBtn:hover{
+  background-color: var(--primaryColor);
+  color: #FFF;
 }
 
 #bambiniBtn{
@@ -790,6 +823,55 @@ label{
   border-radius: 15px;
   margin: 1em;
   box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.2);
+}
+
+
+
+/*
+---------------------
+MAP PAGE
+---------------------
+*/
+
+#mapMain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mapMain>h1{
+  font-size: 2.75em;
+  margin: 0.25em;
+  text-align: center;
+}
+
+#mapMain>p{
+  font-size: 1.2em;
+  text-align: center;
+}
+
+#mapMain>img{
+  width: 100%;
+  margin: 1em auto;
+  display: block;
+}
+
+#mapButton{
+  border-radius: 2px;
+  background: transparent;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 0.35em;
+  padding: 0.75em 1.5em;
+  transition: all .2s ease-in-out;
+  border: 5px solid var(--primaryColor);
+  color: #000;
+  margin: 1em;
+}
+
+#mapButton:hover{
+  background-color: var(--primaryColor);
+  color: #FFF;
 }
 
 /*
@@ -1402,40 +1484,40 @@ HOME PAGE
 
 }
 
-#footerSponsors{
+.footerSponsors{
   background-color: #0c0f14;
   padding: 1em;
   text-align: center;
   margin-top:1em;
 }
 
-#footerSponsors img{
+.footerSponsors img{
   width: 5em;
   height: auto;
   margin: 0.5em;
 }
 
-#footerSponsors a{
+.footerSponsors a{
   color: white;
 }
 
-#footerSponsors p{
+.footerSponsors p{
   color: white;
 }
 
-#footer{
+.footer{
   background-color: var(--secondaryColor);
   padding: 1em;
   text-align: center;
   margin-top:1em;
 }
 
-#footer a{
+.footer a{
   font-size: 1.1em;
   color: #000000;
 }
 
-#footer img{
+.footer img{
   width: 3em;
 }
 
@@ -1446,7 +1528,7 @@ HOME PAGE
 }
 
 .paragHomePage{
-  font-size: 1.05em;
+  font-size: 1.1em;
   text-align: center;
   padding-top: 0.5em;
 }

@@ -133,7 +133,7 @@ HOMEPAGE
 
 
 .paragHomePage  {
-    font-size: 0.9em;
+    font-size: 1.1em;
     text-align: center;
     padding-top: 0.3em;
 }
@@ -183,14 +183,14 @@ HOMEPAGE
     text-align: center;
 }
 
-#footerSponsors {
+.footerSponsors {
     background-color: #0c0f14;
     padding: 0.3em;
     text-align: center;
     margin-top: 0.3em;
 }
 
-#footer {
+.footer {
     background-color: var(--secondaryColor);
     padding: 0.3em;
     text-align: center;
@@ -413,18 +413,22 @@ CART PAGE
 ---------------------
 */
 
-#mainPageError404 {
-    display: inline-block;
-    margin-bottom: 23%;
+#error404Wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-#mainPageError404>img {
-    width: 100%;
-    z-index: -1;
+#error404LinKHome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#mainPageError404>p {
-    font-size: 2em;
+#error404LinKHome img{
+    margin-top: 2em;
 }
 
 /*
