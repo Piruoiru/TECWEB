@@ -1363,6 +1363,10 @@ HOME PAGE
 ----------
 */
 
+#indexMain{
+  padding: 0em 1em;
+}
+
 .buttonHome{
   position: relative;
   top: -1em;
