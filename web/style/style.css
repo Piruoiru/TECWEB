@@ -288,17 +288,37 @@ header{
   margin-bottom: 12.5em;
 }
 
-#mainPageError404>img{
+#error404LinKHome{
+  display: flex;
+  flex-direction: row;
+}
+
+#error404LinKHome>img{
   width: 65%;
   height: auto;
   filter: drop-shadow(5px 5px 5px #000);
 }
 
-#mainPageError404>p{
+#error404LinKHome>p{
   font-size: 2em;
   padding: 7em 1em;
 }
 
+#LinkHomePage404 {
+  display: inline-block; /* Evita che il bottone occupi tutta la larghezza */
+  padding: 1em 2em; /* Dimensione del bottone */
+  background-color: var(--fantastyColor);
+  color: var(--secondaryColor);
+  text-align: center; /* Centra il testo dentro il bottone */
+  border-radius: 5px; /* Bordo arrotondato per migliorare l'estetica */
+  cursor: pointer; /* Aggiunge l'icona della mano quando si passa sopra */
+}
+
+#error404{
+  display: flex;
+  justify-content: center;
+  margin: 3em 0em;
+}
 /*
 ---------------------
     ERROR 500 PAGE
@@ -1576,3 +1596,4 @@ SHOWS
   align-items: center;
   justify-content: center;
 }
+
