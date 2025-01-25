@@ -1678,3 +1678,65 @@ SHOWS
   justify-content: center;
 }
 
+#showList{
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#showList > .card{
+  padding: 1rem;
+  margin: 1.2rem;
+  max-height: fit-content;
+  background-color: #ecece5;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 5px var(--primaryColor);
+}
+
+#showList img{
+  display: flex;
+  max-width: 18em;
+  height: auto;
+  border-radius: 15px;
+  margin: 1em;
+  box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.2);
+}
+
+#showsWrapper{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#showsButtons{
+  display: flex;
+  flex-direction: row;;
+}
+
+#showsButtons a{
+  margin: 0em 2em;
+  font-size: 1.1em;
+}
+
+#deleteBtn{
+  color: #000;
+  border: solid 5px var(--errorColor);
+}
+
+#deleteBtn:hover{
+  background-color: var(--errorColor);
+  color: #FFF;
+}
+
+#modifyBtn{
+  color: #000;
+  border: solid 5px var(--secondaryColor);
+}
+
+#modifyBtn:hover{
+  background-color: var(--secondaryColor);
+}
+

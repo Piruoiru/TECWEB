@@ -509,3 +509,14 @@ CART PAGE
     margin-left: auto;
     margin-right: auto;
 }
+
+/*
+--------------------
+SHOWS PAGE
+--------------------
+*/
+
+#showList {
+    display: flex;
+    flex-direction: column;
+}
