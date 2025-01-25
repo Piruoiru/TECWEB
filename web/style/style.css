@@ -64,6 +64,7 @@ abbr{
 
 .tertiaryBg main{
   background-color: #FFF;
+  box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
 }
 
 /*
@@ -284,7 +285,7 @@ header{
 
 #mainPageError404{
   display: flex;
-  background-color: var(--btncolor);
+  align-items: center;
   margin-bottom: 12.5em;
 }
 
@@ -301,7 +302,6 @@ header{
 
 #error404LinKHome>p{
   font-size: 2em;
-  padding: 7em 1em;
 }
 
 #LinkHomePage404 {
@@ -631,7 +631,6 @@ label{
 
 #ridesMain, #calendarMain{
   padding: 2em;
-  box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
 }
 
 #ridesMain>h1, #calendarMain>h1{
@@ -1590,7 +1589,7 @@ SHOWS
 }
 
 #cardFormMainShows{
-  margin: 2em auto;
+  margin: auto auto;
   display: flex;
   flex-direction: column;
   align-items: center;
