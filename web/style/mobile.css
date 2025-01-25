@@ -28,7 +28,7 @@ html{
     border-top: 2px solid #FFF;
     border-bottom: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 0.95em;
 }
 
@@ -142,6 +142,7 @@ HOMEPAGE
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-left: -2em;
 }
 
 .cardIndex {

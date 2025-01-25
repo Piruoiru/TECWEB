@@ -26,32 +26,52 @@
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
                 <nav id="menu">
-                    <ul>
+                    <button id="hamburgerIcon" onclick="toggleMobileNav()" class="buttonStyle visible">
+                        <svg viewBox="0 0 24 22">
+                            <path d="M4 18L20 18" />
+                            <path d="M4 12L20 12" />
+                            <path d="M4 6L20 6" />
+                            <title>Apri menù</title>
+                        </svg>
+                    </button>
+                    <button class="buttonStyle" id="closeIcon" onclick="toggleMobileNav()">
+                        <svg viewBox="0 0 24 22">
+                            <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" />
+                            <title>Chiudi menù</title>
+                        </svg>
+                    </button>
+                    <ul id="menuUl">
                         <li lang="en"><a href="index.php">Home</a></li>
                         <li><a href="rides.php">Scopri le attrazioni</a></li>
                         <li id="currentPageLink"><p>I nostri shows</p></li>
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        @for $btn in $essentialHeaderBtns
+                        <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @endfor
                     </ul>
                 </nav>
             </header>
-            <nav id="breadcrumb">
-                <p>Ti trovi in: <a href="shows.php" lang="en">Home</a> &gt; Shows</p>
-                <p>Orario di oggi: {{ $orario }}</p>
+            <div id="breadcrumb">
+                <nav id="breadcrumbNav">
+                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Shows</p>
+                </nav>
+                <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
                 <div id="userCrumb">
                     @for $btn in $headerBtns
                         <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
                     @endfor
                 </div>
-            </nav>
+            </div>
         </div>
         <main id="cardFormMainShows">
         @if $isAdmin
+        <div class="card cardFormMain">
             @if !empty($debugMessage)
                 <p>{{ $debugMessage }}</p>
             @endif
             <h1>Creazione spettacoli</h1>
-            <form method="POST" id="" class="cardForm" enctype="multipart/form-data">
+            <form method="POST" class="cardForm" enctype="multipart/form-data">
                 <div class="inputLabelContainer">
                     <label for="titolo" class="emptyFieldLabel">Titolo</label>
                     <input type="text" id="titolo" name="titolo" />
@@ -88,9 +108,27 @@
             @endfor
         </ul>
         </main>
-        <a href="/privacy.php">Privacy Policy</a>
-        <a href="/buyingticket.php">Biglietti</a>
-        <a href="/buyingcart.php">Carrello</a>
-        <a href="/profilo.php">Profilo</a>
+        <footer>
+            <div id="footerSponsors">
+                <p>Powered by</p>
+                <p> </p>
+                <img src="../assets/sparkleco.jpg" alt="logo sparklego">
+                <img src="../assets/whirldenergy.jpg" alt="logo whirldenergy">
+                <img src="../assets/hippysnacks.jpg" alt="logo hippysnacks">
+                <p> </p>
+                <img src="../assets/ridetech.jpg" alt="logo ridetech">
+                <img src="../assets/cloud9.jpg" alt="logo cloud9">
+                <img src="../assets/cloudpaints.jpg" alt="logo cloudpaints">
+            </div>          
+            <div id="footer">
+                <a href="whoweare.php">Chi siamo</a>
+                <a href="privacy.php">Privacy</a>
+                <p></p>
+                <img src="../assets/instagram.png" alt="instagram DreamVille">                   
+                <img src="../assets/tik_tok.png" alt="tik tok DreamVille">                   
+                <img src="../assets/facebook.png" alt="facebook DreamVille">                   
+                <img src="../assets/logorealx.png" alt="x DreamVille">                   
+            </div>
+        </footer>
     </body>
 </html>

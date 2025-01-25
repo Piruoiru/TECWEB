@@ -7,10 +7,10 @@
         <meta name="description" content="Pagina di errore"><!--TODO: aggiornare descrizione-->
         <meta name="keywords" content="DreamVille, parco, divertimento, errore"><!--TODO: aggiornare keywords-->
 
-        <!-- TODO: cambiare font -->
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="./style/style.css" media="screen">
         <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
@@ -18,7 +18,7 @@
 
         <script src="scripts/script.js"></script> 
     </head>
-    <body>
+    <body class="tertiaryBg">
         <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
@@ -62,11 +62,15 @@
             </div>
         </div>
         <main id="mainPageError404">
-            <img src="assets/casaStregata.png" alt="404">
-            <p>Che ci fai qui? Ti sei forse perso nella <strong>Casa Stregata?</strong></p>    
+            <div>
+                <div id="error404LinKHome">
+                    <img src="../assets/casaStregata.png" alt="404">
+                    <p>Che ci fai qui? Ti sei forse perso nella <strong>Casa Stregata?</strong></p>    
+                </div>
+                <div id="error404">
+                    <a id="LinkHomePage404" href="index.php">Ritorna alla Home</a>
+                </div>
+            </div>
         </main>
-        <footer id="footerPageError404">
-            <p>© 2024 DreamVille</p>
-        </footer>
     </body>
 </html>

@@ -9,6 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 include_once 'db.php';
 include_once 'header.php';
+unset($context['headerBtns']['cart']);
 $prezzoInt = 34.99;
 $prezzoRid = 24.99;
 $sommaInt = 0;
