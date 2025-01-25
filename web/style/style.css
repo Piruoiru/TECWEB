@@ -1395,23 +1395,25 @@ HOME PAGE
 .cardIndex{
   display: flex;
   flex-direction: row;
-  background-color: var(--secondaryColor);
   border-radius: 10px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   width: 23em;
   margin: 1em;
+  border: solid 5px var(--tertiaryColor);
 }
 
 .cardIndex a{
-  background-color: var(--tertiaryColor);
-  color: #FFF;
-  border: none;
-  border-radius: 5%;
   padding: 1em;
-  margin: 0.5em;
+  border: 0;
   cursor: pointer;
+  text-decoration: none;
+  border: 1px solid #000;
   text-align: center;
+  border: solid 5px var(--tertiaryColor);
   font-size: 1.1em;
+  margin: 0.5em;
+  color: #000000;
+  transition: all .2s ease-in-out;
 }
 
 .cardIndex a:hover{
@@ -1430,7 +1432,6 @@ HOME PAGE
 .cardIndex img{
   width: 35%;
   height: auto;
-  border-radius: 10px 0 0 10px;
   object-fit: cover;
   object-position: center;
 }
@@ -1519,6 +1520,13 @@ HOME PAGE
 
 .footer img{
   width: 3em;
+}
+
+.socialWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }
 
 #titleHomePage{
@@ -1684,6 +1692,16 @@ SHOWS
   grid-template-columns: 1fr 1fr;
 }
 
+#showList h3{
+  font-size: 1.75em;
+  margin: 0.5em;
+}
+
+#showList p{
+  font-size: 1.2em;
+  margin: 0em 0.5em;
+}
+
 #showList > .card{
   padding: 1rem;
   margin: 1.2rem;
@@ -1740,3 +1758,18 @@ SHOWS
   background-color: var(--secondaryColor);
 }
 
+/*
+-----------------
+DELETE SHOW PAGE
+-----------------
+*/
+
+#backToShowsBtn{
+  margin-top: 1em;
+  border: solid 5px var(--primaryColor);
+}
+
+#backToShowsBtn:hover{
+  background-color: var(--primaryColor);
+  color: #FFF;
+}
