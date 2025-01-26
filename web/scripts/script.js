@@ -52,7 +52,6 @@ function buildCalendar(){
   let currentDay = 1;
   for (let i = 0; i < 6; i++) {
     let row = document.createElement("tr");
-    let monthCompleted = false;
     for (let j = 0; j < 7; j++) {
       let cell = document.createElement("td");
       if (currentDay > monthDays){
@@ -366,9 +365,9 @@ function userExists(input) {
 ---------------------
 */
 var editUserFormDetails = {
-    "nome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
-    "cognome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
-    "username":["", /^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
+    "nome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
+    "cognome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
+    "username":[/^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
 };
 
 /*
@@ -415,17 +414,15 @@ function loadRidesFilter() {
 ---------------------
 */
 var createEditShowFormDetails = {
-    "titolo":["", /^[A-Za-z.,;']+/, "Inserisci un titolo"],
-    "descrizione":["", /^[A-Za-z.,;']+/, "Inserisci una descrizione"],
-    "immagine": ["", /^.+/, "Inserisci un'immagine"],
-    "descrizione_immagine":["", /^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
+    "titolo":[/^[A-Za-z.,;']+/, "Inserisci un titolo"],
+    "descrizione":[/^[A-Za-z.,;']+/, "Inserisci una descrizione"],
+    "descrizione_immagine":[/^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
 };
 
 var editShowFormDetails = {
-    "nuovo_titolo":["", /^[A-Za-z.,;']+/, "Inserisci un titolo"],
-    "descrizione":["", /^[A-Za-z.,;']+/, "Inserisci una descrizione"],
-    "immagine": ["", /^.+/, "Inserisci un'immagine"],
-    "descrizione_immagine":["", /^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
+    "nuovo_titolo":[/^[A-Za-z.,;']+/, "Inserisci un titolo"],
+    "descrizione":[/^[A-Za-z.,;']+/, "Inserisci una descrizione"],
+    "descrizione_immagine":[/^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
 };
 
 

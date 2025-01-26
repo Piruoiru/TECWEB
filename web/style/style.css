@@ -229,6 +229,7 @@ header{
   padding: 1px 0;
   position: relative;
   font-weight: 500;
+  font-size: 1.3em;
 }
 
 #menu #currentPageLink{
@@ -240,7 +241,6 @@ header{
 }
 
 #menu>ul>li>a{
-  font-size: 1.3em;
   line-height: 1.5em;
   color: #FFF;
   text-decoration: none;
@@ -513,7 +513,12 @@ label{
 
 .fileInputLabelContainer{
   display: flex;
+  flex-direction: column;
   padding-top: 1.5em;
+}
+
+.fileInputLabelContainer>label{
+  margin-bottom: 0.5em;
 }
 
 .errorMessageBgPar, .infoMessageBgPar{
@@ -1446,6 +1451,7 @@ HOME PAGE
   height: auto;
   object-fit: cover;
   object-position: center;
+  border-radius: 4px 0 0 4px;
 }
 
 .cardIndexScript {
