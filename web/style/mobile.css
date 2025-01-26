@@ -336,6 +336,22 @@ CALENDAR PAGE
 }
 
 /*
+---------------------
+    FORMS
+---------------------
+*/
+input[type="text"], input[type="password"]{
+    min-height: 44px;
+    min-width: 44px;
+    box-sizing: border-box;
+}
+
+.emptyFieldLabel{
+    transform: translateY(1.6em);
+    cursor: text;
+}
+
+/*
 -----------------
 TICKET PAGE
 -----------------
