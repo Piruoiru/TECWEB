@@ -19,6 +19,21 @@ html{
     color: #000;
 }
 
+/*
+---------------------
+  LINKS AND BUTTONS
+---------------------
+*/
+a, button{
+    min-width: 44px;
+    min-height: 44px;
+    box-sizing: border-box;
+}
+
+a{
+    display: inline-block;
+}
+
 /* 
 ----------------
     BREADCRUMB 
@@ -29,7 +44,6 @@ html{
     border-bottom: 0;
     display: flex;
     justify-content: space-around;
-    font-size: 0.95em;
 }
 
 #userCrumb{
@@ -41,12 +55,13 @@ p#todaysOpeningHours{
 }
 
 #breadcrumbNav{
-    margin: 0.75em;
+    margin: 0.25em 0.75em;
 }
 
-#breadcrumb a{
+#breadcrumb a, #breadcrumb p{
     margin: 0;
     padding: 0;
+    line-height: 44px;
 }
 
 /* 
@@ -70,7 +85,7 @@ header{
     padding: 0.5em;
     border-radius: 10px;
     position: fixed;
-    top: 2.5em;
+    top: 2em;
     right: 2.5em;
     transition: all 0.2s ease-out;
     background-color: var(--primaryColor);
@@ -79,7 +94,7 @@ header{
 }
 
 #hamburgerIcon>svg, #closeIcon>svg{
-    width: 3em;
+    width: 3.5em;
     stroke: #FFF;
     stroke-width: 2;
     fill: none;
@@ -105,6 +120,10 @@ header{
     z-index: 1;
 }
 
+#menu>ul>li>a, #menu #currentPageLink{
+    font-size: 1.8rem;
+}
+
 #menu>ul.visible, #menu>.visible{
     visibility: visible;
     opacity: 1;
@@ -112,7 +131,7 @@ header{
 }
 
 #menu>ul>li{
-    margin: 1em auto;
+    margin: 1rem auto;
 }
 
 #menu>ul>li.mobileOnlyLink{
@@ -148,7 +167,6 @@ HOMEPAGE
 .cardIndex {
     display: flex;
     flex-direction: row;
-    background-color: var(--secondaryColor);
     border-radius: 10px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
     width: 100%;
@@ -242,104 +260,94 @@ CALENDAR PAGE
 -------------
 */
 
-/* Stili generali */
-body {
-    font-family: 'Lexend', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+#calendarTable{
+    width: 90%;
 }
 
-#calendarTable {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 300px;
-}
-
-/* Nasconde la riga dei giorni della settimana per convertirla in una colonna */
 #calendarTable thead tr:nth-child(2) {
     display: none;
 }
 
-/* Colonne convertite in righe */
-#calendarTable tbody {
+#calendarTable thead th{
+    padding: 0.4em;
+    font-size: 1.25em;
+    border: 1px solid #FFF;
+    border-bottom: none;
+}
+
+#calendarTable thead tr:first-child th{
+    border-top: 1px solid #FFF;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+  
+#calendarTable thead tr:first-child th:first-child{
+    border-top: 1px solid #000;
+}
+
+#calendarTable>* {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#calendarTable tbody tr {
+#calendarTable tr{
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 5px;
 }
 
-/* Stile per i giorni della settimana */
-#calendarTable tbody tr th {
-    font-weight: bold;
-    color: #002366;
-    text-align: left;
-}
-
-/* Stile per le celle delle date */
-#calendarTable tbody tr td {
-    color: #333;
-    text-align: left;
+#calendarTable td, #calendarTable th {
+    box-sizing: border-box;
     width: 100%;
-    text-align: center;
-}
-
-/* Stili del mese e pulsanti */
-#calendarTable thead tr:first-child {
-    background-color: #002366;
-    color: white;
-}
-
-#calendarTable thead button {
-    background-color: gold;
-    color: #002366;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-#calendarTable tbody tr {
-    font-size: 1em;
-    width: 39.3em;
-    margin-left: 192%;
-    border:none;
 }
 
 #calendarTable tbody td p:first-child {
-    font-size: 1.3em;
-    font-weight: 600;
-    margin-top: 0;
-    
+    font-size: 1.3em;    
+}
+
+#calendarTable tbody td p:last-child {
+    font-size: 1.1em;
 }
 
 #calendarTable thead tr:first-child th {
-    padding: 0.3em;
     font-size: 1.4em;
-    border-top: 1px solid #000;
-    width: 9em;
+}
+
+#calendarTable td p[data-title]:before{
+    content: attr(data-title)" ";
+}
+
+#calendarTable>tbody td{
+    border-bottom: none;
+}
+
+#calendarTable>tbody tr:last-child td:last-child{
+    border-bottom: 1px solid #000;
 }
 
 #calendarTable p {
     font-size: 1em;
-    color: rgb(0, 0, 0);
-    margin-top: 0.3em;
 }
 
-#calendarTable tbody td:empty {
+#calendarTable td:empty, th:empty {
     display: none;
+}
+
+/*
+---------------------
+    FORMS
+---------------------
+*/
+input[type="text"], input[type="password"]{
+    min-height: 44px;
+    min-width: 44px;
+    box-sizing: border-box;
+}
+
+.emptyFieldLabel{
+    transform: translateY(1.6em);
+    cursor: text;
 }
 
 /*

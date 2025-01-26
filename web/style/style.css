@@ -223,13 +223,13 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3em;
   color: #FFF;
   text-align:center;
   margin: auto 1em;
   padding: 1px 0;
   position: relative;
   font-weight: 500;
+  font-size: 1.3em;
 }
 
 #menu #currentPageLink{
@@ -431,7 +431,7 @@ header{
 }
 
 #calendarTable .hiddenCalendarBtn{
-  display: none;
+  visibility: hidden;
 }
 
 #calendarTable .today{
@@ -450,7 +450,7 @@ header{
 
 #calendarTable p{
   font-size: 0.9em;
-  color: rgb(0, 0, 0);
+  color: #000;
   margin-top: 0.3em;
 }
 
@@ -513,7 +513,12 @@ label{
 
 .fileInputLabelContainer{
   display: flex;
+  flex-direction: column;
   padding-top: 1.5em;
+}
+
+.fileInputLabelContainer>label{
+  margin-bottom: 0.5em;
 }
 
 .errorMessageBgPar, .infoMessageBgPar{
@@ -1446,6 +1451,7 @@ HOME PAGE
   height: auto;
   object-fit: cover;
   object-position: center;
+  border-radius: 4px 0 0 4px;
 }
 
 .cardIndexScript {

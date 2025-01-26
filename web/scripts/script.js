@@ -54,13 +54,36 @@ function buildCalendar(){
     let row = document.createElement("tr");
     for (let j = 0; j < 7; j++) {
       let cell = document.createElement("td");
-      if (currentDay > monthDays)
+      if (currentDay > monthDays){
         break;
-      else if (i === 0 && j < dayOne) {
+      }else if (i === 0 && j < dayOne) {
         cell.setAttribute("aria-label", "Giorno del mese precedente");
         row.appendChild(cell);
       } else {
         let columnText = document.createElement("p");
+        switch (weekDay) {
+            case 0:
+                columnText.setAttribute("data-title", "Lunedì");
+                break;
+            case 1:
+                columnText.setAttribute("data-title", "Martedì");
+                break;
+            case 2:
+                columnText.setAttribute("data-title", "Mercoledì");
+                break;
+            case 3:
+                columnText.setAttribute("data-title", "Giovedì");
+                break;
+            case 4:
+                columnText.setAttribute("data-title", "Venerdì");
+                break;
+            case 5:
+                columnText.setAttribute("data-title", "Sabato");
+                break;
+            case 6:
+                columnText.setAttribute("data-title", "Domenica");
+                break;
+        }
 
         columnText.textContent = currentDay;
         cell.appendChild(columnText);
@@ -73,14 +96,15 @@ function buildCalendar(){
           cell.classList.add("today");
           cell.setAttribute("aria-label", "Oggi");
         }
-
         row.appendChild(cell);
 
         currentDay++;
         weekDay = (weekDay + 1) % 7;
       }
     }
-    calendar.appendChild(row);
+    if (row.children.length > 0) {
+        calendar.appendChild(row);
+    }
   }
 };
 
@@ -341,9 +365,9 @@ function userExists(input) {
 ---------------------
 */
 var editUserFormDetails = {
-    "nome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
-    "cognome":["", /^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
-    "username":["", /^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
+    "nome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
+    "cognome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
+    "username":[/^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
 };
 
 /*
@@ -390,17 +414,15 @@ function loadRidesFilter() {
 ---------------------
 */
 var createEditShowFormDetails = {
-    "titolo":["", /^[A-Za-z.,;']+/, "Inserisci un titolo"],
-    "descrizione":["", /^[A-Za-z.,;']+/, "Inserisci una descrizione"],
-    "immagine": ["", /^.+/, "Inserisci un'immagine"],
-    "descrizione_immagine":["", /^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
+    "titolo":[/^[A-Za-z.,;']+/, "Inserisci un titolo"],
+    "descrizione":[/^[A-Za-z.,;']+/, "Inserisci una descrizione"],
+    "descrizione_immagine":[/^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
 };
 
 var editShowFormDetails = {
-    "nuovo_titolo":["", /^[A-Za-z.,;']+/, "Inserisci un titolo"],
-    "descrizione":["", /^[A-Za-z.,;']+/, "Inserisci una descrizione"],
-    "immagine": ["", /^.+/, "Inserisci un'immagine"],
-    "descrizione_immagine":["", /^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
+    "nuovo_titolo":[/^[A-Za-z.,;']+/, "Inserisci un titolo"],
+    "descrizione":[/^[A-Za-z.,;']+/, "Inserisci una descrizione"],
+    "descrizione_immagine":[/^[A-Za-z.,;']+/, "Inserisci una breve descrizione dell'immagine"],
 };
 
 
