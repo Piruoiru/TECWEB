@@ -267,7 +267,6 @@ class DatabaseClient
             }
             $result = $stmt->get_result();
             if($result->num_rows !== 0){
-                throw new \Exception("dafd");
                 return "Non si può creare uno spettacolo con un titolo già esistente";
             }
             $sql = "INSERT INTO spettacoli(titolo,descrizione,percorso_immagine,descrizione_immagine) VALUES (?,?,?,?);";
@@ -277,7 +276,7 @@ class DatabaseClient
             if (!$status) {
                 throw new \Exception("C'è stato un errore nella richiesta al database.");
             }
-            return '';
+            return 'Spettacolo aggiunto correttamente!';
         } catch(Throwable $exception) {
             header('Location: 500.php');
         }
