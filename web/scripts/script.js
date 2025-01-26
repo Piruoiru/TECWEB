@@ -61,6 +61,29 @@ function buildCalendar(){
         row.appendChild(cell);
       } else {
         let columnText = document.createElement("p");
+        switch (weekDay) {
+            case 0:
+                columnText.setAttribute("data-title", "Lunedì");
+                break;
+            case 1:
+                columnText.setAttribute("data-title", "Martedì");
+                break;
+            case 2:
+                columnText.setAttribute("data-title", "Mercoledì");
+                break;
+            case 3:
+                columnText.setAttribute("data-title", "Giovedì");
+                break;
+            case 4:
+                columnText.setAttribute("data-title", "Venerdì");
+                break;
+            case 5:
+                columnText.setAttribute("data-title", "Sabato");
+                break;
+            case 6:
+                columnText.setAttribute("data-title", "Domenica");
+                break;
+        }
 
         columnText.textContent = currentDay;
         cell.appendChild(columnText);

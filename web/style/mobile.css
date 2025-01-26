@@ -242,22 +242,7 @@ CALENDAR PAGE
 -------------
 */
 
-/* Stili generali */
-body {
-    font-family: 'Lexend', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
 
-#calendarTable {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 300px;
-}
-
-/* Nasconde la riga dei giorni della settimana per convertirla in una colonna */
 #calendarTable thead tr:nth-child(2) {
     display: none;
 }
@@ -273,63 +258,28 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-}
-
-/* Stile per i giorni della settimana */
-#calendarTable tbody tr th {
-    font-weight: bold;
-    color: #002366;
-    text-align: left;
 }
 
 /* Stile per le celle delle date */
 #calendarTable tbody tr td {
-    color: #333;
-    text-align: left;
+    box-sizing: border-box;
     width: 100%;
-    text-align: center;
-}
-
-/* Stili del mese e pulsanti */
-#calendarTable thead tr:first-child {
-    background-color: #002366;
-    color: white;
-}
-
-#calendarTable thead button {
-    background-color: gold;
-    color: #002366;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-#calendarTable tbody tr {
-    font-size: 1em;
-    width: 39.3em;
-    margin-left: 192%;
-    border:none;
 }
 
 #calendarTable tbody td p:first-child {
-    font-size: 1.3em;
-    font-weight: 600;
-    margin-top: 0;
-    
+    font-size: 1.3em;    
+}
+
+#calendarTable tbody td p:last-child {
+    font-size: 1.1em;
 }
 
 #calendarTable thead tr:first-child th {
-    padding: 0.3em;
     font-size: 1.4em;
-    border-top: 1px solid #000;
-    width: 9em;
+}
+
+#calendarTable td p[data-title]:before{
+    content: attr(data-title)" ";
 }
 
 #calendarTable p {
