@@ -19,6 +19,21 @@ html{
     color: #000;
 }
 
+/*
+---------------------
+  LINKS AND BUTTONS
+---------------------
+*/
+a, button{
+    min-width: 44px;
+    min-height: 44px;
+    box-sizing: border-box;
+}
+
+a{
+    display: inline-block;
+}
+
 /* 
 ----------------
     BREADCRUMB 
@@ -40,12 +55,13 @@ p#todaysOpeningHours{
 }
 
 #breadcrumbNav{
-    margin: 0.75em;
+    margin: 0.25em 0.75em;
 }
 
-#breadcrumb a{
+#breadcrumb a, #breadcrumb p{
     margin: 0;
     padding: 0;
+    line-height: 44px;
 }
 
 /* 
@@ -104,6 +120,10 @@ header{
     z-index: 1;
 }
 
+#menu>ul>li>a, #menu #currentPageLink{
+    font-size: 1.8em;
+}
+
 #menu>ul.visible, #menu>.visible{
     visibility: visible;
     opacity: 1;
@@ -111,7 +131,7 @@ header{
 }
 
 #menu>ul>li{
-    margin: 1em auto;
+    margin: 1rem auto;
 }
 
 #menu>ul>li.mobileOnlyLink{
