@@ -494,3 +494,15 @@ function toggleMobileNav(){
     document.getElementById("closeIcon").classList.toggle("visible");
     document.getElementById("hamburgerIcon").classList.toggle("visible");
 }
+
+/*
+---------------------
+PULSANTE TORNA SU
+---------------------
+*/
+function scrollUp(){
+    document.documentElement.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}

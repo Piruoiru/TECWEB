@@ -1785,3 +1785,33 @@ DELETE SHOW PAGE
   background-color: var(--primaryColor);
   color: #FFF;
 }
+
+/*
+-----------------
+PULSANTE TORNA SU
+-----------------
+*/
+.scrollUpButton{
+  all:unset;
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  height: 90px;
+  width: 90px;
+  background-color: var(--primaryColor);
+  border-radius: 99%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.scrollUpButton .arrowUp{
+  width: 28px;
+  height: 28px;
+  border-left: 4px solid var(--secondaryColor);
+  border-bottom: 4px solid var(--secondaryColor);
+  transform: rotate(135deg);
+  margin-bottom: -14px;
+  pointer-events: none;
+}
