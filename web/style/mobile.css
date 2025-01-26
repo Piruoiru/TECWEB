@@ -421,21 +421,21 @@ CART PAGE
 ---------------------
 */
 
-.error404Wrapper {
+.errorWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.error404LinKHome{
+.errorMain{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.error404LinKHome img{
+.errorMain img{
     margin-top: 2em;
 }
 

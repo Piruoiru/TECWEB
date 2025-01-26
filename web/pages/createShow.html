@@ -4,8 +4,8 @@
         <title>Spettacoli - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <meta name="description" content="Scopri i vari spettacoli presentati da DreamVille!">    
-        <meta name="keywords" content="spettacoli, DreamVille, divertimento, nuovo">
+        <meta name="description" content="Crea un nuovo spettacolo!">    
+        <meta name="keywords" content="crea, creazione,spettacoli, DreamVille, divertimento, nuovo">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
         <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
@@ -17,7 +17,7 @@
 
         <script src="scripts/script.js"></script>
     </head>
-    <body class="tertiaryBg">
+    <body class="tertiaryBg" onload="loadGenericForm(createEditShowFormDetails)">
         <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
@@ -50,7 +50,7 @@
             </header>
             <div id="breadcrumb">
                 <nav id="breadcrumbNav">
-                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Spettacoli</p>
+                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; <a href="shows.php" lang="en">Spettacoli</a> &gt; Crea spettacolo</p>
                 </nav>
                 <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
                 <div id="userCrumb">
@@ -61,27 +61,30 @@
             </div>
         </div>
         <main id="cardFormMainShows">
-        @if $isAdmin
         <div class="card cardFormMain">
-            <a class="buttonStyle" id="createBtn" href="/createShow.php">Crea uno spettacolo</a>
-        @endif
-        <ul id="showList">
-            @for $row in $result
-            <li class="card">
-                <h3>{{ $row['titolo'] }}</h3>
-                <div id="showsWrapper">
-                    <p>{{ $row['descrizione'] }}</p>
-                    <img src="assets/{{ $row['percorso_immagine'] }}" alt="{{ $row['descrizione_immagine'] }}">
+            @if !empty($debugMessage)
+                <p>>{{ $debugMessage }}</p>
+            @endif
+            <h1>Creazione spettacoli</h1>
+            <form method="POST" class="cardForm" enctype="multipart/form-data">
+                <div class="inputLabelContainer">
+                    <label for="titolo" class="emptyFieldLabel">Titolo</label>
+                    <input type="text" id="titolo" name="titolo" />
                 </div>
-                <div id="showsButtons">
-                    @if $isAdmin
-                    <a class="buttonStyle" id="modifyBtn" href="/editShow.php?vecchio_titolo={{ $row['titolo'] }}">Modifica</a>
-                    <a class="buttonStyle" id="deleteBtn" href="/deleteShow.php?titolo={{ $row['titolo'] }}">Elimina</a>
-                    @endif  
+                <div class="inputLabelContainer" id="descrizioneContainer">
+                    <label for="descrizione" class="emptyFieldLabel">Descrizione</label>
+                    <input type="text" id="descrizione" name="descrizione" />
                 </div>
-            </li>
-            @endfor
-        </ul>
+                <div class="fileInputLabelContainer" id="immagineContainer">
+                    <label for="immagine">Immagine</label>
+                    <input type="file" id="immagine" name="immagine" />
+                </div>
+                <div class="inputLabelContainer" id="descrizioneImmagineContainer">
+                    <label for="descrizione_immagine" class="emptyFieldLabel">Descrizione immagine</label>
+                    <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
+                </div>
+                <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle filledGradientBtn">
+            </form>
         </main>
         <footer>
             <div class="footerSponsors">

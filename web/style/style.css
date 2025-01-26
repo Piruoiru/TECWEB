@@ -283,25 +283,25 @@ header{
 ---------------------
 */
 
-.mainPageError404{
+.mainPageError{
   display: flex;
   align-items: center;
   margin-bottom: 12.5em;
 }
 
-.error404LinKHome{
+.errorMain{
   display: flex;
   flex-direction: row;
 }
 
-.error404LinKHome>img{
+.errorMain>img{
   width: 50%;
   height: auto;
   filter: drop-shadow(5px 5px 5px #000);
   margin: 0 1em;
 }
 
-.error404LinKHome p{
+.errorMain p{
   display: flex;
   font-size: 2.3em;
   text-align: center;
@@ -310,7 +310,7 @@ header{
   padding: 2em;
 }
 
-.LinkHomePage404 {
+.errorLinkPage{
   border-radius: 2px;
   background: transparent;
   font-size: 1.1em;
@@ -322,12 +322,12 @@ header{
   color: #000;
 }
 
-.LinkHomePage404:hover{
+.errorLinkPage:hover{
   background-color: var(--primaryColor);
   color: #FFF;
 }
 
-.error404{
+.errorLink{
   display: flex;
   justify-content: center;
   margin: 3em 0em;
