@@ -29,7 +29,6 @@ html{
     border-bottom: 0;
     display: flex;
     justify-content: space-around;
-    font-size: 0.95em;
 }
 
 #userCrumb{
@@ -70,7 +69,7 @@ header{
     padding: 0.5em;
     border-radius: 10px;
     position: fixed;
-    top: 2.5em;
+    top: 2em;
     right: 2.5em;
     transition: all 0.2s ease-out;
     background-color: var(--primaryColor);
@@ -79,7 +78,7 @@ header{
 }
 
 #hamburgerIcon>svg, #closeIcon>svg{
-    width: 3em;
+    width: 3.5em;
     stroke: #FFF;
     stroke-width: 2;
     fill: none;
