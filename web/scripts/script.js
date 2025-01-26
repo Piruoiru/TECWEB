@@ -52,11 +52,12 @@ function buildCalendar(){
   let currentDay = 1;
   for (let i = 0; i < 6; i++) {
     let row = document.createElement("tr");
+    let monthCompleted = false;
     for (let j = 0; j < 7; j++) {
       let cell = document.createElement("td");
-      if (currentDay > monthDays)
+      if (currentDay > monthDays){
         break;
-      else if (i === 0 && j < dayOne) {
+      }else if (i === 0 && j < dayOne) {
         cell.setAttribute("aria-label", "Giorno del mese precedente");
         row.appendChild(cell);
       } else {
@@ -96,14 +97,15 @@ function buildCalendar(){
           cell.classList.add("today");
           cell.setAttribute("aria-label", "Oggi");
         }
-
         row.appendChild(cell);
 
         currentDay++;
         weekDay = (weekDay + 1) % 7;
       }
     }
-    calendar.appendChild(row);
+    if (row.children.length > 0) {
+        calendar.appendChild(row);
+    }
   }
 };
 

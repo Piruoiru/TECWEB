@@ -431,7 +431,7 @@ header{
 }
 
 #calendarTable .hiddenCalendarBtn{
-  display: none;
+  visibility: hidden;
 }
 
 #calendarTable .today{
@@ -450,7 +450,7 @@ header{
 
 #calendarTable p{
   font-size: 0.9em;
-  color: rgb(0, 0, 0);
+  color: #000;
   margin-top: 0.3em;
 }
 
