@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Shows - DreamVille</title>
+        <title>Spettacoli - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <meta name="description" content="Scopri i nostri fantastici shows e scegli quello che fa per te!">    
-        <meta name="keywords" content="shows, DreamVille, spettacoli, divertimento">
+        <meta name="description" content="Scopri i vari spettacoli presentati da DreamVille!">    
+        <meta name="keywords" content="spettacoli, DreamVille, divertimento, nuovo">
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
         <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
@@ -68,7 +68,7 @@
         @if $isAdmin
         <div class="card cardFormMain">
             @if !empty($debugMessage)
-                <p>{{ $debugMessage }}</p>
+                <p>>{{ $debugMessage }}</p>
             @endif
             <h1>Creazione spettacoli</h1>
             <form method="POST" class="cardForm" enctype="multipart/form-data">
@@ -88,7 +88,7 @@
                     <label for="descrizione_immagine" class="emptyFieldLabel">Descrizione immagine</label>
                     <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
                 </div>
-                <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle  filledGradientBtn">
+                <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle filledGradientBtn">
             </form>
         </div>
         @endif
