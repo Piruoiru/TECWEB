@@ -3,7 +3,7 @@ session_start();
 include_once 'parser.php';
 
 if (!isset($_SESSION['username'])) {
-    header('Location: index.php'); //da fixare o decidere se dare 401 o 403
+    header('Location: login.php?loginRequest');
     exit();
 }
 

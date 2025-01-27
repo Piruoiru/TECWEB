@@ -33,6 +33,9 @@
             $context['oldUsername'] = $username;
             $context['loginErrorMessage'] = 'Username o password errati o mancanti';
         }
+    }else if(isset($_GET['loginRequest'])){
+        header('HTTP/1.1 401 Unauthorized');
+        $context['loginErrorMessage'] = 'Devi effettuare il login per accedere alla pagina richiesta';
     }
 
     include_once 'parser.php';

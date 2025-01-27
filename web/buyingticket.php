@@ -3,7 +3,7 @@
 include_once 'parser.php';
 $context = ['orario' => "10:00-17:00"];
 if (!isset($_SESSION['username'])) {
-    header('Location: index.php');
+    header('Location: login.php?loginRequest');
     exit();
 }
 

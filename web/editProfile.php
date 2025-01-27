@@ -5,7 +5,7 @@
     include_once 'db.php';
 
     if(!isset($_SESSION['username'])){
-        header('Location: index.php');//FIXME: unhautorized?
+        header('Location: login.php?loginRequest');
         exit();
     }
 
