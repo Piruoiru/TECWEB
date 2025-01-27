@@ -1,0 +1,173 @@
+*{
+    margin: 0em;
+    padding: 0em;
+}
+
+body{
+    font-size: 80%;
+}
+
+h1{
+    font-size: 2em;
+}
+
+h2{
+    font-size: 1.5em;
+}
+
+/*
+---------------------
+    HEADER AND NAV
+---------------------
+*/
+
+#headerBreadcrumbWrapper {
+    position: unset;
+    z-index: -1;
+    display: none;
+}
+
+
+/*
+----------------
+  INDEX
+----------------
+*/
+
+#buttonp,#imgIndex,.containerRidesIndexImg,.cardIndex img{
+    display: none;
+}
+
+#indexMain{
+    margin-top: 1em;
+}
+
+#containerCardIndex,
+#containerCardIndex1,
+#containerCardIndex2 {
+    margin-bottom: -5em;
+    margin-top: -1em;
+}
+
+
+/*
+----------------
+ TICKET PAGE
+----------------
+*/
+
+#buyTicketKart {
+    display: none;
+}
+
+#containerTicket{
+    text-align: center;
+}
+
+.cardTicket{
+    justify-content:left;
+    width: 50%;
+}
+
+.cardTicket img,button{
+    display: none;
+}
+
+
+/*
+----------------
+ CALENDAR PAGE
+----------------
+*/
+
+#calendarTable{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#calendarMain{
+    justify-items: center;
+    text-align: center;
+}
+
+#calendarTable{
+    border-spacing: 0.9em;
+}
+
+.footerSponsors{
+    background-color: #0c0f14;
+    padding: 1em;
+    text-align: center;
+    margin-top:1em;
+}
+  
+.footerSponsors img{
+    width: 5em;
+    height: auto;
+    margin: 0.5em;
+}
+  
+.footerSponsors a{
+    color: white;
+}
+  
+.footerSponsors p{
+    color: white;
+}
+  
+.footer{
+    background-color: var(--secondaryColor);
+    padding: 1em;
+    text-align: center;
+    margin-top:1em;
+}
+  
+.footer a{
+    font-size: 1.1em;
+    color: #000000;
+}
+  
+.footer img{
+    width: 3em;
+}
+  
+
+
+/*
+----------------
+ RIDES PAGE
+----------------
+*/
+
+#ridesMain{
+    margin-top: 1em;
+}
+
+
+#rideList li, footer{
+    page-break-inside: avoid;
+}
+
+#rideList img{
+    display: none;
+}
+
+
+/*
+----------------
+ SHOWS PAGE
+----------------
+*/
+
+#showList img{
+    display: none;
+}
+
+#showList {
+    display: inline-block;
+}
+
+#showList li{
+    page-break-inside: avoid;
+}
+
