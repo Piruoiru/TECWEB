@@ -396,8 +396,12 @@ header{
 
 #calendarTable thead th{
   padding: 0.4em;
-  font-size: 1.25em;
   border: 1px solid #FFF;
+}
+
+#calendarTable thead p{
+  font-size: 1.25em;
+  color: #FFF;
 }
 
 #calendarTable thead tr:first-child th{
@@ -448,7 +452,7 @@ header{
   font-size: 1.1em;
 }
 
-#calendarTable p{
+#calendarTable tbody p{
   font-size: 0.9em;
   color: #000;
   margin-top: 0.3em;

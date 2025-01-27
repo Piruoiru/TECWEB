@@ -326,10 +326,6 @@ CALENDAR PAGE
     border-bottom: 1px solid #000;
 }
 
-#calendarTable p {
-    font-size: 1em;
-}
-
 #calendarTable td:empty, th:empty {
     display: none;
 }
