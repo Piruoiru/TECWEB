@@ -65,7 +65,7 @@ foreach ($risultato as $biglietti) {
 }
 
 if (isset($_POST['submit'])) {
-    $db->confirmPayment($_SESSION['username'], $sommaInt, $sommaRid);
+    $db->confirmPayment($_SESSION['username']);
     $context['cart'] = '';
     $context['prezzo'] = 0.00;
 }

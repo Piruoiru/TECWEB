@@ -352,18 +352,19 @@ class DatabaseClient
         }
     }
 
-    public function confirmPayment($username,$sommaInt,$sommaRid){
+    public function confirmPayment($username){
         try{
 
             $sql = "INSERT INTO ordini(utente,dataOrarioOrdine) VALUES (?,?)";
             $stmt = $this->conn->prepare($sql);
-            $currDate = date("Y-m-d H:i:s");
+            $date = new DateTime("now", new DateTimeZone("Europe/Rome"));
+            $currDate = $date->format("Y-m-d H:i:s");
             $stmt->bind_param('ss', $username, $currDate);
             $status = $stmt->execute();
             if (!$status) {
                 throw new \Exception("C'è stato un errore nella richiesta al database.");
             }
-    
+
             $sql = "SELECT  *
                         FROM ordini
                         WHERE utente=? AND dataOrarioOrdine=?";
@@ -381,25 +382,23 @@ class DatabaseClient
                         WHERE utente=?";
                 $stmt = $this->conn->prepare($sql);
                 $stmt->bind_param('s', $username);
-                $result = $stmt->execute();
-                if (!$result) {
+                $cartResult = $stmt->execute();
+                if (!$cartResult) {
                     throw new \Exception("C'è stato un errore nella richiesta al database.");
                 }
-                $result = $stmt->get_result();
-                while ($ticket = $result->fetch_assoc()) {
-                    if ($ticket['biglietto'] == '1' && $sommaRid > 0.00) {
+                $cartResult = $stmt->get_result();
+                $sql = "SELECT  * FROM biglietti WHERE id=?";
+                $dettagliBigliettoStmt = $this->conn->prepare($sql);
+                while ($ticket = $cartResult->fetch_assoc()) {
+                    $dettagliBigliettoStmt->bind_param('s', $ticket['biglietto']);
+                    $dettagliBigliettoStmt->execute();
+                    $result = $dettagliBigliettoStmt->get_result();
+                    $tipiBiglietti = $result->fetch_all(MYSQLI_ASSOC);
+                    $costo = $tipiBiglietti[0]['costo'];
+                    for($i=0; $i<$ticket['quantita']; $i++){  
                         $sql = "INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES (?,?,?)";
                         $stmt = $this->conn->prepare($sql);
-                        $stmt->bind_param('sid',$ticket['biglietto'],$ordine['id'],$sommaRid);
-                        $status = $stmt->execute();
-                        if (!$status) {
-                            throw new \Exception("C'è stato un errore nella richiesta al database.");
-                        }
-                    }
-                    if($ticket['biglietto'] == '2' && $sommaInt > 0.00){
-                        $sql = "INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES (?,?,?)";
-                        $stmt = $this->conn->prepare($sql);
-                        $stmt->bind_param('sid',$ticket['biglietto'], $ordine['id'],$sommaInt);
+                        $stmt->bind_param('sid',$ticket['biglietto'],$ordine['id'],$costo);
                         $status = $stmt->execute();
                         if (!$status) {
                             throw new \Exception("C'è stato un errore nella richiesta al database.");
