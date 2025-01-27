@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Modifica profilo - DreamVille</title>
+        <title>Modifica profilo - <span lang="en">DreamVille</span></title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <meta name="description" content="Modifica o elimina il tuo profilo">    
@@ -81,7 +81,7 @@
                     <dd>{{ $userFirstName }}</dd>
                     <dt><strong>Cognome:</strong></dt>
                     <dd>{{ $userSurname }}</dd>
-                    <dt><strong>Username:</strong></dt>
+                    <dt><strong><span lang="en">Username</span>:</strong></dt>
                     <dd>{{ $username }}</dd>
                 </dl>
                 <a href="profile.php" class="buttonStyle  outlineGradientBtn">Torna al profilo</a>
@@ -96,7 +96,7 @@
                         <input type="text" id="cognome" name="surname" value="{{ $userSurname }}">
                     </div>
                     <div class="inputLabelContainer">
-                        <label for="username">Username (non modificabile)</label>
+                        <label for="username"><span lang="en">Username</span> (non modificabile)</label>
                         <input type="text" id="username" name="username" value="{{ $username }}" disabled>
                     </div>
                     <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle  filledGradientBtn">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login - DreamVille</title>
+        <title><span lang="en">Login</span> - <span lang="en">DreamVille</span></title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <meta name="description" content="Accedi al sito di DreamVille con il tuo utente">    
@@ -51,7 +51,7 @@
             </header>
             <div id="breadcrumb">
                 <nav id="breadcrumbNav">
-                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Login</p>
+                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; <span lang="en">Login</span></p>
                 </nav>
                 <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
                 <div id="userCrumb">
@@ -70,14 +70,14 @@
                 <form method="POST" id="loginForm" class="cardForm" onsubmit="return validateGenericForm(loginFormDetails);">
                     <div class="inputLabelContainer">
                         @if empty($oldUsername)
-                        <label for="username" class="emptyFieldLabel">Username</label>
+                        <label for="username" class="emptyFieldLabel"><span lang="en">Username</span></label>
                         @else
-                        <label for="username">Username</label>
+                        <label for="username"><span lang="en">Username</span></label>
                         @endif
                         <input type="text" id="username" name="username" value="{{ $oldUsername }}">
                     </div>
                     <div class="inputLabelContainer">
-                        <label for="password" class="emptyFieldLabel">Password</label>
+                        <label for="password" class="emptyFieldLabel"><span lang="en">Password</span></label>
                         <input type="password" id="password" name="password">
                     </div>
                     <input type="submit" name="submit" value="Accedi" id="loginButton" class="buttonStyle  filledGradientBtn">
