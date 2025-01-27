@@ -51,7 +51,7 @@
             </header>
             <div id="breadcrumb">
                 <nav id="breadcrumbNav">
-                    <p>Ti trovi in: <span lang="en">Home</span> &gt; 404</p>
+                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Errore pagina non esistente</p>
                 </nav>
                 <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
                 <div id="userCrumb">
@@ -62,14 +62,12 @@
             </div>
         </div>
         <main class="mainPageError">
-            <div class="errorWrapper">
-                <div class="errorMain">
-                    <img src="../assets/casaStregata.png" alt="404">
-                    <p>Che ci fai qui? Ti sei forse perso nella Casa Stregata?</p>    
-                </div>
-                <div class="errorLink">
-                    <a class="errorLinkPage" href="index.php">Ritorna alla Home</a>
-                </div>
+            <div class="errorMain">
+                <img src="../assets/casaStregata.png" alt="404">
+                <p>Che ci fai qui? Ti sei forse perso nella Casa Stregata?</p>    
+            </div>
+            <div class="errorLink">
+                <a class="buttonStyle errorLinkPage" href="index.php">Ritorna alla Home</a>
             </div>
         </main>
     </body>
