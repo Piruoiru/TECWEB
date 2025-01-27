@@ -1,5 +1,4 @@
 <?php
-// I metodi get restituiscono un oggetto mysqli_result, i metodi fetch restituiscono un array associativo
 ini_set('display_errors',0);
 include_once 'config.php';
 class DatabaseClient
@@ -428,7 +427,6 @@ class DatabaseClient
 
     function updateCart($ticketID, $username, $operation){
         try{
-
             $sql = "SELECT *
             FROM bigliettiCarrello
             WHERE biglietto=? AND utente=?";
