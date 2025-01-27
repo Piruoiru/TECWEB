@@ -63,9 +63,9 @@
         <main id="calendarMain">
             <h1>Orari di apertura</h1>
             <p>Controlla i nostri orari di apertura e pianifica una giornata indimenticabile!</p>
-                <span id="calendarTable" class="hidden">In questa tabella sono rappresentati i giorni di un mese come in un calendario. La prima riga dell'intestazione contiene i pulsanti per cambiare mese e il mese corrente. La seconda riga contiene i giorni della settimana. Le celle contengono il numero del giorno e l'orario di apertura per quella data.</span>
-                <table  id="calendarTable"> 
-                    <captio class="hidden">Calendario con le date di apertura del parco</caption>
+                <span id="dTable" class="hidden">In questa tabella sono rappresentati i giorni di un mese come in un calendario. La prima riga dell'intestazione contiene i pulsanti per cambiare mese e il mese corrente. La seconda riga contiene i giorni della settimana. Le celle contengono il numero del giorno e l'orario di apertura per quella data.</span>
+                <table aria-describedby="dTable" id="calendarTable"> 
+                    <caption class="hidden">Calendario con le date di apertura del parco</caption>
                     <thead>
                         <tr>
                             <th scope="col"><button onclick="prevMonth()" id="previousMonthBtn" class="buttonStyle hiddenCalendarBtn">&lt;</button></th>
