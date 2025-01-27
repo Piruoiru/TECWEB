@@ -648,6 +648,28 @@ label{
   word-wrap: break-word;
 }
 
+#centerMaps{
+  text-align: center;
+}
+
+#centerMaps h2{
+  font-size: 2em;
+  margin-bottom: 0.25em;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+#centerMaps p{
+  text-align: center;
+  font-size: 1.2em;
+  padding-bottom: 2em;
+  padding-top: 0.5em;
+}
+
+#centerMaps a{
+  box-sizing: border-box;
+}
+
 /*
 ----------------
     RIDES ONLY
@@ -657,6 +679,7 @@ label{
 #ridesMain>p{
   text-align: center;
   font-size: 1.2em;
+  padding: 1em;
 }
 
 #filtersContainer>button{
@@ -1416,7 +1439,7 @@ HOME PAGE
 .cardIndex{
   display: flex;
   flex-direction: row;
-  border-radius: 10px;
+  border-radius: 5%;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   width: 23em;
   margin: 1em;
@@ -1455,7 +1478,7 @@ HOME PAGE
   height: auto;
   object-fit: cover;
   object-position: center;
-  border-radius: 4px 0 0 4px;
+  border-radius: 5% 0 0 5%;
 }
 
 .cardIndexScript {
@@ -1484,8 +1507,8 @@ HOME PAGE
   display: flex;
   flex-direction: column;
   padding-top: 2em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 .containerRidesIndexScript h3{
@@ -1502,7 +1525,7 @@ HOME PAGE
 }
 
 .containerRidesIndexImg img{
-  border-radius: 11%;
+  border-radius: 5%;
   height: 20em;
 
 }
