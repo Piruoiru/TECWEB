@@ -9,7 +9,8 @@
     include_once 'db.php';
 
     unset($context['headerBtns']['register']);//non mostro il pulsante registrati in alto
-    $context['essentialHeaderBtns']['login']['text'] = 'Accedi';//sostituisco  accedi o registrati nel menù mobile con accedi
+    unset($context['headerBtns']['login']);
+    unset($context['essentialHeaderBtns']['login']);
     $errorMessage = "";
     $context['registrationErrorMessage'] = array();
 

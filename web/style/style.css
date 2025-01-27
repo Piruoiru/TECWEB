@@ -154,7 +154,12 @@ a:hover{
 }
 
 #breadcrumb a{
-  color: var(--secondaryColor)
+  color: var(--secondaryColor);
+  background-color: var(--primaryColor);
+}
+
+#breadcrumb a:visited{
+  background-color: var(--primaryColor);
 }
 
 #todaysOpeningHours a{
