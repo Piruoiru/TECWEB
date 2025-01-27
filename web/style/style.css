@@ -399,6 +399,7 @@ header{
 #calendarTable thead th{
   padding: 0.4em;
   border: 1px solid #FFF;
+  font-size: 1.15em;
 }
 
 #calendarTable thead p{
@@ -884,6 +885,7 @@ MAP PAGE
 */
 #profileMain, #purchasesMain{
   background-color: transparent;
+  box-shadow: none;
 }
 
 #profileMain>h1, #purchasesMain>h1{

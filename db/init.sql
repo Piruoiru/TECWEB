@@ -64,27 +64,18 @@ INSERT INTO ordini(utente,dataOrarioOrdine) VALUES
 ('user',now()),
 ('user',now());
 
-CREATE TABLE tipiBiglietto(
-    descrizione varchar(50) PRIMARY KEY,
-    costoAttuale numeric(6,2) NOT NULL
-);
-
-INSERT INTO tipiBiglietto(descrizione,costoAttuale) VALUES
-('Biglietto Ridotto',24.99),
-('Biglietto Intero',34.99);
-
 CREATE TABLE bigliettiAcquistati(
     id int AUTO_INCREMENT PRIMARY KEY,
-    tipoBiglietto varchar(50) NOT NULL,
+    tipoBiglietto char(5) NOT NULL,
     ordine int NOT NULL,
     sommaPagata numeric(6,2) NOT NULL,
-    FOREIGN KEY (tipoBiglietto) REFERENCES tipiBiglietto(descrizione),
+    FOREIGN KEY (tipoBiglietto) REFERENCES biglietti(id),
     FOREIGN KEY (ordine) REFERENCES ordini(id)
 );
 
 INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES
-('Biglietto Ridotto',1,24.99),
-('Biglietto Intero',1,34.99),
-('Biglietto Intero',1,34.99),
-('Biglietto Ridotto',2,24.99),
-('Biglietto Intero',2,34.99);
+('1',1,24.99),
+('2',1,34.99),
+('2',1,34.99),
+('1',2,24.99),
+('2',2,34.99);

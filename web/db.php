@@ -129,7 +129,7 @@ class DatabaseClient
 
     public function fetchTickets(){
         try{
-            $sql = "SELECT * FROM tipiBiglietto";
+            $sql = "SELECT * FROM biglietti";
             $result = $this->conn->query($sql);
             $tickets = [];
             if (!$result) {
@@ -169,8 +169,9 @@ class DatabaseClient
 
     public function fetchUserAcquiredTickets($username){
         try{
-            $sql = "SELECT bigliettiAcquistati.id as idBiglietto, tipoBiglietto, ordine as idOrdine, sommaPagata, utente, dataOrarioOrdine FROM bigliettiAcquistati
+            $sql = "SELECT bigliettiAcquistati.id as idBiglietto, biglietti.titolo as tipoBiglietto, ordine as idOrdine, sommaPagata, utente, dataOrarioOrdine FROM bigliettiAcquistati
                         INNER JOIN ordini ON bigliettiAcquistati.ordine = ordini.id
+                        INNER JOIN biglietti ON biglietti.id = bigliettiAcquistati.tipoBiglietto
                         WHERE ordini.utente=?
                         ORDER BY ordini.dataOrarioOrdine DESC";
             $stmt = $this->conn->prepare($sql);
@@ -192,12 +193,13 @@ class DatabaseClient
 
     public function fetchUserLastOrderTickets($username){
         try{
-            $sql = "SELECT bigliettiAcquistati.id as idBiglietto, tipoBiglietto, ordine as idOrdine, sommaPagata, utente, dataOrarioOrdine FROM bigliettiAcquistati
+            $sql = "SELECT bigliettiAcquistati.id as idBiglietto, biglietti.titolo as tipoBiglietto, ordine as idOrdine, sommaPagata, utente, dataOrarioOrdine FROM bigliettiAcquistati
                         INNER JOIN (SELECT id as idOrdine, utente, dataOrarioOrdine FROM ordini
                         WHERE utente=?
                         ORDER BY dataOrarioOrdine DESC
                         LIMIT 1) AS ordini
-                        ON bigliettiAcquistati.ordine = ordini.idOrdine";
+                        ON bigliettiAcquistati.ordine = ordini.idOrdine
+                        INNER JOIN biglietti ON biglietti.id = bigliettiAcquistati.tipoBiglietto";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param('s', $username);
             $result = $stmt->execute();
@@ -237,7 +239,9 @@ class DatabaseClient
 
     public function fetchTicketsByOrder($orderID){
         try{
-            $sql = "SELECT * FROM bigliettiAcquistati WHERE ordine=?";
+            $sql = "SELECT bigliettiAcquistati.id as id, biglietti.titolo as tipoBiglietto, sommaPagata, costo FROM bigliettiAcquistati
+                    INNER JOIN biglietti ON bigliettiAcquistati.tipoBiglietto = biglietti.id
+                    WHERE ordine=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param('i', $orderID);
             $result = $stmt->execute();
@@ -384,20 +388,18 @@ class DatabaseClient
                 $result = $stmt->get_result();
                 while ($ticket = $result->fetch_assoc()) {
                     if ($ticket['biglietto'] == '1' && $sommaRid > 0.00) {
-                        $biglietto = 'Biglietto Ridotto';
                         $sql = "INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES (?,?,?)";
                         $stmt = $this->conn->prepare($sql);
-                        $stmt->bind_param('sid',$biglietto,$ordine['id'],$sommaRid);
+                        $stmt->bind_param('sid',$ticket['biglietto'],$ordine['id'],$sommaRid);
                         $status = $stmt->execute();
                         if (!$status) {
                             throw new \Exception("C'è stato un errore nella richiesta al database.");
                         }
                     }
                     if($ticket['biglietto'] == '2' && $sommaInt > 0.00){
-                        $biglietto = 'Biglietto Intero';
                         $sql = "INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES (?,?,?)";
                         $stmt = $this->conn->prepare($sql);
-                        $stmt->bind_param('sid',$biglietto,$ordine['id'],$sommaInt);
+                        $stmt->bind_param('sid',$ticket['biglietto'], $ordine['id'],$sommaInt);
                         $status = $stmt->execute();
                         if (!$status) {
                             throw new \Exception("C'è stato un errore nella richiesta al database.");
