@@ -1,6 +1,8 @@
 <?php
 session_start();
 include_once 'parser.php';
+$context['cart'] = '';
+$context['prezzo'] = 0;
 
 if (!isset($_SESSION['username'])) {
     header('Location: login.php?loginRequest');
