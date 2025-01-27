@@ -652,6 +652,8 @@ label{
 
 #centerMaps{
   text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 1.5em;
 }
 
 #centerMaps h2{
@@ -664,12 +666,11 @@ label{
 #centerMaps p{
   text-align: center;
   font-size: 1.2em;
-  padding-bottom: 2em;
-  padding-top: 0.5em;
+  padding: 0.5em;
 }
 
 #centerMaps a{
-  box-sizing: border-box;
+  display: inline-block;
 }
 
 /*
@@ -684,7 +685,7 @@ label{
   padding: 1em;
 }
 
-#filtersContainer>button{
+#filtersContainer>button, #mapBtn{
   border-radius: 2px;
   background: transparent;
   font-size: 1.1em;
@@ -694,12 +695,12 @@ label{
   transition: all .2s ease-in-out;
 }
 
-#tutteBtn{
+#tutteBtn, #mapBtn{
   border: 5px solid var(--primaryColor);
   color: #000;
 }
 
-#tutteBtn:hover{
+#tutteBtn:hover, #mapBtn:hover{
   background-color: var(--primaryColor);
   color: #FFF;
 }
@@ -749,16 +750,6 @@ border-radius: 2px;
   margin: 0.35em;
   padding: 0.75em 1.5em;
   transition: all .2s ease-in-out;
-}
-
-#mapBtn{
-  border: 5px solid var(--primaryColor);
-  color: #000;
-}
-
-#mapBtn:hover{
-  background-color: var(--primaryColor);
-  color: #FFF;
 }
 
 #bambiniBtn{
