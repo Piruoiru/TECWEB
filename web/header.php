@@ -12,8 +12,7 @@
         'Sunday' => array('orarioApertura' => '09:00', 'orarioChiusura' => '21:00')
     );
     $context['orario'] = $openingHours[$weekDay]['orarioApertura'] . "-" . $openingHours[$weekDay]['orarioChiusura'];
-    $context['cart'] = '';
-    $context['prezzo'] = 0;
+    
 
     if(isset($_SESSION['username'])){
             $context['headerBtns'] = ['cart' => ['url' => "buyingcart.php", 'text' => 'Carrello'], 'profile' => ['url' => "profile.php", 'text' => 'Profilo'], 'logout'=> ['url' => "logout.php", 'text' => "Logout"]];
