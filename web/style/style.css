@@ -644,6 +644,28 @@ label{
   word-wrap: break-word;
 }
 
+#centerMaps{
+  text-align: center;
+}
+
+#centerMaps h2{
+  font-size: 2em;
+  margin-bottom: 0.25em;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+#centerMaps p{
+  text-align: center;
+  font-size: 1.2em;
+  padding-bottom: 2em;
+  padding-top: 0.5em;
+}
+
+#centerMaps a{
+  box-sizing: border-box;
+}
+
 /*
 ----------------
     RIDES ONLY
@@ -653,6 +675,7 @@ label{
 #ridesMain>p{
   text-align: center;
   font-size: 1.2em;
+  padding: 1em;
 }
 
 #filtersContainer>button{
