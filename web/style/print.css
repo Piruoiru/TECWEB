@@ -4,7 +4,9 @@
 }
 
 body{
-    font-size: 80%;
+    margin: 0;
+    color: #000;
+    background-color: #fff;
 }
 
 h1{
@@ -19,6 +21,63 @@ h2{
     display: none;
 }
 
+a::after {
+    content: " (" attr(href) ")";
+}
+
+
+/*
+----------------
+ NAVBAR AND BREADCRUMB
+----------------
+*/
+
+#menu,#userCrumb{
+    display: none;
+}
+
+
+#headerBreadcrumbWrapper > header > h1{
+    -webkit-print-color-adjust: exact;
+
+}
+
+#breadcrumb{
+    padding: 0.5em 0 0.5em 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.cardIndex:hover{
+    color: #000;
+}
+
+/*
+----------------
+ HOME PAGE
+----------------
+*/
+
+#indexMain > div{
+    page-break-inside: avoid;
+}
+
+#indexMain img{
+    display: none;
+}
+
+.cardIndex{
+    box-shadow: none;
+    justify-items: center;
+}
+
+.cardIndex a{
+    box-shadow: none;
+}
+
+#indexMain a:hover{
+    text-decoration: none;
+}
 
 /*
 ----------------
@@ -53,6 +112,23 @@ h2{
     margin: 0.5em;
 }
 
+#calendarMain button{
+    display: none;
+}
+
+#calendarMain > #calendarTable > tr{
+    border: solid 1px;
+}
+
+#calendarMain > table {
+    border-collapse:collapse;
+}
+ 
+#calendarMain > table tr,th,td{
+    padding: 0.45em;
+    border:1px solid #000;
+}
+
 /*
 ----------------
  RIDES PAGE
@@ -71,12 +147,95 @@ h2{
     display: block;
 }
 
+#ridesMain > p,#filtersContainer{
+    display: none;
+}
+
+#centerMaps > a{
+    border-color: #000;
+    border: solid 2px;
+}
+
+#ridesMain > #rideList > li{
+    box-shadow: none;
+}
+
 /*
 ----------------
  SHOWS PAGE
 ----------------
 */
 
-#showList li{
+#cardFormMainShows > #showList > li{
     page-break-inside: avoid;
+    box-shadow: none;
+}
+
+
+/*
+----------------
+ TICKET PAGE
+----------------
+*/
+
+#boxTicket > p{
+    display: none;
+}
+
+.cardTicket{
+    border: solid 2px;
+    box-shadow: none;
+}
+
+#ticketWrapper {
+    display: inline-block;
+}
+
+#buyTicketKart{
+    border: solid 2px;
+    box-shadow: none;
+    margin: 1em;
+}
+
+/*
+----------------
+ CART PAGE
+----------------
+*/
+
+#boxCart{
+    border: solid 2px;
+    box-shadow: none;
+}
+
+#btnCart{
+    display: none;
+}
+
+#btnSelect{
+    display: none;
+}
+
+#pageCart{
+    height: 20%;
+}
+
+
+
+
+/*
+----------------
+ PROFILE PAGE
+----------------
+*/
+
+#profileMain a{
+    border: solid 2px;
+    box-shadow: none;
+}
+
+#ticketCardDetails{
+    border: solid 2px;
+    box-shadow: none;
+    color: #000;
 }
