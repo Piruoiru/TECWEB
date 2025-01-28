@@ -29,7 +29,7 @@ main{
   max-width: 1200px;
   margin: auto;
   background-color: #FFF;
-  min-height: 50vh;
+  min-height: 45vh;
 }
 
 body, button{
@@ -593,14 +593,12 @@ label{
     LOGIN, REGISTRATION AND PROFILE EDIT PAGES
 ---------------------
 */
-
 .cardFormMain{
   margin: 2em auto;
   max-width: 425px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .cardFormMainContainer{
@@ -1081,7 +1079,6 @@ MAP PAGE
   width: fit-content;
   max-width: 75%;
   padding: 1em 2em;
-  justify-content: flex-start;
 }
 
 #profileDeletionMain > *:last-child{
