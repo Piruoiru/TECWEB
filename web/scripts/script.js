@@ -508,6 +508,12 @@ function loadTicketAndCart(){
             output.style.position = "absolute";
         }
     })
+
+    const btnSelect = document.getElementById("btnSelect");
+
+    btnSelect?.addEventListener('click', () => {
+        location.replace('buyingticket.php');
+    })
 }
 
 /*
