@@ -77,20 +77,21 @@
                         <ul id="carrelloUL">
                             {{$cart}}
                         </ul>
-                        <p id="prezzoTot"><strong>Totale: {{$prezzo}}€</strong></p>
+                        <p id="prezzoTot"><strong>{{$totale}}</strong></p>
                     </form>
                 </div>
-                <button id="btnCart">Acquista</button>
+                {{$btnAcquista}}
+                {{$btnSelect}}
             </div>
             <form method="POST">
                 <div id="backdrop">
-                    <div>
-                        <header class="output">
-                            <span class="fas fa-check"></span>
-                            <p class="textPaga">Pagamento effettuato</p>
-                            <input type="submit" name="submit" id="btnChiudi" value="Chiudi">
-                        </header>
-                    </div>
+                    <header class="output">
+                        <svg id="checkMark" viewBox="0 0 24 24">
+                            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
+                        </svg>
+                        <p class="textPaga">Pagamento effettuato</p>
+                        <input type="submit" name="submit" id="btnChiudi" value="Chiudi"/>
+                    </header>
                 </div>
             </form>
         </main>
@@ -99,19 +100,19 @@
         <div class="footerSponsors">
             <p>Offerto da:</p>
             <p> </p>
-            <img src="assets/sparkleco.jpg" alt="logo sparklego">
-            <img src="assets/whirldenergy.jpg" alt="logo whirldenergy">
-            <img src="assets/hippysnacks.jpg" alt="logo hippysnacks">
-            <img src="assets/ridetech.jpg" alt="logo ridetech">
-            <img src="assets/cloud9.jpg" alt="logo cloud9">
-            <img src="assets/cloudpaints.jpg" alt="logo cloudpaints">
+            <img src="../assets/sparkleco.jpg" alt="logo sparklego"/>
+            <img src="../assets/whirldenergy.jpg" alt="logo whirldenergy"/>
+            <img src="../assets/hippysnacks.jpg" alt="logo hippysnacks"/>
+            <img src="../assets/ridetech.jpg" alt="logo ridetech"/>
+            <img src="../assets/cloud9.jpg" alt="logo cloud9"/>
+            <img src="../assets/cloudpaints.jpg" alt="logo cloudpaints"/>
         </div>          
         <div class="footer">
             <div class="socialWrapper">
-                <img src="assets/instagram.png" alt="instagram DreamVille">                   
-                <img src="assets/tik_tok.png" alt="tik tok DreamVille">                   
-                <img src="assets/facebook.png" alt="facebook DreamVille">                   
-                <img src="assets/logorealx.png" alt="x DreamVille">                   
+                <img src="../assets/instagram.png" alt="instagram DreamVille"/>                   
+                <img src="../assets/tik_tok.png" alt="tik tok DreamVille"/>                   
+                <img src="../assets/facebook.png" alt="facebook DreamVille"/>                   
+                <img src="../assets/logorealx.png" alt="x DreamVille"/>                   
             </div>                 
         </div>
     </footer>
