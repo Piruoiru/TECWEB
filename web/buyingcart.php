@@ -52,8 +52,8 @@ foreach ($risultato as $biglietti) {
             $context['totale'] = 'Totale: ' . $prezzo . '€';
             $sommaRid = $prezzoRid * $biglietti['quantita'];
             $context['cart'] .= "<li class='rowCart'>" . $ticket . " x" .  $biglietti['quantita']  . "</li>" 
-                ."<input type='submit' value = '-' name='rmvTrid' class='btnAddRmv'>"
-                . "<input type='submit' value = '+' name='addTrid' class='btnAddRmv'>";
+                ."<input type='submit' value = '-' name='rmvTrid' class='btnAddRmv' aria-label='Rimuovi un biglietto Ridotto'>"
+                . "<input type='submit' value = '+' name='addTrid' class='btnAddRmv' aria-label='Aggiungi un biglietto Ridotto'>";
             $context['btnAcquista'] = '<button id="btnCart">Acquista</button>';
             $context['btnSelect'] = '';
         }
@@ -64,8 +64,8 @@ foreach ($risultato as $biglietti) {
             $context['totale'] = 'Totale: ' . $prezzo . '€';
             $sommaInt = $prezzoInt * $biglietti['quantita'];
             $context['cart'] .= "<li class='rowCart'>" . $ticket . " x" .  $biglietti['quantita']  . "</li>" 
-                . "<input type='submit' value = '-' name='rmvTint' class='btnAddRmv'>"
-                . "<input type='submit' value = '+' name='addTint' class='btnAddRmv'>";
+                . "<input type='submit' value = '-' name='rmvTint' class='btnAddRmv' aria-label='Rimuovi un biglietto Intero'>"
+                . "<input type='submit' value = '+' name='addTint' class='btnAddRmv' aria-label='Aggiungi un biglietto Intero'>";
             $context['btnAcquista'] = '<button id="btnCart">Acquista</button>';
             $context['btnSelect'] = '';
         } 
