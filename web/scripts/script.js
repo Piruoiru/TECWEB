@@ -499,13 +499,11 @@ function loadTicketAndCart(){
 
     btnCart?.addEventListener('click', () => {
         if(document.getElementById("carrelloUL").innerHTML.trim() != ""){
-            const backdrop = document.getElementById("backdrop");
-            backdrop.style.display = "block";
+            const backdrop = document.querySelector(".backdrop");
+            backdrop.classList.remove("hiddenCart");
     
-            let output = document.querySelector(".output");
-    
-            output.style.display = "block";
-            output.style.position = "absolute";
+            const output = document.querySelector(".output");
+            output.classList.remove("hiddenCart");
         }
     })
 
