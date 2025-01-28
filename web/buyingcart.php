@@ -2,7 +2,9 @@
 session_start();
 include_once 'parser.php';
 $context['cart'] = '';
-$context['prezzo'] = 0;
+$context['totale'] = 'Non ha ancora selezionato alcun biglietto';
+$context['btnAcquista'] = '';
+$context['btnSelect'] = '<button id="btnSelect">Seleziona i biglietti</button>';
 
 if (!isset($_SESSION['username'])) {
     header('Location: login.php?loginRequest=buyingcart');
@@ -16,10 +18,10 @@ $prezzoInt = 34.99;
 $prezzoRid = 24.99;
 $sommaInt = 0;
 $sommaRid = 0;
+$prezzo = 0;
 
 $db = new DatabaseClient();
 $db->connect();
-
 
 if (isset($_POST['addTrid'])) {
     $operation = 'add';
@@ -46,20 +48,26 @@ foreach ($risultato as $biglietti) {
     if ($biglietti['biglietto'] == "1") {
         if ($biglietti['quantita'] > 0) {
             $ticket = "Biglieto Ridotto";
-            $context['prezzo'] += $prezzoRid * $biglietti['quantita'];
+            $prezzo += $prezzoRid * $biglietti['quantita'];
+            $context['totale'] = 'Totale: ' . $prezzo . '€';
             $sommaRid = $prezzoRid * $biglietti['quantita'];
-            $context['cart'] .= "<div class='rowCart'>" . "<div>" . "<li>" . $ticket . " x" .  $biglietti['quantita'] . "</li>" . "</div>"
-                . "<div>" ."<input type='submit' value = '-' name='rmvTrid' class='btnAddRmv'>"
-                . "<input type='submit' value = '+' name='addTrid' class='btnAddRmv'>" . "</div>" . "</div>";
+            $context['cart'] .= "<li class='rowCart'>" . $ticket . " x" .  $biglietti['quantita']  . "</li>" 
+                ."<input type='submit' value = '-' name='rmvTrid' class='btnAddRmv'>"
+                . "<input type='submit' value = '+' name='addTrid' class='btnAddRmv'>";
+            $context['btnAcquista'] = '<button id="btnCart">Acquista</button>';
+            $context['btnSelect'] = '';
         }
     } else {
         if ($biglietti['quantita'] > 0) {
             $ticket = "Biglieto Intero";
-            $context['prezzo'] += $prezzoInt * $biglietti['quantita'];
+            $prezzo += $prezzoInt * $biglietti['quantita'];
+            $context['totale'] = 'Totale: ' . $prezzo . '€';
             $sommaInt = $prezzoInt * $biglietti['quantita'];
-            $context['cart'] .= "<div class='rowCart'>" . "<div>" . "<li>" . $ticket . " x" .  $biglietti['quantita'] . "</li>" . "</div>"
-                . "<div>" . "<input type='submit' value = '-' name='rmvTint' class='btnAddRmv'>"
-                . "<input type='submit' value = '+' name='addTint' class='btnAddRmv'>" . "</div>" . "</div>";
+            $context['cart'] .= "<li class='rowCart'>" . $ticket . " x" .  $biglietti['quantita']  . "</li>" 
+                . "<input type='submit' value = '-' name='rmvTint' class='btnAddRmv'>"
+                . "<input type='submit' value = '+' name='addTint' class='btnAddRmv'>";
+            $context['btnAcquista'] = '<button id="btnCart">Acquista</button>';
+            $context['btnSelect'] = '';
         } 
     }
 }
@@ -67,7 +75,10 @@ foreach ($risultato as $biglietti) {
 if (isset($_POST['submit'])) {
     $db->confirmPayment($_SESSION['username']);
     $context['cart'] = '';
-    $context['prezzo'] = 0.00;
+    $context['totale'] = 0.00;
+    $db->close();
+    header('Location: profile.php');
+    exit();
 }
 
 $template = new Parser();
