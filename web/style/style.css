@@ -154,7 +154,12 @@ a:hover{
 }
 
 #breadcrumb a{
-  color: var(--secondaryColor)
+  color: var(--secondaryColor);
+  background-color: var(--primaryColor);
+}
+
+#breadcrumb a:visited{
+  background-color: var(--primaryColor);
 }
 
 #todaysOpeningHours a{
@@ -399,6 +404,7 @@ header{
 #calendarTable thead th{
   padding: 0.4em;
   border: 1px solid #FFF;
+  font-size: 1.15em;
 }
 
 #calendarTable thead p{
@@ -884,6 +890,7 @@ MAP PAGE
 */
 #profileMain, #purchasesMain{
   background-color: transparent;
+  box-shadow: none;
 }
 
 #profileMain>h1, #purchasesMain>h1{
