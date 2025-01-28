@@ -1,0 +1,61 @@
+\section{Progettazione}
+
+\subsection{Tipi di utente}
+\begin{itemize}
+    \item \textbf{Utente non registrato:} è la principale tipologia di utente, potrà visualizzare il sito, scoprire gli show, le attrazioni, gli orari, la mappa. Inoltre potrà registrarsi o accedere in caso l'utente sia già in possesso di un account.
+    \item \textbf{Utente registrato:} oltre alle funzionalità disponibili per l'utente registrato potrà acquistare biglietti e aggiungerli al proprio profilo.
+    \item \textbf{Amministratore:} oltre alle funzionalità disponibili per l'utente registrato potrà creare, modificare o rimuovere gli show.
+\end{itemize}
+
+\subsection{Struttura del sito}
+\subsubsection{Header}
+L’header del sito è stato progettato per garantire funzionalità e adattabilità. Al suo interno si trovano il logo, sempre visibile, e una navbar flessibile che si adatta al dispositivo utilizzato.
+\begin{itemize}
+    \item Su schermi di piccole dimensioni, la navbar si trasforma in un pulsante che consente di aprire un menu a comparsa, contenente tutti i link alle pagine accessibili.
+    \item Su schermi più grandi, invece, la navbar mostra direttamente tutti i collegamenti alle pagine, garantendo una navigazione immediata e intuitiva.
+\end{itemize}
+Questo design responsive assicura un’esperienza di navigazione coerente e ottimale su qualsiasi dispositivo. 
+La navbar è stata progettata con un massimo di 5 link, rispettando il principio di usabilità che consiglia di non superare i 7 collegamenti per mantenere una navigazione chiara e intuitiva ed evitare il sovraccarico cognitivo per l'utente. I link presenti nella navbar sono:
+\begin{itemize}
+    \item Home
+    \item Scopri le attrazioni
+    \item I nostri show
+    \item Orario di apertura
+    \item Acquista biglietti
+\end{itemize}
+In aggiunta, la navbar include pulsanti dedicati a seconda dello stato dell'utente:
+\begin{itemize}
+    \item \textbf{Utenti non autenticati:} sono presenti i pulsanti \textit{Registrati} e \textit{Accedi} per consentire la creazione di un account o l’accesso al sito.
+    \item \textbf{Utenti autenticati:} vengono visualizzati i pulsanti \textit{Il mio Profilo} e \textit{Logout}, offrendo un rapido accesso alle funzionalità personali e alla possibilità di disconnettersi.
+\end{itemize}
+Questo approccio garantisce una navigazione personalizzata e intuitiva per ogni utente.
+Inoltre, è presente una breadcrumb che permette all'utente di avere sempre chiara la propria posizione all'interno del sito, facilitando la navigazione e migliorando l’esperienza complessiva.
+\subsubsection{Contenuto}
+Per ogni pagina del sito, è stata adottata una struttura semplice e chiara, pensata per permettere all'utente di rispondere facilmente e rapidamente alle tre domande fondamentali:
+\begin{itemize}
+    \item \textbf{Dove sono?} Grazie all'header, che è sempre ben visibile, l'utente può identificare immediatamente la propria posizione nel sito.
+    \item \textbf{Di cosa si tratta?} L'uso appropriato dei tag semantici rende il contenuto principale facilmente riconoscibile, consentendo all'utente di focalizzarsi rapidamente sulle informazioni più rilevanti.
+    \item \textbf{Dove posso andare?} La gerarchia logica delle pagine e la chiara organizzazione dei percorsi permettono all'utente di intuire facilmente le possibili azioni e navigare senza difficoltà.
+\end{itemize}
+Questa struttura garantisce una navigazione fluida e intuitiva, migliorando l'esperienza dell'utente.\\
+Per quanto riguarda il contenuto di ogni pagina possiamo dire:
+\begin{itemize}
+    \item \textbf{Home:} offre una breve descrizione del sito, link alle diverse pagine disponibili e una presentazione introduttiva delle attrazioni principali.
+    \item \textbf{Scopri le attrazioni:} include la mappa del sito e l'elenco delle attrazioni, con la possibilità di filtrarle per categoria.
+    \item \textbf{I nostri show:} presenta gli spettacoli organizzati da Dreamville, consentendo all'amministratore di aggiungere, modificare o eliminare spettacoli.
+    \item \textbf{Orari di apertura:} mostra il calendario del parco con gli orari di apertura.
+    \item \textbf{Acquista i biglietti:} permette di acquistare biglietti, scegliendo tra intero e ridotto, aggiungerli al carrello e procedere al pagamento.
+    \item \textbf{Il mio profilo:} consente agli utenti di visualizzare i propri dati personali e gli acquisti effettuati.
+    \item \textbf{Login:} include un modulo per accedere al sito.
+    \item \textbf{Registrati:} offre un modulo per creare un nuovo account.
+    \item \textbf{Logout:} permette di uscire dal proprio profilo.
+\end{itemize}
+Sono state inoltre previste delle pagine di errore, pronte ad intervenire qualora si rendessero necessarie, esse non sono direttamente raggiungibili dall'utente.
+Le pagine sono:
+\begin{itemize}
+    \item \textbf{ERROR 404:} La pagina 404 è stata implementata per gestire le richieste a risorse non esistenti, migliorando l'esperienza utente con un messaggio chiaro e un reindirizzamento utile.
+    \item \textbf{ERROR 500:} La pagina 500 è stata creata per informare l'utente di errori interni del server, garantendo trasparenza e minimizzando la frustrazione con suggerimenti utili.
+\end{itemize}
+\subsubsection{Footer}
+Nel footer del sito sono presenti gli sponsor del sito Dreamville, appositamente creati, insieme ai link alla pagina della \textit{Privacy} e alla sezione \textit{Chi siamo}, che descrive la missione e lo scopo del sito. Inoltre, sono state inserite le icone dei principali social media: sebbene non siano link attivi, poiché non conducono a pagine social reali, simboleggiano l'importanza dei social come uno degli strumenti principali per condividere informazioni e notizie con gli utenti.
+

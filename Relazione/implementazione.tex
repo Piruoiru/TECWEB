@@ -1,0 +1,70 @@
+\section{Implementazione}
+\subsection{Frontend}
+Per quanto riguarda i file di natura \textbf{CSS}, sono stati implementati 3 file:
+\subsubsection{Schermi piccoli}
+È stato implementato un file CSS per ottimizzare l'esperienza utente sui dispositivi mobili o con dimensioni dello schermo inferiori a 768px. Questo file garantisce un layout responsive, migliorando la navigabilità e l'accessibilità del sito.
+
+\subsubsection{Stampa}
+Un file CSS specifico è stato sviluppato per ottimizzare la resa grafica del sito web Dreamville durante la stampa. Questo consente agli utenti di ottenere una versione del contenuto ben formattata e leggibile su supporto cartaceo.
+
+\subsubsection{Style}
+È stato implementato un file CSS principale per garantire la coerenza visiva e migliorare l'accessibilità del sito web. Questo file definisce le funzionalità visive standard del sito, consentendo di raggiungere un'ampia gamma di utenti e garantendo un design inclusivo e fruibile.
+\\ \\
+Per quanto riguarda i file di natura \textbf{JavaScript}, sono state implementate le seguenti funzionalità 
+\subsubsection{JavaScript}
+DA MODIFICARE
+
+\subsection{Backend}
+\subsubsection{Database}
+Il sito web utilizza un database per la gestione delle informazioni relative agli utenti, agli spettacoli, ai biglietti e ai vari ordini. Questo approccio garantisce una memorizzazione organizzata e sicura dei dati, agevolando l'accesso e la manipolazione delle informazioni necessarie per il corretto funzionamento del sistema.
+\\
+\begin{minipage}{0.3\textwidth}
+    \includesvg[width=3\linewidth]{diagrammaER.svg} 
+\end{minipage}
+
+\subsubsection{Template Engine Custom}
+Al fine E' stato creato un engine di template custom al fine di permettere una suddivisione più elegante tra contenuto e comportamento, permettendo di mettere valori presi dal database all'interno dell'HTML.
+Possiamo individuare 2 principali classi che svolgono la funzione di trasformare un template html in una pagina vera e propria:
+\begin{itemize}
+    \item Tokenizer.php: questo file trasforma un documento HTML in una lista di "tokens", ossia una parte di testo con un significato associato 
+    \item Parser.php: questo file prende i tokens generati da Tokenizer.php e li trasforma in codice PHP attraverso una serie di istruzioni per mantenere la struttura dell'HTML e permettere di inserire valori dal database.
+\end{itemize}
+
+In particolare possiamo individuare all'interno di Tokenizer.php i diversi tipi di tokens che può creare, essi sono mostrati di seguito:
+\begin{itemize}
+    \item HTML: ovviamente dobbiamo mantenere invariato il contenuto dell'HTML di base non templatizzato.
+    \item VALUE: questo è il token che ci dice che andrà rimpiazzato con il contenuto della variabile. La sintassi è \{\{ \$nomeVariabile \}\}
+    \item FOR\_OPEN: questo token apre un ciclo FOR, permettendo di avere una parte di testo ripetuta per tante volte quante specificato. La sintassi è @for \$elementi in \$lista
+    \item FOR\_CLOSE: questo token indica che il ciclo FOR è finito. La sintassi è @endfor
+    \item IF\_OPEN: questo token indica che viene aperta una condizione IF, e quindi la seguente parte di testo verrà mostrata solo se la condizione si rivelasse vera. La sintassi è @if \$condizione
+    \item ELSE: questo token indica cosa mostrare in caso la condizione precedente non si fosse rivelata vera. La sintassi è @else
+    \item ELSE\_IF: questo token indica cosa mostrare in caso la condizione precedente non si fosse rivelata vera e se un ulteriore condizione risulta vera. La sintassi è @else if \$condizione
+    \item IF\_CLOSE: questo token indica la chiusura della precedente condizione IF. La sintassi è @endif
+\end{itemize}
+
+Ci siamo fermati alla scrittura di questi tokens in quanto non ritenevamo altre strutture necessarie.
+
+Il parser prende quindi una lista di tokens dal template che si vuole renderizzare, e li trasforma uno ad uno in codice PHP, aggiungendo anche il contesto del template, permettendo così di avere i nostri valori messi all'interno della pagina HTML. L'implementazione è un metodo 'parseExpression()' iterativo di tutti i tokens, che poi si dirama nei vari sottocasi:
+\begin{itemize}
+    \item parseHTML(): questo metodo fa un semplice 'echo' del contenuto.
+    \item parseValue(): questo metodo prende la precedente stringa \{\{ \$nomeVariabile \}\} e fa un 'echo' della variabile.
+    \item parseIf(): questo metodo apre un 'if' nel codice PHP, e continua a trasformare i tokens in codice PHP, inclusi i tokens ELSE\_IF e ELSE, che verranno interpretati in modo da creare una if clause strutturata. Il tutto finchè non trova il token IF\_CLOSE.
+    \item parseFor(): questo metodo apre un 'for' nel codice PHP, e continua a trasformare i tokens in codice PHP, finchè non trova il token FOR\_CLOSE.
+\end{itemize}
+
+Tutto questo viene inserito all'interno di un file, che verrà poi incluso come contenuto della pagina a cui viene fatta la richiesta. Questo file, essendo un file che può essere generato uguale per molte persone, viene inserito all'interno della cartella 'cache', e il nome del file è definito dalla funzione di hash MD5 del nome del file concatenato al contesto che viene usato per renderizzarlo. In questo modo, se il file HTML non è stato modificato dall'ultima richiesta e il contesto non è cambiato, allora c'è un controllo se esiste questo file.cache e se esiste viene servito per velocizzare il processo di rendering.
+
+\subsubsection{Accesso al database}
+Per semplificare l'accesso al database è stata creata una classe DatabaseClient all'interno del file 'db.php'. Questa classe permette di semplificare il processo di connessione e interrogazione del database, fornendo dei metodi intuitivi e facili da chiamare al fine di non dover scrivere manualmente le varie query necessarie allo sviluppo del sito.
+Tra i vari metodi troviamo:
+\begin{itemize}
+    \item connect(): si connette al database.
+    \item close(): chiude la connessione al database.
+    \item fetchUser(\$username): recupera i dettagli di un determinato utente.
+    \item login(\$username,\$password): esegue una query per controllare l'accesso di un utente.
+    \item register(\$name,\$surname,\$username,\$password): registra un nuovo utente.
+    \item updateUserDetails(\$name,\$surname,\$username): modifica i dettagli di un utente.
+    \item createShow(\$title,\$description,\$imgPath,\$imgDescription): crea un nuovo spettacolo.
+    \item updateCart(\$ticketID,\$username,\$operation): aggiunge o toglie biglietti dal carrello.
+    \item confirmPayment(\$username,\$sommaInt,\$sommaRid): conferma il pagamento dei biglietti presenti nel carrello.
+\end{itemize}
