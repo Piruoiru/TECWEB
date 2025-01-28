@@ -29,6 +29,7 @@ main{
   max-width: 1200px;
   margin: auto;
   background-color: #FFF;
+  min-height: 50vh;
 }
 
 body, button{
@@ -1080,6 +1081,7 @@ MAP PAGE
   width: fit-content;
   max-width: 75%;
   padding: 1em 2em;
+  justify-content: flex-start;
 }
 
 #profileDeletionMain > *:last-child{
@@ -1644,73 +1646,6 @@ HOME PAGE
 /* Cambia il colore del testo quando l'hover è attivo */
 .menuItem:hover p {
   color: var(--primaryColor); /* Blu durante l'hover */
-}
-
-/*
----------------------
-    PURCHASES PAGE
----------------------
-*/
-#purchasesMain{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#purchasesMain>h2{
-  text-shadow: #FFF 0 0 25px;
-  margin-top: 0.5em;
-  word-wrap: break-word;
-}
-
-#purchasesMain>.card{
-  width: fit-content;
-  margin: 1em 2em;
-}
-
-/*
----------------------
-    EDIT PROFILE PAGE
----------------------
-*/
-#profileEditMain dl{
-  font-size: 1.1em;
-  margin: 0;
-  margin-top: 0.75em;
-}
-
-#profileEditMain dt, #profileEditMain dd{
-  display: inline;
-  line-height: 1.5em;
-}
-
-#profileEditMain dd:after{
-  content: "\a";
-  white-space: pre;
-}
-
-/*
----------------------
-    DELETE PROFILE PAGE
----------------------
-*/
-
-#profileDeletionMain{
-  width: fit-content;
-  max-width: 75%;
-  padding: 1em 2em;
-}
-
-#profileDeletionMain > *:last-child{
-  margin-bottom: 1.25em;
-}
-
-#profileDeletionMain .errorMessageBgPar{
-  font-size: 1.1em;
-}
-
-#profileDeletionMain .infoMessageBgPar, #profileDeletionMain .errorMessageBgPar{
-  padding: 0.5em 1.5em;
 }
 
 /*
