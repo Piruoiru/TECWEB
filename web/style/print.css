@@ -188,6 +188,15 @@ header {
     color: black;
 }
 
+.ticketCardsContainer .ticketCard {
+    box-shadow: none;
+    background-color: var(--primaryColor);
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 0.5em 0.75em 0.75em 0.75em;
+}
+
 /*
 ----------------
  SHOWS PAGE
