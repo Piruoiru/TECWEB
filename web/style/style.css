@@ -1013,7 +1013,7 @@ MAP PAGE
 }
 
 #lastPurchaseCard p:last-of-type{
-  margin-bottom: 1em;
+  margin-bottom: 0.25em;
 }
 
 /*
@@ -1696,6 +1696,7 @@ SHOWS
 #showList h3{
   font-size: 1.75em;
   margin: 0.5em;
+  text-align: center;
 }
 
 #showList p{
