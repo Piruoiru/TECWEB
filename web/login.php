@@ -26,6 +26,10 @@
         if($db->login($username,$password)){
             $_SESSION['username'] = $username; 
             $db->close();
+            if(isset($_GET['loginRequest'])&&!empty($_GET['loginRequest'])){
+                header('Location: '.$_GET['loginRequest'].'.php');
+                exit();
+            }
             header('Location: index.php');
             exit();
         }else{

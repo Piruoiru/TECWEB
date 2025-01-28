@@ -2,7 +2,7 @@
     session_start();
     include_once 'header.php';
     if(!isset($_SESSION['username'])){
-        header('Location: login.php?loginRequest');
+        header('Location: login.php?loginRequest=purchases');
         exit();
     }
 
