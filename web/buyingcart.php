@@ -5,7 +5,7 @@ $context['cart'] = '';
 $context['prezzo'] = 0;
 
 if (!isset($_SESSION['username'])) {
-    header('Location: login.php?loginRequest');
+    header('Location: login.php?loginRequest=buyingcart');
     exit();
 }
 

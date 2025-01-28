@@ -2,7 +2,7 @@
     session_start();
 include_once 'parser.php';
 if (!isset($_SESSION['username'])) {
-    header('Location: login.php?loginRequest');
+    header('Location: login.php?loginRequest=buyingticket');
     exit();
 }
 

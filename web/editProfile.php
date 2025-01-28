@@ -5,7 +5,7 @@
     include_once 'db.php';
 
     if(!isset($_SESSION['username'])){
-        header('Location: login.php?loginRequest');
+        header('Location: login.php?loginRequest=editProfile');
         exit();
     }
 
