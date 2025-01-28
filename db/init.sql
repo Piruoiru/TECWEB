@@ -1,10 +1,11 @@
 USE test_db;
 
+DROP TABLE IF EXISTS bigliettiAcquistati;
+DROP TABLE IF EXISTS bigliettiCarrello;
+DROP TABLE IF EXISTS ordini;
+DROP TABLE IF EXISTS biglietti;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS spettacoli;
-DROP TABLE IF EXISTS biglietti;
-DROP TABLE IF EXISTS bigliettiUtente;
-DROP TABLE IF EXISTS bigliettiAcquistati;
 
 CREATE TABLE users(
     username varchar(20) PRIMARY KEY,
