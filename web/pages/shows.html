@@ -70,7 +70,7 @@
         <ul id="showList">
             @for $row in $result
             <li class="card">
-                <h3>{{ $row['titolo'] }}</h3>
+                <h2>{{ $row['titolo'] }}</h2>
                 <div id="showsWrapper">
                     <p>{{ $row['descrizione'] }}</p>
                     <img src="assets/{{ $row['percorso_immagine'] }}" alt="{{ $row['descrizione_immagine'] }}">

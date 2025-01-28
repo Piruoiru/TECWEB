@@ -19,18 +19,35 @@ h2{
 
 .scrollUpButton{
     display: none;
+}   
+
+#menuUl a{
+    color:#000;
 }
 
-a::after {
-    content: " (" attr(href) ")";
+.footerSponsors p {
+    color: black;
 }
 
+header {
+    display: grid;
+    background-color: var(--primaryColor);
+}
 
 /*
 ----------------
  NAVBAR AND BREADCRUMB
 ----------------
 */
+
+#breadcrumb p{
+    color:#000;
+}
+
+#todaysOpeningHours {
+    justify-self: center;
+    color:#000;
+}
 
 #menu,#userCrumb{
     display: none;
@@ -39,7 +56,7 @@ a::after {
 
 #headerBreadcrumbWrapper > header > h1{
     -webkit-print-color-adjust: exact;
-
+    print-color-adjust: exact;
 }
 
 #breadcrumb{
@@ -84,6 +101,9 @@ a::after {
  CALENDAR PAGE
 ----------------
 */
+#calendarTable thead th {
+    color: #000;
+}
 
 #calendarTable{
     margin-top: 2em;
@@ -129,6 +149,11 @@ a::after {
     border:1px solid #000;
 }
 
+#calendarTable thead p {
+    font-size: 1.25em;
+    color: #000;
+}
+
 /*
 ----------------
  RIDES PAGE
@@ -152,12 +177,15 @@ a::after {
 }
 
 #centerMaps > a{
-    border-color: #000;
-    border: solid 2px;
+    display: none;
 }
 
 #ridesMain > #rideList > li{
     box-shadow: none;
+}
+
+.errorMessageBgPar {
+    color: black;
 }
 
 /*
