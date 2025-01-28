@@ -9,8 +9,7 @@
 
     $db = new DatabaseClient();
     $db->connect();
-    // $deletionSuccess = $db->deleteUser($_SESSION['username']);
-    $deletionSuccess = true;
+    $deletionSuccess = $db->deleteUser($_SESSION['username']);
     $db->close();
 
     if($deletionSuccess){
