@@ -50,7 +50,9 @@ CREATE TABLE bigliettiCarrello(
     utente varchar(20) NOT NULL,
     dataOrarioOrdine TIMESTAMP NOT NULL,
     quantita smallint(2) NOT NULL,
-    FOREIGN KEY (utente) REFERENCES users(username)
+    PRIMARY KEY (biglietto,utente),
+    FOREIGN KEY (utente) REFERENCES users(username),
+    FOREIGN KEY (biglietto) REFERENCES biglietti(id)
 );
 
 CREATE TABLE ordini(
