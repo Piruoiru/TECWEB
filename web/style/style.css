@@ -1229,7 +1229,8 @@ CART PAGE
   top: 32%;
   left: 38%;
   margin: -25px 0 0 -25px;
-  font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
+  font-family: "Figtree", Roboto, sans-serif;
+  position: absolute;
 }
 
 
