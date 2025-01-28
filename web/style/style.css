@@ -1099,6 +1099,10 @@ CART PAGE
 -----------------
 */
 
+#backdrop > .hiddenBack{
+  display: none;
+}
+
 #backdrop{
   position: fixed;
   top: 0;
@@ -1113,9 +1117,7 @@ CART PAGE
   z-index: 2;
 }
 
-#backdrop.visible{
-  display: flex;
-}
+
 
 #boxCart{
   width: 25%;
@@ -1128,6 +1130,7 @@ CART PAGE
   margin-top: 1.3em;
   margin-bottom: 1.3em;
   font-weight: bold;
+  align-items: center;
 }
 
 #prezzoTot{
@@ -1136,6 +1139,7 @@ CART PAGE
 
 #pageCart{
   justify-items: center;
+  min-height: 50vh;
 }
 
 #pageCart h1{
@@ -1158,23 +1162,23 @@ CART PAGE
   font-size: 1.5em;
 }
 
+#btnSelect{
+  padding: 0.5em 0.7em;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid #000;
+  text-align: center;
+  font-size: 1.1em;
+  border: solid 5px var(--primaryColor);
+  margin-bottom: 1em;
+  background-color: var(--primaryColor);
+  color: #FFF;
+  font-size: 1.5em;
+}
+
 #ticketSel{
   list-style-type: none;
-}
-
-.rowCart{
-  width: 50%;
-  display: inline-block;
-  margin: 0.5em;
-}
-
-#rowInt{
-  margin: 0.5em;
-  font-size: 1.1em;
-}
-
-#rowRid{
-  margin: 0.4em;
 }
 
 .btnAddRmv{
@@ -1186,8 +1190,9 @@ CART PAGE
   text-align: center;
   font-size: 1.1em;
   border: solid 5px var(--primaryColor);
-  margin-top: 0.9em; 
+  margin-top: 1em; 
   margin-left: 0.2em;
+  margin-bottom: 1em;
   background-color: var(--primaryColor);
   color: #FFF;
 }
@@ -1216,6 +1221,7 @@ CART PAGE
 
 .output{
   width: 500px;
+  height: fit-content;
   padding: 30px 0;
   box-shadow: 0 0 35px rgba(0, 3, 41, 0.8);
   background-color: var(--secondaryColor);
@@ -1228,13 +1234,12 @@ CART PAGE
   font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
 }
 
-.output .fa-check{
+
+.output > #checkMark{
   height: 150px;
   width: 150px;
-  border: 5px solid var(--primaryColor);
   line-height: 150px;
   border-radius: 50%;
-  color: var(--primaryColor);
   font-size: 85px;
   margin-bottom: 30px;
   animation: animate 1s ease;
@@ -1254,7 +1259,7 @@ CART PAGE
 .textPaga{
   font-size: 40px;
   font-weight: 600;
-  color: var(--primaryColor);
+  color: #000;
   letter-spacing: 1px;
 }
 
@@ -1304,7 +1309,7 @@ TICKET PAGE
 
 #carrelloUL{
   list-style-type: none;
-  justify-items: baseline;
+  justify-content: center;
 }
 
 #boxSconto{
