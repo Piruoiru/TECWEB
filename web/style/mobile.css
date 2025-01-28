@@ -350,6 +350,10 @@ TICKET PAGE
     display: inline-block;
 }
 
+#ticketWrapper {
+    display: inline-block;
+}
+
 #boxTicket {
     padding: 10px;
 }
@@ -408,8 +412,9 @@ CART PAGE
 }
 
 .output {
-    width: 60%;
-    height: 35%;
+    width: fit-content;
+    height: fit-content;
+    right: 15%;
     left: 25%;
 }
 
