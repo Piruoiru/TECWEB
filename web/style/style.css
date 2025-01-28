@@ -1245,6 +1245,10 @@ CART PAGE
   animation: animate 1s ease;
 }
 
+#checkMark > path{
+  fill: var(--primaryColor);
+}
+
 @keyframes animate{
   0%{
       transform: translateY(60px) scale(0.7) rotate(0deg);
@@ -1259,7 +1263,7 @@ CART PAGE
 .textPaga{
   font-size: 40px;
   font-weight: 600;
-  color: #000;
+  color: var(--primaryColor);
   letter-spacing: 1px;
 }
 
