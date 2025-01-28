@@ -67,58 +67,60 @@
         </div>
         <main>
             <div id="containerTicket">
-                <div id="boxTicket">
-                    <h1>Acquista i tuoi biglietti</h1>
-                    <p> </p>
-                    <h3>Acquista qui il tuo biglietto cliccando sui pulsanti posizionati qui sotto e goditi la visita a <span lang="en">DreamVille</span>!</h3>
-                    <div id="ticketChoice">
-                        <div class="cardTicket">
-                            <img src="assets/ticketimg.png" alt="Biglietto Intero">
-                            <div class="ticketInfo">
-                                <h3>Biglietto Intero 34,99€</h3>
-                                <p>Questo biglietto permette un ingresso al parco <span lang="en">DreamVille</span> per adulti con età superiore ai 14 anni. Il biglietto consente 1 giorno di visita per la
-                                    stagione corrente.</p>
+                <div id="ticketWrapper">
+                    <div id="boxTicket">
+                        <h1>Acquista i tuoi biglietti</h1>
+                        <p> </p>
+                        <p>Acquista qui il tuo biglietto cliccando sui pulsanti posizionati qui sotto e goditi la visita a <span lang="en">DreamVille</span>!</p>
+                        <div id="ticketChoice">
+                            <div class="cardTicket">
+                                <img src="assets/ticketimg.png" alt="Biglietto Intero">
+                                <div class="ticketInfo">
+                                    <h3>Biglietto Intero 34,99€</h3>
+                                    <p>Questo biglietto permette un ingresso al parco <span lang="en">DreamVille</span> per adulti con età superiore ai 14 anni. Il biglietto consente 1 giorno di visita per la
+                                        stagione corrente.</p>
+                                </div>
+                                <div>
+                                    <button id="btnRmv" class="btnTicket" data-ticket-type="Biglietto Intero" operation="rmv" aria-label="rimuovi un biglietto">-</button>
+                                    <button id="btnAdd" class="btnTicket" data-ticket-type="Biglietto Intero" operation="add" aria-label="aggiungi un biglietto">+</button>
+                                </div>
                             </div>
-                            <div>
-                                <button id="btnRmv" class="btnTicket" data-ticket-type="Biglietto Intero" operation="rmv" aria-label="rimuovi un biglietto">-</button>
-                                <button id="btnAdd" class="btnTicket" data-ticket-type="Biglietto Intero" operation="add" aria-label="aggiungi un biglietto">+</button>
-                            </div>
-                        </div>
-                        <div class="cardTicket">
-                            <img src="assets/ticketimg.png" alt="Biglietto Ridotto">
-                            <div class="ticketInfo">
-                                <h3>Biglietto Ridotto 24,99€</h3>
-                                <p>Valido per bambini di altezza superiore a 100 cm e di età inferiore ai 14 anni, over 65,
-                                    donne in gravidanza e accompagnatori di persone con disabilità non autosufficienti. Il biglietto consente 1 giorno di visita per la
-                                    stagione corrente.</p>
-                            
-                            </div>
-                            <div>
-                                <button id="btnRmv" class="btnTicket" data-ticket-type="Biglietto Ridotto" operation="rmv">-</button>
-                                <button id="btnAdd" class="btnTicket" data-ticket-type="Biglietto Ridotto" operation="add">+</button>
+                            <div class="cardTicket">
+                                <img src="assets/ticketimg.png" alt="Biglietto Ridotto">
+                                <div class="ticketInfo">
+                                    <h3>Biglietto Ridotto 24,99€</h3>
+                                    <p>Valido per bambini di altezza superiore a 100 cm e di età inferiore ai 14 anni, over 65,
+                                        donne in gravidanza e accompagnatori di persone con disabilità non autosufficienti. Il biglietto consente 1 giorno di visita per la
+                                        stagione corrente.</p>
+                                
+                                </div>
+                                <div>
+                                    <button id="btnRmv" class="btnTicket" data-ticket-type="Biglietto Ridotto" operation="rmv">-</button>
+                                    <button id="btnAdd" class="btnTicket" data-ticket-type="Biglietto Ridotto" operation="add">+</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <h3>ATTENZIONE</h3>
+                    <div id="buyTicketKart">
+                        <div>
+                            <form method="POST">
+                                <h2>Biglietti Selezionati</h2>
+                                <p>______________________________</p>
+                                <ul id="ticketSel">
+                                    <li id="rowInt"></li>
+                                    <li id="rowRid"></li>
+                                </ul>
+                        </div>
+                        <input type="hidden" id="intero" name="intero" value="0">
+                        <input type="hidden" id="ridotto" name="ridotto" value="0">
+                        <input type="submit" value ="Aggiungi al Carrello" id="confermaCart" name="submit">
+                        </form>
+                    </div>
+                </div>    
+                <h3>ATTENZIONE</h3>
                     <p>Questi prezzi possono essere soggetti a modifiche e cambiamenti in ogni momento.</p>
                     <p><strong>NOTA BENE:</strong> Le tariffe dei biglietti possono variare in base al periodo dell’anno in
                         cui si visita il parco.</p>
-                </div>
-                <div id="buyTicketKart">
-                    <div>
-                        <form method="POST">
-                            <h2>Biglietti Selezionati</h2>
-                            <p>______________________________</p>
-                            <ul id="ticketSel">
-                                <li id="rowInt"></li>
-                                <li id="rowRid"></li>
-                            </ul>
-                    </div>
-                    <input type="hidden" id="intero" name="intero" value="0">
-                    <input type="hidden" id="ridotto" name="ridotto" value="0">
-                    <input type="submit" value ="Aggiungi al Carrello" id="confermaCart" name="submit">
-                    </form>
-                </div>
             </div>
         </main>
     </body>

@@ -1316,7 +1316,7 @@ TICKET PAGE
 }
 
 .btnTicket{
-  padding: 0.8em 1.0em;
+  padding: 0.5em 0.7em;
   border: 0;
   cursor: pointer;
   text-decoration: none;
@@ -1352,8 +1352,8 @@ TICKET PAGE
 
 #containerTicket{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
 }
 
 .cardTicket{
@@ -1386,8 +1386,24 @@ TICKET PAGE
 }
 
 .cardTicket img{
-  width: 10em;
+  width: 9em;
   height: 10em;
+}
+
+#boxTicket h1{
+  font-size:2.5em;
+  margin: 0.75  em;
+}
+
+#boxTicket p{
+  font-size:1.0em;
+  margin-top: 0.25em;
+}
+
+#ticketWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /*
@@ -1724,6 +1740,18 @@ SHOWS
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+#cardFormMainShows h1{
+  font-size: 2.75em;
+  text-align: center;
+  margin: 0.75em;
+}
+
+#cardFormMainShows p{
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 0.25em;
 }
 
 #showList h3{
