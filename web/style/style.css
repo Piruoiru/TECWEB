@@ -1808,12 +1808,6 @@ DELETE SHOW PAGE
 
 #backToShowsBtn{
   margin-top: 1em;
-  border: solid 5px var(--primaryColor);
-}
-
-#backToShowsBtn:hover{
-  background-color: var(--primaryColor);
-  color: #FFF;
 }
 
 /*
