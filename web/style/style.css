@@ -110,19 +110,15 @@ a:hover{
   transition: all .2s ease-in-out;
 }
 
-.basicBtn:hover{
-  color: #FFF;
-  background-color: var(--tertiaryColor);
-}
-
 .basicBtn:visited{
   background-color: var(--tertiaryColor);
   color: #FFF;
 }
 
-.basicBtn:visited:hover{
+.basicBtn:hover, .basicBtn:visited:hover{
   background-color: var(--primaryColor);
   border-color: var(--primaryColor);
+  color: #FFF;
 }
 
 .filledGradientBtn, .filledGradientBtn:visited{
