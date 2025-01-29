@@ -25,7 +25,7 @@
         <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
-                <nav id="menu" aria-label="Menù di navigazione">
+                <nav id="menu">
                     <button id="hamburgerIcon" onclick="toggleMobileNav()" class="buttonStyle visible">
                         <svg viewBox="0 0 24 22">
                             <path d="M4 18L20 18" />
@@ -57,7 +57,7 @@
                 </nav>
             </header>
             <nav id="breadcrumb">
-                <nav id="breadcrumbNav" aria-label="Breadcrumbs">
+                <nav id="breadcrumbNav">
                     <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Carrello</p>
                 </nav>
                 <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
@@ -74,7 +74,21 @@
                 <div id="boxCart">
                     <form method="POST">
                         <ul id="carrelloUL">
-                            {{$cart}}
+                            <li name="rowInteri" class="rowCart">
+                                <span id="spanInt">{{$bigliettiInt}}</span>
+                            </li>
+                            <fieldset class="fieldCart">
+                                <input id="rmvIntCart" type='submit' value = '-' name='rmvTint' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto intero">
+                                <input id="addIntCart" type='submit' value = '+' name='addTint' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto intero">
+                            </fieldset>
+                            
+                            <li name="rowRidotti" class="rowCart">
+                                <span id="spanRid">{{$bigliettiRid}}</span>
+                            </li>
+                            <fieldset class="fieldCart">
+                                <input id="rmvRidCart" type='submit' value = '-' name='rmvTrid' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto ridotto">
+                                <input id="addRidCart" type='submit' value = '+' name='addTrid' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto ridotto">
+                            </fieldset>
                         </ul>
                         <p id="prezzoTot"><strong>{{$totale}}</strong></p>
                     </form>
@@ -94,25 +108,25 @@
                 </div>
             </form>
         </main>
-        <footer>
-            <div class="footerSponsors">
-                <p>Offerto da:</p>
-                <p> </p>
-                <img src="assets/sparkleco.jpg" alt="logo dello sponsor sparklego"/>
-                <img src="assets/whirldenergy.jpg" alt="logo dello sponsor whirldenergy"/>
-                <img src="assets/hippysnacks.jpg" alt="logo dello sponsor hippysnacks"/>
-                <img src="assets/ridetech.jpg" alt="logo dello sponsor ridetech"/>
-                <img src="assets/cloud9.jpg" alt="logo dello sponsor cloud9"/>
-                <img src="assets/cloudpaints.jpg" alt="logo dello sponsor cloudpaints"/>
-            </div>          
-            <div class="footer">
-                <div class="socialWrapper">
-                    <img src="assets/instagram.png" alt="instagram DreamVille"/>                   
-                    <img src="assets/tik_tok.png" alt="tik tok DreamVille"/>                   
-                    <img src="assets/facebook.png" alt="facebook DreamVille"/>                   
-                    <img src="assets/logorealx.png" alt="x DreamVille"/>                   
-                </div>                 
-            </div>
-        </footer>
     </body>
+    <footer>
+        <div class="footerSponsors">
+            <p>Offerto da:</p>
+            <p> </p>
+            <img src="assets/sparkleco.jpg" alt="logo sparklego"/>
+            <img src="assets/whirldenergy.jpg" alt="logo whirldenergy"/>
+            <img src="assets/hippysnacks.jpg" alt="logo hippysnacks"/>
+            <img src="assets/ridetech.jpg" alt="logo ridetech"/>
+            <img src="assets/cloud9.jpg" alt="logo cloud9"/>
+            <img src="assets/cloudpaints.jpg" alt="logo cloudpaints"/>
+        </div>          
+        <div class="footer">
+            <div class="socialWrapper">
+                <img src="assets/instagram.png" alt="instagram DreamVille"/>                   
+                <img src="assets/tik_tok.png" alt="tik tok DreamVille"/>                   
+                <img src="assets/facebook.png" alt="facebook DreamVille"/>                   
+                <img src="assets/logorealx.png" alt="x DreamVille"/>                   
+            </div>                 
+        </div>
+    </footer>
 </html>
