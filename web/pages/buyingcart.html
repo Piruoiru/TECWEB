@@ -21,7 +21,7 @@
         <script src="scripts/script.js"></script>
     </head>
 
-    <body class="tertiaryBg" onload="loadTicketAndCart()">
+    <body class="tertiaryBg" onload="loadCart()">
         <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
@@ -74,7 +74,7 @@
                 <form method="POST" id="boxCart">
                     <ul id="carrelloUL">
                         <li id="rowInteri" class="rowCart">
-                            <p id="spanInt">{{$bigliettiInt}}</p>
+                            <p id="pInt">{{$bigliettiInt}}</p>
                             <fieldset class="fieldCart">
                                 <legend>Pulsanti Biglietti Interi</legend>
                                 <input id="rmvIntCart" type='submit' value = '-' name='rmvTint' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto intero">
@@ -83,7 +83,7 @@
                         </li>
                             
                         <li id="rowRidotti" class="rowCart">
-                            <p id="spanRid">{{$bigliettiRid}}</p>
+                            <p id="pRid">{{$bigliettiRid}}</p>
                             <fieldset class="fieldCart">
                                 <legend>Pulsanti Biglietti Ridotti</legend>
                                 <input id="rmvRidCart" type='submit' value = '-' name='rmvTrid' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto ridotto">
