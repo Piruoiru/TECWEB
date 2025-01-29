@@ -1162,6 +1162,11 @@ CART PAGE
   border: 0;
 }
 
+.rowCart p:first-child{
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
 #boxCart{
   width: 25%;
   background-color: #FFC300;
@@ -1178,6 +1183,7 @@ CART PAGE
 
 #prezzoTot{
   margin-top: 0.5em;
+  font-size: 1.25em;
 }
 
 #pageCart{
@@ -1195,28 +1201,18 @@ CART PAGE
   border: 0;
   cursor: pointer;
   text-decoration: none;
-  border: 1px solid #000;
   text-align: center;
   font-size: 1.1em;
   border: solid 5px var(--primaryColor);
+  border-radius: 2px;
   margin-bottom: 1em;
   background-color: var(--primaryColor);
   color: #FFF;
   font-size: 1.5em;
+  transition: .2s ease-in-out;
 }
 
 #btnSelect{
-  padding: 0.5em 0.7em;
-  border: 0;
-  cursor: pointer;
-  text-decoration: none;
-  border: 1px solid #000;
-  text-align: center;
-  font-size: 1.1em;
-  border: solid 5px var(--primaryColor);
-  margin-bottom: 1em;
-  background-color: var(--primaryColor);
-  color: #FFF;
   font-size: 1.5em;
 }
 
@@ -1229,7 +1225,7 @@ CART PAGE
   text-align: center;
   font-size: 1.1em;
   border: solid 5px var(--primaryColor);
-  margin-top: 1em; 
+  margin-top: 0.5em; 
   margin-left: 0.2em;
   margin-bottom: 1em;
   background-color: var(--primaryColor);

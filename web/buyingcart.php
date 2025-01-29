@@ -1,11 +1,9 @@
 <?php
     session_start();
     include_once 'parser.php';
-    $context['totale'] = 'Non ha ancora selezionato alcun biglietto';
     $context['bigliettiInt'] = '';
     $context['bigliettiRid'] = '';
-    $context['btnAcquista'] = '';
-    $context['btnSelect'] = '<button id="btnSelect">Seleziona i biglietti</button>';
+    $context['btnSelect'] = 'Seleziona i biglietti';
 
     if (!isset($_SESSION['username'])) {
         header('Location: login.php?loginRequest=buyingcart');
@@ -54,21 +52,21 @@
             if ($biglietti['quantita'] > 0) {
                 $ticket = "Biglieto Ridotto";
                 $prezzo += $prezzoRid * $biglietti['quantita'];
-                $context['totale'] = 'Totale: ' . $prezzo . '€';
+                $context['totale'] = $prezzo;
                 $sommaRid = $prezzoRid * $biglietti['quantita'];
                 $context['bigliettiRid'] .= $ticket . " x" .  $biglietti['quantita'];
-                $context['btnAcquista'] = '<button id="btnCart">Acquista</button>';
-                $context['btnSelect'] = '';
+                $context['btnAcquista'] = 'Acquista';
+                unset($context['btnSelect']);
             }
         } else {
             if ($biglietti['quantita'] > 0) {
                 $ticket = "Biglieto Intero";
                 $prezzo += $prezzoInt * $biglietti['quantita'];
-                $context['totale'] = 'Totale: ' . $prezzo . '€';
+                $context['totale'] = $prezzo;
                 $sommaInt = $prezzoInt * $biglietti['quantita'];
                 $context['bigliettiInt'] .= $ticket . " x" .  $biglietti['quantita'];
-                $context['btnAcquista'] = '<button id="btnCart">Acquista</button>';
-                $context['btnSelect'] = '';
+                $context['btnAcquista'] = 'Acquista';
+                unset($context['btnSelect']);
             } 
         }
     }
