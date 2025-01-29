@@ -9,14 +9,18 @@
 
     $db = new DatabaseClient();
     $db->connect();
-    $deletionSuccess = $db->deleteUser($_SESSION['username']);
-    $db->close();
+    if(!($_SESSION['username']=='admin')){
+        $deletionSuccess = $db->deleteUser($_SESSION['username']);
+        $db->close();
 
-    if($deletionSuccess){
-        session_unset();
-        session_destroy();
+        if($deletionSuccess){
+            session_unset();
+            session_destroy();
+        }else{
+            $context['deletionErrorMessage'] = 'Errore interno durante la cancellazione';
+        }
     }else{
-        $context['deletionErrorMessage'] = 'Errore interno durante la cancellazione';//FIXME: pagina errore 500?
+        $context['deletionErrorMessage'] = "Impossibile eliminare l'utente amministratore";
     }
     include_once 'header.php';
 
