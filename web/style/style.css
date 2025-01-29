@@ -145,6 +145,10 @@ a:hover{
   margin-left: 0.5em;
 }
 
+#breadcrumbNav a{
+  text-decoration: underline;
+}
+
 #todaysOpeningHours{
   justify-self: center;
 }
@@ -157,7 +161,6 @@ a:hover{
 #breadcrumb a{
   color: var(--secondaryColor);
   background-color: var(--primaryColor);
-  text-decoration: underline;
 }
 
 #breadcrumb a:visited{
