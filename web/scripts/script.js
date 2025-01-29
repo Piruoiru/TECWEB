@@ -490,7 +490,7 @@ function loadTicketAndCart(){
         button.addEventListener('click', () => {
             // Leggi il tipo di biglietto dall'attributo "data-ticket-type"
             const tipoBiglietto = button.getAttribute('data-ticket-type');
-            const operation = button.getAttribute('operation');
+            const operation = button.getAttribute('data-operation');
             aggiungiAlCarrello(tipoBiglietto, operation);
         });
     });
