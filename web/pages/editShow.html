@@ -61,36 +61,34 @@
                 </div>
             </div>
         </div>
-        <main>
-            <div class="card cardFormMain">
-                @if !empty($debugMessage)
-                <p class="infoMessageBgPar">{{ $debugMessage }}</p>
-                @endif
-                <h1>Modifica lo spettacolo</h1>
-                <form method="POST" class="cardForm" enctype="multipart/form-data">
-                    <div class="inputLabelContainer">
-                        <label for="vecchio_titolo">Vecchio Titolo</label>
-                        <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="{{ $vecchio_titolo }}" disabled />
-                    </div>
-                    <div class="inputLabelContainer">
-                        <label for="nuovo_titolo">Nuovo Titolo</label>
-                        <input type="text" id="titolo" name="titolo" value="" />
-                    </div>
-                    <div class="inputLabelContainer" id="descrizioneContainer">
-                        <label for="descrizione">Descrizione</label>
-                        <input type="text" id="descrizione" name="descrizione" value="" />
-                    </div>
-                    <div class="inputLabelContainer" id="immagineContainer">
-                        <label for="immagine">Immagine</label>
-                        <input type="file" id="immagine" name="immagine" />
-                    </div>
-                    <div class="inputLabelContainer" id="descrizioneImmagineContainer">
-                        <label for="descrizione_immagine">Descrizione immagine</label>
-                        <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
-                    </div>
-                    <input type="submit" name="submit" value="Modifica" class="buttonStyle filledGradientBtn">
-                </form>
-            </div>
+        <main class="card cardFormMain">
+            @if !empty($debugMessage)
+            <p class="infoMessageBgPar">{{ $debugMessage }}</p>
+            @endif
+            <h1>Modifica lo spettacolo</h1>
+            <form method="POST" class="cardForm" enctype="multipart/form-data">
+                <div class="inputLabelContainer">
+                    <label for="vecchio_titolo">Vecchio Titolo</label>
+                    <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="{{ $vecchio_titolo }}" disabled />
+                </div>
+                <div class="inputLabelContainer">
+                    <label for="nuovo_titolo">Nuovo Titolo</label>
+                    <input type="text" id="titolo" name="titolo" value="" />
+                </div>
+                <div class="inputLabelContainer" id="descrizioneContainer">
+                    <label for="descrizione">Descrizione</label>
+                    <input type="text" id="descrizione" name="descrizione" value="" />
+                </div>
+                <div class="inputLabelContainer" id="immagineContainer">
+                    <label for="immagine">Immagine</label>
+                    <input type="file" id="immagine" name="immagine" />
+                </div>
+                <div class="inputLabelContainer" id="descrizioneImmagineContainer">
+                    <label for="descrizione_immagine">Descrizione immagine</label>
+                    <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
+                </div>
+                <input type="submit" name="submit" value="Modifica" class="buttonStyle filledGradientBtn">
+            </form>
         </main>
         <footer>
             <div class="footerSponsors">
