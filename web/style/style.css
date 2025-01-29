@@ -1733,38 +1733,38 @@ SHOWS
   box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.2);
 }
 
-#showsWrapper{
+.showsWrapper{
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-#showsButtons{
+.showsButtons{
   display: flex;
   flex-direction: row;;
 }
 
-#showsButtons a{
+.showsButtons a{
   margin: 0em 2em;
   font-size: 1.1em;
 }
 
-#deleteBtn{
+.deleteBtn{
   color: #000;
   border: solid 5px var(--errorColor);
 }
 
-#deleteBtn:hover{
+.deleteBtn:hover{
   background-color: var(--errorColor);
   color: #FFF;
 }
 
-#modifyBtn{
+.modifyBtn{
   color: #000;
   border: solid 5px var(--secondaryColor);
 }
 
-#modifyBtn:hover{
+.modifyBtn:hover{
   background-color: var(--secondaryColor);
 }
 

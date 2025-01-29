@@ -71,14 +71,14 @@
             @for $row in $result
             <li class="card">
                 <h2>{{ $row['titolo'] }}</h2>
-                <div id="showsWrapper">
+                <div class="showsWrapper">
                     <p>{{ $row['descrizione'] }}</p>
                     <img src="assets/{{ $row['percorso_immagine'] }}" alt="{{ $row['descrizione_immagine'] }}">
                 </div>
-                <div id="showsButtons">
+                <div class="showsButtons">
                     @if $isAdmin
-                    <a class="buttonStyle" id="modifyBtn" href="/editShow.php?vecchio_titolo={{ $row['titolo'] }}">Modifica</a>
-                    <a class="buttonStyle" id="deleteBtn" href="/deleteShow.php?titolo={{ $row['titolo'] }}">Elimina</a>
+                    <a class="buttonStyle modifyBtn" href="/editShow.php?vecchio_titolo={{ $row['titolo'] }}">Modifica</a>
+                    <a class="buttonStyle deleteBtn" href="/deleteShow.php?titolo={{ $row['titolo'] }}">Elimina</a>
                     @endif  
                 </div>
             </li>
