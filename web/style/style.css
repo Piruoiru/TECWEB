@@ -99,15 +99,30 @@ a:hover{
   text-decoration: none;
 }
 
-.outlineGradientBtn, .outlineGradientBtn:visited{
+.basicBtn, .basicBtn:visited{
   color: #000;
-  border-color: #000;
-  border-image: linear-gradient(150deg, var(--primaryColor) 25%, var(--tertiaryColor) 75%) 1;
+  border-color: var(--tertiaryColor);
   border-width: 5px;
   border-style: solid;
   font-weight: 500;
   font-size: 1.1em;
   background-color: #FFF;
+  transition: all .2s ease-in-out;
+}
+
+.basicBtn:hover{
+  color: #FFF;
+  background-color: var(--tertiaryColor);
+}
+
+.basicBtn:visited{
+  background-color: var(--tertiaryColor);
+  color: #FFF;
+}
+
+.basicBtn:visited:hover{
+  background-color: var(--primaryColor);
+  border-color: var(--primaryColor);
 }
 
 .filledGradientBtn, .filledGradientBtn:visited{
@@ -638,7 +653,7 @@ label{
   margin: 1.5em 0 1em 0;
 }
 
-.cardFormMain .outlineGradientBtn{
+.cardFormMain .basicBtn{
   margin: 1em 0 0.5em 0;
   padding: 1em 2em;
   box-sizing: border-box;
@@ -999,7 +1014,7 @@ MAP PAGE
   white-space: pre;
 }
 
-#profileCard .outlineGradientBtn, #lastPurchaseCard .outlineGradientBtn{
+#profileCard .basicBtn, #lastPurchaseCard .basicBtn{
   margin: 0.25em auto;
   width: 100%;
   box-sizing: border-box;
