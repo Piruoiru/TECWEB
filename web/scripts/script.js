@@ -512,6 +512,22 @@ function loadTicketAndCart(){
     btnSelect?.addEventListener('click', () => {
         location.replace('buyingticket.php');
     })
+
+    const spanInt = document.getElementById("spanInt");
+    const btnRmvInt = document.getElementById("rmvIntCart");
+    const btnAddInt = document.getElementById("addIntCart");
+    if(spanInt.innerHTML !== ''){
+        btnRmvInt.classList.remove("hiddenCart");
+        btnAddInt.classList.remove("hiddenCart");
+    }
+
+    const spanRid = document.getElementById("spanRid");
+    const btnRmvRid = document.getElementById("rmvRidCart");
+    const btnAddRid = document.getElementById("addRidCart");
+    if(spanRid.innerHTML !== ''){
+        btnRmvRid.classList.remove("hiddenCart");
+        btnAddRid.classList.remove("hiddenCart");
+    }
 }
 
 /*
