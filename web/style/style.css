@@ -873,6 +873,7 @@ MAP PAGE
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1em;
 }
 
 #mapMain>h1{
@@ -894,14 +895,10 @@ MAP PAGE
 
 #mapButton{
   border-radius: 2px;
-  background: transparent;
   font-size: 1.1em;
   font-weight: 500;
   margin: 0.35em;
   padding: 0.75em 1.5em;
-  transition: all .2s ease-in-out;
-  border: 5px solid var(--primaryColor);
-  color: #000;
   margin: 1em;
 }
 

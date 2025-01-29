@@ -527,3 +527,12 @@ SHOWS PAGE
     display: flex;
     flex-direction: column;
 }
+
+/*
+------------
+MAP PAGE
+------------
+*/
+#mapButton{
+    width: 100%;
+}
