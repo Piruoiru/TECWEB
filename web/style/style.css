@@ -1196,10 +1196,6 @@ CART PAGE
   font-size: 1.5em;
 }
 
-#ticketSel{
-  list-style-type: none;
-}
-
 .btnAddRmv{
   padding: 0.5em 0.7em;
   border: 0;
@@ -1218,6 +1214,7 @@ CART PAGE
 
 #pageCartMain{
   text-align: center;
+  font-family: "Figtree", Roboto, sans-serif;
 }
 
 .btnAddRmv:hover{
@@ -1302,8 +1299,9 @@ CART PAGE
   color: #FFF;
 }
 
-#pageCartMain{
-  font-family: "Figtree", Roboto, sans-serif; /* Font accessibile */
+#carrelloUL{
+  list-style-type: none;
+  justify-content: center;
 }
 
 /*
@@ -1329,15 +1327,6 @@ TICKET PAGE
 
 #buyTicketKart h2{
   font-size: 1.8em;
-}
-
-#carrelloUL{
-  list-style-type: none;
-  justify-content: center;
-}
-
-#boxSconto{
-  margin-bottom: 10px;
 }
 
 #boxTicket{
@@ -1440,6 +1429,11 @@ TICKET PAGE
   flex-direction: row;
   justify-content: space-between;
 }
+
+#ticketSel{
+  list-style-type: none;
+}
+
 
 /*
 ----------
