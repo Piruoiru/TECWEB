@@ -27,21 +27,25 @@
     if (isset($_POST['addTrid'])) {
         $operation = 'add';
         $db->updateCart('1', $_SESSION['username'], $operation);
+        header('Location: buyingcart.php');
     }
 
     if (isset($_POST['rmvTrid'])) {
         $operation = 'rmv';
         $db->updateCart('1', $_SESSION['username'], $operation);
+        header('Location: buyingcart.php');
     }
 
     if (isset($_POST['rmvTint'])) {
         $operation = 'rmv';
         $db->updateCart('2', $_SESSION['username'], $operation);
+        header('Location: buyingcart.php');
     }
 
     if (isset($_POST['addTint'])) {
         $operation = 'add';
         $db->updateCart('2', $_SESSION['username'], $operation);
+        header('Location: buyingcart.php');
     }
 
     $risultato = $db->fetchCart($_SESSION['username']);
