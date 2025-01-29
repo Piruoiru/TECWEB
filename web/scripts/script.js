@@ -432,7 +432,7 @@ var editShowFormDetails = {
 ---------------------
 */
 
-function loadTicketAndCart(){
+function loadTicket(){
     let nInteri = 0;
     let nRidotti = 0;
 
@@ -489,7 +489,9 @@ function loadTicketAndCart(){
             aggiungiAlCarrello(tipoBiglietto, operation);
         });
     });
+}
 
+function loadCart(){
     const btnCart = document.getElementById("btnCart");
 
     btnCart?.addEventListener('click', () => {
@@ -508,18 +510,18 @@ function loadTicketAndCart(){
         location.replace('buyingticket.php');
     })
 
-    const spanInt = document.getElementById("spanInt");
+    const pInt = document.getElementById("pInt").innerHTML;
     const btnRmvInt = document.getElementById("rmvIntCart");
     const btnAddInt = document.getElementById("addIntCart");
-    if(spanInt.innerHTML !== ''){
+    if(pInt !== ''){
         btnRmvInt.classList.remove("hiddenCart");
         btnAddInt.classList.remove("hiddenCart");
     }
 
-    const spanRid = document.getElementById("spanRid");
+    const pRid = document.getElementById("pRid").innerHTML;
     const btnRmvRid = document.getElementById("rmvRidCart");
     const btnAddRid = document.getElementById("addRidCart");
-    if(spanRid.innerHTML !== ''){
+    if(pRid !== ''){
         btnRmvRid.classList.remove("hiddenCart");
         btnAddRid.classList.remove("hiddenCart");
     }
