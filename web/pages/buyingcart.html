@@ -71,32 +71,38 @@
         <main id="pageCartMain">
             <div id="pageCart">
                 <h1>Carrello</h1>
-                <div id="boxCart">
-                    <form method="POST">
-                        <ul id="carrelloUL">
-                            <li id="rowInteri" class="rowCart">
-                                <span id="spanInt">{{$bigliettiInt}}</span>
-                                <fieldset class="fieldCart">
-                                    <legend>Pulsanti Biglietti Interi</legend>
-                                    <input id="rmvIntCart" type='submit' value = '-' name='rmvTint' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto intero">
-                                    <input id="addIntCart" type='submit' value = '+' name='addTint' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto intero">
-                                </fieldset>
-                            </li>
+                <form method="POST" id="boxCart">
+                    <ul id="carrelloUL">
+                        <li id="rowInteri" class="rowCart">
+                            <p id="spanInt">{{$bigliettiInt}}</p>
+                            <fieldset class="fieldCart">
+                                <legend>Pulsanti Biglietti Interi</legend>
+                                <input id="rmvIntCart" type='submit' value = '-' name='rmvTint' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto intero">
+                                <input id="addIntCart" type='submit' value = '+' name='addTint' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto intero">
+                            </fieldset>
+                        </li>
                             
-                            <li id="rowRidotti" class="rowCart">
-                                <span id="spanRid">{{$bigliettiRid}}</span>
-                                <fieldset class="fieldCart">
-                                    <legend>Pulsanti Biglietti Ridotti</legend>
-                                    <input id="rmvRidCart" type='submit' value = '-' name='rmvTrid' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto ridotto">
-                                    <input id="addRidCart" type='submit' value = '+' name='addTrid' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto ridotto">
-                                </fieldset>
-                            </li>
-                        </ul>
-                        <p id="prezzoTot"><strong>{{$totale}}</strong></p>
-                    </form>
-                </div>
-                {{$btnAcquista}}
-                {{$btnSelect}}
+                        <li id="rowRidotti" class="rowCart">
+                            <p id="spanRid">{{$bigliettiRid}}</p>
+                            <fieldset class="fieldCart">
+                                <legend>Pulsanti Biglietti Ridotti</legend>
+                                <input id="rmvRidCart" type='submit' value = '-' name='rmvTrid' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto ridotto">
+                                <input id="addRidCart" type='submit' value = '+' name='addTrid' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto ridotto">
+                            </fieldset>
+                        </li>
+                    </ul>
+                    @if isset($totale)
+                    <p id="prezzoTot">Totale: {{$totale}} &euro;</p>
+                    @else
+                    <p id="prezzoTot">Non hai ancora selezionato alcun biglietto</p>
+                    @endif
+                </form>
+                @if isset($btnAcquista)
+                <button id="btnCart">{{$btnAcquista}}</button>
+                @endif
+                @if isset($btnSelect)
+                <button id="btnSelect" class="buttonStyle basicBtn">{{$btnSelect}}</button>
+                @endif
             </div>
             <form method="POST">
                 <div class="backdrop hiddenCart">
