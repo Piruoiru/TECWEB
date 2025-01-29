@@ -45,7 +45,7 @@
                 $context['userFirstName'] = $name;
                 $context['userSurname'] = $surname;
             }else{
-                $context['updateErrorMessage'] = 'Errore interno durante la modifica';//FIXME: pagina errore 500?
+                $context['updateErrorMessage'] = 'Errore interno durante la modifica';
             }
             $db->close();
         }
