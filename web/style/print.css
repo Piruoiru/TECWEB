@@ -79,10 +79,6 @@ header {
     page-break-inside: avoid;
 }
 
-#indexMain img{
-    display: none;
-}
-
 .cardIndex{
     box-shadow: none;
     justify-items: center;
