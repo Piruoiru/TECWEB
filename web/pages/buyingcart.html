@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <title>Carrello - DreamVille</title>
+        <title>Acquisto biglietti - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
         <!-- FIXME: cambiare description e keywords -->
-        <meta name="description" content="Acquista un biglietto per Dreamville">
-        <meta name="keywords" content="biglietti, ticket, DreamVille, acquista, carrello">
+        <meta name="description" content="Compra un biglietto per Dreamville">
+        <meta name="keywords" content="acquista, biglietti, DreamVille, ticket, comprare">
 
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
         <link rel="stylesheet" href="style/print.css" media="print">
@@ -17,6 +17,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
             rel="stylesheet">
+
         <script src="scripts/script.js"></script>
     </head>
 
@@ -44,74 +45,97 @@
                         <li><a href="rides.php">Scopri le attrazioni</a></li>
                         <li><a href="shows.php">I nostri <span lang="en">shows</span></a></li>
                         <li><a href="calendar.php">Orari di apertura</a></li>
-                        <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        <li lang="en" id="currentPageLink">
+                            <p>Acquista i biglietti</p>
+                        </li>
                         @for $btn in $essentialHeaderBtns
-                            @if $btn['url'] == 'buyingcart.php'
-                            <li id="currentPageLink" class="mobileOnlyLink"><p>{{ $btn['text'] }}</p></li>
-                            @else
-                            <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
-                            @endif
+                        <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endfor
                     </ul>
                 </nav>
             </header>
             <nav id="breadcrumb">
                 <nav id="breadcrumbNav" aria-label="Breadcrumbs">
-                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Carrello</p>
+                    <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Acquista i Biglietti</p>
                 </nav>
                 <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
                 <div id="userCrumb">
                     @for $btn in $headerBtns
-                        <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
+                    <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
                     @endfor
                 </div>
             </nav>
         </div>
-        <main id="pageCartMain">
-            <div id="pageCart">
-                <h1>Carrello</h1>
-                <div id="boxCart">
-                    <form method="POST">
-                        <ul id="carrelloUL">
-                            {{$cart}}
-                        </ul>
-                        <p id="prezzoTot"><strong>{{$totale}}</strong></p>
-                    </form>
+        <main>
+            <div id="containerTicket">
+                <div id="ticketWrapper">
+                    <div id="boxTicket">
+                        <h1>Acquista i tuoi biglietti</h1>
+                        <p> </p>
+                        <p>Acquista qui il tuo biglietto cliccando sui pulsanti posizionati qui sotto e goditi la visita a
+                        <span lang="en">DreamVille</span>!</p>
+                        <div id="ticketChoice">
+                            <div class="cardTicket">
+                                <img src="assets/ticketimg.png" alt="Biglietto Intero" />
+                                <div class="ticketInfo">
+                                    <h2>Biglietto Intero 34,99€</h2>
+                                    <p>Questo biglietto permette un ingresso al parco <span lang="en">DreamVille</span> per adulti con età superiore ai 14 anni. Il biglietto consente 1 giorno di visita per la stagione corrente.</p>
+                                </div>
+                                <div>
+                                    <button class="btnTicket btnRmv" data-ticket-type="Biglietto Intero" data-operation="rmv" aria-label="rimuovi un biglietto intero">-</button>
+                                    <button class="btnTicket btnAdd" data-ticket-type="Biglietto Intero" data-operation="add" aria-label="aggiungi un biglietto intero">+</button>
+                                </div>
+                            </div>
+                            <div class="cardTicket">
+                                <img src="assets/ticketimg.png" alt="Biglietto Ridotto" />
+                                <div class="ticketInfo">
+                                    <h2>Biglietto Ridotto 24,99€</h2>
+                                    <p>Valido per bambini di altezza superiore a 100 cm e di età inferiore ai 14 anni, over 65, donne in gravidanza e accompagnatori di persone con disabilità non autosufficienti. Il biglietto consente 1 giorno di visita per la stagione corrente.</p>
+                                </div>
+                                <div>
+                                    <button class="btnTicket btnRmv" data-ticket-type="Biglietto Ridotto" data-operation="rmv" aria-label="rimuovi un biglietto ridotto">-</button>
+                                    <button class="btnTicket btnAdd" data-ticket-type="Biglietto Ridotto" data-operation="add" aria-label="aggiungi un biglietto ridotto">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="buyTicketKart">
+                        <form method="POST">
+                            <h2>Biglietti Selezionati</h2>
+                            <p>______________________________</p>
+                            <ul id="ticketSel">
+                                <li id="rowInt"></li>
+                                <li id="rowRid"></li>
+                            </ul>
+                            <input type="hidden" id="intero" name="intero" value="0" />
+                            <input type="hidden" id="ridotto" name="ridotto" value="0" />
+                            <input type="submit" value="Aggiungi al Carrello" id="confermaCart" name="submit" />
+                        </form>
+                    </div>
                 </div>
-                {{$btnAcquista}}
-                {{$btnSelect}}
+                <h3>ATTENZIONE</h3>
+                <p>Questi prezzi possono essere soggetti a modifiche e cambiamenti in ogni momento.</p>
+                <p><strong>NOTA BENE:</strong> Le tariffe dei biglietti possono variare in base al periodo dell’anno in cui si visita il parco.</p>
             </div>
-            <form method="POST">
-                <div class="backdrop hiddenCart">
-                    <header class="output hiddenCart">
-                        <svg id="checkMark" viewBox="0 0 64 64">
-                            <path d="M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50
-	                        l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z"/>
-                        </svg>
-                        <h2 class="textPaga">Pagamento effettuato</h2>
-                        <input type="submit" name="submit" id="btnChiudi" value="Chiudi" aria-label="Pagamento effettuato, chiudi"/>
-                    </header>
-                </div>
-            </form>
         </main>
         <footer>
             <div class="footerSponsors">
                 <p>Offerto da:</p>
                 <p> </p>
-                <img src="assets/sparkleco.jpg" alt="logo sparklego"/>
-                <img src="assets/whirldenergy.jpg" alt="logo whirldenergy"/>
-                <img src="assets/hippysnacks.jpg" alt="logo hippysnacks"/>
-                <img src="assets/ridetech.jpg" alt="logo ridetech"/>
-                <img src="assets/cloud9.jpg" alt="logo cloud9"/>
-                <img src="assets/cloudpaints.jpg" alt="logo cloudpaints"/>
-            </div>          
+                <img src="assets/sparkleco.jpg" alt="logo sparklego" />
+                <img src="assets/whirldenergy.jpg" alt="logo whirldenergy" />
+                <img src="assets/hippysnacks.jpg" alt="logo hippysnacks" />
+                <img src="assets/ridetech.jpg" alt="logo ridetech" />
+                <img src="assets/cloud9.jpg" alt="logo cloud9" />
+                <img src="assets/cloudpaints.jpg" alt="logo cloudpaints" />
+            </div>
             <div class="footer">
                 <div class="socialWrapper">
-                    <img src="assets/instagram.png" alt="instagram DreamVille"/>                   
-                    <img src="assets/tik_tok.png" alt="tik tok DreamVille"/>                   
-                    <img src="assets/facebook.png" alt="facebook DreamVille"/>                   
-                    <img src="assets/logorealx.png" alt="x DreamVille"/>                   
-                </div>                 
+                    <img src="assets/instagram.png" alt="instagram DreamVille" />
+                    <img src="assets/tik_tok.png" alt="tik tok DreamVille" />
+                    <img src="assets/facebook.png" alt="facebook DreamVille" />
+                    <img src="assets/logorealx.png" alt="x DreamVille" />
+                </div>
             </div>
         </footer>
     </body>
