@@ -1,8 +1,9 @@
 <?php
     session_start();
     include_once 'parser.php';
-    $context['cart'] = '';
     $context['totale'] = 'Non ha ancora selezionato alcun biglietto';
+    $context['bigliettiInt'] = '';
+    $context['bigliettiRid'] = '';
     $context['btnAcquista'] = '';
     $context['btnSelect'] = '<button id="btnSelect">Seleziona i biglietti</button>';
 
@@ -51,9 +52,7 @@
                 $prezzo += $prezzoRid * $biglietti['quantita'];
                 $context['totale'] = 'Totale: ' . $prezzo . '€';
                 $sommaRid = $prezzoRid * $biglietti['quantita'];
-                $context['cart'] .= "<li class='rowCart'>" . $ticket . " x" .  $biglietti['quantita']  . "</li>" 
-                                    ."<input type='submit' value = '-' name='rmvTrid' class='btnAddRmv' aria-label='Rimuovi un biglietto Ridotto'>" 
-                                    . "<input type='submit' value = '+' name='addTrid' class='btnAddRmv' aria-label='Aggiungi un biglietto Ridotto'>";
+                $context['bigliettiRid'] .= $ticket . " x" .  $biglietti['quantita'];
                 $context['btnAcquista'] = '<button id="btnCart">Acquista</button>';
                 $context['btnSelect'] = '';
             }
@@ -63,9 +62,7 @@
                 $prezzo += $prezzoInt * $biglietti['quantita'];
                 $context['totale'] = 'Totale: ' . $prezzo . '€';
                 $sommaInt = $prezzoInt * $biglietti['quantita'];
-                $context['cart'] .= "<li class='rowCart'>" . $ticket . " x" .  $biglietti['quantita']  . "</li>" 
-                                    . "<input type='submit' value = '-' name='rmvTint' class='btnAddRmv' aria-label='Rimuovi un biglietto Intero'>"
-                                    . "<input type='submit' value = '+' name='addTint' class='btnAddRmv' aria-label='Aggiungi un biglietto Intero'>";
+                $context['bigliettiInt'] .= $ticket . " x" .  $biglietti['quantita'];
                 $context['btnAcquista'] = '<button id="btnCart">Acquista</button>';
                 $context['btnSelect'] = '';
             } 
