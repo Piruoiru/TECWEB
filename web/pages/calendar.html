@@ -69,9 +69,13 @@
                     <caption class="hidden">Calendario con le date di apertura del parco</caption>
                     <thead>
                         <tr>
-                            <th><button onclick="prevMonth()" id="previousMonthBtn" class="buttonStyle hiddenCalendarBtn">&lt;</button></th>
-                            <th colspan="5" id="month" aria-label="Mese corrente"></th>
-                            <th><button onclick="nextMonth()" id="nextMonthBtn" class="buttonStyle">&gt;</button></th>
+                            <th scope="colgroup" colspan="7">
+                                <div id="monthHeaderFlex">
+                                    <button onclick="prevMonth()" id="previousMonthBtn" class="buttonStyle hiddenCalendarBtn">&lt;</button>
+                                    <p id="month"></p>
+                                    <button onclick="nextMonth()" id="nextMonthBtn" class="buttonStyle">&gt;</button>
+                                </div>
+                            </th>
                         </tr>
                         <tr>
                             <th scope="col">Lunedì</th>
@@ -92,12 +96,12 @@
             <div class="footerSponsors">
                 <p>Offerto da:</p>
                 <p> </p>
-                <img src="assets/sparkleco.jpg" alt="logo dello sponsor sparklego">
-                <img src="assets/whirldenergy.jpg" alt="logo dello sponsor whirldenergy">
-                <img src="assets/hippysnacks.jpg" alt="logo dello sponsor hippysnacks">
-                <img src="assets/ridetech.jpg" alt="logo dello sponsor ridetech">
-                <img src="assets/cloud9.jpg" alt="logo dello sponsor cloud9">
-                <img src="assets/cloudpaints.jpg" alt="logo dello sponsor cloudpaints">
+                <img src="assets/sparkleco.jpg" alt="logo sparklego">
+                <img src="assets/whirldenergy.jpg" alt="logo whirldenergy">
+                <img src="assets/hippysnacks.jpg" alt="logo hippysnacks">
+                <img src="assets/ridetech.jpg" alt="logo ridetech">
+                <img src="assets/cloud9.jpg" alt="logo cloud9">
+                <img src="assets/cloudpaints.jpg" alt="logo cloudpaints">
             </div>          
             <div class="footer">
                 <div class="socialWrapper">

@@ -385,6 +385,7 @@ header{
   border-collapse: collapse;
   margin: auto;
   table-layout: fixed;
+  word-wrap: break-word;
 }
 
 #calendarTable th, #calendarTable td {
@@ -404,6 +405,13 @@ header{
   color: #FFF;
 }
 
+#calendarTable #monthHeaderFlex{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5em;
+}
+
 #calendarTable thead th{
   padding: 0.4em;
   border: 1px solid #FFF;
@@ -413,6 +421,7 @@ header{
 #calendarTable thead p{
   font-size: 1.25em;
   color: #FFF;
+  word-wrap: break-word;
 }
 
 #calendarTable thead tr:first-child th{

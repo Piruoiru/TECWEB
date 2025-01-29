@@ -43,10 +43,7 @@ window.orari = [
 
 function buildCalendar(){
   calendar.innerHTML = "";
-    month.innerHTML = "";
-  let columnText = document.createElement("p");
-  columnText.textContent = `${months[currentMonth]} ${currentYear}`;
-  month.appendChild(columnText);
+  month.innerHTML = `${months[currentMonth]} ${currentYear}`;
 
   const dayOne = (new Date(currentYear, currentMonth).getDay()+6)%7;//Primo giorno della settimana del mese selezionato (0 = Lunedì, 6 = Domenica)
   let weekDay = dayOne; //Giorno della settimana corrente (0 = Lunedì, 6 = Domenica)
@@ -118,7 +115,6 @@ function nextMonth(){
         currentYear = currentYear + 1;
         currentMonth = 0;
     }
-    updateCalendarButtons();
     buildCalendar();
     document.getElementById("month").focus();
     return currentMonth;
@@ -130,7 +126,6 @@ function prevMonth(){
         currentYear = currentYear - 1;
         currentMonth = 11;
     }
-    updateCalendarButtons();
     buildCalendar();
 
     return currentMonth;
