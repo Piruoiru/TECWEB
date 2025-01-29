@@ -87,7 +87,7 @@ a:hover{
 }
 
 .buttonStyle{
-  padding: 1em;
+  padding: 1rem;
   border: 0;
   cursor: pointer;
   text-decoration: none;
@@ -1508,31 +1508,20 @@ HOME PAGE
   border: solid 5px var(--tertiaryColor);
 }
 
-.cardIndex a{
-  padding: 1em;
-  border: 0;
-  cursor: pointer;
-  text-decoration: none;
-  border: 1px solid #000;
-  text-align: center;
-  border: solid 5px var(--tertiaryColor);
-  font-size: 1.1em;
-  margin: 0.5em;
-  color: #000000;
-  transition: all .2s ease-in-out;
-}
-
-.cardIndex a:hover{
-  background-color: var(--primaryColor);
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-}
-
 .cardIndexScriptButton{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0.5em;
+}
+
+.cardIndexScriptButton h2{
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.cardIndexScriptButton p{
+  margin-bottom: 0.25em;
 }
 
 .cardIndex img{
