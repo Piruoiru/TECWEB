@@ -453,7 +453,7 @@ function loadTicketAndCart(){
                 nInteri--;
                 if(nInteri <= 0){
                     nInteri = 0;
-                    li.textContent = "";
+                    li.textContent = "Nessun biglietto intero";
                     hiddenInt.setAttribute('value', nInteri);
                     return;
                 }
@@ -470,7 +470,7 @@ function loadTicketAndCart(){
                 nRidotti--;
                 if(nRidotti <= 0){
                     nRidotti = 0;
-                    li.textContent = "";
+                    li.textContent = "Nessun biglietto ridotto";
                     hiddenRid.setAttribute('value', nRidotti);
                     return;
                 }
