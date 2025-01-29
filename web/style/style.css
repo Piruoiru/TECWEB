@@ -157,6 +157,7 @@ a:hover{
 #breadcrumb a{
   color: var(--secondaryColor);
   background-color: var(--primaryColor);
+  text-decoration: underline;
 }
 
 #breadcrumb a:visited{
