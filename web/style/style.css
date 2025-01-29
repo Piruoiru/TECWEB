@@ -1797,14 +1797,7 @@ SHOWS
 }
 
 #createBtn{
-  color: #000;
   margin-top: 1em;
-  border: solid 5px var(--primaryColor);
-}
-
-#createBtn:hover{
-  background-color: var(--primaryColor);
-  color: #FFF;
 }
 
 /*
