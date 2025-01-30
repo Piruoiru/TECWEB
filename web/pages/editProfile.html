@@ -93,15 +93,15 @@
                 <form method="post" id="profileEditForm" onsubmit="return validateGenericForm(editUserFormDetails);" class="cardForm">
                     <div class="inputLabelContainer">
                         <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="name" value="{{ $userFirstName }}" />
+                        <input type="text" id="nome" name="name" value="{{ $userFirstName }}" autocomplete="given-name" />
                     </div>
                     <div class="inputLabelContainer" id="cognomeContainer">
                         <label for="cognome">Cognome</label>
-                        <input type="text" id="cognome" name="surname" value="{{ $userSurname }}" />
+                        <input type="text" id="cognome" name="surname" value="{{ $userSurname }}" autocomplete="family-name" />
                     </div>
                     <div class="inputLabelContainer">
                         <label for="username"><span lang="en">Username</span> (non modificabile)</label>
-                        <input type="text" id="username" name="username" value="{{ $username }}" disabled="disabled" />
+                        <input type="text" id="username" name="username" value="{{ $username }}" disabled="disabled" autocomplete="off" />
                     </div>
                     <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle  filledGradientBtn" />
                 </form>
