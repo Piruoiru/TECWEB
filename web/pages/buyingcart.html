@@ -91,9 +91,9 @@
                         </li>
                     </ul>
                     @if isset($totale)
-                    <p id="prezzoTot">Totale: {{$totale}} &euro;</p>
+                    <h2 class="prezzoTot">Totale: {{$totale}} &euro;</h2>
                     @else
-                    <p id="prezzoTot">Non hai ancora selezionato alcun biglietto</p>
+                    <h2 class="prezzoTot">Non hai ancora selezionato alcun biglietto</h2>
                     @endif
                     @if isset($btnAcquista)
                     <input type="submit" name="submit" id="btnCart" value="{{$btnAcquista}}">
