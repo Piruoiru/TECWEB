@@ -1196,6 +1196,7 @@ CART PAGE
 #pageCart{
   justify-items: center;
   min-height: 50vh;
+  padding-bottom: 1rem;
 }
 
 #pageCart h1{
@@ -1293,7 +1294,7 @@ CART PAGE
   fill: var(--primaryColor);
 }
 
-.textPaga{
+#textPaga{
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--primaryColor);

@@ -510,17 +510,6 @@ function loadTicket(){
 }
 
 function loadCart(){
-    let url = new URL(window.location.href);
-    let valore = url.searchParams.get('acquistato');
-
-    if(valore === 'yes'){
-        const backdrop = document.querySelector(".backdrop");
-        backdrop.classList.remove("hiddenCart");
-    
-        const output = document.querySelector(".output");
-        output.classList.remove("hiddenCart");
-    }
-
     const btnCart = document.getElementById("btnCart");
 
     btnCart?.addEventListener('click', () => {
