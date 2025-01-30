@@ -29,10 +29,10 @@ CREATE TABLE spettacoli(
 );
 
 INSERT INTO spettacoli(titolo,descrizione,percorso_immagine,descrizione_immagine) VALUES
-('Turbo Thrill: The Ultimate Stunt Show','Preparati a rimanere senza fiato mentre i motori ruggiscono e le gomme bruciano nel più incredibile stunt show mai visto! Auto da corsa, moto acrobatiche e veicoli personalizzati sfidano le leggi della fisica con salti mozzafiato, inseguimenti ad alta velocità e manovre spettacolari. Uno show adrenalinico che ti farà battere il cuore a ogni curva!','thurbo.jpg','Immagine di decorazione, spettacolo con macchine e percorso a ostacoli'),
-('Enigma: Il Mondo della Magia','Entra in un universo di incantesimi e mistero con Enigma, lo spettacolo di magia che trasforma l’impossibile in realtà. Illusionisti di fama mondiale ti stupiranno con levitazioni, sparizioni, e incredibili giochi di prestigio che coinvolgono il pubblico in un’esperienza unica. Un viaggio magico che lascerà grandi e piccoli a bocca aperta!','enigma.jpg','Immagine di decorazione, mago con assistente al loro show luminoso'),
-('Fantasia Live: Un Classico da Sogno','Lasciati trasportare in un mondo di musica, colori e avventure senza tempo con Fantasia Live, uno spettacolo teatrale che combina danza, acrobazie e scenografie mozzafiato. Ispirato ai grandi classici dell’intrattenimento, questo show celebra le storie che hanno fatto sognare generazioni, reinterpretandole in un formato unico, perfetto per tutta la famiglia. Un’esperienza emozionante e indimenticabile!','fantasia_live.jpg','Immagine di decorazione, show di danza e acrobazie varie'),
-('Luminaria: Il Gioco delle Luci','Immergiti in Luminaria, lo spettacolo che unisce arte, tecnologia e fantasia in un’esplosione di luci e colori. Proiezioni, coreografie luminose e illusioni ottiche trasformano il palco in un universo scintillante, regalando un’esperienza visiva e sensoriale che incanterà grandi e piccoli!','luminaria.webp','Immagine di decorazione danzatori luminosi, giochi di luce, con posti a sedere davanti lo show');
+('Turbo Thrill: The Ultimate Stunt Show','Preparati a rimanere senza fiato mentre i motori ruggiscono e le gomme bruciano nel più incredibile stunt show mai visto! Auto da corsa, moto acrobatiche e veicoli personalizzati sfidano le leggi della fisica con salti mozzafiato, inseguimenti ad alta velocità e manovre spettacolari. Uno show adrenalinico che ti farà battere il cuore a ogni curva!','thurbo.jpg','Spettacolo con macchine e percorso a ostacoli'),
+('Enigma: Il Mondo della Magia','Entra in un universo di incantesimi e mistero con Enigma, lo spettacolo di magia che trasforma l’impossibile in realtà. Illusionisti di fama mondiale ti stupiranno con levitazioni, sparizioni, e incredibili giochi di prestigio che coinvolgono il pubblico in un’esperienza unica. Un viaggio magico che lascerà grandi e piccoli a bocca aperta!','enigma.jpg','Mago con assistente al loro show luminoso'),
+('Fantasia Live: Un Classico da Sogno','Lasciati trasportare in un mondo di musica, colori e avventure senza tempo con Fantasia Live, uno spettacolo teatrale che combina danza, acrobazie e scenografie mozzafiato. Ispirato ai grandi classici dell’intrattenimento, questo show celebra le storie che hanno fatto sognare generazioni, reinterpretandole in un formato unico, perfetto per tutta la famiglia. Un’esperienza emozionante e indimenticabile!','fantasia_live.jpg','Show di danza con acrobazie varie'),
+('Luminaria: Il Gioco delle Luci','Immergiti in Luminaria, lo spettacolo che unisce arte, tecnologia e fantasia in un’esplosione di luci e colori. Proiezioni, coreografie luminose e illusioni ottiche trasformano il palco in un universo scintillante, regalando un’esperienza visiva e sensoriale che incanterà grandi e piccoli!','luminaria.webp','Danzatori luminosi, giochi di luce, con posti a sedere davanti lo show');
 
 CREATE TABLE biglietti(
     id char(5) PRIMARY KEY NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE bigliettiCarrello(
     dataOrarioOrdine TIMESTAMP NOT NULL,
     quantita smallint(2) NOT NULL,
     PRIMARY KEY (biglietto,utente),
-    FOREIGN KEY (utente) REFERENCES users(username),
+    FOREIGN KEY (utente) REFERENCES users(username) ON DELETE CASCADE,
     FOREIGN KEY (biglietto) REFERENCES biglietti(id)
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE ordini(
     id int AUTO_INCREMENT PRIMARY KEY,
     utente varchar(20) NOT NULL,
     dataOrarioOrdine TIMESTAMP NOT NULL,
-    FOREIGN KEY (utente) REFERENCES users(username)
+    FOREIGN KEY (utente) REFERENCES users(username) ON DELETE CASCADE
 );
 
 INSERT INTO ordini(utente,dataOrarioOrdine) VALUES
@@ -73,7 +73,7 @@ CREATE TABLE bigliettiAcquistati(
     ordine int NOT NULL,
     sommaPagata numeric(6,2) NOT NULL,
     FOREIGN KEY (tipoBiglietto) REFERENCES biglietti(id),
-    FOREIGN KEY (ordine) REFERENCES ordini(id)
+    FOREIGN KEY (ordine) REFERENCES ordini(id) ON DELETE CASCADE
 );
 
 INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES

@@ -22,7 +22,7 @@
         global $context;
         $isValid = true;
 
-        if(!preg_match("/^[A-Za-z\p{L}\ \']{2,}/u", $name)){//messo \p{L} per accettare anche caratteri accentati dato che non funziona come in JS
+        if(!preg_match("/^[A-Za-z\p{L}\ \']{2,}/u", $name)){
             $isValid = false;
             array_push($context['registrationErrorMessage'], "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi");
         }

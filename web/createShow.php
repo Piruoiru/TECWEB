@@ -34,9 +34,9 @@
             array_push($context['showsCreationErrorMessage'], "La descrizione deve essere composta da 4 a 500 caratteri");
         }
 
-        if (!preg_match('/^.{4,100}$/u', $imageDescription)) {
+        if (!preg_match('/^.{4,75}$/u', $imageDescription)) {
             $isValid = false;
-            array_push($context['showsCreationErrorMessage'], "La descrizione dell'immagine deve essere composta da 4 a 100 caratteri");
+            array_push($context['showsCreationErrorMessage'], "La descrizione dell'immagine deve essere composta da 4 a 75 caratteri");
         }
         return $isValid;
     }

@@ -5,7 +5,7 @@
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8" />
         <meta name="description" content="Modifica o elimina il tuo profilo" />    
-        <meta name="keywords" content="modifica, eliminazione, account, profilo, utente, personale, DreamVille" />
+        <meta name="keywords" content="eliminazione, modifica, account, profilo, utente, personale, DreamVille" />
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css" />
         <link rel="stylesheet" href="style/print.css" media="print" />
@@ -18,7 +18,7 @@
 
         <script src="scripts/script.js"></script>
     </head>
-    <body class="tertiaryBg">
+    <body class="tertiaryBg" onload="loadGenericForm(profileDeletionDetails)">
         <a href="#profileDeletionMain" class="hidden">Vai al contenuto</a>
         <div id="headerBreadcrumbWrapper">
             <header>
@@ -70,8 +70,20 @@
                 <h1>Eliminazione del profilo</h1>
                 @if !empty($deletionErrorMessage)
                 <p class="errorMessageBgPar">{{ $deletionErrorMessage }}</p>
-                @else
+                @endif
+                @if isset($deletionSuccess)
                 <p class="infoMessageBgPar">Profilo eliminato correttamente</p>
+                <a class="buttonStyle basicBtn" id="backToIndex" href="index.php">Ritorna all'homepage</a>
+                @endif
+                @if (!isset($deletionSuccess) && !isset($admin))
+                <p>Digita il tuo username e clicca su conferma per eliminare il tuo profilo</p>
+                <form method="post" class="cardForm" onsubmit="return validateGenericForm(profileDeletionDetails)">
+                    <div class="inputLabelContainer">
+                        <label for="username" class="emptyFieldLabel">Username</label>
+                        <input type="text" id="username" name="username" autocomplete="username"/>
+                    </div>
+                    <input type="submit" name="submit" value="Conferma l'eliminazione" class="buttonStyle filledGradientBtn" />
+                </form>
                 @endif
             </main>
         </div>

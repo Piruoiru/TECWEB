@@ -64,7 +64,7 @@ class DatabaseClient
             $stmt = $this->conn->prepare($sql);
             $password = hash('sha256', $password);
             $stmt->bind_param('ssss', $name, $surname, $username, $password);
-            return $stmt->execute(); //FIXME: chiusura prepared stmt
+            return $stmt->execute();
         } catch(Throwable $exception){
             header('Location: 500.php');
         }
