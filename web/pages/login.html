@@ -65,8 +65,16 @@
             <main class="card cardFormMain" id="loginMain">
                 <h1 lang="en">Login</h1>
                 @if !empty($loginErrorMessage)
-                <p class="errorMessageBgPar">{{ $loginErrorMessage }}</p>
+                <div class="errorMessageBgPar">
+                    <p>Si sono verificati alcuni errori durante il <span lang="en">login</span>:</p>
+                    <ul>
+                        @for $error in $loginErrorMessage
+                            <li>{{ $error }}</li>
+                        @endfor
+                    </ul>
+                </div>
                 @endif
+
                 <form method="POST" id="loginForm" class="cardForm" onsubmit="return validateGenericForm(loginFormDetails);">
                     <div class="inputLabelContainer">
                         @if empty($oldUsername)

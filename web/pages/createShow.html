@@ -63,10 +63,20 @@
         </div>
         <div class="cardFormMainContainer">
             <main class="card cardFormMain">
-                @if !empty($debugMessage)
-                    <p class="infoMessageBgPar">{{ $debugMessage }}</p>
-                @endif
                 <h1>Creazione spettacoli</h1>
+                @if !empty($showsCreationInfoMessage)
+                    <p class="infoMessageBgPar">{{ $showsCreationInfoMessage }}</p>
+                @endif
+                @if !empty($showsCreationErrorMessage)
+                <div class="errorMessageBgPar">
+                    <p>Si sono verificati alcuni errori durante la registrazione:</p>
+                    <ul>
+                        @for $error in $showsCreationErrorMessage
+                            <li>{{ $error }}</li>
+                        @endfor
+                    </ul>
+                </div>
+                @endif
                 <form method="POST" class="cardForm" enctype="multipart/form-data">
                     <div class="inputLabelContainer">
                         <label for="titolo" class="emptyFieldLabel">Titolo</label>

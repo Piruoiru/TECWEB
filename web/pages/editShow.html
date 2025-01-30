@@ -62,10 +62,20 @@
             </div>
         </div>
         <main class="card cardFormMain">
-            @if !empty($debugMessage)
-            <p class="infoMessageBgPar">{{ $debugMessage }}</p>
-            @endif
             <h1>Modifica lo spettacolo</h1>
+            @if !empty($showsEditInfoMessage)
+            <p class="infoMessageBgPar">{{ $showsEditInfoMessage }}</p>
+            @endif
+            @if !empty($showsEditErrorMessage)
+                <div class="errorMessageBgPar">
+                    <p>Si sono verificati alcuni errori durante la modifica dello spettacolo:</p>
+                    <ul>
+                        @for $error in $showsEditErrorMessage
+                            <li>{{ $error }}</li>
+                        @endfor
+                    </ul>
+                </div>
+                @endif
             <form method="POST" class="cardForm" enctype="multipart/form-data">
                 <div class="inputLabelContainer">
                     <label for="vecchio_titolo">Vecchio Titolo</label>
@@ -73,11 +83,11 @@
                 </div>
                 <div class="inputLabelContainer">
                     <label for="nuovo_titolo">Nuovo Titolo</label>
-                    <input type="text" id="titolo" name="titolo" value="" />
+                    <input type="text" id="nuovo_titolo" name="titolo" />
                 </div>
                 <div class="inputLabelContainer" id="descrizioneContainer">
                     <label for="descrizione">Descrizione</label>
-                    <input type="text" id="descrizione" name="descrizione" value="" />
+                    <input type="text" id="descrizione" name="descrizione" />
                 </div>
                 <div class="inputLabelContainer" id="immagineContainer">
                     <label for="immagine">Immagine</label>
@@ -109,6 +119,6 @@
                     <img src="assets/logorealx.png" alt="x DreamVille">                   
                 </div>                 
             </div>
-        </footer>ef="/profilo.php">Profilo</a>
+        </footer><a href="/profilo.php">Profilo</a>
     </body>
 </html>

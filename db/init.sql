@@ -25,7 +25,7 @@ CREATE TABLE spettacoli(
     titolo  varchar(50) PRIMARY KEY NOT NULL,
     descrizione varchar(500) NOT NULL,
     percorso_immagine varchar(200) NOT NULL,
-    descrizione_immagine varchar(200) NOT NULL
+    descrizione_immagine varchar(70) NOT NULL
 );
 
 INSERT INTO spettacoli(titolo,descrizione,percorso_immagine,descrizione_immagine) VALUES

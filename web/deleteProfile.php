@@ -16,10 +16,10 @@
         if($deletionSuccess){
             session_unset();
             session_destroy();
-        }else{
+        } else{
             $context['deletionErrorMessage'] = 'Errore interno durante la cancellazione';
         }
-    }else{
+    } else{
         $context['deletionErrorMessage'] = "Impossibile eliminare l'utente amministratore";
     }
     include_once 'header.php';

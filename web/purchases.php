@@ -14,9 +14,6 @@
     $userDetails = $db->fetchUser($_SESSION['username'])->fetch_assoc();
     $context['nome'] = $userDetails['nome'];
 
-
-
-
     $userOrders = $db->fetchOrdersByUser($_SESSION['username']);
     $context['orders'] = array();
     foreach($userOrders as $order){

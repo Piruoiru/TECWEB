@@ -3,9 +3,8 @@
     include_once 'header.php';
     include_once 'parser.php';
     include_once 'db.php';
+    
     $db = new DatabaseClient();
-    $db->connect();
-    $debugMessage = '';
 
     $isAdmin = false;
 
@@ -16,7 +15,9 @@
     $template = new Parser();
     $context['isAdmin'] = $isAdmin;
     $context['result'] = [];
+    $db->connect();
     $result = $db->fetchEvents();
+    $db->close();
     while($row = $result->fetch_assoc()){
         array_push($context['result'],$row);
     }

@@ -20,7 +20,9 @@
     $prezzo = 0;
 
     $db = new DatabaseClient();
-    $db->connect();
+    if(isset($_POST)){
+        $db->connect();
+    }
 
     if (isset($_POST['addTrid'])) {
         $operation = 'add';
