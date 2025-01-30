@@ -80,19 +80,19 @@
                             @endfor
                         </ul>
                     </div>
-                    @endif
-                <form method="post" class="cardForm" enctype="multipart/form-data">
+                @endif
+                @if !isset($_POST['submit'])
+                <form method="post" class="cardForm" enctype="multipart/form-data" onsubmit="return validateGenericForm(editShowFormDetails)">
                     <div class="inputLabelContainer">
-                        <label for="vecchio_titolo">Vecchio Titolo</label>
-                        <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="{{ $vecchio_titolo }}" />
+                        <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="{{ $spettacolo['titolo'] }}" hidden />
                     </div>
                     <div class="inputLabelContainer">
-                        <label for="nuovo_titolo">Nuovo Titolo</label>
-                        <input type="text" id="nuovo_titolo" name="titolo" />
+                        <label for="nuovo_titolo">Titolo</label>
+                        <input type="text" id="nuovo_titolo" name="titolo" value="{{ $spettacolo['titolo'] }}" />
                     </div>
                     <div class="inputLabelContainer" id="descrizioneContainer">
                         <label for="descrizione">Descrizione</label>
-                        <input type="text" id="descrizione" name="descrizione" />
+                        <input type="text" id="descrizione" name="descrizione" value="{{ $spettacolo['descrizione'] }}" />
                     </div>
                     <div class="fileInputLabelContainer" id="immagineContainer">
                         <label for="immagine">Immagine</label>
@@ -100,10 +100,13 @@
                     </div>
                     <div class="inputLabelContainer" id="descrizioneImmagineContainer">
                         <label for="descrizione_immagine">Descrizione immagine</label>
-                        <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
+                        <input type="text" id="descrizione_immagine" name="descrizione_immagine" value="{{ $spettacolo['titolo'] }}" />
                     </div>
                     <input type="submit" name="submit" value="Modifica" class="buttonStyle filledGradientBtn" />
                 </form>
+                @else
+                <a class="buttonStyle basicBtn" id="backToShowsBtn" href="shows.php">Ritorna agli spettacoli</a>
+                @endif
             </main>
         </div>
         <button class="buttonStyle scrollUpButton noDisplay" onclick="scrollUp()">

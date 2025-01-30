@@ -8,9 +8,17 @@
         exit();
     }
 
+    function sanitizeInput($input){
+        $sanitizedInput = trim($input);
+        $sanitizedInput = htmlspecialchars($sanitizedInput,ENT_QUOTES);
+        return $sanitizedInput;
+    }
     
-    $context['titolo'] = htmlspecialchars($_GET['titolo'],ENT_QUOTES);
+    $context['titolo'] = sanitizeInput($_GET['titolo']);
     $db = new DatabaseClient();
+    $db->connect();
+    $context['spettacolo'] = $db->fetchShow($_GET['titolo']);
+    $db->close();
     if(isset($_POST['submit'])){
         $titolo = $_POST['titolo'];
         $db->connect();

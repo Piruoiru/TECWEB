@@ -82,7 +82,7 @@
                 </div>
                 @endif
                 @if !isset($_POST['submit'])
-                <form method="post" class="cardForm" enctype="multipart/form-data">
+                <form method="post" class="cardForm" enctype="multipart/form-data" onsubmit="return validateGenericForm(createEditShowFormDetails)">
                     <div class="inputLabelContainer">
                         <label for="titolo" class="emptyFieldLabel">Titolo</label>
                         <input type="text" id="titolo" name="titolo" />

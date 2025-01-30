@@ -9,7 +9,9 @@
     }
 
     $db = new DatabaseClient();
-    $context['vecchio_titolo'] = sanitizeInput($_GET['vecchio_titolo']);
+    $db->connect();
+    $context['spettacolo'] = $db->fetchShow($_GET['vecchio_titolo']);
+    $db->close();
 
     $context['showsEditInfoMessage'] = '';
     $context['showsEditErrorMessage'] = [];
