@@ -18,7 +18,7 @@
     $context['oldSurname'] = '';
     $context['oldUsername'] = '';
 
-    function validate($name,$surname,$username,$password){
+    function validate($name,$surname,$username,$password, $confirm_password){
         global $context;
         $isValid = true;
 
@@ -57,7 +57,7 @@
         $context['oldSurname'] = $surname;
         $context['oldUsername'] = $username;
         
-        if(validate($name,$surname,$username,$password)){
+        if(validate($name,$surname,$username,$password, $confirm_password)){
             $db = new DatabaseClient();
             $db->connect();
             $result = $db->fetchUser($username);
