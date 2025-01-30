@@ -101,8 +101,10 @@
                     </div>
                     <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle  filledGradientBtn">
                 </form>
+                @if !($_SESSION['username']=='admin')
                 <p>Oppure</p>
                 <a href="deleteProfile.php" id="registrationButton" class="buttonStyle basicBtn ">Elimina il tuo utente</a>
+                @endif
                 @endif
             </main>
         </div>

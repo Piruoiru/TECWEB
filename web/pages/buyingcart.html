@@ -4,7 +4,6 @@
         <title>Carrello - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8">
-        <!-- FIXME: cambiare description e keywords -->
         <meta name="description" content="Acquista un biglietto per Dreamville">
         <meta name="keywords" content="biglietti, ticket, DreamVille, acquista, carrello">
 
@@ -92,29 +91,27 @@
                         </li>
                     </ul>
                     @if isset($totale)
-                    <p id="prezzoTot">Totale: {{$totale}} &euro;</p>
+                    <h2 class="prezzoTot">Totale: {{$totale}} &euro;</h2>
                     @else
-                    <p id="prezzoTot">Non hai ancora selezionato alcun biglietto</p>
+                    <h2 class="prezzoTot">Non hai ancora selezionato alcun biglietto</h2>
+                    @endif
+                    @if isset($btnAcquista)
+                    <input type="submit" name="submit" id="btnCart" value="{{$btnAcquista}}">
                     @endif
                 </form>
-                @if isset($btnAcquista)
-                <button id="btnCart">{{$btnAcquista}}</button>
-                @endif
                 @if isset($btnSelect)
                 <button id="btnSelect" class="buttonStyle basicBtn">{{$btnSelect}}</button>
                 @endif
             </div>
-            <form method="POST">
-                <div class="backdrop hiddenCart">
-                    <div class="output hiddenCart">
-                        <svg id="checkMark" viewBox="0 0 64 64">
-                            <path d="M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z"/>
-                        </svg>
-                        <h2 class="textPaga">Pagamento effettuato</h2>
-                        <input type="submit" name="submit" id="btnChiudi" value="Chiudi" aria-label="Pagamento effettuato, chiudi"/>
-                    </div>
+            <div class="backdrop hiddenCart">
+                <div class="output hiddenCart">
+                    <svg id="checkMark" viewBox="0 0 64 64">
+                        <path d="M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z"/>
+                    </svg>
+                    <h2 class="textPaga">Pagamento effettuato</h2>
+                    <button id="btnChiudi" aria-label="Pagamento effettuato, Mostra ultimo acquisto">Mostra ultimo acquisto</button>
                 </div>
-            </form>
+            </div>
         </main>
         <footer>
             <div class="footerSponsors">

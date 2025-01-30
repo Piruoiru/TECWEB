@@ -32,6 +32,7 @@ h2{
 header {
     display: grid;
     background-color: var(--primaryColor);
+    grid-template-columns: 1fr
 }
 
 /*
@@ -56,6 +57,7 @@ header {
 
 #headerBreadcrumbWrapper > header > h1{
     -webkit-print-color-adjust: exact;
+    line-height: 2em;
     print-color-adjust: exact;
 }
 
@@ -79,17 +81,13 @@ header {
     page-break-inside: avoid;
 }
 
-#indexMain img{
-    display: none;
-}
-
 .cardIndex{
     box-shadow: none;
     justify-items: center;
 }
 
 .cardIndex a{
-    box-shadow: none;
+    display: none;
 }
 
 #indexMain a:hover{

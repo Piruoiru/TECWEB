@@ -78,7 +78,7 @@
         $context['cart'] = '';
         $context['totale'] = 0.00;
         $db->close();
-        header('Location: profile.php');
+        header('Location: buyingcart.php?acquistato=yes');
         exit();
     }
 

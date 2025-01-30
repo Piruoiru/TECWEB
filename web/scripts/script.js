@@ -438,6 +438,7 @@ function loadTicket(){
 
     // Seleziona tutti i bottoni dei biglietti e il carrello
     const buttons = document.querySelectorAll('.btnTicket');
+    const confermaCart = document.getElementById("confermaCart");
     const hiddenInt = document.getElementById("intero");
     const hiddenRid = document.getElementById("ridotto");
 
@@ -448,6 +449,7 @@ function loadTicket(){
             const li = document.getElementById('rowInt');
             if (operation == "add") {
                 nInteri++;
+                confermaCart.disabled = false;
             }
             if (operation == "rmv"){
                 nInteri--;
@@ -455,6 +457,9 @@ function loadTicket(){
                     nInteri = 0;
                     li.textContent = "Nessun biglietto intero";
                     hiddenInt.setAttribute('value', nInteri);
+                    if(nInteri == 0 && nRidotti == 0){
+                        confermaCart.disabled = true;
+                    }
                     return;
                 }
             }
@@ -465,6 +470,7 @@ function loadTicket(){
             const li = document.getElementById('rowRid');
             if (operation == "add"){
                 nRidotti++;
+                confermaCart.disabled = false;
             }
             if (operation == "rmv"){
                 nRidotti--;
@@ -472,6 +478,9 @@ function loadTicket(){
                     nRidotti = 0;
                     li.textContent = "Nessun biglietto ridotto";
                     hiddenRid.setAttribute('value', nRidotti);
+                    if(nInteri == 0 && nRidotti == 0){
+                        confermaCart.disabled = true;
+                    }
                     return;
                 }
             }
@@ -492,16 +501,27 @@ function loadTicket(){
 }
 
 function loadCart(){
+    let url = new URL(window.location.href);
+    let valore = url.searchParams.get('acquistato');
+
+    if(valore === 'yes'){
+        const backdrop = document.querySelector(".backdrop");
+        backdrop.classList.remove("hiddenCart");
+    
+        const output = document.querySelector(".output");
+        output.classList.remove("hiddenCart");
+    }
+
+    const btnChiudi = document.getElementById("btnChiudi");
+
+    btnChiudi?.addEventListener('click', () => {
+        location.replace('profile.php');
+    })
+
     const btnCart = document.getElementById("btnCart");
 
     btnCart?.addEventListener('click', () => {
-        if(document.getElementById("carrelloUL").innerHTML.trim() != ""){
-            const backdrop = document.querySelector(".backdrop");
-            backdrop.classList.remove("hiddenCart");
-    
-            const output = document.querySelector(".output");
-            output.classList.remove("hiddenCart");
-        }
+        btnChiudi.disabled = false;
     })
 
     const btnSelect = document.getElementById("btnSelect");

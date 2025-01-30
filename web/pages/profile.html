@@ -80,7 +80,11 @@
                         <dt><strong><span lang="en">Password</span>: </strong></dt>
                         <dd>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</dd>
                     </dl>
+                @if !($_SESSION['username']=='admin')
                     <a href="editProfile.php" class="buttonStyle basicBtn">Modifica o elimina il profilo</a>
+                @else
+                    <a href="editProfile.php" class="buttonStyle basicBtn">Modifica il profilo</a>
+                @endif
                 </div>
                 <div class="card" id="lastPurchaseCard">
                     @if empty($lastOrder)
