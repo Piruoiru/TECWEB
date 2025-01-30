@@ -611,6 +611,22 @@ SHOWS PAGE
     box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.2);
 }
 
+.showsButtons{
+    flex-direction: column;
+}
+
+.showsButtons>a{
+    margin-top: 1.5em;
+}
+
+.showsButtons>a:first-child{
+    margin-top: 0;
+}
+
+#createBtn{
+    margin-bottom: 1em;
+}
+
 /*
 ------------
 MAP PAGE
