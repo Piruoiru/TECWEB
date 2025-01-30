@@ -478,6 +478,14 @@ CART PAGE
     left: 25%;
 }
 
+#pageCartMain{
+    padding-bottom: 1.5rem;
+}
+
+#pageCart>h1{
+    padding-top: 1rem;
+}
+
 /*
 ---------------------
     ERROR PAGE
