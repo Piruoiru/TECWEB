@@ -137,6 +137,10 @@ header{
     bottom: 8px;
 }
 
+#menu>ul>li>a:hover::before{
+    height: 85%;
+}
+
 #menu>ul.visible, #menu>.visible{
     visibility: visible;
     opacity: 1;
@@ -543,6 +547,10 @@ CART PAGE
 
 .cardFormMain>h1{
     max-width: 100%;
+}
+
+#profileEditForm label[for="username"]{
+    font-size: 1em;
 }
 
 /*
