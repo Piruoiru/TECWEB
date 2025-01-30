@@ -73,7 +73,7 @@
                     header('Location: index.php');
                     exit();
                 }else{
-                    $context['registrationErrorMessage'] = 'Errore generico durante la registrazione';
+                    array_push($context['registrationErrorMessage'],'Errore generico durante la registrazione');
                 }
             }
             $db->close();
