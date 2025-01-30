@@ -435,13 +435,13 @@ function loadRidesFilter() {
 var createEditShowFormDetails = {
     "titolo":[/^.{4,50}$/, "Inserisci un titolo che va dai 4 ai 50 caratteri"],
     "descrizione":[/^.{4,500}$/, "Inserisci una descrizione che va dai 4 ai 500 caratteri"],
-    "descrizione_immagine":[/^.{4,100}$/, "Inserisci una breve descrizione dell'immagine che va dai 4 ai 100 caratteri"],
+    "descrizione_immagine":[/^.{4,75}$/, "Inserisci una breve descrizione dell'immagine che va dai 4 ai 75 caratteri"],
 };
 
 var editShowFormDetails = {
     "nuovo_titolo":[/^.{4,50}$/, "Inserisci un titolo che va dai 4 ai 50 caratteri"],
     "descrizione":[/^.{4,500}$/, "Inserisci una descrizione che va dai 4 ai 500 caratteri"],
-    "descrizione_immagine":[/^.{4,100}$/, "Inserisci una breve descrizione dell'immagine che va dai 4 ai 100 caratteri"],
+    "descrizione_immagine":[/^.{4,75}$/, "Inserisci una breve descrizione dell'immagine che va dai 4 ai 75 caratteri"],
 };
 
 
