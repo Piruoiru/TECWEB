@@ -339,23 +339,6 @@ header{
   padding: 0.5em 2em;
 }
 
-.errorLinkPage{
-  border-radius: 2px;
-  background: transparent;
-  font-size: 1.1em;
-  font-weight: 500;
-  margin: 0.35em;
-  padding: 0.75em 1.5em;
-  transition: all .2s ease-in-out;
-  border: 5px solid var(--primaryColor);
-  color: #000;
-}
-
-.errorLinkPage:hover{
-  background-color: var(--primaryColor);
-  color: #FFF;
-}
-
 .errorLink{
   display: flex;
   justify-content: center;
