@@ -277,6 +277,9 @@ RIDES PAGE
 CALENDAR PAGE
 -------------
 */
+#calendarMain>h1{
+    padding-top: 1rem;
+}
 
 #calendarTable{
     width: 90%;
@@ -402,6 +405,10 @@ TICKET PAGE
     text-align: center;
 }
 
+#ticketChoice{
+    padding-top: 0;
+}
+
 .ticketInfo h2 {
     text-align: center;
     font-size: 1.5em;
@@ -409,10 +416,15 @@ TICKET PAGE
 
 .cardTicket {
     padding: .75rem;
-    margin: 1.1em;
+    margin: 0;
+    margin-top: 1rem;
     width: 90%;
     flex-direction: column;
     align-items: center;
+}
+
+.cardTicket img{
+    height: auto;
 }
 
 .btnTicket {
@@ -421,10 +433,17 @@ TICKET PAGE
 
 #buyTicketKart {
     width: 90%;
-    height: 20%;
-    margin-top: 1em;
-    margin-left: 1.1em;
-    position: unset;
+    margin: 0;
+    margin: 1em 0;
+    position: static;
+}
+
+#buyTicketKart h2, #ticketMain>h1{
+    word-wrap: break-word;
+}
+
+#buyTicketKart .filledGradientBtn{
+    padding: 1em;
 }
 
 /*
