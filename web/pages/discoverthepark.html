@@ -19,6 +19,7 @@
         <script src="scripts/script.js"></script>
     </head>
     <body class="tertiaryBg" onload="loadRidesFilter()">
+        <a href="#mapMain" class="hidden">Vai al contenuto</a>
         <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
@@ -44,7 +45,7 @@
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                         @if !(empty($essentialHeaderBtns))
-                        <hr class="mobileOnlyLink">
+                        <li class="mobileOnlyLink"><hr></li>
                         @for $btn in $essentialHeaderBtns
                         <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endfor

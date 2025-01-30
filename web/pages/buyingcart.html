@@ -21,6 +21,7 @@
     </head>
 
     <body class="tertiaryBg" onload="loadCart()">
+        <a href="#pageCartMain" class="hidden">Vai al contenuto</a>
         <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
@@ -46,7 +47,7 @@
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                         @if !(empty($essentialHeaderBtns))
-                        <hr class="mobileOnlyLink">
+                        <li class="mobileOnlyLink"><hr></li>
                         @for $btn in $essentialHeaderBtns
                         @if $btn['url'] == 'buyingcart.php'
                         <li id="currentPageLink" class="mobileOnlyLink"><p>{{ $btn['text'] }}</p></li>

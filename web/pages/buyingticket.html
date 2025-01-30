@@ -21,6 +21,7 @@
     </head>
 
     <body class="tertiaryBg" onload="loadTicket()">
+        <a href="#ticketMain" class="hidden">Vai al contenuto</a>
         <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
@@ -48,7 +49,7 @@
                             <p>Acquista i biglietti</p>
                         </li>
                         @if !(empty($essentialHeaderBtns))
-                        <hr class="mobileOnlyLink">
+                        <li class="mobileOnlyLink"><hr></li>
                         @for $btn in $essentialHeaderBtns
                         <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endfor
