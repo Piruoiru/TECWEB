@@ -566,3 +566,12 @@ function scrollUp(){
         behavior: "smooth"
     });
 }
+
+window.onscroll = function() {
+    const scrollUpButton = document.getElementsByClassName("scrollUpButton")[0];
+    if (scrollUpButton != null && (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)) {
+        scrollUpButton.classList.remove("noDisplay");
+    } else {
+        scrollUpButton.classList.add("noDisplay");
+    }
+}

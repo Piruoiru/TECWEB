@@ -1812,10 +1812,18 @@ PULSANTE TORNA SU
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transition: all .2s ease-out;
 }
 
 .scrollUpButton svg{
   fill: var(--secondaryColor);
   width: 3rem;
   height: 3rem;
+}
+
+.scrollUpButton.noDisplay{
+  visibility: hidden;
+  opacity: 0;
 }
