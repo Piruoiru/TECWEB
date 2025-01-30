@@ -29,7 +29,7 @@ main{
   max-width: 1200px;
   margin: auto;
   background-color: #FFF;
-  min-height: 45vh;
+  min-height: fit-content;
 }
 
 body, button{
