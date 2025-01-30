@@ -51,11 +51,19 @@ Tutti i colori sono stati verificati utilizzando strumenti come il \href{https:/
 \subsection{Focus}
 La gestione del focus è stata un elemento centrale nello sviluppo del sito web, garantendo un’esperienza inclusiva e accessibile per un ampio numero di utenti. Grazie all’utilizzo di link ben strutturati e alla separazione tra struttura e presentazione, è stato possibile rendere tutti i link e i pulsanti facilmente raggiungibili tramite il tasto Tab. Questo approccio assicura una navigazione fluida anche per gli utenti che utilizzano solo la tastiera, migliorando significativamente l’accessibilità del sito.
 \subsection{Lingue Straniere}
-La lingua principale del sito è la lingua italiana, tuttavia sono stati segnalati attraverso <span lang="en"> gli appositi termini derivanti dalla lingua inglese.
+La lingua principale del sito è la lingua italiana, tuttavia sono stati segnalati attraverso \textless span lang="en"\textgreater gli appositi termini derivanti dalla lingua inglese.
 \subsection{Strumenti di testing}
-\textbf{\textit{TODO}}
+Per il testing delle pagine del sito Dreamville sono stati utilizzati diversi strumenti di analisi e validazione, tra cui:
+\begin{itemize}
+    \item \textbf{Silktide:} per valutare accessibilità, SEO e prestazioni complessive del sito.
+    \item \textbf{WAVE:} per identificare e correggere problemi di accessibilità secondo le linee guida WCAG.
+    \item \textbf{Color Contrast Checker:} per verificare il contrasto cromatico e garantire una leggibilità ottimale.
+    \item \textbf{Total Validator:} per effettuare un controllo approfondito su accessibilità, HTML e standard di conformità.
+\end{itemize}
+
+L'utilizzo combinato di questi strumenti ha permesso di ottenere un'analisi completa del sito, evidenziando eventuali criticità e migliorando l'usabilità complessiva.
 \subsection{Ambienti di test}
-Il sito e le sue funzionalità sono state testate su ambiente Linux e Windows sui seguenti browser: \textbf{\textit{TODO}}
+Il sito e le sue funzionalità sono state testate su ambiente Linux e Windows sui seguenti browser:
 \begin{itemize}
     \item \textbf{Chrome:}
         \begin{itemize}
@@ -94,30 +102,70 @@ Sono state verificate tutte le pagine del sito utilizzando Lighthouse. I risulta
         \hline
         \textbf{Pagina} & \textbf{Dispositivo} & \textbf{Prestazioni} & \textbf{Accessibilità} & \textbf{Best Practice} & \textbf{SEO}  \\ 
         \hline
-        Homepage & Standard & 100 & 100 & 100 & 100 \\ 
+        Homepage & Standard & 96 & 100 & 100 & 100 \\ 
         \hline
         \rowcolor[gray]{0.9}
-        Homepage & Mobile & 100 & 100 & 100 & 100 \\ 
+        Homepage & Mobile & 74 & 100 & 100 & 100 \\ 
         \hline
-        Scopri le Attrazioni & Standard & 100 & 100 & 100 & 100 \\ 
-        \hline
-        \rowcolor[gray]{0.9}
-        Scopri le Attrazioni & Mobile & 100 & 100 & 100 & 100 \\ 
-        \hline
-        I nostri shows & Standard & 100 & 100 & 100 & 100 \\ 
+        Scopri le Attrazioni & Standard & 89 & 100 & 100 & 100 \\ 
         \hline
         \rowcolor[gray]{0.9}
-        I nostri shows & Mobile & 100 & 100 & 100 & 100 \\ 
+        Scopri le Attrazioni & Mobile & 99 & 100 & 100 & 100 \\ 
         \hline
-        Orari di apertura & Standard & 100 & 100 & 100 & 100 \\ 
-        \hline
-        \rowcolor[gray]{0.9}
-        Orari di apertura & Mobile & 100 & 100 & 100 & 100 \\ 
-        \hline
-        Acquista i biglietti & Standard & 100 & 100 & 100 & 100 \\ 
+        Mappa & Standard & 92 & 100 & 100 & 100 \\ 
         \hline
         \rowcolor[gray]{0.9}
-        Acquista i biglietti & Mobile & 100 & 100 & 100 & 100 \\ 
+        Mappa & Mobile & 87 & 100 & 100 & 100 \\ 
+        \hline
+        I nostri shows & Standard & 99 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        I nostri shows & Mobile & 93 & 100 & 100 & 100 \\ 
+        \hline
+        Orari di apertura & Standard & 86 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Orari di apertura & Mobile & 87 & 100 & 100 & 100 \\ 
+        \hline
+        Acquista i biglietti & Standard & 100 & 100 & 96 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Acquista i biglietti & Mobile & 95 & 100 & 100 & 100 \\ 
+        \hline
+        Login & Standard & 100 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Login & Mobile & 100 & 100 & 100 & 100 \\ 
+        \hline
+        Registrati & Standard & 100 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Registrati & Mobile & 100 & 100 & 100 & 100 \\ 
+        \hline
+        Registrati & Standard & 100 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Registrati & Mobile & 100 & 100 & 100 & 100 \\ 
+        \hline
+        Profilo & Standard & 95 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Profilo & Mobile & 85 & 100 & 100 & 100 \\ 
+        \hline
+        Carrello & Standard & 88 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Carrello & Mobile & 99 & 100 & 100 & 100 \\ 
+        \hline
+        Acquisti & Standard & 94 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Acquisti & Mobile & 88 & 100 & 100 & 100 \\ 
+        \hline
+        Modifica Profilo & Standard & 89 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Modifica Profilo & Mobile & 100 & 100 & 100 & 100 \\ 
         \hline
     \end{tabular}
     \caption{Valutazione delle prestazioni, accessibilità e ottimizzazione SEO per le diverse pagine del sito.}
