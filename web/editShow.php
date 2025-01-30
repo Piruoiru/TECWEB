@@ -9,14 +9,14 @@
     }
 
     $db = new DatabaseClient();
-    $context['vecchio_titolo'] = $_GET['vecchio_titolo'];
+    $context['vecchio_titolo'] = sanitizeInput($_GET['vecchio_titolo']);
 
     $context['showsEditInfoMessage'] = '';
     $context['showsEditErrorMessage'] = [];
 
     function sanitizeInput($input){
         $sanitizedInput = trim($input);
-        $sanitizedInput = htmlspecialchars($input);
+        $sanitizedInput = htmlspecialchars($sanitizedInput,ENT_QUOTES);
         return $sanitizedInput;
     }
 

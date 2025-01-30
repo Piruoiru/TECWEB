@@ -77,6 +77,7 @@
                     </ul>
                 </div>
                 @endif
+                @if !isset($_POST['submit'])
                 <form method="POST" class="cardForm" enctype="multipart/form-data">
                     <div class="inputLabelContainer">
                         <label for="titolo" class="emptyFieldLabel">Titolo</label>
@@ -95,7 +96,10 @@
                         <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
                     </div>
                     <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle filledGradientBtn">
-                </form>      
+                </form>
+                @else
+                <a class="buttonStyle basicBtn" id="backToShowsBtn" href="shows.php">Ritorna agli spettacoli</a>
+                @endif
             </main>
         </div>
         <footer>

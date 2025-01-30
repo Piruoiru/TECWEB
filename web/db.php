@@ -310,6 +310,7 @@ class DatabaseClient
             if (!$status) {
                 throw new \Exception("C'è stato un errore nella richiesta al database.");
             }
+            return $status;
         } catch(Throwable $exception){
             header('Location: 500.php');
         }

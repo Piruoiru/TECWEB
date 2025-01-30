@@ -65,10 +65,20 @@
             <h1>Eliminazione dello spettacolo</h1>
             @if !empty($deletionErrorMessage)
             <p class="errorMessageBgPar">{{ $deletionErrorMessage }}</p>
-            @else
-            <p class="infoMessageBgPar">Spettacolo eliminato correttamente</p>
+            @else if !empty($deletionInfoMessage)
+            <p class="infoMessageBgPar">{{ $deletionInfoMessage }}</p>
             @endif
+            @if !isset($_POST['submit'])
+            <form method="POST" class="cardForm">
+                <div class="inputLabelContainer">
+                    <label for="titolo">Titolo</label>
+                    <input type="text" id="titolo" name="titolo" value="{{ $titolo }}"/>
+                </div>
+                <input type="submit" name="submit" value="Elimina" class="buttonStyle filledGradientBtn">
+            </form>
+            @else
             <a class="buttonStyle basicBtn" id="backToShowsBtn" href="shows.php">Ritorna agli spettacoli</a>
+            @endif
         </main>
         <footer>
             <div class="footerSponsors">
