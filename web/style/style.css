@@ -965,6 +965,10 @@ MAP PAGE
   stroke: #FFF;
 }
 
+#purchasesMain .filledGradientBtn{
+  margin: 1em 0;
+}
+
 /*
 ---------------------
     PROFILE PAGE
