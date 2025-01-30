@@ -84,8 +84,10 @@ function buildCalendar(){
                 columnText.setAttribute("data-title", "Domenica");
                 break;
         }
-
-        columnText.textContent = currentDay;
+        let day = document.createElement("time");
+        day.textContent = currentDay;
+        day.setAttribute("datetime", `${currentYear}-${currentMonth+1}-${currentDay}`);
+        columnText.appendChild(day);
         cell.appendChild(columnText);
 
         let hoursText = document.createElement("p");
