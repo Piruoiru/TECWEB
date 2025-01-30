@@ -13,8 +13,6 @@
     include_once 'db.php';
     include_once 'header.php';
     unset($context['headerBtns']['cart']);
-    $prezzoInt = 34.99;
-    $prezzoRid = 24.99;
     $sommaInt = 0;
     $sommaRid = 0;
     $prezzo = 0;
@@ -22,6 +20,9 @@
     $db = new DatabaseClient();
     if(isset($_POST)){
         $db->connect();
+        $tickets = $db->fetchTickets();
+        $prezzoRid = $tickets[0]['costo'];
+        $prezzoInt = $tickets[1]['costo'];
     }
 
     if (isset($_POST['addTrid'])) {
