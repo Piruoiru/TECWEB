@@ -54,7 +54,7 @@
     foreach ($risultato as $biglietti) {
         if ($biglietti['biglietto'] == "1") {
             if ($biglietti['quantita'] > 0) {
-                $ticket = "Biglieto Ridotto";
+                $ticket = "Biglietto Ridotto";
                 $prezzo += $prezzoRid * $biglietti['quantita'];
                 $context['totale'] = $prezzo;
                 $sommaRid = $prezzoRid * $biglietti['quantita'];
@@ -64,7 +64,7 @@
             }
         } else {
             if ($biglietti['quantita'] > 0) {
-                $ticket = "Biglieto Intero";
+                $ticket = "Biglietto Intero";
                 $prezzo += $prezzoInt * $biglietti['quantita'];
                 $context['totale'] = $prezzo;
                 $sommaInt = $prezzoInt * $biglietti['quantita'];
