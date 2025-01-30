@@ -11,7 +11,8 @@
         'Saturday' => array('orarioApertura' => '09:00', 'orarioChiusura' => '21:30'),
         'Sunday' => array('orarioApertura' => '09:00', 'orarioChiusura' => '21:00')
     );
-    $context['orario'] = $openingHours[$weekDay]['orarioApertura'] . "-" . $openingHours[$weekDay]['orarioChiusura'];
+    $context['orarioApertura'] = $openingHours[$weekDay]['orarioApertura'];
+    $context['orarioChiusura'] = $openingHours[$weekDay]['orarioChiusura'];
     
 
     if(isset($_SESSION['username'])){

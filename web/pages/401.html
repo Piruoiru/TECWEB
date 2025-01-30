@@ -57,7 +57,7 @@
                 <nav id="breadcrumbNav" aria-label="Breadcrumbs">
                     <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Errore mancata autenticazione</p>
                 </nav>
-                <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
+                <p id="todaysOpeningHours">Orario di oggi: <time datetime="{{ $orarioApertura }}" aria-label="Apertura">{{ $orarioApertura }}</time> - <time datetime="{{ $orarioChiusura }}" aria-label="Chiusura">{{ $orarioChiusura }}</time></p>
                 <div id="userCrumb">
                     @for $btn in $headerBtns
                         <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
