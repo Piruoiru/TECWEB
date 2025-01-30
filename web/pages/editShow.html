@@ -81,7 +81,7 @@
                         </ul>
                     </div>
                     @endif
-                <form method="POST" class="cardForm" enctype="multipart/form-data">
+                <form method="post" class="cardForm" enctype="multipart/form-data">
                     <div class="inputLabelContainer">
                         <label for="vecchio_titolo">Vecchio Titolo</label>
                         <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="{{ $vecchio_titolo }}" />
@@ -102,7 +102,7 @@
                         <label for="descrizione_immagine">Descrizione immagine</label>
                         <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
                     </div>
-                    <input type="submit" name="submit" value="Modifica" class="buttonStyle filledGradientBtn">
+                    <input type="submit" name="submit" value="Modifica" class="buttonStyle filledGradientBtn" />
                 </form>
             </main>
         </div>
