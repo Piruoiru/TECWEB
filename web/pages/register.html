@@ -3,18 +3,18 @@
     <head>
         <title>Registrazione utente - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
-        <meta charset="utf-8">
-        <meta name="description" content="Crea il tuo profilo personale per accedere a DreamVille e scoprire tutte le promozioni disponibili per te">    
+        <meta charset="utf-8" />
+        <meta name="description" content="Crea il tuo profilo personale per accedere a DreamVille e scoprire tutte le promozioni disponibili per te" />    
         <meta name="keywords" content="registrazione, utente, account, nuovo, profilo, DreamVille" />
     
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
-        <link rel="stylesheet" href="style/print.css" media="print">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css" />
+        <link rel="stylesheet" href="style/print.css" media="print" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
 
         <script src="scripts/script.js"></script>
     </head>
@@ -78,14 +78,14 @@
                     </ul>
                 </div>
                 @endif
-                <form method="POST" id="userRegistrationForm" onsubmit="return validateRegistrationForm();" class="cardForm">
+                <form method="post" id="userRegistrationForm" onsubmit="return validateRegistrationForm();" class="cardForm">
                     <div class="inputLabelContainer">
                         @if empty($oldName)
                         <label for="nome" class="emptyFieldLabel">Nome</label>
                         @else
                         <label for="nome">Nome</label>
                         @endif
-                        <input type="text" id="nome" name="name" value="{{ $oldName }}">
+                        <input type="text" id="nome" name="name" value="{{ $oldName }}" />
                     </div>
                     <div class="inputLabelContainer" id="cognomeContainer">
                         @if empty($oldSurname)
@@ -93,7 +93,7 @@
                         @else
                         <label for="cognome">Cognome</label>
                         @endif
-                        <input type="text" id="cognome" name="surname" value="{{ $oldSurname }}">
+                        <input type="text" id="cognome" name="surname" value="{{ $oldSurname }}" />
                     </div>
                     <div class="inputLabelContainer">
                         @if empty($oldUsername)
@@ -101,17 +101,17 @@
                         @else
                         <label for="username"><span lang="en">Username</span></label>
                         @endif
-                        <input type="text" id="username" name="username" value="{{ $oldUsername }}">
+                        <input type="text" id="username" name="username" value="{{ $oldUsername }}" />
                     </div>
                     <div class="inputLabelContainer">
                         <label for="password" class="emptyFieldLabel"><span lang="en">Password</span></label>
-                        <input type="password" id="password" name="password">
+                        <input type="password" id="password" name="password" />
                     </div>
                     <div class="inputLabelContainer">
                         <label for="passwordConfirmation" class="emptyFieldLabel">Conferma <span lang="en">Password</span></label>
-                        <input type="password" id="passwordConfirmation" name="confirm_password">
+                        <input type="password" id="passwordConfirmation" name="confirm_password" />
                     </div>
-                    <input type="submit" name="submit" value="Crea un nuovo utente" id="loginButton" class="buttonStyle  filledGradientBtn">
+                    <input type="submit" name="submit" value="Crea un nuovo utente" id="loginButton" class="buttonStyle  filledGradientBtn" />
                 </form>
                 <p>Già registrato?</p>
                 <a href="login.php" id="registrationButton" class="buttonStyle basicBtn ">Accedi con il tuo account esistente</a>
