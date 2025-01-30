@@ -48,7 +48,7 @@
         $description = sanitizeInput($_POST['descrizione']);
         $imageDescription = sanitizeInput($_POST['descrizione_immagine']);
         if(validate($title,$description,$imageDescription)){
-            if(!empty($db->fetchShow($old_title))){
+            if(!empty($db->fetchShow($title))){
                 array_push($context['showsEditErrorMessage'], "Il titolo deve essere univoco");
                 return;
             }
