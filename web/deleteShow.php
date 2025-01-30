@@ -8,12 +8,14 @@
         exit();
     }
 
+    
     $context['titolo'] = htmlspecialchars($_GET['titolo'],ENT_QUOTES);
     $db = new DatabaseClient();
     if(isset($_POST['submit'])){
         $titolo = $_POST['titolo'];
-        if(empty($db->fetchShow($old_title))){
-            array_push($context['deletionInfoMessage'], "Si sta provando a eliminare uno spettacolo che non esiste");
+        $db->connect();
+        if(empty($db->fetchShow($titolo))){
+            $context['deletionInfoMessage'] = "Si sta provando a eliminare uno spettacolo che non esiste";
         } else {
             $db->connect();
             if($db->deleteShow($titolo)){
