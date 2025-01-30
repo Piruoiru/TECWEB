@@ -471,19 +471,16 @@ CART PAGE
     font-size: 1.5em;
 }
 
-.output {
-    width: fit-content;
-    height: fit-content;
-    right: 15%;
-    left: 25%;
-}
-
 #pageCartMain{
     padding-bottom: 1.5rem;
 }
 
 #pageCart>h1{
     padding-top: 1rem;
+}
+
+#pageCartMain .output{
+    padding: 1rem;
 }
 
 /*

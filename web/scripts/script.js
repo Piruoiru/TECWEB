@@ -512,12 +512,6 @@ function loadCart(){
         output.classList.remove("hiddenCart");
     }
 
-    const btnChiudi = document.getElementById("btnChiudi");
-
-    btnChiudi?.addEventListener('click', () => {
-        location.replace('profile.php');
-    })
-
     const btnCart = document.getElementById("btnCart");
 
     btnCart?.addEventListener('click', () => {
