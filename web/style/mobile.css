@@ -38,6 +38,11 @@ a{
     display: inline-block;
 }
 
+button, input[type="submit"]{
+    white-space: normal;
+    word-wrap: break-word;
+}
+
 /* 
 ----------------
     BREADCRUMB 

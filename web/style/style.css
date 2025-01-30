@@ -1215,6 +1215,7 @@ CART PAGE
 
 #btnSelect{
   font-size: 1.5em;
+  display: inline-block;
 }
 
 .btnAddRmv{
