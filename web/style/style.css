@@ -1103,6 +1103,11 @@ MAP PAGE
   padding: 1em 2em;
 }
 
+#profileDeletionMain>p{
+  font-size: 1.1em;
+  margin: 0.5em;
+}
+
 #profileDeletionMain > *:last-child{
   margin-bottom: 1.25em;
 }

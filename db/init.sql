@@ -52,7 +52,7 @@ CREATE TABLE bigliettiCarrello(
     dataOrarioOrdine TIMESTAMP NOT NULL,
     quantita smallint(2) NOT NULL,
     PRIMARY KEY (biglietto,utente),
-    FOREIGN KEY (utente) REFERENCES users(username),
+    FOREIGN KEY (utente) REFERENCES users(username) ON DELETE CASCADE,
     FOREIGN KEY (biglietto) REFERENCES biglietti(id)
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE ordini(
     id int AUTO_INCREMENT PRIMARY KEY,
     utente varchar(20) NOT NULL,
     dataOrarioOrdine TIMESTAMP NOT NULL,
-    FOREIGN KEY (utente) REFERENCES users(username)
+    FOREIGN KEY (utente) REFERENCES users(username) ON DELETE CASCADE
 );
 
 INSERT INTO ordini(utente,dataOrarioOrdine) VALUES
@@ -73,7 +73,7 @@ CREATE TABLE bigliettiAcquistati(
     ordine int NOT NULL,
     sommaPagata numeric(6,2) NOT NULL,
     FOREIGN KEY (tipoBiglietto) REFERENCES biglietti(id),
-    FOREIGN KEY (ordine) REFERENCES ordini(id)
+    FOREIGN KEY (ordine) REFERENCES ordini(id) ON DELETE CASCADE
 );
 
 INSERT INTO bigliettiAcquistati(tipoBiglietto,ordine,sommaPagata) VALUES

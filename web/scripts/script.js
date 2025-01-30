@@ -382,6 +382,15 @@ var editUserFormDetails = {
 
 /*
 ---------------------
+    DELETE PROFILE FORM
+---------------------
+*/
+var profileDeletionDetails = {
+    "username":[/^[A-Za-z0-9_\.\@]{4,20}$/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
+}
+
+/*
+---------------------
     MAP 
 ---------------------
 */
