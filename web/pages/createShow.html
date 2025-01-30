@@ -4,17 +4,17 @@
         <title>Creazione spettacolo - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8" />
-        <meta name="description" content="Crea un nuovo spettacolo!">    
-        <meta name="keywords" content="crea, creazione,spettacoli, DreamVille, divertimento, nuovo">
+        <meta name="description" content="Crea un nuovo spettacolo!" />    
+        <meta name="keywords" content="crea, nuovo, spettacolo, DreamVille, divertimento" />
     
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
-        <link rel="stylesheet" href="style/print.css" media="print">
-        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css" />
+        <link rel="stylesheet" href="style/print.css" media="print" />
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
 
         <script src="scripts/script.js"></script>
     </head>
@@ -82,7 +82,7 @@
                 </div>
                 @endif
                 @if !isset($_POST['submit'])
-                <form method="POST" class="cardForm" enctype="multipart/form-data">
+                <form method="post" class="cardForm" enctype="multipart/form-data">
                     <div class="inputLabelContainer">
                         <label for="titolo" class="emptyFieldLabel">Titolo</label>
                         <input type="text" id="titolo" name="titolo" />
@@ -99,7 +99,7 @@
                         <label for="descrizione_immagine" class="emptyFieldLabel">Descrizione immagine</label>
                         <input type="text" id="descrizione_immagine" name="descrizione_immagine" />
                     </div>
-                    <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle filledGradientBtn">
+                    <input type="submit" name="submit" value="Aggiungi" id="loginButton" class="buttonStyle filledGradientBtn" />
                 </form>
                 @else
                 <a class="buttonStyle basicBtn" id="backToShowsBtn" href="shows.php">Ritorna agli spettacoli</a>
