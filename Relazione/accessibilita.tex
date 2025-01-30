@@ -1,20 +1,30 @@
 \section{Accessibilità}
-\subsection{Separazione tra contenuto, presentazione e struttura}
-Il sito è stato organizzato in tre sezioni principali per gestire al meglio gli accessi delle diverse categorie di utenti. La struttura dei contenuti è stata realizzata utilizzando HTML5, sfruttando i tag semantici e le nuove funzionalità offerte dallo standard. Il layout e la presentazione sono stati definiti con CSS3, mentre il comportamento dinamico è stato gestito tramite Javascript. Durante lo sviluppo, è stato verificato il rispetto degli standard del W3C utilizzando strumenti come i validatori di HTML e CSS.
+\subsection{Separazione tra contenuto, presentazione e comportamento}
+Il codice del sito è stato organizzato suddividendo in file diversi contenuto, presentazione e comportamento. La struttura dei contenuti è stata realizzata utilizzando XHTML5, sfruttando i tag semantici e le nuove funzionalità offerte dallo standard. Il layout e la presentazione sono stati definiti con CSS3, mentre il comportamento dinamico è stato gestito tramite Javascript e PHP. Durante lo sviluppo, è stato verificato il rispetto degli standard del W3C utilizzando il validatore XHTML5 offerto da TotalValidator.
 \subsection{Attributi ARIA}
-\textbf{\textit{TODO}}
+Per migliorare l'esperienza di consultazione del sito da parte degli utilizzatori di screen reader, sono stati usati gli attributi:
+\begin{itemize}
+    \item Aria-hidden, per i contenuti nascosti
+    \item Aria-label e aria-describedBy, per fornire informazioni aggiuntive sul contenuto
+\end{itemize}
 \subsection{Link}
-I link all'interno del sito sono ben segnalati:
+I link sulla navbar principale presentano le seguenti caratteristiche:
 \begin{itemize}
     \item Sono colorati di bianco su sfondo blu se non sono ancora stati visitati.
-    \item Se le pagine sono gia state visitate i link vengono sottolineati con il colore giallo.
-    \item Mentre se si fa hover su di essi, lo sfondo diventa giallo e la scritta di colore nero.
+    \item Sono sottolineati da una barra gialla se sono già stati visitati.
+    \item Mentre il puntatore è posizionato su un link, lo sfondo diventa giallo e la scritta di colore nero.
+\end{itemize}
+All'interno del sito, invece, i link sono visualizzati con la grafica solita dei bottoni. La distinzione tra link già visitato o mai visitato è veicolata dal colore dello sfondo e del testo. In particolare:
+\begin{itemize}
+    \item Link non visitato: bottone con bordo azzurro, sfondo bianco e testo nero 
+    \item Link già visitato: bottone con bordo e sfondo azzurro e testo bianco
+    \item Mentre il puntatore è posizionato sul link, lo sfondo diventa blu e la scritta di colore bianco.
 \end{itemize}
 \subsection{Immagini}
-Le immagini del sito sono state ottimizzate utilizzando formati come PNG, garantendo un equilibrio ideale tra qualità e leggerezza grazie a tecniche di compressione e ridimensionamento. Ogni immagine include un attributo alt, ad eccezione di quelle decorative, per migliorare l’accessibilità. Le immagini sono state scelte principalmente per rappresentare le attrazioni e gli spettacoli offerti nel  parco divertimenti, valorizzando l’esperienza visiva degli utenti. Il rispetto degli standard W3C è stato assicurato attraverso l’uso di strumenti di validazione dedicati.
+Le immagini del sito sono state ottimizzate utilizzando formati come PNG, garantendo un equilibrio ideale tra qualità e leggerezza grazie a tecniche di compressione e ridimensionamento. Ogni immagine include un attributo alt, ad eccezione di quelle decorative, per migliorare l’accessibilità. Ciò è stato verificato anche mediante l'utilizzo di estensioni come WAVE e Silktide. Le immagini sono state scelte principalmente per rappresentare le attrazioni e gli spettacoli offerti nel  parco divertimenti, valorizzando l’esperienza visiva degli utenti.
 \subsection{Contrasto Colori}
-La scelta dei colori per il sito web è stata il risultato di uno studio accurato e approfondito, con particolare attenzione al rispetto degli standard di accessibilità WCAG a livello AA. Numerose combinazioni sono state scartate poiché non garantivano un contrasto adeguato. 
-Alcuni esempi di colori presi in considerazione per la progettazione del sito sono i seguenti:  
+La scelta dei colori per il sito web è stata il risultato di uno studio lungo e approfondito, con particolare attenzione al rispetto degli standard di accessibilità WCAG a livello AA. Numerose combinazioni sono state scartate poiché non garantivano un contrasto adeguato.
+Una palette di colori non valida ma che è stata utile per arrivare a quella definitiva è:
 \begin{itemize}
     \item Bianco: \#FFF
     \item Blu: \#005AB5
@@ -22,30 +32,30 @@ Alcuni esempi di colori presi in considerazione per la progettazione del sito so
     \item Rosso: \#AA0000
     \item Azzurro: \#D1FFFF
 \end{itemize}
-Tuttavia, alcune combinazioni cromatiche sono state scartate poiché non rispettavano il livello AA di contrasto secondo gli standard WCAG, non raggiungendo un rapporto minimo di 3.0.  
+Il motivo dell'inadeguatezza di alcune combinazioni cromatiche è il mancato rispetto dello standard AA definito nelle norme WCAG, che stabilisce che il contrasto tra il colore del testo e dello sfondo e tra il colore dei link visitati e non visitati sia almeno di 4.5:1 per il testo normale e 3:1 per il testo grande (ossia da 18pt in su).  
 Ad esempio: 
 \begin{itemize}
     \item Il contrasto tra il colore \#FFD700 (Giallo) e il colore \#D1FFFF (Azzurro) era pari a 1.2, risultato non sufficiente.
     \item Il contrasto tra il colore \#AA0000 (Rosso) e il colore \#005AB5 (Blu) era pari a 1.15, anch'esso non conforme.
 \end{itemize}
-Queste analisi hanno guidato la scelta dei colori finali per garantire un'esperienza utente accessibile e inclusiva.
+Questi ragionamenti hanno guidato la scelta dei colori finali per garantire un'esperienza utente accessibile.
 \\
-Dopo un'analisi meticolosa, sono stati selezionati tre colori principali, oltre al bianco (\#FFF) e al nero (\#000):
+Sono stati selezionati tre colori principali, oltre al bianco (\#FFF) e al nero (\#000):
 \begin{itemize}
-    \item Colore primario: \#000a99
+    \item Colore primario: \#000A99
     \item Colore secondario: \#FFC300
     \item Colore terziario: \#0071EB
     \item Colore quaternario: \#BD0000
 \end{itemize}
-Tutti i colori sono stati verificati utilizzando strumenti come il Color Contrast Checker di AudioEye, assicurandosi che il contrasto tra di essi raggiungesse almeno il livello AA, garantendo così un’esperienza visiva inclusiva e accessibile per tutti gli utenti.
+Tutti i colori sono stati verificati utilizzando strumenti come il \href{https://www.audioeye.com/color-contrast-checker/}{Color Contrast Checker di AudioEye}, il sito \href{https://accessibleweb.com/color-contrast-checker/}{Web Accessibility Color Contrast Checker} e le estensioni WCAG Color Contrast Checker, Silktide e WAVE, assicurandosi che il contrasto tra di essi raggiungesse almeno il livello AA.
 \subsection{Focus}
-La gestione del focus è stata un elemento centrale nello sviluppo del sito web, garantendo un’esperienza inclusiva e accessibile per un ampio numero di utenti. Grazie all’utilizzo di link ben strutturati e del tag tabindex, è stato possibile rendere tutti i link e i pulsanti facilmente raggiungibili tramite il tasto Tab. Questo approccio assicura una navigazione fluida anche per gli utenti che utilizzano solo la tastiera, migliorando significativamente l’accessibilità del sito.
+La gestione del focus è stata un elemento centrale nello sviluppo del sito web, garantendo un’esperienza inclusiva e accessibile per un ampio numero di utenti. Grazie all’utilizzo di link ben strutturati e alla separazione tra struttura e presentazione, è stato possibile rendere tutti i link e i pulsanti facilmente raggiungibili tramite il tasto Tab. Questo approccio assicura una navigazione fluida anche per gli utenti che utilizzano solo la tastiera, migliorando significativamente l’accessibilità del sito.
 \subsection{Lingue Straniere}
-La lingua principale del sito è la lingua italiana, tuttavia sono staiti segnalati attraverso <span lang=" "> gli appositi termini derivanti da lingue straniere.
+La lingua principale del sito è la lingua italiana, tuttavia sono stati segnalati attraverso <span lang="en"> gli appositi termini derivanti dalla lingua inglese.
 \subsection{Strumenti di testing}
 \textbf{\textit{TODO}}
 \subsection{Ambienti di test}
-Il sito e le sue funzionalità sono state testate su ambiente Linux, Windows e MacOS, sui seguenti browser: \textbf{\textit{TODO}}
+Il sito e le sue funzionalità sono state testate su ambiente Linux e Windows sui seguenti browser: \textbf{\textit{TODO}}
 \begin{itemize}
     \item \textbf{Chrome:}
         \begin{itemize}
@@ -61,11 +71,6 @@ Il sito e le sue funzionalità sono state testate su ambiente Linux, Windows e M
         \begin{itemize}
             \item Versione del sito perfettamente funzionante
             \item Versione di Edge aggiornata: 132.0.2957.127
-        \end{itemize}
-    \item \textbf{Safari:} 
-        \begin{itemize}
-            \item Versione del sito perfettamente funzionante
-            \item Versione di Safari aggiornata: 18.3
         \end{itemize}
 \end{itemize}
 \subsection{Dispositivi}
