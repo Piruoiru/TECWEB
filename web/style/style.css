@@ -241,6 +241,11 @@ header{
   list-style-type: none;
 }
 
+#menu hr{
+  width: 100vw;
+  border: 3px solid var(--secondaryColor);
+}
+
 #menu>ul>li{
   display: flex;
   align-items: center;
@@ -258,7 +263,7 @@ header{
   color: var(--secondaryColor);
 }
 
-#menu>ul>li.mobileOnlyLink{
+#menu>ul>*.mobileOnlyLink{
   display: none;
 }
 
@@ -1190,6 +1195,7 @@ CART PAGE
 #pageCart{
   justify-items: center;
   min-height: 50vh;
+  padding-bottom: 1rem;
 }
 
 #pageCart h1{
@@ -1215,6 +1221,7 @@ CART PAGE
 
 #btnSelect{
   font-size: 1.5em;
+  display: inline-block;
 }
 
 .btnAddRmv{
@@ -1257,18 +1264,18 @@ CART PAGE
 }
 
 .output{
-  width: 500px;
+  width: fit-content;
   height: fit-content;
-  padding: 30px 0;
+  padding: 1rem;
+  padding-bottom: 2rem;
   box-shadow: 0 0 35px rgba(0, 3, 41, 0.8);
-  background-color: var(--secondaryColor);
+  background-color: #FFF;
   border-radius: 5px;
   text-align: center;
   display: block;
-  top: 32%;
-  left: 38%;
-  margin: -25px 0 0 -25px;
-  font-family: "Figtree", Roboto, sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   position: absolute;
 }
 
@@ -1280,44 +1287,18 @@ CART PAGE
   border-radius: 50%;
   font-size: 85px;
   margin-bottom: 30px;
-  animation: animate 1s ease;
 }
 
 #checkMark > path{
   fill: var(--primaryColor);
 }
 
-@keyframes animate{
-  0%{
-      transform: translateY(60px) scale(0.7) rotate(0deg);
-      opacity: 0.2;
-  }
-  100%{
-      transform: translateY(0px) scale(1) rotate(360deg);
-      opacity: 1;
-  }
-}
-
-.textPaga{
-  font-size: 40px;
+#textPaga{
+  font-size: 2.5rem;
   font-weight: 600;
   color: var(--primaryColor);
   letter-spacing: 1px;
-}
-
-#btnChiudi{
-  padding: 0.5em 0.7em;
-  border: 0;
-  cursor: pointer;
-  text-decoration: none;
-  border: 1px solid #000;
-  text-align: center;
-  font-size: 1.1em;
-  border: solid 5px var(--primaryColor);
-  margin-top: 0.9em; 
-  margin-left: 0.2em;
-  background-color: var(--primaryColor);
-  color: #FFF;
+  margin-bottom: 1.5rem;
 }
 
 #carrelloUL{
@@ -1725,6 +1706,10 @@ SHOWS
   margin: 0.25em;
 }
 
+#cardFormMainShows .card h2{
+  text-align: center;
+}
+
 #cardFormMainShows p{
   font-size: 1.2em;
   text-align: center;
@@ -1771,11 +1756,13 @@ SHOWS
 
 .showsButtons{
   display: flex;
-  flex-direction: row;;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .showsButtons a{
-  margin: 0em 2em;
+  margin: 0em 0.25em;
   font-size: 1.1em;
 }
 
@@ -1831,10 +1818,18 @@ PULSANTE TORNA SU
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transition: all .2s ease-out;
 }
 
 .scrollUpButton svg{
   fill: var(--secondaryColor);
   width: 3rem;
   height: 3rem;
+}
+
+.scrollUpButton.noDisplay{
+  visibility: hidden;
+  opacity: 0;
 }

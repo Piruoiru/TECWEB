@@ -195,6 +195,17 @@ header {
     padding: 0.5em 0.75em 0.75em 0.75em;
 }
 
+#centerMaps {
+    display: none;
+}
+
+#mapMainParag{
+    display: none;
+} 
+
+#mapButton{
+    display: none;
+}
 /*
 ----------------
  SHOWS PAGE
@@ -229,9 +240,12 @@ header {
 #buyTicketKart{
     border: solid 2px;
     box-shadow: none;
-    margin: 1em;
+    margin: 1em auto;
 }
 
+.basicBtn{
+    display: none;
+}
 /*
 ----------------
  CART PAGE
@@ -274,3 +288,4 @@ header {
     box-shadow: none;
     color: #000;
 }
+

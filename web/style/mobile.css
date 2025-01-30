@@ -19,6 +19,10 @@ html{
     color: #000;
 }
 
+main, #indexMain, #ridesMain, #calendarMain{
+    padding: 0 1rem;
+}
+
 /*
 ---------------------
   LINKS AND BUTTONS
@@ -32,6 +36,11 @@ a, button{
 
 a{
     display: inline-block;
+}
+
+button, input[type="submit"]{
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 /* 
@@ -121,7 +130,15 @@ header{
 }
 
 #menu>ul>li>a, #menu #currentPageLink{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+}
+
+#menu>ul>li>a::before{
+    bottom: 8px;
+}
+
+#menu>ul>li>a:hover::before{
+    height: 85%;
 }
 
 #menu>ul.visible, #menu>.visible{
@@ -131,10 +148,10 @@ header{
 }
 
 #menu>ul>li{
-    margin: 1rem auto;
+    margin: 0.75rem auto;
 }
 
-#menu>ul>li.mobileOnlyLink{
+#menu>ul>*.mobileOnlyLink{
     display: block;
 }
 
@@ -143,6 +160,10 @@ header{
 HOMEPAGE 
 ----------
 */
+
+#titleHomePage{
+    font-size: 2.75em;
+}
 
 
 .paragHomePage  {
@@ -164,13 +185,17 @@ HOMEPAGE
     flex-direction: row;
     border-radius: 10px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
-    margin: 1em;
+    margin: 1em 0;
+}
+
+.cardIndexScriptButton{
+    flex-grow: 1;
 }
 
 .containerRidesIndexImg img {
     border-radius: 11%;
     max-width: 95%;
-    height: 15em;
+    height: auto;
 }
 
 .containerRidesIndexScript {
@@ -261,6 +286,9 @@ RIDES PAGE
 CALENDAR PAGE
 -------------
 */
+#calendarMain>h1{
+    padding-top: 1rem;
+}
 
 #calendarTable{
     width: 90%;
@@ -386,6 +414,10 @@ TICKET PAGE
     text-align: center;
 }
 
+#ticketChoice{
+    padding-top: 0;
+}
+
 .ticketInfo h2 {
     text-align: center;
     font-size: 1.5em;
@@ -393,10 +425,15 @@ TICKET PAGE
 
 .cardTicket {
     padding: .75rem;
-    margin: 1.1em;
+    margin: 0;
+    margin-top: 1rem;
     width: 90%;
     flex-direction: column;
     align-items: center;
+}
+
+.cardTicket img{
+    height: auto;
 }
 
 .btnTicket {
@@ -405,10 +442,17 @@ TICKET PAGE
 
 #buyTicketKart {
     width: 90%;
-    height: 20%;
-    margin-top: 1em;
-    margin-left: 1.1em;
-    position: unset;
+    margin: 0;
+    margin: 1em 0;
+    position: static;
+}
+
+#buyTicketKart h2, #ticketMain>h1{
+    word-wrap: break-word;
+}
+
+#buyTicketKart .filledGradientBtn{
+    padding: 1em;
 }
 
 /*
@@ -436,11 +480,16 @@ CART PAGE
     font-size: 1.5em;
 }
 
-.output {
-    width: fit-content;
-    height: fit-content;
-    right: 15%;
-    left: 25%;
+#pageCartMain{
+    padding-bottom: 1.5rem;
+}
+
+#pageCart>h1{
+    padding-top: 1rem;
+}
+
+#pageCartMain .output{
+    padding: 1rem;
 }
 
 /*
@@ -500,6 +549,10 @@ CART PAGE
     max-width: 100%;
 }
 
+#profileEditForm label[for="username"]{
+    font-size: 1em;
+}
+
 /*
 ---------------------
     PROFILE AND PURCHASES PAGES
@@ -547,11 +600,28 @@ SHOWS PAGE
 
 #showList img {
     display: flex;
-    max-width: 17em;
+    max-width: 75vw;
     height: auto;
     border-radius: 15px;
     margin: 1em;
     box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.2);
+}
+
+.showsButtons{
+    flex-direction: column;
+    width: fit-content;
+}
+
+.showsButtons>a{
+    margin-top: 1.5em;
+}
+
+.showsButtons>a:first-child{
+    margin-top: 0;
+}
+
+#createBtn{
+    margin-bottom: 1em;
 }
 
 /*

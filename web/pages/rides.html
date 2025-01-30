@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Attrazioni - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
-        <meta charset="utf-8">
+        <meta charset="utf-8" />
         <meta name="description" content="Scopri tutte le attrazioni del parco e scegli la tua preferita. Che tu sia alla ricerca di emozioni forti o di un'esperienza più rilassante, DreamVille ha quello che fa per te!">
-        <meta name="keywords" content="attrazioni, giostre, mappa, parco, adrenalina, fantasy, bambini, DreamVille">
+        <meta name="keywords" content="attrazioni, giostre, mappa, parco, adrenalina, fantasy, bambini, DreamVille" />
     
         <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
         <link rel="stylesheet" href="style/print.css" media="print">
@@ -13,18 +13,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
         <script src="scripts/script.js"></script>
     </head>
     <body class="tertiaryBg" onload="loadRidesFilter()">
+        <a href="#ridesMain" class="hidden">Vai al contenuto</a>
         <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
                 <nav id="menu" aria-label="Menù di navigazione">
                     <button id="hamburgerIcon" onclick="toggleMobileNav()" class="buttonStyle visible">
-                        <svg viewBox="0 0 24 22">
+                        <svg viewbox="0 0 24 22">
                             <path d="M4 18L20 18" />
                             <path d="M4 12L20 12" />
                             <path d="M4 6L20 6" />
@@ -32,7 +33,7 @@
                         </svg>
                     </button>
                     <button class="buttonStyle" id="closeIcon" onclick="toggleMobileNav()">
-                        <svg viewBox="0 0 24 22">
+                        <svg viewbox="0 0 24 22">
                             <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" />
                             <title>Chiudi menù</title>
                         </svg>
@@ -43,9 +44,12 @@
                         <li><a href="shows.php">I nostri shows</a></li>
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        @if !(empty($essentialHeaderBtns))
+                        <li class="mobileOnlyLink"><hr /></li>
                         @for $btn in $essentialHeaderBtns
                         <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endfor
+                        @endif
                     </ul>
                 </nav>
             </header>
@@ -53,7 +57,7 @@
                 <nav id="breadcrumbNav" aria-label="Breadcrumbs">
                     <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Attrazioni</p>
                 </nav>
-                <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
+                <p id="todaysOpeningHours">Orario di oggi: <time datetime="{{ $orarioApertura }}">{{ $orarioApertura }}</time> - <time datetime="{{ $orarioChiusura }}">{{ $orarioChiusura }}</time></p>
                 <div id="userCrumb">
                     @for $btn in $headerBtns
                         <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
@@ -69,7 +73,7 @@
                 <a class="buttonStyle basicBtn" id="mapBtn" href="discoverthepark.php">Vai alla Mappa</a>
             </div>
             <h2>Attrazioni</h2>
-            <p>Seleziona la categoria di attrazioni che preferisci per trovare la tua prossima attrazione del cuore:</p>
+            <p>Seleziona la categoria di attrazioni che desideri per trovare la tua prossima attrazione preferita:</p>
             <div id="filtersContainer">
                 <button data-category="tutte" class="buttonStyle tutteBtnSelected" id="tutteBtn">Tutte</button>
                 <button data-category="adrenaliniche" class="buttonStyle" id="adrenalinicheBtn">Adrenaliniche</button>
@@ -154,23 +158,29 @@
                     </li>                 
             </ul>
         </main>
+        <button class="buttonStyle scrollUpButton noDisplay" onclick="scrollUp()">
+            <svg viewbox="0 0 32 32">
+                <path d="M18.221,7.206l9.585,9.585c0.879,0.879,0.879,2.317,0,3.195l-0.8,0.801c-0.877,0.878-2.316,0.878-3.194,0  l-7.315-7.315l-7.315,7.315c-0.878,0.878-2.317,0.878-3.194,0l-0.8-0.801c-0.879-0.878-0.879-2.316,0-3.195l9.587-9.585  c0.471-0.472,1.103-0.682,1.723-0.647C17.115,6.524,17.748,6.734,18.221,7.206z"/>
+                <title>Torna all'inizio della pagina</title>
+            </svg>
+        </button>
         <footer>
             <div class="footerSponsors">
                 <p>Offerto da:</p>
                 <p> </p>
-                <img src="assets/sparkleco.jpg" alt="logo dello sponsor sparklego">
-                <img src="assets/whirldenergy.jpg" alt="logo dello sponsor whirldenergy">
-                <img src="assets/hippysnacks.jpg" alt="logo dello sponsor hippysnacks">
-                <img src="assets/ridetech.jpg" alt="logo dello sponsor ridetech">
-                <img src="assets/cloud9.jpg" alt="logo dello sponsor cloud9">
-                <img src="assets/cloudpaints.jpg" alt="logo dello sponsor cloudpaints">
+                <img src="assets/sparkleco.jpg" alt="logo dello sponsor sparklego" />
+                <img src="assets/whirldenergy.jpg" alt="logo dello sponsor whirldenergy" />
+                <img src="assets/hippysnacks.jpg" alt="logo dello sponsor hippysnacks" />
+                <img src="assets/ridetech.jpg" alt="logo dello sponsor ridetech" />
+                <img src="assets/cloud9.jpg" alt="logo dello sponsor cloud9" />
+                <img src="assets/cloudpaints.jpg" alt="logo dello sponsor cloudpaints" />
             </div>          
             <div class="footer">
                 <div class="socialWrapper">
-                    <img src="assets/instagram.png" alt="instagram DreamVille">                   
-                    <img src="assets/tik_tok.png" alt="tik tok DreamVille">                   
-                    <img src="assets/facebook.png" alt="facebook DreamVille">                   
-                    <img src="assets/logorealx.png" alt="x DreamVille">                   
+                    <img src="assets/instagram.png" alt="instagram DreamVille" />                   
+                    <img src="assets/tik_tok.png" alt="tik tok DreamVille" />                   
+                    <img src="assets/facebook.png" alt="facebook DreamVille" />                   
+                    <img src="assets/logorealx.png" alt="x DreamVille" />                   
                 </div>                 
             </div>
         </footer>

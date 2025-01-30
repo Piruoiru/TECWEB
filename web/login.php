@@ -52,12 +52,11 @@
             } else {
                 $db->close();
                 $context['oldUsername'] = $username;
-                $context['loginErrorMessage'] = 'Username o password errati o mancanti';
+                array_push($context['loginErrorMessage'], 'Username o password errati');
             }
         }
     } else if(isset($_GET['loginRequest'])){
-        header('HTTP/1.1 401 Unauthorized');
-        $context['loginErrorMessage'] = 'Devi effettuare il login per accedere alla pagina richiesta';
+        array_push($context['loginErrorMessage'], 'Devi effettuare il login per accedere alla pagina richiesta');
     }
 
     include_once 'parser.php';

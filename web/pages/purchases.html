@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Biglietti - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
-        <meta charset="utf-8">
-        <meta name="description" content="Visualizza i biglietti acquistati">    
-        <meta name="keywords" content="biglietto, acquisto, ordine, DreamVille">
+        <meta charset="utf-8" />
+        <meta name="description" content="Visualizza i biglietti acquistati" />    
+        <meta name="keywords" content="biglietto, acquisto, ordine, DreamVille" />
     
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
-        <link rel="stylesheet" href="style/print.css" media="print">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css" />
+        <link rel="stylesheet" href="style/print.css" media="print" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
 
         <script src="scripts/script.js"></script>
     </head>
     <body class="tertiaryBg">
+        <a href="#purchasesMain" class="hidden">Vai al contenuto</a>
         <div id="headerBreadcrumbWrapper">
             <header>
                 <h1><span lang="en">DreamVille</span></h1>
                 <nav id="menu" aria-label="Menù di navigazione">
                     <button id="hamburgerIcon" onclick="toggleMobileNav()" class="buttonStyle visible">
-                        <svg viewBox="0 0 24 22">
+                        <svg viewbox="0 0 24 22">
                             <path d="M4 18L20 18" />
                             <path d="M4 12L20 12" />
                             <path d="M4 6L20 6" />
@@ -32,7 +33,7 @@
                         </svg>
                     </button>
                     <button class="buttonStyle" id="closeIcon" onclick="toggleMobileNav()">
-                        <svg viewBox="0 0 24 22">
+                        <svg viewbox="0 0 24 22">
                             <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" />
                             <title>Chiudi menù</title>
                         </svg>
@@ -43,9 +44,12 @@
                         <li><a href="shows.php">I nostri <span lang="en">shows</span></a></li>
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        @if !(empty($essentialHeaderBtns))
+                        <li class="mobileOnlyLink"><hr /></li>
                         @for $btn in $essentialHeaderBtns
                         <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endfor
+                        @endif
                     </ul>
                 </nav>
             </header>
@@ -53,7 +57,7 @@
                 <nav id="breadcrumbNav" aria-label="Breadcrumbs">
                     <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; <a href="profile.php">Profilo</a> &gt; Acquisti</p>
                 </nav>
-                <p id="todaysOpeningHours">Orario di oggi: {{ $orario }}</p>
+                <p id="todaysOpeningHours">Orario di oggi: <time datetime="{{ $orarioApertura }}">{{ $orarioApertura }}</time> - <time datetime="{{ $orarioChiusura }}">{{ $orarioChiusura }}</time></p>
                 <div id="userCrumb">
                     @for $btn in $headerBtns
                         <a href="{{ $btn['url'] }}" class='buttonStyle'>{{ $btn['text'] }}</a>
@@ -77,7 +81,7 @@
                 <div class="ticketCardsContainer">
                 @for $ticket in $lastOrder['tickets']
                     <div class='card ticketCard'>
-                        <svg viewBox="0 0 457.208 457.208">
+                        <svg viewbox="0 0 457.208 457.208">
                             <path d="M442.468,196.301c8.182-0.142,14.74-6.814,14.74-14.998v-72.778c0-8.284-6.716-15-15-15H15c-8.284,0-15,6.716-15,15
                             v72.768c0,3.996,1.595,7.828,4.431,10.644c2.835,2.815,6.652,4.387,10.675,4.356c0.158-0.002,0.315-0.005,0.478-0.01
                             c17.732,0.105,32.125,14.564,32.125,32.321c0,17.764-14.405,32.226-32.146,32.32c-0.148-0.004-0.297-0.007-0.447-0.009
@@ -104,7 +108,7 @@
                 <div class="ticketCardsContainer">
                     @for $ticket in $order['tickets']
                     <div class='card ticketCard'>
-                        <svg viewBox="0 0 457.208 457.208">
+                        <svg viewbox="0 0 457.208 457.208">
                             <path d="M442.468,196.301c8.182-0.142,14.74-6.814,14.74-14.998v-72.778c0-8.284-6.716-15-15-15H15c-8.284,0-15,6.716-15,15
                             v72.768c0,3.996,1.595,7.828,4.431,10.644c2.835,2.815,6.652,4.387,10.675,4.356c0.158-0.002,0.315-0.005,0.478-0.01
                             c17.732,0.105,32.125,14.564,32.125,32.321c0,17.764-14.405,32.226-32.146,32.32c-0.148-0.004-0.297-0.007-0.447-0.009
@@ -128,23 +132,29 @@
             @endfor
         @endif
         </main>
+        <button class="buttonStyle scrollUpButton noDisplay" onclick="scrollUp()">
+            <svg viewbox="0 0 32 32">
+                <path d="M18.221,7.206l9.585,9.585c0.879,0.879,0.879,2.317,0,3.195l-0.8,0.801c-0.877,0.878-2.316,0.878-3.194,0  l-7.315-7.315l-7.315,7.315c-0.878,0.878-2.317,0.878-3.194,0l-0.8-0.801c-0.879-0.878-0.879-2.316,0-3.195l9.587-9.585  c0.471-0.472,1.103-0.682,1.723-0.647C17.115,6.524,17.748,6.734,18.221,7.206z"/>
+                <title>Torna all'inizio della pagina</title>
+            </svg>
+        </button>
         <footer>
             <div class="footerSponsors">
                 <p>Offerto da:</p>
                 <p> </p>
-                <img src="assets/sparkleco.jpg" alt="logo dello sponsor sparklego">
-                <img src="assets/whirldenergy.jpg" alt="logo dello sponsor whirldenergy">
-                <img src="assets/hippysnacks.jpg" alt="logo dello sponsor hippysnacks">
-                <img src="assets/ridetech.jpg" alt="logo dello sponsor ridetech">
-                <img src="assets/cloud9.jpg" alt="logo dello sponsor cloud9">
-                <img src="assets/cloudpaints.jpg" alt="logo dello sponsor cloudpaints">
+                <img src="assets/sparkleco.jpg" alt="logo dello sponsor sparklego" />
+                <img src="assets/whirldenergy.jpg" alt="logo dello sponsor whirldenergy" />
+                <img src="assets/hippysnacks.jpg" alt="logo dello sponsor hippysnacks" />
+                <img src="assets/ridetech.jpg" alt="logo dello sponsor ridetech" />
+                <img src="assets/cloud9.jpg" alt="logo dello sponsor cloud9" />
+                <img src="assets/cloudpaints.jpg" alt="logo dello sponsor cloudpaints" />
             </div>          
             <div class="footer">
                 <div class="socialWrapper">
-                    <img src="assets/instagram.png" alt="instagram DreamVille">                   
-                    <img src="assets/tik_tok.png" alt="tik tok DreamVille">                   
-                    <img src="assets/facebook.png" alt="facebook DreamVille">                   
-                    <img src="assets/logorealx.png" alt="x DreamVille">                   
+                    <img src="assets/instagram.png" alt="instagram DreamVille" />                   
+                    <img src="assets/tik_tok.png" alt="tik tok DreamVille" />                   
+                    <img src="assets/facebook.png" alt="facebook DreamVille" />                   
+                    <img src="assets/logorealx.png" alt="x DreamVille" />                   
                 </div>                 
             </div>
         </footer>

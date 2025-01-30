@@ -84,12 +84,23 @@ function buildCalendar(){
                 columnText.setAttribute("data-title", "Domenica");
                 break;
         }
-
-        columnText.textContent = currentDay;
+        let day = document.createElement("time");
+        day.textContent = currentDay;
+        day.setAttribute("datetime", `${currentYear}-${currentMonth+1}-${currentDay}`);
+        columnText.appendChild(day);
         cell.appendChild(columnText);
 
         let hoursText = document.createElement("p");
-        hoursText.textContent = `${orari[weekDay].apertura} - ${orari[weekDay].chiusura}`;
+        let openingHour = document.createElement("time");
+        openingHour.textContent = orari[weekDay].apertura;
+        openingHour.setAttribute("datetime", orari[weekDay].apertura);
+        let closingHour = document.createElement("time");
+        closingHour.textContent = orari[weekDay].chiusura;
+        closingHour.setAttribute("datetime", orari[weekDay].chiusura);
+        hoursText.appendChild(openingHour);
+        hoursText.appendChild(document.createTextNode(" - "));
+        hoursText.appendChild(closingHour);
+
         cell.appendChild(hoursText);
 
         if(currentDay === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()){
@@ -501,34 +512,11 @@ function loadTicket(){
 }
 
 function loadCart(){
-    let url = new URL(window.location.href);
-    let valore = url.searchParams.get('acquistato');
-
-    if(valore === 'yes'){
-        const backdrop = document.querySelector(".backdrop");
-        backdrop.classList.remove("hiddenCart");
-    
-        const output = document.querySelector(".output");
-        output.classList.remove("hiddenCart");
-    }
-
-    const btnChiudi = document.getElementById("btnChiudi");
-
-    btnChiudi?.addEventListener('click', () => {
-        location.replace('profile.php');
-    })
-
     const btnCart = document.getElementById("btnCart");
 
     btnCart?.addEventListener('click', () => {
         btnChiudi.disabled = false;
-    })
-
-    const btnSelect = document.getElementById("btnSelect");
-
-    btnSelect?.addEventListener('click', () => {
-        location.replace('buyingticket.php');
-    })
+    });
 
     const pInt = document.getElementById("pInt").innerHTML;
     const btnRmvInt = document.getElementById("rmvIntCart");
@@ -568,4 +556,13 @@ function scrollUp(){
         top: 0,
         behavior: "smooth"
     });
+}
+
+window.onscroll = function() {
+    const scrollUpButton = document.getElementsByClassName("scrollUpButton")[0];
+    if (scrollUpButton != null && (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)) {
+        scrollUpButton.classList.remove("noDisplay");
+    } else {
+        scrollUpButton.classList.add("noDisplay");
+    }
 }
