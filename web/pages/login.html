@@ -69,7 +69,7 @@
                 <h1 lang="en">Login</h1>
                 @if !empty($loginErrorMessage)
                 <div class="errorMessageBgPar">
-                    <p>Si sono verificati alcuni errori durante il <span lang="en">login</span>:</p>
+                    <p>Si sono verificati alcuni errori:</p>
                     <ul>
                         @for $error in $loginErrorMessage
                             <li>{{ $error }}</li>
