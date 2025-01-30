@@ -1,0 +1,173 @@
+\section{Accessibilità}
+\subsection{Separazione tra contenuto, presentazione e comportamento}
+Il codice del sito è stato organizzato suddividendo in file diversi contenuto, presentazione e comportamento. La struttura dei contenuti è stata realizzata utilizzando XHTML5, sfruttando i tag semantici e le nuove funzionalità offerte dallo standard. Il layout e la presentazione sono stati definiti con CSS3, mentre il comportamento dinamico è stato gestito tramite Javascript e PHP. Durante lo sviluppo, è stato verificato il rispetto degli standard del W3C utilizzando il validatore XHTML5 offerto da TotalValidator.
+\subsection{Attributi ARIA}
+Per migliorare l'esperienza di consultazione del sito da parte degli utilizzatori di screen reader, sono stati usati gli attributi:
+\begin{itemize}
+    \item Aria-hidden, per i contenuti nascosti
+    \item Aria-label e aria-describedBy, per fornire informazioni aggiuntive sul contenuto
+\end{itemize}
+\subsection{Link}
+I link sulla navbar principale presentano le seguenti caratteristiche:
+\begin{itemize}
+    \item Sono colorati di bianco su sfondo blu se non sono ancora stati visitati.
+    \item Sono sottolineati da una barra gialla se sono già stati visitati.
+    \item Mentre il puntatore è posizionato su un link, lo sfondo diventa giallo e la scritta di colore nero.
+\end{itemize}
+All'interno del sito, invece, i link sono visualizzati con la grafica solita dei bottoni. La distinzione tra link già visitato o mai visitato è veicolata dal colore dello sfondo e del testo. In particolare:
+\begin{itemize}
+    \item Link non visitato: bottone con bordo azzurro, sfondo bianco e testo nero 
+    \item Link già visitato: bottone con bordo e sfondo azzurro e testo bianco
+    \item Mentre il puntatore è posizionato sul link, lo sfondo diventa blu e la scritta di colore bianco.
+\end{itemize}
+\subsection{Immagini}
+Le immagini del sito sono state ottimizzate utilizzando formati come PNG, garantendo un equilibrio ideale tra qualità e leggerezza grazie a tecniche di compressione e ridimensionamento. Ogni immagine include un attributo alt, ad eccezione di quelle decorative, per migliorare l’accessibilità. Ciò è stato verificato anche mediante l'utilizzo di estensioni come WAVE e Silktide. Le immagini sono state scelte principalmente per rappresentare le attrazioni e gli spettacoli offerti nel  parco divertimenti, valorizzando l’esperienza visiva degli utenti.
+\subsection{Contrasto Colori}
+La scelta dei colori per il sito web è stata il risultato di uno studio lungo e approfondito, con particolare attenzione al rispetto degli standard di accessibilità WCAG a livello AA. Numerose combinazioni sono state scartate poiché non garantivano un contrasto adeguato.
+Una palette di colori non valida ma che è stata utile per arrivare a quella definitiva è:
+\begin{itemize}
+    \item Bianco: \#FFF
+    \item Blu: \#005AB5
+    \item Giallo: \#FFD700
+    \item Rosso: \#AA0000
+    \item Azzurro: \#D1FFFF
+\end{itemize}
+Il motivo dell'inadeguatezza di alcune combinazioni cromatiche è il mancato rispetto dello standard AA definito nelle norme WCAG, che stabilisce che il contrasto tra il colore del testo e dello sfondo e tra il colore dei link visitati e non visitati sia almeno di 4.5:1 per il testo normale e 3:1 per il testo grande (ossia da 18pt in su).  
+Ad esempio: 
+\begin{itemize}
+    \item Il contrasto tra il colore \#FFD700 (Giallo) e il colore \#D1FFFF (Azzurro) era pari a 1.2, risultato non sufficiente.
+    \item Il contrasto tra il colore \#AA0000 (Rosso) e il colore \#005AB5 (Blu) era pari a 1.15, anch'esso non conforme.
+\end{itemize}
+Questi ragionamenti hanno guidato la scelta dei colori finali per garantire un'esperienza utente accessibile.
+\\
+Sono stati selezionati tre colori principali, oltre al bianco (\#FFF) e al nero (\#000):
+\begin{itemize}
+    \item Colore primario: \#000A99
+    \item Colore secondario: \#FFC300
+    \item Colore terziario: \#0071EB
+    \item Colore quaternario: \#BD0000
+\end{itemize}
+Tutti i colori sono stati verificati utilizzando strumenti come il \href{https://www.audioeye.com/color-contrast-checker/}{Color Contrast Checker di AudioEye}, il sito \href{https://accessibleweb.com/color-contrast-checker/}{Web Accessibility Color Contrast Checker} e le estensioni WCAG Color Contrast Checker, Silktide e WAVE, assicurandosi che il contrasto tra di essi raggiungesse almeno il livello AA.
+\subsection{Focus}
+La gestione del focus è stata un elemento centrale nello sviluppo del sito web, garantendo un’esperienza inclusiva e accessibile per un ampio numero di utenti. Grazie all’utilizzo di link ben strutturati e alla separazione tra struttura e presentazione, è stato possibile rendere tutti i link e i pulsanti facilmente raggiungibili tramite il tasto Tab. Questo approccio assicura una navigazione fluida anche per gli utenti che utilizzano solo la tastiera, migliorando significativamente l’accessibilità del sito.
+\subsection{Lingue Straniere}
+La lingua principale del sito è la lingua italiana, tuttavia sono stati segnalati attraverso \textless span lang="en"\textgreater gli appositi termini derivanti dalla lingua inglese.
+\subsection{Strumenti di testing}
+Per il testing delle pagine del sito Dreamville sono stati utilizzati diversi strumenti di analisi e validazione, tra cui:
+\begin{itemize}
+    \item \textbf{Silktide:} per valutare accessibilità, SEO e prestazioni complessive del sito.
+    \item \textbf{WAVE:} per identificare e correggere problemi di accessibilità secondo le linee guida WCAG.
+    \item \textbf{Color Contrast Checker:} per verificare il contrasto cromatico e garantire una leggibilità ottimale.
+    \item \textbf{Total Validator:} per effettuare un controllo approfondito su accessibilità, HTML e standard di conformità.
+\end{itemize}
+
+L'utilizzo combinato di questi strumenti ha permesso di ottenere un'analisi completa del sito, evidenziando eventuali criticità e migliorando l'usabilità complessiva.
+\subsection{Ambienti di test}
+Il sito e le sue funzionalità sono state testate su ambiente Linux e Windows sui seguenti browser:
+\begin{itemize}
+    \item \textbf{Chrome:}
+        \begin{itemize}
+            \item Versione del sito perfettamente funzionante
+            \item Versione di Chrome aggiornata: 132.0.6834.111
+        \end{itemize}
+    \item \textbf{Firefox:}
+        \begin{itemize}
+            \item Versione del sito perfettamente funzionante
+            \item Versione di Firefox aggiornata: 134.0.2
+        \end{itemize}
+    \item \textbf{Edge:} 
+        \begin{itemize}
+            \item Versione del sito perfettamente funzionante
+            \item Versione di Edge aggiornata: 132.0.2957.127
+        \end{itemize}
+\end{itemize}
+\subsection{Dispositivi}
+Il sito e le sue funzionalit\`a sono stati sottoposti a test approfonditi su diverse piattaforme, tra cui PC desktop, smartphone e tablet. Oltre a sfruttare gli strumenti per sviluppatori integrati nei vari browser, sono state effettuate verifiche dirette su dispositivi reali, come smartphone e tablet, per garantire un'esperienza utente ottimale e un'usabilità impeccabile su ogni tipo di schermo.
+\subsection{Risultati di Lighthouse}
+Lighthouse è uno strumento integrato nel browser Chrome che consente di analizzare le prestazioni e la qualità complessiva di un sito web. I valori riportati rappresentano i seguenti aspetti:  
+\begin{itemize}
+    \item \textbf{Prestazioni}: Indica il tempo di caricamento delle risorse e la reattività del sito, misurando la velocità complessiva della pagina.
+    \item \textbf{Accessibilità}: Valuta quanto il sito è utilizzabile per persone con disabilità, basandosi su pratiche e standard internazionali.
+    \item \textbf{Best Practice}: Analizza la conformità del sito a standard di sicurezza e sviluppo moderni.
+    \item \textbf{SEO}: Misura l'ottimizzazione del sito per i motori di ricerca, valutando fattori come tag, struttura e metadati.
+\end{itemize}
+
+Sono state verificate tutte le pagine del sito utilizzando Lighthouse. I risultati sono suddivisi tra modalità \textbf{standard} e \textbf{mobile} per ogni pagina.
+
+\begin{table}[H]
+    \hspace{-2.2cm}
+    \renewcommand{\arraystretch}{1.3} % Per aumentare lo spazio tra le righe
+    \setlength{\tabcolsep}{10pt} % Per aumentare lo spazio tra le colonne
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Pagina} & \textbf{Dispositivo} & \textbf{Prestazioni} & \textbf{Accessibilità} & \textbf{Best Practice} & \textbf{SEO}  \\ 
+        \hline
+        Homepage & Standard & 96 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Homepage & Mobile & 74 & 100 & 100 & 100 \\ 
+        \hline
+        Scopri le Attrazioni & Standard & 89 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Scopri le Attrazioni & Mobile & 99 & 100 & 100 & 100 \\ 
+        \hline
+        Mappa & Standard & 92 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Mappa & Mobile & 87 & 100 & 100 & 100 \\ 
+        \hline
+        I nostri shows & Standard & 99 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        I nostri shows & Mobile & 93 & 100 & 100 & 100 \\ 
+        \hline
+        Orari di apertura & Standard & 86 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Orari di apertura & Mobile & 87 & 100 & 100 & 100 \\ 
+        \hline
+        Acquista i biglietti & Standard & 100 & 100 & 96 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Acquista i biglietti & Mobile & 95 & 100 & 100 & 100 \\ 
+        \hline
+        Login & Standard & 100 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Login & Mobile & 100 & 100 & 100 & 100 \\ 
+        \hline
+        Registrati & Standard & 100 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Registrati & Mobile & 100 & 100 & 100 & 100 \\ 
+        \hline
+        Registrati & Standard & 100 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Registrati & Mobile & 100 & 100 & 100 & 100 \\ 
+        \hline
+        Profilo & Standard & 95 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Profilo & Mobile & 85 & 100 & 100 & 100 \\ 
+        \hline
+        Carrello & Standard & 88 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Carrello & Mobile & 99 & 100 & 100 & 100 \\ 
+        \hline
+        Acquisti & Standard & 94 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Acquisti & Mobile & 88 & 100 & 100 & 100 \\ 
+        \hline
+        Modifica Profilo & Standard & 89 & 100 & 100 & 100 \\ 
+        \hline
+        \rowcolor[gray]{0.9}
+        Modifica Profilo & Mobile & 100 & 100 & 100 & 100 \\ 
+        \hline
+    \end{tabular}
+    \caption{Valutazione delle prestazioni, accessibilità e ottimizzazione SEO per le diverse pagine del sito.}
+    \label{tab:prestazioni}
+\end{table}

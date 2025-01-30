@@ -85,7 +85,7 @@
                         @else
                         <label for="nome">Nome</label>
                         @endif
-                        <input type="text" id="nome" name="name" value="{{ $oldName }}" />
+                        <input type="text" id="nome" name="name" value="{{ $oldName }}" autocomplete="given-name" />
                     </div>
                     <div class="inputLabelContainer" id="cognomeContainer">
                         @if empty($oldSurname)
@@ -93,7 +93,7 @@
                         @else
                         <label for="cognome">Cognome</label>
                         @endif
-                        <input type="text" id="cognome" name="surname" value="{{ $oldSurname }}" />
+                        <input type="text" id="cognome" name="surname" value="{{ $oldSurname }}" autocomplete="family-name" />
                     </div>
                     <div class="inputLabelContainer">
                         @if empty($oldUsername)
@@ -101,15 +101,15 @@
                         @else
                         <label for="username"><span lang="en">Username</span></label>
                         @endif
-                        <input type="text" id="username" name="username" value="{{ $oldUsername }}" />
+                        <input type="text" id="username" name="username" value="{{ $oldUsername }}" autocomplete="username" />
                     </div>
                     <div class="inputLabelContainer">
                         <label for="password" class="emptyFieldLabel"><span lang="en">Password</span></label>
-                        <input type="password" id="password" name="password" />
+                        <input type="password" id="password" name="password" autocomplete="new-password" />
                     </div>
                     <div class="inputLabelContainer">
                         <label for="passwordConfirmation" class="emptyFieldLabel">Conferma <span lang="en">Password</span></label>
-                        <input type="password" id="passwordConfirmation" name="confirm_password" />
+                        <input type="password" id="passwordConfirmation" name="confirm_password" autocomplete="new-password" />
                     </div>
                     <input type="submit" name="submit" value="Crea un nuovo utente" id="loginButton" class="buttonStyle  filledGradientBtn" />
                 </form>
