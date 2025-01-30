@@ -45,7 +45,7 @@
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                         @if !(empty($essentialHeaderBtns))
-                        <li class="mobileOnlyLink"><hr></li>
+                        <li class="mobileOnlyLink"><hr /></li>
                         @for $btn in $essentialHeaderBtns
                         <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endfor

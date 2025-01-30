@@ -47,7 +47,7 @@
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                         @if !(empty($essentialHeaderBtns))
-                        <li class="mobileOnlyLink"><hr></li>
+                        <li class="mobileOnlyLink"><hr /></li>
                         @for $btn in $essentialHeaderBtns
                         @if $btn['url'] == 'buyingcart.php'
                         <li id="currentPageLink" class="mobileOnlyLink"><p>{{ $btn['text'] }}</p></li>

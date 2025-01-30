@@ -7,14 +7,14 @@
         <meta name="description" content="Visualizza i dati del tuo profilo DreamVille" />    
         <meta name="keywords" content="dati, utente, account, profilo, DreamVille" />
     
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
-        <link rel="stylesheet" href="style/print.css" media="print">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css" />
+        <link rel="stylesheet" href="style/print.css" media="print" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
 
         <script src="scripts/script.js"></script>
     </head>
@@ -45,7 +45,7 @@
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                         @if !(empty($essentialHeaderBtns))
-                        <li class="mobileOnlyLink"><hr></li>
+                        <li class="mobileOnlyLink"><hr /></li>
                         @for $btn in $essentialHeaderBtns
                         @if $btn['url'] == 'profile.php'
                             <li class="mobileOnlyLink" id="currentPageLink">{{ $btn['text'] }}</li>

@@ -49,7 +49,7 @@
                             <p>Acquista i biglietti</p>
                         </li>
                         @if !(empty($essentialHeaderBtns))
-                        <li class="mobileOnlyLink"><hr></li>
+                        <li class="mobileOnlyLink"><hr /></li>
                         @for $btn in $essentialHeaderBtns
                         <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endfor
@@ -103,7 +103,7 @@
                 <div id="buyTicketKart">
                     <form method="POST">
                         <h2>Biglietti Selezionati</h2>
-                        <hr>
+                        <hr />
                         <ul id="ticketSel">
                             <li id="rowInt">Nessun biglietto intero</li>
                             <li id="rowRid">Nessun biglietto ridotto</li>
