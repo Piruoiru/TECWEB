@@ -4,18 +4,17 @@
         <title>Carrello - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8" />
-        <meta name="description" content="Acquista un biglietto per Dreamville">
-        <meta name="keywords" content="biglietti, ticket, DreamVille, acquista, carrello">
+        <meta name="description" content="Acquista un biglietto per Dreamville" />
+        <meta name="keywords" content="biglietti, ticket, DreamVille, acquista, carrello" />
 
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
-        <link rel="stylesheet" href="style/print.css" media="print">
-        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css" />
+        <link rel="stylesheet" href="style/print.css" media="print" />
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
-            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
 
         <script src="scripts/script.js"></script>
     </head>
@@ -74,14 +73,14 @@
         <main id="pageCartMain">
             <div id="pageCart">
                 <h1>Carrello</h1>
-                <form method="POST" id="boxCart">
+                <form method="post" id="boxCart">
                     <ul id="carrelloUL">
                         <li id="rowInteri" class="rowCart">
                             <p id="pInt">{{$bigliettiInt}}</p>
                             <fieldset class="fieldCart">
                                 <legend>Pulsanti Biglietti Interi</legend>
-                                <input id="rmvIntCart" type='submit' value = '-' name='rmvTint' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto intero">
-                                <input id="addIntCart" type='submit' value = '+' name='addTint' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto intero">
+                                <input id="rmvIntCart" type='submit' value = '-' name='rmvTint' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto intero" />
+                                <input id="addIntCart" type='submit' value = '+' name='addTint' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto intero" />
                             </fieldset>
                         </li>
                             
@@ -89,8 +88,8 @@
                             <p id="pRid">{{$bigliettiRid}}</p>
                             <fieldset class="fieldCart">
                                 <legend>Pulsanti Biglietti Ridotti</legend>
-                                <input id="rmvRidCart" type='submit' value = '-' name='rmvTrid' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto ridotto">
-                                <input id="addRidCart" type='submit' value = '+' name='addTrid' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto ridotto">
+                                <input id="rmvRidCart" type='submit' value = '-' name='rmvTrid' class='btnAddRmv hiddenCart' aria-label="Rimuovi un biglietto ridotto" />
+                                <input id="addRidCart" type='submit' value = '+' name='addTrid' class='btnAddRmv hiddenCart' aria-label="Aggiungi un biglietto ridotto" />
                             </fieldset>
                         </li>
                     </ul>
@@ -100,7 +99,7 @@
                     <h2 class="prezzoTot">Non hai ancora selezionato alcun biglietto</h2>
                     @endif
                     @if isset($btnAcquista)
-                    <input type="submit" name="submit" id="btnCart" value="{{$btnAcquista}}">
+                    <input type="submit" name="submit" id="btnCart" value="{{$btnAcquista}}" />
                     @endif
                 </form>
                 @if isset($btnSelect)
@@ -118,7 +117,7 @@
                         <path d="M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z"/>
                     </svg>
                     <h2 id="textPaga">Pagamento effettuato</h2>
-                     <a href="profile.php" class="buttonStyle basicBtn" id="btnChiudi">Mostra ultimo acquisto</a>
+                    <a href="profile.php" class="buttonStyle basicBtn" id="btnChiudi">Mostra ultimo acquisto</a>
                 </div>
             </div>
         </main>
