@@ -34,9 +34,9 @@
             array_push($context['showsCreationErrorMessage'], "La descrizione deve essere composta da 4 a 500 caratteri");
         }
 
-        if (!preg_match('/^.{4,70}$/u', $imageDescription)) {
+        if (!preg_match('/^.{4,100}$/u', $imageDescription)) {
             $isValid = false;
-            array_push($context['showsCreationErrorMessage'], "La descrizione dell'immagine deve essere composta da 4 a 70 caratteri");
+            array_push($context['showsCreationErrorMessage'], "La descrizione dell'immagine deve essere composta da 4 a 100 caratteri");
         }
         return $isValid;
     }
@@ -48,6 +48,10 @@
         $description = sanitizeInput($_POST['descrizione']);
         $imageDescription = sanitizeInput($_POST['descrizione_immagine']);
         if(validate($title,$description,$imageDescription)){
+            if(!empty($db->fetchShow($old_title))){
+                array_push($context['showsEditErrorMessage'], "Il titolo deve essere univoco");
+                return;
+            }
             if (!array_key_exists("immagine", $_FILES) || $_FILES["immagine"]["error"] == UPLOAD_ERR_NO_FILE){
                 array_push($context['showsCreationErrorMessage'], "È obbligatorio caricare un'immagine");
                 return;

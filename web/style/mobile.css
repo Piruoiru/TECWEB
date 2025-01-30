@@ -581,10 +581,6 @@ SHOWS PAGE
 --------------------
 */
 
-#cardFormMainShows .card h2{
-    text-align: center;
-}
-
 #showList {
     display: flex;
     flex-direction: column;
@@ -613,6 +609,7 @@ SHOWS PAGE
 
 .showsButtons{
     flex-direction: column;
+    width: fit-content;
 }
 
 .showsButtons>a{

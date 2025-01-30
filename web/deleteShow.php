@@ -8,15 +8,22 @@
         exit();
     }
 
-    $title = $_GET['titolo'];
+    $context['titolo'] = htmlspecialchars($_GET['titolo'],ENT_QUOTES);
     $db = new DatabaseClient();
-    $db->connect();
-    if($db->deleteShow($title)){
-        $context['debugMessage'] = "Lo spettacolo è stato eliminato con successo!";
-    } else {
-        $context['debugMessage'] = "Si è verificato un errore nella cancellazione dello spettacolo.";
+    if(isset($_POST['submit'])){
+        $titolo = $_POST['titolo'];
+        if(empty($db->fetchShow($old_title))){
+            array_push($context['deletionInfoMessage'], "Si sta provando a eliminare uno spettacolo che non esiste");
+        } else {
+            $db->connect();
+            if($db->deleteShow($titolo)){
+                $context['deletionInfoMessage'] = "Lo spettacolo è stato eliminato con successo!";
+            } else {
+                $context['deletionErrorMessage'] = "Si è verificato un errore nella cancellazione dello spettacolo.";
+            }
+            $db->close();
+        }
     }
-    $db->close();
     include_once 'parser.php';
     $template = new Parser();
     $template->render("deleteShow.html", $context);

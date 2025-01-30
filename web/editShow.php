@@ -9,14 +9,14 @@
     }
 
     $db = new DatabaseClient();
-    $context['vecchio_titolo'] = $_GET['vecchio_titolo'];
+    $context['vecchio_titolo'] = sanitizeInput($_GET['vecchio_titolo']);
 
     $context['showsEditInfoMessage'] = '';
     $context['showsEditErrorMessage'] = [];
 
     function sanitizeInput($input){
         $sanitizedInput = trim($input);
-        $sanitizedInput = htmlspecialchars($input);
+        $sanitizedInput = htmlspecialchars($sanitizedInput,ENT_QUOTES);
         return $sanitizedInput;
     }
 
@@ -26,17 +26,17 @@
 
         if(!preg_match('/^.{4,50}$/u', $title)){
             $isValid = false;
-            array_push($context['showsCreationErrorMessage'], "Il titolo deve essere composto da 4 a 50 caratteri");
+            array_push($context['showsEditErrorMessage'], "Il titolo deve essere composto da 4 a 50 caratteri");
 
         }
         if (!preg_match('/^.{4,500}$/u', $description)) {
             $isValid = false;
-            array_push($context['showsCreationErrorMessage'], "La descrizione deve essere composta da 4 a 500 caratteri");
+            array_push($context['showsEditErrorMessage'], "La descrizione deve essere composta da 4 a 500 caratteri");
         }
 
-        if (!preg_match('/^.{4,70}$/u', $imageDescription)) {
+        if (!preg_match('/^.{4,100}$/u', $imageDescription)) {
             $isValid = false;
-            array_push($context['showsCreationErrorMessage'], "La descrizione dell'immagine deve essere composta da 4 a 70 caratteri");
+            array_push($context['showsEditErrorMessage'], "La descrizione dell'immagine deve essere composta da 4 a 100 caratteri");
         }
         return $isValid;
     }
@@ -44,7 +44,11 @@
     function modifyShow($db){
         global $context;
 
-        $old_title = sanitizeInput($_GET['vecchio_titolo']);
+        $old_title = sanitizeInput($_POST['vecchio_titolo']);
+        if(empty($db->fetchShow($old_title))){
+            array_push($context['showsEditErrorMessage'], "Si sta provando a modificare uno spettacolo che non esiste");
+            return;
+        }
         $title = sanitizeInput($_POST['titolo']);
         $description = sanitizeInput($_POST['descrizione']);
         $imageDescription = sanitizeInput($_POST['descrizione_immagine']);

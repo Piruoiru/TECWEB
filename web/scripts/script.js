@@ -84,8 +84,10 @@ function buildCalendar(){
                 columnText.setAttribute("data-title", "Domenica");
                 break;
         }
-
-        columnText.textContent = currentDay;
+        let day = document.createElement("time");
+        day.textContent = currentDay;
+        day.setAttribute("datetime", `${currentYear}-${currentMonth+1}-${currentDay}`);
+        columnText.appendChild(day);
         cell.appendChild(columnText);
 
         let hoursText = document.createElement("p");
@@ -424,13 +426,13 @@ function loadRidesFilter() {
 var createEditShowFormDetails = {
     "titolo":[/^.{4,50}$/, "Inserisci un titolo che va dai 4 ai 50 caratteri"],
     "descrizione":[/^.{4,500}$/, "Inserisci una descrizione che va dai 4 ai 500 caratteri"],
-    "descrizione_immagine":[/^.{4,70}$/, "Inserisci una breve descrizione dell'immagine che va dai 4 ai 70 caratteri"],
+    "descrizione_immagine":[/^.{4,100}$/, "Inserisci una breve descrizione dell'immagine che va dai 4 ai 100 caratteri"],
 };
 
 var editShowFormDetails = {
     "nuovo_titolo":[/^.{4,50}$/, "Inserisci un titolo che va dai 4 ai 50 caratteri"],
     "descrizione":[/^.{4,500}$/, "Inserisci una descrizione che va dai 4 ai 500 caratteri"],
-    "descrizione_immagine":[/^.{4,70}$/, "Inserisci una breve descrizione dell'immagine che va dai 4 ai 70 caratteri"],
+    "descrizione_immagine":[/^.{4,100}$/, "Inserisci una breve descrizione dell'immagine che va dai 4 ai 100 caratteri"],
 };
 
 
@@ -510,17 +512,6 @@ function loadTicket(){
 }
 
 function loadCart(){
-    let url = new URL(window.location.href);
-    let valore = url.searchParams.get('acquistato');
-
-    if(valore === 'yes'){
-        const backdrop = document.querySelector(".backdrop");
-        backdrop.classList.remove("hiddenCart");
-    
-        const output = document.querySelector(".output");
-        output.classList.remove("hiddenCart");
-    }
-
     const btnCart = document.getElementById("btnCart");
 
     btnCart?.addEventListener('click', () => {

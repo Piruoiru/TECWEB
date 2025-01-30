@@ -240,11 +240,10 @@ header{
   justify-content:space-around;
   list-style-type: none;
 }
+
 #menu hr{
-  width: 100%;
-  display: none;
+  width: 100vw;
   border: 3px solid var(--secondaryColor);
-  margin: 0.5em 0;
 }
 
 #menu>ul>li{
@@ -338,23 +337,6 @@ header{
   justify-content: center; 
   align-items: center; 
   padding: 0.5em 2em;
-}
-
-.errorLinkPage{
-  border-radius: 2px;
-  background: transparent;
-  font-size: 1.1em;
-  font-weight: 500;
-  margin: 0.35em;
-  padding: 0.75em 1.5em;
-  transition: all .2s ease-in-out;
-  border: 5px solid var(--primaryColor);
-  color: #000;
-}
-
-.errorLinkPage:hover{
-  background-color: var(--primaryColor);
-  color: #FFF;
 }
 
 .errorLink{
@@ -983,6 +965,10 @@ MAP PAGE
   stroke: #FFF;
 }
 
+#purchasesMain .filledGradientBtn{
+  margin: 1em 0;
+}
+
 /*
 ---------------------
     PROFILE PAGE
@@ -1196,6 +1182,7 @@ CART PAGE
 #pageCart{
   justify-items: center;
   min-height: 50vh;
+  padding-bottom: 1rem;
 }
 
 #pageCart h1{
@@ -1293,7 +1280,7 @@ CART PAGE
   fill: var(--primaryColor);
 }
 
-.textPaga{
+#textPaga{
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--primaryColor);
@@ -1706,6 +1693,10 @@ SHOWS
   margin: 0.25em;
 }
 
+#cardFormMainShows .card h2{
+  text-align: center;
+}
+
 #cardFormMainShows p{
   font-size: 1.2em;
   text-align: center;
@@ -1752,11 +1743,13 @@ SHOWS
 
 .showsButtons{
   display: flex;
-  flex-direction: row;;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .showsButtons a{
-  margin: 0em 2em;
+  margin: 0em 0.25em;
   font-size: 1.1em;
 }
 

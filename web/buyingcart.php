@@ -4,6 +4,7 @@
     $context['bigliettiInt'] = '';
     $context['bigliettiRid'] = '';
     $context['btnSelect'] = 'Seleziona i biglietti';
+    $context['hidePopUp'] = 'hiddenCart';
 
     if (!isset($_SESSION['username'])) {
         header('Location: login.php?loginRequest=buyingcart');
@@ -79,8 +80,7 @@
         $context['cart'] = '';
         $context['totale'] = 0.00;
         $db->close();
-        header('Location: buyingcart.php?acquistato=yes');
-        exit();
+        unset($context['hidePopUp']);
     }
 
     $template = new Parser();
