@@ -151,7 +151,7 @@ header{
     margin: 0.75rem auto;
 }
 
-#menu>ul>li.mobileOnlyLink{
+#menu>ul>*.mobileOnlyLink{
     display: block;
 }
 

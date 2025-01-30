@@ -45,13 +45,16 @@
                         <li><a href="shows.php">I nostri <span lang="en">shows</span></a></li>
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        @if !(empty($essentialHeaderBtns))
+                        <hr class="mobileOnlyLink">
                         @for $btn in $essentialHeaderBtns
-                            @if $btn['url'] == 'buyingcart.php'
-                            <li id="currentPageLink" class="mobileOnlyLink"><p>{{ $btn['text'] }}</p></li>
-                            @else
-                            <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
-                            @endif
+                        @if $btn['url'] == 'buyingcart.php'
+                        <li id="currentPageLink" class="mobileOnlyLink"><p>{{ $btn['text'] }}</p></li>
+                        @else
+                        <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
+                        @endif
                         @endfor
+                        @endif
                     </ul>
                 </nav>
             </header>

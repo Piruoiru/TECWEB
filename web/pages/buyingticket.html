@@ -47,9 +47,12 @@
                         <li lang="en" id="currentPageLink">
                             <p>Acquista i biglietti</p>
                         </li>
+                        @if !(empty($essentialHeaderBtns))
+                        <hr class="mobileOnlyLink">
                         @for $btn in $essentialHeaderBtns
                         <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endfor
+                        @endif
                     </ul>
                 </nav>
             </header>

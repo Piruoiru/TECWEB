@@ -240,6 +240,12 @@ header{
   justify-content:space-around;
   list-style-type: none;
 }
+#menu hr{
+  width: 100%;
+  display: none;
+  border: 3px solid var(--secondaryColor);
+  margin: 0.5em 0;
+}
 
 #menu>ul>li{
   display: flex;
@@ -258,7 +264,7 @@ header{
   color: var(--secondaryColor);
 }
 
-#menu>ul>li.mobileOnlyLink{
+#menu>ul>*.mobileOnlyLink{
   display: none;
 }
 

@@ -43,6 +43,8 @@
                         <li><a href="shows.php">I nostri <span lang="en">shows</span></a></li>
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
+                        @if !(empty($essentialHeaderBtns))
+                        <hr class="mobileOnlyLink">
                         @for $btn in $essentialHeaderBtns
                         @if $btn['url'] == 'profile.php'
                             <li class="mobileOnlyLink" id="currentPageLink">{{ $btn['text'] }}</li>
@@ -50,6 +52,7 @@
                             <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endif
                         @endfor
+                        @endif
                     </ul>
                 </nav>
             </header>
