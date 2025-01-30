@@ -4,17 +4,17 @@
         <title>Modifica profilo - DreamVille</title>
         <link rel="shortcut icon" href="assets/logo.png" />
         <meta charset="utf-8" />
-        <meta name="description" content="Modifica o elimina il tuo profilo">    
+        <meta name="description" content="Modifica o elimina il tuo profilo" />    
         <meta name="keywords" content="modifica, eliminazione, account, profilo, utente, personale, DreamVille" />
     
-        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css">
-        <link rel="stylesheet" href="style/print.css" media="print">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)">
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="style/style.css" />
+        <link rel="stylesheet" href="style/print.css" media="print" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style/mobile.css" media="screen and (max-width: 768px)" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
 
         <script src="scripts/script.js"></script>
     </head>
@@ -45,7 +45,7 @@
                         <li><a href="calendar.php">Orari di apertura</a></li>
                         <li><a href="buyingticket.php">Acquista i biglietti</a></li>
                         @if !(empty($essentialHeaderBtns))
-                        <hr class="mobileOnlyLink">
+                        <li class="mobileOnlyLink"><hr /></li>
                         @for $btn in $essentialHeaderBtns
                         <li class="mobileOnlyLink"><a href="{{ $btn['url'] }}">{{ $btn['text'] }}</a></li>
                         @endfor
@@ -90,20 +90,20 @@
                 </dl>
                 <a href="profile.php" class="buttonStyle  basicBtn">Torna al profilo</a>
                 @else
-                <form method="POST" id="profileEditForm" onsubmit="return validateGenericForm(editUserFormDetails);" class="cardForm">
+                <form method="post" id="profileEditForm" onsubmit="return validateGenericForm(editUserFormDetails);" class="cardForm">
                     <div class="inputLabelContainer">
                         <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="name" value="{{ $userFirstName }}">
+                        <input type="text" id="nome" name="name" value="{{ $userFirstName }}" />
                     </div>
                     <div class="inputLabelContainer" id="cognomeContainer">
                         <label for="cognome">Cognome</label>
-                        <input type="text" id="cognome" name="surname" value="{{ $userSurname }}">
+                        <input type="text" id="cognome" name="surname" value="{{ $userSurname }}" />
                     </div>
                     <div class="inputLabelContainer">
                         <label for="username"><span lang="en">Username</span> (non modificabile)</label>
-                        <input type="text" id="username" name="username" value="{{ $username }}" disabled>
+                        <input type="text" id="username" name="username" value="{{ $username }}" disabled="disabled" />
                     </div>
-                    <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle  filledGradientBtn">
+                    <input type="submit" name="submit" value="Applica le modifiche" id="loginButton" class="buttonStyle  filledGradientBtn" />
                 </form>
                 @if !($_SESSION['username']=='admin')
                 <p>Oppure</p>
