@@ -259,6 +259,28 @@ class DatabaseClient
         }
     }
 
+    public function fetchShow($title){
+        try{
+            $sql = "SELECT * 
+                    FROM spettacoli
+                    WHERE titolo=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param('s', $title);
+            $result = $stmt->execute();
+            if (!$result) {
+                throw new \Exception("C'è stato un errore nella richiesta al database.");
+            }
+            $result = $stmt->get_result();
+            $show = [];
+            while ($row = $result->fetch_assoc()) {
+                $show = $row;
+            }
+            return $show;
+        } catch(Throwable $exception){
+            header('Location: 500.php');
+        }
+    }
+
     public function createShow($title, $description, $imgPath, $imgDescription){
         try{
             $sql = "SELECT * FROM spettacoli WHERE titolo=?";
