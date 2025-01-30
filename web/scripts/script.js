@@ -89,7 +89,16 @@ function buildCalendar(){
         cell.appendChild(columnText);
 
         let hoursText = document.createElement("p");
-        hoursText.textContent = `${orari[weekDay].apertura} - ${orari[weekDay].chiusura}`;
+        let openingHour = document.createElement("time");
+        openingHour.textContent = orari[weekDay].apertura;
+        openingHour.setAttribute("datetime", orari[weekDay].apertura);
+        let closingHour = document.createElement("time");
+        closingHour.textContent = orari[weekDay].chiusura;
+        closingHour.setAttribute("datetime", orari[weekDay].chiusura);
+        hoursText.appendChild(openingHour);
+        hoursText.appendChild(document.createTextNode(" - "));
+        hoursText.appendChild(closingHour);
+
         cell.appendChild(hoursText);
 
         if(currentDay === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()){
