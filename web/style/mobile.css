@@ -55,11 +55,7 @@ button, input[type="submit"]{
     justify-content: space-around;
 }
 
-#userCrumb{
-    display: none;
-}
-
-p#todaysOpeningHours{
+#todaysOpeningHours, #userCrumb{
     display: none;
 }
 

@@ -198,6 +198,11 @@ a:hover{
   background-color: var(--secondaryColor);
 }
 
+#breadcrumb .buttonStyle:visited{
+  background-color: var(--secondaryColor);
+  color: #000;
+}
+
 /*
 ---------------------
     HEADER AND NAV
