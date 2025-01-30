@@ -2,10 +2,10 @@
     session_start();
     include_once 'header.php';
     unset($context['headerBtns']['profile']);
-    // if(!isset($_SESSION['username'])){
-    //     header('Location: login.php?loginRequest=profile');
-    //     exit();
-    // }
+    if(!isset($_SESSION['username'])){
+        header('Location: login.php?loginRequest=profile');
+        exit();
+    }
 
     
     include_once 'db.php';
