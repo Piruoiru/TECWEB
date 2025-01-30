@@ -516,13 +516,7 @@ function loadCart(){
 
     btnCart?.addEventListener('click', () => {
         btnChiudi.disabled = false;
-    })
-
-    const btnSelect = document.getElementById("btnSelect");
-
-    btnSelect?.addEventListener('click', () => {
-        location.replace('buyingticket.php');
-    })
+    });
 
     const pInt = document.getElementById("pInt").innerHTML;
     const btnRmvInt = document.getElementById("rmvIntCart");
