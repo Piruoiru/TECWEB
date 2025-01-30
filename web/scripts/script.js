@@ -263,10 +263,10 @@ var loginFormDetails = {
  */
             
 var registrationFormDetails = {
-    "nome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
-    "cognome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
-    "username":[/^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un nome utente composto da 4 a 20 caratteri alfanumerici, . o @"],
-    "password":[/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}/, "Inserire una password composta da 4 a 20 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"],
+    "nome":[/^[A-Za-z\u00C0-\u024F\ \']{2,35}$/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi e lungo al massimo 35 caratteri"],
+    "cognome":[/^[A-Za-z\u00C0-\u024F\ \']{2,50}$/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi e lungo al massimo 50 caratteri"],
+    "username":[/^[A-Za-z0-9_\.\@]{4,20}$/, "Inserire un nome utente composto da 4 a 20 caratteri alfanumerici, . o @"],
+    "password":[/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,20}$/, "Inserire una password composta da 4 a 20 caratteri, di cui almeno una lettera maiuscola, una minuscola e un numero"],
 };
 
 function loadRegistrationForm() {
@@ -375,9 +375,9 @@ function userExists(input) {
 ---------------------
 */
 var editUserFormDetails = {
-    "nome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
-    "cognome":[/^[A-Za-z\u00C0-\u024F\ \']{2,}/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
-    "username":[/^[A-Za-z0-9_\.\@]{4,20}/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
+    "nome":[/^[A-Za-z\u00C0-\u024F\ \']{2,35}$/, "Inserire un nome composto da almeno due tra lettere, spazi e apostrofi"],
+    "cognome":[/^[A-Za-z\u00C0-\u024F\ \']{2,50}$/, "Inserire un cognome composto da almeno due tra lettere, spazi e apostrofi"],
+    "username":[/^[A-Za-z0-9_\.\@]{4,20}$/, "Inserire un username composto da 4 a 20 caratteri alfanumerici, . o @"],
 };
 
 /*
