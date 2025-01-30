@@ -107,8 +107,8 @@
                 @endif
             </div>
             @if isset($hidePopUp) 
-            <div class="backdrop hiddenCart" aria-hidden="true">
-                <div class="output hiddenCart" aria-hidden="true">
+            <div class="backdrop hiddenCart" tabindex="-1">
+                <div class="output hiddenCart" tabindex="-1">
                 @else
             <div class="backdrop" aria-hidden="false">
                 <div class="output" role="dialog" aria-labelledby="textPaga" aria-hidden="false">
