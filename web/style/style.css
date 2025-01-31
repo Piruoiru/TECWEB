@@ -332,7 +332,7 @@ header{
   width: 50%;
   height: auto;
   filter: drop-shadow(5px 5px 5px #000);
-  margin: 0 1em;
+  margin: 1em;
 }
 
 .errorMain p{
