@@ -7,15 +7,25 @@
         exit();
     }
 
+    $context['oldUsername'] = '';
+
+    function sanitizeInput($input){
+        $sanitizedInput = trim($input);
+        $sanitizedInput = htmlspecialchars($input);
+        return $sanitizedInput;
+    }
+
 
     if(strcmp($_SESSION['username'],'admin')==0){
         $context['deletionErrorMessage'] = "Impossibile eliminare l'utente amministratore";
         $context['admin'] = true;
     }else if(isset($_POST['submit'])){
-        if(!preg_match('/^[A-Za-z0-9_\.\@]{4,20}/u', $_POST['username'])){
+        $username = sanitizeInput($_POST['username']);
+        $context['oldUsername'] = $username;
+        if(!preg_match('/^[A-Za-z0-9_\.\@]{4,20}/u', $username)){
         $context['registrationErrorMessage'] = "Inserire un nome utente composto da 4 a 20 caratteri alfanumerici, . o @";
         }
-        if(strcmp($_SESSION['username'],$_POST['username'])==0){
+        if(strcmp($_SESSION['username'],$username)==0){
             $db = new DatabaseClient();
             $db->connect();
             $deletionSuccess = true;

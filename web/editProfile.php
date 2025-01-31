@@ -4,6 +4,12 @@
 
     include_once 'db.php';
 
+    function sanitizeInput($input){
+        $sanitizedInput = trim($input);
+        $sanitizedInput = htmlspecialchars($input);
+        return $sanitizedInput;
+    }
+
     if(!isset($_SESSION['username'])){
         header('Location: login.php?loginRequest=editProfile');
         exit();
@@ -23,8 +29,8 @@
     $context['updateSuccessMessage'] = "";
 
     if(isset($_POST['submit'])){
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
+        $name = sanitizeInput($_POST['name']);
+        $surname = sanitizeInput($_POST['surname']);
 
         if(!preg_match("/^[A-Za-z\p{L}\ \']{2,}/u", $name)){//messo \p{L} per accettare anche caratteri accentati dato che non funziona come in JS
             $pregErrorOccured = true;
