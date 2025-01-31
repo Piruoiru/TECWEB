@@ -6,6 +6,12 @@
        exit();
     }
 
+    function sanitizeInput($input){
+        $sanitizedInput = trim($input);
+        $sanitizedInput = htmlspecialchars($input);
+        return $sanitizedInput;
+    }
+
     include_once 'db.php';
 
     unset($context['headerBtns']['register']);//non mostro il pulsante registrati in alto
@@ -47,11 +53,11 @@
     }
 
     if(isset($_POST['submit'])){
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $confirm_password = $_POST['confirm_password'];
+        $name = sanitizeInput($_POST['name']);
+        $surname = sanitizeInput($_POST['surname']);
+        $username = sanitizeInput($_POST['username']);
+        $password = sanitizeInput($_POST['password']);
+        $confirm_password = sanitizeInput($_POST['confirm_password']);
 
         $context['oldName'] = $name;
         $context['oldSurname'] = $surname;

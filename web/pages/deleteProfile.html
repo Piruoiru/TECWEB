@@ -80,7 +80,7 @@
                 <form method="post" class="cardForm" onsubmit="return validateGenericForm(profileDeletionDetails)">
                     <div class="inputLabelContainer">
                         <label for="username" class="emptyFieldLabel">Username</label>
-                        <input type="text" id="username" name="username" autocomplete="username"/>
+                        <input type="text" id="username" name="username" autocomplete="username" value="{{ $oldUsername }}" />
                     </div>
                     <input type="submit" name="submit" value="Conferma l'eliminazione" class="buttonStyle filledGradientBtn" />
                 </form>

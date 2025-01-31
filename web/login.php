@@ -3,6 +3,12 @@
     include_once 'header.php';
     include_once 'db.php';
 
+    function sanitizeInput($input){
+        $sanitizedInput = trim($input);
+        $sanitizedInput = htmlspecialchars($input);
+        return $sanitizedInput;
+    }
+
     if(isset($_SESSION['username'])){
        header('Location: index.php');
        exit();
@@ -35,8 +41,8 @@
     }
 
     if(isset($_POST['submit'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = sanitizeInput($_POST['username']);
+        $password = sanitizeInput($_POST['password']);
         if(validate($username,$password)){
             $db = new DatabaseClient();
             $db->connect();
