@@ -1,20 +1,40 @@
 \section{Implementazione}
 \subsection{Frontend}
 \subsubsection{HTML}
-Per quanto riguarda i file di natura \textbf{HTML}, sono stati implementati seguendo lo standard \text{HTML$_5$}, ipotizzando l'utente acceda alla pagina utilizzando le versioni dei browser più aggiornati.
+Per quanto riguarda i file di natura \textbf{HTML}, sono stati implementati seguendo lo standard \text{XHTML$_5$}, ipotizzando l'utente acceda alla pagina utilizzando le versioni dei browser più aggiornati.
 
 \subsubsection{CSS}
 Per quanto riguarda i file di natura \textbf{CSS}, sono stati implementati 3 file:
 \begin{itemize}
     \item \textbf{Style:} è stato implementato un file CSS principale per garantire la coerenza visiva e migliorare l'accessibilità del sito web. Questo file definisce le funzionalità visive standard del sito, consentendo di raggiungere un'ampia gamma di utenti e garantendo un design inclusivo e fruibile.
-    \item \textbf{Schermi piccoli:} è stato implementato un file CSS per ottimizzare l'esperienza utente sui dispositivi mobili o con dimensioni dello schermo inferiori a 768px. Questo file garantisce un layout responsive, migliorando la navigabilità e l'accessibilità del sito.
+    \item \textbf{Schermi piccoli:} è stato implementato un file CSS per ottimizzare l'esperienza utente sui dispositivi mobili o con dimensioni dello schermo inferiori a 768px. Questo file garantisce un layout responsive, migliorando la navigabilità e l'accessibilità del sito. In tale contesto, è particolarmente rilevante il modo in cui la tabella degli orari di apertura del parco degrada, adattandosi alle ridotte dimensioni dello schermo.
     \item \textbf{Stampa:} un file CSS specifico è stato sviluppato per ottimizzare la resa grafica del sito web Dreamville durante la stampa. Questo consente agli utenti di ottenere una versione del contenuto ben formattata e leggibile su supporto cartaceo.
 \end{itemize}
 
 
 \subsubsection{JavaScript}
-Per quanto riguarda i file di natura \textbf{JavaScript}, sono state implementate le seguenti funzionalità 
-DA MODIFICARE
+Per quanto riguarda i file di natura \textbf{JavaScript}, sono state implementate le seguenti funzionalità:
+\begin{itemize}
+    \item \textbf{Generazione della tabella del calendario}:
+        La tabella è generata a partire da degli orari fissi di apertura per ogni giorno della settimana salvati in un array, come visualizzabile nella funzione initCalendar. La funzione buildCalendar riempie ogni cella della tabella con il giorno e l'orario di apertura per il mese selezionato. Le funzioni prevMonth, nextMonth e updateCalendarButtons si preoccupano invece di visualizzare i bottoni per cambiare il mese visualizzato, ponendo una particolare cura all'impostazione della loro aria-label.
+    \item \textbf{Validazione dei form}. La validazione dei form è realizzata da diverse funzioni:
+    \begin{itemize}
+        \item loadGenericForm, che si occupa di impostare gli eventi e i parametri per la validazione di ogni campo di input del form. Tale funzione prende in input un array che ha come chiavi gli id degli input da verificare e come valori l'espressione regolare per validare gli input e il messaggio da mostrare all'utente in caso di errore;
+        \item onEmptyField, che si occupa di gestire lo spostamento in alto delle label quando si sposta il form;
+        \item validateField, che prende in input il singolo input e i valori dell'array descritto in precedenza a esso associati. Tale funzione ha il compito di testare l'espressione regolare e di gestire la visualizzazione del mesaggio di errore;
+        \item messaggio, che visualizza un messaggio di errore;
+        \item validateGenericForm, che prende in input l'array descritto in precedenza e si 
+        occupa di validare l'intero form al momento del submit.
+    \end{itemize}
+        Nel caso della registrazione, il form ha richiesto una validazione più complessa. Oltre all'utilizzo delle funzioni sopra descritte, sono state implementate le seguenti funzionalità:
+        \begin{itemize}
+            \item Controllo della corrispondenza tra gli input password e conferma password;
+            \item Controllo dell'esistenza di un username dopo l'inserimento, sfrutando la metodologia AJAX.
+        \end{itemize}
+    
+    \item \textbf{Gestione dell'aggiunta dei biglietti nella pagina di acquisto}
+    \item \textbf{Gestione del pulsante torna su}
+\end{itemize}
 
 \subsection{Backend}
 \subsubsection{Database}

@@ -4,21 +4,30 @@ Il codice del sito è stato organizzato suddividendo in file diversi contenuto, 
 \subsection{Attributi ARIA}
 Per migliorare l'esperienza di consultazione del sito da parte degli utilizzatori di screen reader, sono stati usati gli attributi:
 \begin{itemize}
-    \item Aria-hidden, per i contenuti nascosti
-    \item Aria-label e aria-describedBy, per fornire informazioni aggiuntive sul contenuto
+    \item Aria-hidden, per i contenuti nascosti;
+    \item Aria-label e aria-describedBy, per fornire informazioni aggiuntive sul contenuto.
 \end{itemize}
+\subsection{Tabella}
+La tabella del calendario di apertura è stata resa accessibile mediante l'utilizzo degli attributi scope.
+\subsection{Forms}
+Per agevolare la complilazione dei form principali del sito (login, registrazione, modifica e cancellazione del profilo) è stato implementato il mantenimento dell'input nel caso in cui il submit del form non vada a buon fine.
 \subsection{Link}
 I link sulla navbar principale presentano le seguenti caratteristiche:
 \begin{itemize}
-    \item Sono colorati di bianco su sfondo blu se non sono ancora stati visitati.
-    \item Sono sottolineati da una barra gialla se sono già stati visitati.
+    \item Sono colorati di bianco su sfondo blu se non sono ancora stati visitati;
+    \item Sono sottolineati da una barra gialla se sono già stati visitati;
     \item Mentre il puntatore è posizionato su un link, lo sfondo diventa giallo e la scritta di colore nero.
 \end{itemize}
 All'interno del sito, invece, i link sono visualizzati con la grafica solita dei bottoni. La distinzione tra link già visitato o mai visitato è veicolata dal colore dello sfondo e del testo. In particolare:
 \begin{itemize}
-    \item Link non visitato: bottone con bordo azzurro, sfondo bianco e testo nero 
-    \item Link già visitato: bottone con bordo e sfondo azzurro e testo bianco
+    \item Link non visitato: bottone con bordo azzurro, sfondo bianco e testo nero;
+    \item Link già visitato: bottone con bordo e sfondo azzurro e testo bianco;
     \item Mentre il puntatore è posizionato sul link, lo sfondo diventa blu e la scritta di colore bianco.
+\end{itemize}
+Sono stati inoltre inseriti:
+\begin{itemize}
+    \item Uno skip link all'inizio di ogni pagina per permettere agli utilizzatori di screen reader di andare direttamente al contenuto;
+    \item Un bottone per tornare in cima alla pagina, utile per prevenire il disorientamento di tutte le categorie di utenti.
 \end{itemize}
 \subsection{Immagini}
 Le immagini del sito sono state ottimizzate utilizzando formati come PNG, garantendo un equilibrio ideale tra qualità e leggerezza grazie a tecniche di compressione e ridimensionamento. Ogni immagine include un attributo alt, ad eccezione di quelle decorative, per migliorare l’accessibilità. Ciò è stato verificato anche mediante l'utilizzo di estensioni come WAVE e Silktide. Le immagini sono state scelte principalmente per rappresentare le attrazioni e gli spettacoli offerti nel  parco divertimenti, valorizzando l’esperienza visiva degli utenti.
@@ -55,10 +64,11 @@ La lingua principale del sito è la lingua italiana, tuttavia sono stati segnala
 \subsection{Strumenti di testing}
 Per il testing delle pagine del sito Dreamville sono stati utilizzati diversi strumenti di analisi e validazione, tra cui:
 \begin{itemize}
-    \item \textbf{Silktide:} per valutare accessibilità, SEO e prestazioni complessive del sito.
+    \item \textbf{Lighthouse:} per valutare accessibilità, SEO e prestazioni complessive del sito.
     \item \textbf{WAVE:} per identificare e correggere problemi di accessibilità secondo le linee guida WCAG.
-    \item \textbf{Color Contrast Checker:} per verificare il contrasto cromatico e garantire una leggibilità ottimale.
-    \item \textbf{Total Validator:} per effettuare un controllo approfondito su accessibilità, HTML e standard di conformità.
+    \item \textbf{WCAG Color Contrast Checker:} per verificare il contrasto cromatico e garantire una leggibilità ottimale.
+    \item \textbf{Total Validator:} per effettuare un controllo approfondito sull'accessibilità e sulla conformità allo standard XHTML5.
+    \item \textbf{Silktide:} per controllare l'accessibilità del sio.
 \end{itemize}
 
 L'utilizzo combinato di questi strumenti ha permesso di ottenere un'analisi completa del sito, evidenziando eventuali criticità e migliorando l'usabilità complessiva.
