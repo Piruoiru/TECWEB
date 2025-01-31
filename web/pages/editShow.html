@@ -84,7 +84,7 @@
                 @if !isset($_POST['submit'])
                 <form method="post" class="cardForm" enctype="multipart/form-data" onsubmit="return validateGenericForm(editShowFormDetails)">
                     <div class="inputLabelContainer">
-                        <input type="text" id="vecchio_titolo" name="vecchio_titolo" value="{{ $spettacolo['titolo'] }}" hidden />
+                        <input type="hidden" id="vecchio_titolo" name="vecchio_titolo" value="{{ $spettacolo['titolo'] }}" />
                     </div>
                     <div class="inputLabelContainer">
                         <label for="nuovo_titolo">Titolo</label>
