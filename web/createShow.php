@@ -49,7 +49,7 @@
         $imageDescription = sanitizeInput($_POST['descrizione_immagine']);
         if(validate($title,$description,$imageDescription)){
             if(!empty($db->fetchShow($title))){
-                array_push($context['showsEditErrorMessage'], "Il titolo deve essere univoco");
+                array_push($context['showsCreationErrorMessage'], "Il titolo deve essere univoco");
                 return;
             }
             if (!array_key_exists("immagine", $_FILES) || $_FILES["immagine"]["error"] == UPLOAD_ERR_NO_FILE){

@@ -14,13 +14,10 @@
         return $sanitizedInput;
     }
     
-    $context['titolo'] = sanitizeInput($_GET['titolo']);
+    $titolo = sanitizeInput($_GET['titolo']);
+    $context['titolo'] = $titolo;
     $db = new DatabaseClient();
-    $db->connect();
-    $context['spettacolo'] = $db->fetchShow($_GET['titolo']);
-    $db->close();
     if(isset($_POST['submit'])){
-        $titolo = $_POST['titolo'];
         $db->connect();
         if(empty($db->fetchShow($titolo))){
             $context['deletionInfoMessage'] = "Si sta provando a eliminare uno spettacolo che non esiste";

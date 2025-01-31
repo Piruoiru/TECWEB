@@ -81,8 +81,8 @@
                 </div>
                 <div class="showsButtons">
                     @if $isAdmin
-                    <a class="buttonStyle modifyBtn" href="editShow.php?vecchio_titolo={{ $row['titolo'] }}">Modifica</a>
-                    <a class="buttonStyle deleteBtn" href="deleteShow.php?titolo={{ $row['titolo'] }}">Elimina</a>
+                    <a class="buttonStyle modifyBtn" href="./editShow.php?vecchio_titolo={{ urlencode($row['titolo']) }}">Modifica</a>
+                    <a class="buttonStyle deleteBtn" href="./deleteShow.php?titolo={{ urlencode($row['titolo']) }}">Elimina</a>
                     @endif  
                 </div>
             </li>
