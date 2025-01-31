@@ -1,35 +1,35 @@
 \section{Implementazione}
 \subsection{Frontend}
 \subsubsection{HTML}
-Per quanto riguarda i file di natura \textbf{HTML}, sono stati implementati seguendo lo standard \text{XHTML$_5$}, ipotizzando che l'utente acceda alla pagina utilizzando le versioni dei browser più recenti.
+Per quanto riguarda i file di \textbf{HTML}, sono stati implementati seguendo lo standard XHTML5, ipotizzando che l'utente acceda alla pagina utilizzando le versioni dei browser più recenti.
 
 \subsubsection{CSS}
 Per quanto riguarda i file di natura \textbf{CSS}, sono stati realizzati 3 fogli di stile:
 \begin{itemize}
-    \item \textbf{Style:} è stato implementato un file CSS principale per garantire la coerenza visiva e migliorare l'accessibilità del sito web. Questo file definisce le funzionalità visive standard del sito, consentendo di raggiungere un'ampia gamma di utenti e garantendo un design inclusivo e fruibile.
-    \item \textbf{Schermi piccoli:} è stato implementato un file CSS per ottimizzare l'esperienza utente sui dispositivi mobili o con dimensioni dello schermo inferiori a 768px. Questo file garantisce un layout responsive, migliorando la navigabilità e l'accessibilità del sito. In tale contesto, è particolarmente rilevante il modo in cui la tabella degli orari di apertura del parco si adatta alle ridotte dimensioni dello schermo.
-    \item \textbf{Stampa:} un file CSS specifico è stato sviluppato per ottimizzare la resa grafica del sito web Dreamville durante la stampa. Questo consente agli utenti di ottenere una versione del contenuto ben formattata e leggibile su supporto cartaceo.
+    \item \textbf{Style:} è stato realizzato un file CSS principale per garantire la coerenza visiva e migliorare l'accessibilità del sito web. Questo file definisce le funzionalità visive standard del sito, consentendo di raggiungere un'ampia gamma di utenti e garantendo un design inclusivo e fruibile.
+    \item \textbf{Schermi piccoli:} è stato realizzato un file CSS per ottimizzare l'esperienza utente sui dispositivi mobili o con dimensioni dello schermo inferiori a 768px. Questo file garantisce un layout responsive, migliorando la navigabilità e l'accessibilità del sito. In tale contesto, è particolarmente rilevante il modo in cui la tabella degli orari di apertura del parco si adatta alle ridotte dimensioni dello schermo.
+    \item \textbf{Stampa:} un file CSS specifico è stato sviluppato per ottimizzare la resa grafica del sito web durante la stampa. Questo consente agli utenti di ottenere una versione del contenuto ben formattata e leggibile anche su un supporto cartaceo.
 \end{itemize}
 
 
 \subsubsection{JavaScript}
-Per quanto riguarda i file di natura \textbf{JavaScript}, sono state implementate le seguenti funzionalità:
+Per quanto riguarda i file di \textbf{JavaScript}, sono state implementate le seguenti funzionalità:
 \begin{itemize}
     \item \textbf{Generazione della tabella del calendario}:
-        La tabella è generata a partire da degli orari fissi di apertura per ogni giorno della settimana salvati in un array, come visualizzabile nella funzione initCalendar. La funzione buildCalendar riempie ogni cella della tabella con il giorno e l'orario di apertura per il mese selezionato. Le funzioni prevMonth, nextMonth e updateCalendarButtons si preoccupano invece di visualizzare i bottoni per cambiare il mese visualizzato, ponendo una particolare cura all'impostazione della loro aria-label.
+        La tabella è generata a partire da degli orari fissi di apertura per ogni giorno della settimana salvati in un array, come visualizzabile nella funzione initCalendar. La funzione buildCalendar riempie ogni cella della tabella con il giorno e l'orario di apertura per il mese selezionato. Le funzioni prevMonth, nextMonth e updateCalendarButtons si preoccupano invece di visualizzare i bottoni per cambiare il mese visualizzato, curando particolarmente l'impostazione della loro aria-label.
     \item \textbf{Validazione dei form}. La validazione dei form è realizzata da diverse funzioni:
     \begin{itemize}
         \item loadGenericForm, che si occupa di impostare gli eventi e i parametri per la validazione di ogni campo di input del form. Tale funzione prende in input un array che ha come chiavi gli id degli input da verificare e come valori l'espressione regolare per validare gli input e il messaggio da mostrare all'utente in caso di errore;
-        \item onEmptyField, che si occupa di gestire lo spostamento in alto delle label quando si sposta il form;
-        \item validateField, che prende in input il singolo input e i valori dell'array descritto in precedenza a esso associati. Tale funzione ha il compito di testare l'espressione regolare e di gestire la visualizzazione del mesaggio di errore;
+        \item onEmptyField, che si occupa di gestire lo spostamento in alto delle label quando si riempie l'input corrispondente;
+        \item validateField, che riceve in ingresso il singolo input e i valori dell'array (descritto in precedenza) a esso associati. Tale funzione ha il compito di testare l'espressione regolare e di gestire la visualizzazione del mesaggio di errore;
         \item messaggio, che visualizza un messaggio di errore;
         \item validateGenericForm, che prende in input l'array descritto in precedenza e si 
         occupa di validare l'intero form al momento del submit.
     \end{itemize}
-        Nel caso della registrazione, il form ha richiesto una validazione più complessa. Oltre all'utilizzo delle funzioni sopra descritte, sono state implementate le seguenti funzionalità:
+        Nel caso della registrazione di un nuovo utente, il form ha richiesto una validazione più complessa. Oltre all'utilizzo delle funzioni sopra descritte, sono state implementate le seguenti funzionalità:
         \begin{itemize}
             \item Controllo della corrispondenza tra gli input password e conferma password;
-            \item Controllo dell'esistenza di un username dopo l'inserimento, sfrutando la metodologia AJAX.
+            \item Controllo dell'esistenza di un utente con lo stesso username che l'utente vorrebbe creare, sfrutando la metodologia AJAX.
         \end{itemize}
     
     \item \textbf{Gestione dell'aggiunta dei biglietti nella pagina di acquisto}
@@ -45,7 +45,7 @@ Il sito web utilizza un database per la gestione delle informazioni relative agl
 \end{minipage}
 
 \subsubsection{Template Engine Custom}
-Al fine E' stato creato un engine di template custom al fine di permettere una suddivisione più elegante tra contenuto e comportamento, permettendo di mettere valori presi dal database all'interno dell'HTML.
+È stato creato un engine di template custom con l'intendo di permettere una suddivisione più elegante tra contenuto e comportamento, permettendo di mettere valori presi dal database all'interno dell'HTML.
 Possiamo individuare 2 principali classi che svolgono la funzione di trasformare un template html in una pagina vera e propria:
 \begin{itemize}
     \item Tokenizer.php: questo file trasforma un documento HTML in una lista di "tokens", ossia una parte di testo con un significato associato 
@@ -74,13 +74,13 @@ Il parser prende quindi una lista di tokens dal template che si vuole renderizza
     \item parseFor(): questo metodo apre un 'for' nel codice PHP, e continua a trasformare i tokens in codice PHP, finchè non trova il token FOR\_CLOSE.
 \end{itemize}
 
-Tutto questo viene inserito all'interno di un file, che verrà poi incluso come contenuto della pagina a cui viene fatta la richiesta. Questo file, essendo un file che può essere generato uguale per molte persone, viene inserito all'interno della cartella 'cache', e il nome del file è definito dalla funzione di hash MD5 del nome del file concatenato al contesto che viene usato per renderizzarlo. In questo modo, se il file HTML non è stato modificato dall'ultima richiesta e il contesto non è cambiato, allora c'è un controllo se esiste questo file.cache e se esiste viene servito per velocizzare il processo di rendering.
+Tutto questo viene inserito all'interno di un file, che verrà poi incluso come contenuto della pagina a cui viene fatta la richiesta. Dato che questo file può essere generato uguale per molte persone, viene inserito all'interno della cartella 'cache', e il nome del file è definito dalla funzione di hash MD5 del nome del file concatenato al contesto che viene usato per renderizzarlo. In questo modo, se il sorgente HTML non è stato modificato dall'ultima richiesta e il contesto non è cambiato, avviene un controllo che verifica se esiste questo file.cache che, in caso positivo, viene servito per velocizzare il processo di rendering.
 
 \subsubsection{Accesso al database}
 Per semplificare l'accesso al database è stata creata una classe DatabaseClient all'interno del file 'db.php'. Questa classe permette di semplificare il processo di connessione e interrogazione del database, fornendo dei metodi intuitivi e facili da chiamare al fine di non dover scrivere manualmente le varie query necessarie allo sviluppo del sito.
 Tra i vari metodi troviamo:
 \begin{itemize}
-    \item connect(): si connette al database.
+    \item connect(): apre la connessione al database.
     \item close(): chiude la connessione al database.
     \item fetchUser(\$username): recupera i dettagli di un determinato utente.
     \item login(\$username,\$password): esegue una query per controllare l'accesso di un utente.
